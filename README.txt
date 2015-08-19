@@ -17,5 +17,5 @@ Source - https://github.com/srirangav/Hash
 
 Installation:
 
-1. Copy Hash.app to /Applications (or whereever you prefer)
+Copy Hash.app to /Applications (or whereever you prefer)
 
