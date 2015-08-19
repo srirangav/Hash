@@ -1,0 +1,69 @@
+/*
+    Hash - Localizable.strings
+    $Id: Localizable.strings 1399 2015-04-27 07:23:23Z ranga $
+ 
+    History:
+ 
+    v. 1.0.0 (10/25/2014) - Initial version
+    v. 1.0.1 (04/12/2015) - Added strings corresponding to threading
+
+    Based on: http://rshankar.com/internationalization-and-localization-of-apps-in-xcode-6-and-swift/
+              https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/LoadingResources/Strings/Strings.html#//apple_ref/doc/uid/20000005-97055
+              http://bdunagan.com/2009/03/15/ibtool-localization-made-easy/
+ 
+    Copyright (c) 2014-2015 Sriranga R. Veeraraghavan <ranga@calalum.org>
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+ 
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+ 
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+*/
+
+/* HASH_SELECT_FILE */
+
+HASH_SELECT_FILE = "Please select a file.";
+
+/* HASH_CANT_OPEN */
+
+HASH_CANT_OPEN = "Cannot access files.";
+
+/* HASH_CANT_READ */
+
+HASH_CANT_READ = "Cannot read selected file.";
+
+/* HASH_FILE_NOT_DIR */
+
+HASH_FILE_NOT_DIR = "Please select a file, not a directory.";
+
+/* HASH_NO_HASH */
+
+HASH_NO_HASH = "Please specify the verification hash.";
+
+/* HASH_INVALID_HASH */
+
+HASH_INVALID_HASH = "Please specifiy a valid verification hash.";
+
+/* HASH_INVALID_HASH_TYPE */
+
+HASH_INVALID_HASH_TYPE = "Invalid hash type specified.";
+
+/* HASH_CANT_GET_HASH */
+
+HASH_CANT_GET_HASH = "Cannot calculate hash.";
+
+/* HASH_ALREADY_RUNNING */
+
+HASH_ALREADY_RUNNING = "Already calculating a hash.";
