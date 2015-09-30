@@ -72,28 +72,6 @@
 		26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "mLib-7a376ba.tar.gz"; sourceTree = "<group>"; };
 		26719F051B7EAFB6007FBFE6 /* catacomb-f93fc80.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "catacomb-f93fc80.tar.gz"; sourceTree = "<group>"; };
 		26719F081B7EB365007FBFE6 /* bits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bits.h; sourceTree = "<group>"; };
-		26719F091B7EB641007FBFE6 /* rmd320 test sources.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "rmd320 test sources.txt"; path = "RMD320/rmd320 test sources.txt"; sourceTree = "<group>"; };
-		26830A5B1AE87D790054251E /* sha3 256 results.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sha3 256 results.txt"; sourceTree = "<group>"; };
-		26830A5C1AE87D790054251E /* sha3 512 results.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sha3 512 results.txt"; sourceTree = "<group>"; };
-		26830A5D1AE87D790054251E /* test1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test1.txt; sourceTree = "<group>"; };
-		26830A5E1AE87D790054251E /* test2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.txt; sourceTree = "<group>"; };
-		26830A5F1AE87D790054251E /* test3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test3.txt; sourceTree = "<group>"; };
-		26830A601AE87D790054251E /* test4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test4.txt; sourceTree = "<group>"; };
-		26830A611AE87D790054251E /* test5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test5.txt; sourceTree = "<group>"; };
-		26830A621AE87D790054251E /* test6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test6.txt; sourceTree = "<group>"; };
-		26830A6C1AE87DC30054251E /* whirlpool results.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "whirlpool results.txt"; sourceTree = "<group>"; };
-		26830A6D1AE87DC30054251E /* test1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test1.txt; sourceTree = "<group>"; };
-		26830A6E1AE87DC30054251E /* test2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.txt; sourceTree = "<group>"; };
-		26830A6F1AE87DC30054251E /* test3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test3.txt; sourceTree = "<group>"; };
-		26830A701AE87DC30054251E /* test4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test4.txt; sourceTree = "<group>"; };
-		26830A711AE87DC30054251E /* test5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test5.txt; sourceTree = "<group>"; };
-		26830A721AE87DC30054251E /* test6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test6.txt; sourceTree = "<group>"; };
-		26830A731AE87DC30054251E /* test7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test7.txt; sourceTree = "<group>"; };
-		26830A741AE87DC30054251E /* test8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test8.txt; sourceTree = "<group>"; };
-		26830A7E1AE87E520054251E /* sha3 test sources.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sha3 test sources.txt"; sourceTree = "<group>"; };
-		26830A801AE87EBF0054251E /* whirlpool test sources.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "whirlpool test sources.txt"; sourceTree = "<group>"; };
-		26830A821AE87F740054251E /* test9.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test9.txt; sourceTree = "<group>"; };
-		26830A831AE87F740054251E /* test10.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test10.txt; sourceTree = "<group>"; };
 		26830A871AE880090054251E /* KeccakCodePackage-master.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "KeccakCodePackage-master.zip"; sourceTree = "<group>"; };
 		26830A881AE880090054251E /* whirlpool.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = whirlpool.zip; sourceTree = "<group>"; };
 		2684480C19F4D31F00C2D3A3 /* icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icon.svg; sourceTree = "<group>"; };
@@ -206,9 +184,6 @@
 		263FFA2B19F1CA5300E9E1C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				26719F0B1B7EB648007FBFE6 /* RMD320 */,
-				26830A5A1AE87D790054251E /* SHA3 */,
-				26830A6B1AE87DC30054251E /* Whirlpool */,
 				263FFA2C19F1CA5300E9E1C7 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -239,49 +214,6 @@
 				26719F011B7EAE97007FBFE6 /* rmd320.h */,
 			);
 			path = RMD320;
-			sourceTree = "<group>";
-		};
-		26719F0B1B7EB648007FBFE6 /* RMD320 */ = {
-			isa = PBXGroup;
-			children = (
-				26719F091B7EB641007FBFE6 /* rmd320 test sources.txt */,
-			);
-			name = RMD320;
-			sourceTree = "<group>";
-		};
-		26830A5A1AE87D790054251E /* SHA3 */ = {
-			isa = PBXGroup;
-			children = (
-				26830A5B1AE87D790054251E /* sha3 256 results.txt */,
-				26830A5C1AE87D790054251E /* sha3 512 results.txt */,
-				26830A5D1AE87D790054251E /* test1.txt */,
-				26830A5E1AE87D790054251E /* test2.txt */,
-				26830A5F1AE87D790054251E /* test3.txt */,
-				26830A601AE87D790054251E /* test4.txt */,
-				26830A611AE87D790054251E /* test5.txt */,
-				26830A621AE87D790054251E /* test6.txt */,
-				26830A7E1AE87E520054251E /* sha3 test sources.txt */,
-			);
-			path = SHA3;
-			sourceTree = "<group>";
-		};
-		26830A6B1AE87DC30054251E /* Whirlpool */ = {
-			isa = PBXGroup;
-			children = (
-				26830A6C1AE87DC30054251E /* whirlpool results.txt */,
-				26830A6D1AE87DC30054251E /* test1.txt */,
-				26830A6E1AE87DC30054251E /* test2.txt */,
-				26830A6F1AE87DC30054251E /* test3.txt */,
-				26830A701AE87DC30054251E /* test4.txt */,
-				26830A711AE87DC30054251E /* test5.txt */,
-				26830A721AE87DC30054251E /* test6.txt */,
-				26830A731AE87DC30054251E /* test7.txt */,
-				26830A741AE87DC30054251E /* test8.txt */,
-				26830A821AE87F740054251E /* test9.txt */,
-				26830A831AE87F740054251E /* test10.txt */,
-				26830A801AE87EBF0054251E /* whirlpool test sources.txt */,
-			);
-			path = Whirlpool;
 			sourceTree = "<group>";
 		};
 		26830A861AE880090054251E /* Sources */ = {
@@ -433,7 +365,7 @@
 		263FFA0C19F1CA5300E9E1C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Sriranga Veeraraghavan";
 				TargetAttributes = {
 					263FFA1319F1CA5300E9E1C7 = {
@@ -577,6 +509,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -643,6 +576,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -658,6 +592,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -678,6 +613,7 @@
 				);
 				INFOPLIST_FILE = HashTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hash.app/Contents/MacOS/Hash";
 			};
@@ -694,6 +630,7 @@
 				);
 				INFOPLIST_FILE = HashTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hash.app/Contents/MacOS/Hash";
 			};
