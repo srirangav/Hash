@@ -8,6 +8,7 @@
     v. 1.0.1 (04/22/2015) - Add support for Whirlpool and SHA3
     v. 1.0.2 (04/27/2015) - Add progress bar support
     v. 1.0.3 (08/15/2015) - Add support for CRC, cksum, and RMD320
+    v. 1.0.4 (06/27/2016) - Add support for BLAKE2B
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -43,6 +44,7 @@
 #import "rmd320.h"
 #import "Whirlpool.h"
 #import "KeccakHash.h"
+#import "blake2.h"
 
 @implementation HashOperation
 
@@ -90,6 +92,8 @@
             case HASH_WPOOL:
             case HASH_SHA3_256:
             case HASH_SHA3_512:
+            case HASH_BLAKE2B_256:
+            case HASH_BLAKE2B_512:
 
                 // valid hashType
 
@@ -163,6 +167,7 @@
         rmd320_ctx rmd320HashObject;
         NESSIEstruct whirlpoolHashObject;
         Keccak_HashInstance sha3HashObject;
+        blake2b_state blake2bHashObject;
         
         do {
 
@@ -198,10 +203,12 @@
                     break;
                 case HASH_SHA256:
                 case HASH_SHA3_256:
+                case HASH_BLAKE2B_256:
                     digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SHA512:
                 case HASH_SHA3_512:
+                case HASH_BLAKE2B_512:
                     digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_RMD160:
@@ -275,6 +282,12 @@
                     break;
                 case HASH_SHA3_512:
                     Keccak_HashInitialize_SHA3_512(&sha3HashObject);
+                    break;
+                case HASH_BLAKE2B_256:
+                    blake2b_init(&blake2bHashObject, 32);
+                    break;
+                case HASH_BLAKE2B_512:
+                    blake2b_init(&blake2bHashObject, 64);
                     break;
                 default:
                     hasMoreData = FALSE;
@@ -394,6 +407,12 @@
                                           (const BitSequence *)buffer,
                                           (DataLength)bytesRead*8);
                         break;
+                    case HASH_BLAKE2B_256:
+                    case HASH_BLAKE2B_512:
+                        blake2b_update(&blake2bHashObject,
+                                       (const uint8_t *)buffer,
+                                       (uint64_t)bytesRead);
+                        break;
                     default:
                         hasMoreData = FALSE;
                         readFailed = TRUE;
@@ -435,6 +454,12 @@
                 case HASH_SHA3_256:
                 case HASH_SHA3_512:
                     Keccak_HashFinal(&sha3HashObject, digest);
+                    break;
+                case HASH_BLAKE2B_256:
+                    blake2b_final(&blake2bHashObject, digest, 32);
+                    break;
+                case HASH_BLAKE2B_512:
+                    blake2b_final(&blake2bHashObject, digest, 64);
                     break;
                 default:
                     hasMoreData = FALSE;

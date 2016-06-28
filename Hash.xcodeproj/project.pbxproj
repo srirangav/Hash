@@ -21,7 +21,6 @@
 		2684481419F4D31F00C2D3A3 /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 2684480C19F4D31F00C2D3A3 /* icon.svg */; };
 		268BC2781AE7888E00133859 /* KeccakHash.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC2761AE7888E00133859 /* KeccakHash.c */; };
 		268BC27B1AE788DD00133859 /* KeccakSponge.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC27A1AE788DD00133859 /* KeccakSponge.c */; };
-		268BC2851AE789B100133859 /* KeccakF-1600-reference.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC2841AE789B100133859 /* KeccakF-1600-reference.c */; };
 		268BC28D1AE78A8000133859 /* SnP-FBWL-default.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC28C1AE78A8000133859 /* SnP-FBWL-default.c */; };
 		26B741E41B7D5AF6000D74A1 /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B741E31B7D5AF6000D74A1 /* crc32.c */; };
 		26B741E71B7DC548000D74A1 /* crc.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B741E61B7DC548000D74A1 /* crc.c */; };
@@ -32,6 +31,11 @@
 		26B7A7491B83FC50008A0A78 /* icon_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684481119F4D31F00C2D3A3 /* icon_64x64.png */; };
 		26B7A74A1B83FC50008A0A78 /* icon_32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684481219F4D31F00C2D3A3 /* icon_32x32.png */; };
 		26B7A74B1B83FC50008A0A78 /* icon_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684481319F4D31F00C2D3A3 /* icon_16x16.png */; };
+		26D477001D21DC54000DD102 /* blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D476FF1D21DC54000DD102 /* blake2b.c */; };
+		26D477061D21EDD0000DD102 /* BLAKE2-20160619.zip in Resources */ = {isa = PBXBuildFile; fileRef = 26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */; };
+		26D4770C1D220041000DD102 /* KeccakF-1600-opt64.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477081D220041000DD102 /* KeccakF-1600-opt64.c */; };
+		26D477101D22008E000DD102 /* KeccakF-1600-64.macros in Resources */ = {isa = PBXBuildFile; fileRef = 26D4770E1D22008E000DD102 /* KeccakF-1600-64.macros */; };
+		26D477111D22008E000DD102 /* KeccakF-1600-unrolling.macros in Resources */ = {isa = PBXBuildFile; fileRef = 26D4770F1D22008E000DD102 /* KeccakF-1600-unrolling.macros */; };
 		26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D69B821AE62B7E005B114A /* Whirlpool.c */; };
 /* End PBXBuildFile section */
 
@@ -89,12 +93,25 @@
 		268BC27E1AE7892900133859 /* SnP-interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SnP-interface.h"; path = "SHA3/SnP/KeccakF-1600/Reference/SnP-interface.h"; sourceTree = "<group>"; };
 		268BC2821AE7897E00133859 /* KeccakF-1600-interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "KeccakF-1600-interface.h"; path = "SHA3/SnP/KeccakF-1600/KeccakF-1600-interface.h"; sourceTree = "<group>"; };
 		268BC2831AE7899300133859 /* SnP-FBWL-default.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SnP-FBWL-default.h"; path = "SHA3/SnP/SnP-FBWL-default.h"; sourceTree = "<group>"; };
-		268BC2841AE789B100133859 /* KeccakF-1600-reference.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "KeccakF-1600-reference.c"; path = "SHA3/SnP/KeccakF-1600-reference.c"; sourceTree = "<group>"; };
+		268BC2841AE789B100133859 /* KeccakF-1600-reference.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "KeccakF-1600-reference.c"; path = "SHA3/SnP/KeccakF-1600/Reference/KeccakF-1600-reference.c"; sourceTree = "<group>"; };
 		268BC2871AE789D000133859 /* brg_endian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = brg_endian.h; path = SHA3/Common/brg_endian.h; sourceTree = "<group>"; };
 		268BC28C1AE78A8000133859 /* SnP-FBWL-default.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "SnP-FBWL-default.c"; path = "SHA3/SnP/SnP-FBWL-default.c"; sourceTree = "<group>"; };
 		26B741E31B7D5AF6000D74A1 /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc32.c; path = Hash/CRC/crc32.c; sourceTree = SOURCE_ROOT; };
 		26B741E51B7D5B56000D74A1 /* crc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = crc.h; path = CRC/crc.h; sourceTree = "<group>"; };
 		26B741E61B7DC548000D74A1 /* crc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc.c; path = Hash/CRC/crc.c; sourceTree = SOURCE_ROOT; };
+		26D476FA1D21DC2B000DD102 /* blake2-impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "blake2-impl.h"; path = "BLAKE2/blake2-impl.h"; sourceTree = "<group>"; };
+		26D476FB1D21DC2C000DD102 /* blake2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = blake2.h; path = BLAKE2/blake2.h; sourceTree = "<group>"; };
+		26D476FF1D21DC54000DD102 /* blake2b.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = blake2b.c; path = BLAKE2/blake2b.c; sourceTree = "<group>"; };
+		26D477011D21DC68000DD102 /* blake2-config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "blake2-config.h"; path = "BLAKE2/blake2-config.h"; sourceTree = "<group>"; };
+		26D477021D21DC81000DD102 /* blake2b-round.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "blake2b-round.h"; path = "BLAKE2/blake2b-round.h"; sourceTree = "<group>"; };
+		26D477041D21DCC6000DD102 /* blake2b-load-sse2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "blake2b-load-sse2.h"; path = "BLAKE2/blake2b-load-sse2.h"; sourceTree = "<group>"; };
+		26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE2-20160619.zip"; sourceTree = "<group>"; };
+		26D477081D220041000DD102 /* KeccakF-1600-opt64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "KeccakF-1600-opt64.c"; sourceTree = "<group>"; };
+		26D4770A1D220041000DD102 /* KeccakF-1600-opt64-settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeccakF-1600-opt64-settings.h"; sourceTree = "<group>"; };
+		26D4770B1D220041000DD102 /* SnP-interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SnP-interface.h"; sourceTree = "<group>"; };
+		26D4770E1D22008E000DD102 /* KeccakF-1600-64.macros */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "KeccakF-1600-64.macros"; sourceTree = "<group>"; };
+		26D4770F1D22008E000DD102 /* KeccakF-1600-unrolling.macros */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "KeccakF-1600-unrolling.macros"; sourceTree = "<group>"; };
+		26D477121D220118000DD102 /* SnP-Relaned.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SnP-Relaned.h"; path = "SHA3/SnP/KeccakF-1600/SnP-Relaned.h"; sourceTree = "<group>"; };
 		26D69B821AE62B7E005B114A /* Whirlpool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Whirlpool.c; path = Whirlpool/Whirlpool.c; sourceTree = "<group>"; };
 		26D69B831AE62B7E005B114A /* nessie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nessie.h; path = Whirlpool/nessie.h; sourceTree = "<group>"; };
 		26D69B861AE62EDF005B114A /* Whirlpool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Whirlpool.h; path = Whirlpool/Whirlpool.h; sourceTree = "<group>"; };
@@ -150,6 +167,7 @@
 				263FFA4419F24D4700E9E1C7 /* HashConstants.m */,
 				2661CA691ADB9CCA00E57BD1 /* HashOperation.h */,
 				2661CA671ADB9CA000E57BD1 /* HashOperation.m */,
+				26D476FE1D21DC30000DD102 /* BLAKE2 */,
 				26B741E21B7D5ADB000D74A1 /* CRC */,
 				26D69B5B1AE625B8005B114A /* RMD160 */,
 				26719EF61B7E8D99007FBFE6 /* RMD320 */,
@@ -219,6 +237,7 @@
 		26830A861AE880090054251E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */,
 				26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */,
 				26719F051B7EAFB6007FBFE6 /* catacomb-f93fc80.tar.gz */,
 				26830A871AE880090054251E /* KeccakCodePackage-master.zip */,
@@ -261,7 +280,7 @@
 			children = (
 				268BC2831AE7899300133859 /* SnP-FBWL-default.h */,
 				268BC28C1AE78A8000133859 /* SnP-FBWL-default.c */,
-				268BC2841AE789B100133859 /* KeccakF-1600-reference.c */,
+				26D477121D220118000DD102 /* SnP-Relaned.h */,
 				268BC2801AE7894800133859 /* KeccakF-1600 */,
 			);
 			name = SnP;
@@ -271,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				268BC2821AE7897E00133859 /* KeccakF-1600-interface.h */,
+				26D477071D220041000DD102 /* Optimized64 */,
 				268BC2811AE7894F00133859 /* Reference */,
 			);
 			name = "KeccakF-1600";
@@ -279,6 +299,7 @@
 		268BC2811AE7894F00133859 /* Reference */ = {
 			isa = PBXGroup;
 			children = (
+				268BC2841AE789B100133859 /* KeccakF-1600-reference.c */,
 				268BC27E1AE7892900133859 /* SnP-interface.h */,
 			);
 			name = Reference;
@@ -300,6 +321,40 @@
 				26B741E51B7D5B56000D74A1 /* crc.h */,
 			);
 			name = CRC;
+			sourceTree = "<group>";
+		};
+		26D476FE1D21DC30000DD102 /* BLAKE2 */ = {
+			isa = PBXGroup;
+			children = (
+				26D477011D21DC68000DD102 /* blake2-config.h */,
+				26D476FA1D21DC2B000DD102 /* blake2-impl.h */,
+				26D476FB1D21DC2C000DD102 /* blake2.h */,
+				26D477041D21DCC6000DD102 /* blake2b-load-sse2.h */,
+				26D477021D21DC81000DD102 /* blake2b-round.h */,
+				26D476FF1D21DC54000DD102 /* blake2b.c */,
+			);
+			name = BLAKE2;
+			sourceTree = "<group>";
+		};
+		26D477071D220041000DD102 /* Optimized64 */ = {
+			isa = PBXGroup;
+			children = (
+				26D4770E1D22008E000DD102 /* KeccakF-1600-64.macros */,
+				26D4770F1D22008E000DD102 /* KeccakF-1600-unrolling.macros */,
+				26D477081D220041000DD102 /* KeccakF-1600-opt64.c */,
+				26D477091D220041000DD102 /* LCufullshld */,
+				26D4770B1D220041000DD102 /* SnP-interface.h */,
+			);
+			name = Optimized64;
+			path = "SHA3/SnP/KeccakF-1600/Optimized64";
+			sourceTree = "<group>";
+		};
+		26D477091D220041000DD102 /* LCufullshld */ = {
+			isa = PBXGroup;
+			children = (
+				26D4770A1D220041000DD102 /* KeccakF-1600-opt64-settings.h */,
+			);
+			path = LCufullshld;
 			sourceTree = "<group>";
 		};
 		26D69B5B1AE625B8005B114A /* RMD160 */ = {
@@ -409,10 +464,13 @@
 				26B7A7451B83FC50008A0A78 /* icon_1024x1024.png in Resources */,
 				26B7A7461B83FC50008A0A78 /* icon_512x512.png in Resources */,
 				26B7A7471B83FC50008A0A78 /* icon_256x256.png in Resources */,
+				26D477111D22008E000DD102 /* KeccakF-1600-unrolling.macros in Resources */,
 				26B7A7481B83FC50008A0A78 /* icon_128x128.png in Resources */,
 				26B7A7491B83FC50008A0A78 /* icon_64x64.png in Resources */,
 				26B7A74A1B83FC50008A0A78 /* icon_32x32.png in Resources */,
 				26B7A74B1B83FC50008A0A78 /* icon_16x16.png in Resources */,
+				26D477101D22008E000DD102 /* KeccakF-1600-64.macros in Resources */,
+				26D477061D21EDD0000DD102 /* BLAKE2-20160619.zip in Resources */,
 				263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */,
 				266C334219FB8E1E00089684 /* Localizable.strings in Resources */,
 				266C334A19FB8FF700089684 /* MainMenu.xib in Resources */,
@@ -445,9 +503,10 @@
 				268BC27B1AE788DD00133859 /* KeccakSponge.c in Sources */,
 				26B741E41B7D5AF6000D74A1 /* crc32.c in Sources */,
 				26B741E71B7DC548000D74A1 /* crc.c in Sources */,
+				26D4770C1D220041000DD102 /* KeccakF-1600-opt64.c in Sources */,
 				26719F021B7EAE97007FBFE6 /* rmd320.c in Sources */,
+				26D477001D21DC54000DD102 /* blake2b.c in Sources */,
 				268BC28D1AE78A8000133859 /* SnP-FBWL-default.c in Sources */,
-				268BC2851AE789B100133859 /* KeccakF-1600-reference.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

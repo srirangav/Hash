@@ -8,7 +8,8 @@
     v. 1.0.1 (04/22/2015) - Add support for Whirlpool and SHA3
     v. 1.0.2 (04/27/2015) - Add progress bar support
     v. 1.0.3 (08/15/2015) - Add support for CRC, cksum, and RMD320
-
+    v. 1.0.4 (06/27/2016) - Add support for BLAKE2B
+ 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
               http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues
@@ -55,12 +56,14 @@ typedef enum {
     HASH_CRC32    = 9,
     HASH_CKSUM    = 10,
     HASH_RMD320   = 11,
+    HASH_BLAKE2B_256 = 12,
+    HASH_BLAKE2B_512 = 13,
 } HashType;
 
-// Default File Buffer Size
+// Default File Buffer Size (400K)
 
 enum {
-    FileHashDefaultFileBufferSize = 16384,
+    FileHashDefaultFileBufferSize = 409600,
 };
 
 @interface HashOperation : NSOperation {

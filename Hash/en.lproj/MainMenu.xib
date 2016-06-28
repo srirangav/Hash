@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -200,14 +200,14 @@ CA
         </menu>
         <window title="Hash" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="335" y="390" width="610" height="164"/>
+            <rect key="contentRect" x="335" y="390" width="661" height="164"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="610" height="164"/>
+                <rect key="frame" x="0.0" y="0.0" width="661" height="164"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" id="R5x-qa-tFj">
-                        <rect key="frame" x="69" y="122" width="516" height="22"/>
+                        <rect key="frame" x="69" y="122" width="572" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="QQv-d8-Wzq">
                             <font key="font" metaFont="system"/>
@@ -240,17 +240,6 @@ CA
                             <action selector="hashButtonClicked:" target="Ay7-r0-R4I" id="2dX-3X-Ng2"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="ZuZ-RP-dAA">
-                        <rect key="frame" x="476" y="58" width="115" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Clear All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FA7-fL-Hq4">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="clearButtonClicked:" target="Ay7-r0-R4I" id="dM4-iu-5rw"/>
-                        </connections>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VSy-wj-ksD">
                         <rect key="frame" x="18" y="125" width="30" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -261,7 +250,7 @@ CA
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="EbL-fy-9mm">
-                        <rect key="frame" x="69" y="94" width="516" height="22"/>
+                        <rect key="frame" x="69" y="94" width="572" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="XWI-4H-iwM">
                             <font key="font" metaFont="fixedUser" size="11"/>
@@ -311,9 +300,9 @@ CA
                         </textFieldCell>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" id="Ipw-pu-Uar">
-                        <rect key="frame" x="365" y="62" width="107" height="26"/>
+                        <rect key="frame" x="365" y="62" width="168" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="MD5" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="loj-YL-j1A" id="kOr-mi-CZj">
+                        <popUpButtonCell key="cell" type="push" title="SHA1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" tag="2" imageScaling="proportionallyDown" inset="2" selectedItem="CA6-B6-lBt" id="kOr-mi-CZj">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="syY-fO-aPF">
@@ -324,7 +313,7 @@ CA
                                     <menuItem title="CRC32" tag="9" id="3YT-RL-BPw">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="MD5" state="on" tag="1" id="loj-YL-j1A">
+                                    <menuItem title="MD5" tag="1" id="loj-YL-j1A">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="SHA1" tag="2" id="CA6-B6-lBt">
@@ -351,13 +340,30 @@ CA
                                     <menuItem title="SHA3 512" tag="8" id="Wg3-tp-7Ra">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem title="BLAKE2B 256" tag="12" id="c9X-Rl-hSO">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="BLAKE2B 512" tag="13" id="wUD-CH-Tjy">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                 </items>
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
+                    <button verticalHuggingPriority="750" id="ZuZ-RP-dAA">
+                        <rect key="frame" x="532" y="58" width="115" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Clear All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FA7-fL-Hq4">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clearButtonClicked:" target="Ay7-r0-R4I" id="dM4-iu-5rw"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="413" y="313"/>
+            <point key="canvasLocation" x="438.5" y="313"/>
         </window>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="LsI-gp-8uL" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
@@ -429,7 +435,7 @@ Gw
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="458" height="93"/>
+                                    <size key="minSize" width="454" height="93"/>
                                     <size key="maxSize" width="489" height="1000000"/>
                                     <attributedString key="textStorage">
                                         <fragment content="Portions Copyright (c) 2014-2015 Sriranga Veeraraghavan &lt;ranga@calalum.org&gt; ">
@@ -1572,7 +1578,7 @@ Cgo
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="458" height="93"/>
+                                    <size key="minSize" width="454" height="93"/>
                                     <size key="maxSize" width="489" height="1000000"/>
                                 </textView>
                             </subviews>
