@@ -49,6 +49,9 @@ static const uint64_t blake2b_IV[8] =
   0x1f83d9abfb41bd6bULL, 0x5be0cd19137e2179ULL
 };
 
+/* Commented out by Sriranga Veeraraghavan on 6/27/2016 */
+
+/*
 static const uint8_t blake2b_sigma[12][16] =
 {
   {  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15 } ,
@@ -64,7 +67,7 @@ static const uint8_t blake2b_sigma[12][16] =
   {  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15 } ,
   { 14, 10,  4,  8,  9, 15, 13,  6,  1, 12,  0,  2, 11,  7,  5,  3 }
 };
-
+*/
 
 /* Some helper functions, not necessarily useful */
 BLAKE2_LOCAL_INLINE(int) blake2b_set_lastnode( blake2b_state *S )
@@ -73,11 +76,16 @@ BLAKE2_LOCAL_INLINE(int) blake2b_set_lastnode( blake2b_state *S )
   return 0;
 }
 
+/* Commented out by Sriranga Veeraraghavan on 6/27/2016 */
+
+/*
+ 
 BLAKE2_LOCAL_INLINE(int) blake2b_clear_lastnode( blake2b_state *S )
 {
   S->f[1] = 0;
   return 0;
 }
+*/
 
 BLAKE2_LOCAL_INLINE(int) blake2b_is_lastblock( const blake2b_state *S )
 {
@@ -92,6 +100,9 @@ BLAKE2_LOCAL_INLINE(int) blake2b_set_lastblock( blake2b_state *S )
   return 0;
 }
 
+/* Commented out by Sriranga Veeraraghavan on 6/27/2016 */
+
+/*
 BLAKE2_LOCAL_INLINE(int) blake2b_clear_lastblock( blake2b_state *S )
 {
   if( S->last_node ) blake2b_clear_lastnode( S );
@@ -99,7 +110,7 @@ BLAKE2_LOCAL_INLINE(int) blake2b_clear_lastblock( blake2b_state *S )
   S->f[0] = 0;
   return 0;
 }
-
+*/
 
 BLAKE2_LOCAL_INLINE(int) blake2b_increment_counter( blake2b_state *S, const uint64_t inc )
 {
@@ -116,8 +127,12 @@ BLAKE2_LOCAL_INLINE(int) blake2b_increment_counter( blake2b_state *S, const uint
   return 0;
 }
 
+/* Commented out by Sriranga Veeraraghavan on 8/13/2015 */
 
 /* Parameter-related functions */
+
+/*
+ 
 BLAKE2_LOCAL_INLINE(int) blake2b_param_set_digest_length( blake2b_param *P, const uint8_t digest_length )
 {
   P->digest_length = digest_length;
@@ -180,6 +195,7 @@ BLAKE2_LOCAL_INLINE(int) blake2b_init0( blake2b_state *S )
 
   return 0;
 }
+*/
 
 /* init xors IV with input parameter block */
 int blake2b_init_param( blake2b_state *S, const blake2b_param *P )

@@ -36,6 +36,9 @@
 		26D4770C1D220041000DD102 /* KeccakF-1600-opt64.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477081D220041000DD102 /* KeccakF-1600-opt64.c */; };
 		26D477101D22008E000DD102 /* KeccakF-1600-64.macros in Resources */ = {isa = PBXBuildFile; fileRef = 26D4770E1D22008E000DD102 /* KeccakF-1600-64.macros */; };
 		26D477111D22008E000DD102 /* KeccakF-1600-unrolling.macros in Resources */ = {isa = PBXBuildFile; fileRef = 26D4770F1D22008E000DD102 /* KeccakF-1600-unrolling.macros */; };
+		26D477171D248EFD000DD102 /* skein.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477141D248EFD000DD102 /* skein.c */; };
+		26D4771B1D248F96000DD102 /* skein_block.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D4771A1D248F96000DD102 /* skein_block.c */; };
+		26D4771D1D24985F000DD102 /* NIST_CD_102610.zip in Resources */ = {isa = PBXBuildFile; fileRef = 26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */; };
 		26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D69B821AE62B7E005B114A /* Whirlpool.c */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +115,13 @@
 		26D4770E1D22008E000DD102 /* KeccakF-1600-64.macros */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "KeccakF-1600-64.macros"; sourceTree = "<group>"; };
 		26D4770F1D22008E000DD102 /* KeccakF-1600-unrolling.macros */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "KeccakF-1600-unrolling.macros"; sourceTree = "<group>"; };
 		26D477121D220118000DD102 /* SnP-Relaned.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SnP-Relaned.h"; path = "SHA3/SnP/KeccakF-1600/SnP-Relaned.h"; sourceTree = "<group>"; };
+		26D477141D248EFD000DD102 /* skein.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = skein.c; sourceTree = "<group>"; };
+		26D477151D248EFD000DD102 /* skein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skein.h; sourceTree = "<group>"; };
+		26D477161D248EFD000DD102 /* skein_iv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skein_iv.h; sourceTree = "<group>"; };
+		26D477181D248F34000DD102 /* skein_port.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = skein_port.h; sourceTree = "<group>"; };
+		26D477191D248F6E000DD102 /* brg_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brg_types.h; sourceTree = "<group>"; };
+		26D4771A1D248F96000DD102 /* skein_block.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = skein_block.c; sourceTree = "<group>"; };
+		26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = NIST_CD_102610.zip; sourceTree = "<group>"; };
 		26D69B821AE62B7E005B114A /* Whirlpool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Whirlpool.c; path = Whirlpool/Whirlpool.c; sourceTree = "<group>"; };
 		26D69B831AE62B7E005B114A /* nessie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nessie.h; path = Whirlpool/nessie.h; sourceTree = "<group>"; };
 		26D69B861AE62EDF005B114A /* Whirlpool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Whirlpool.h; path = Whirlpool/Whirlpool.h; sourceTree = "<group>"; };
@@ -172,6 +182,7 @@
 				26D69B5B1AE625B8005B114A /* RMD160 */,
 				26719EF61B7E8D99007FBFE6 /* RMD320 */,
 				268BC2751AE7886500133859 /* SHA3 */,
+				26D477131D248EFD000DD102 /* Skein */,
 				26D69B851AE62B86005B114A /* Whirlpool */,
 				266C334819FB8FF700089684 /* MainMenu.xib */,
 				263FFA1E19F1CA5300E9E1C7 /* Images.xcassets */,
@@ -238,9 +249,10 @@
 			isa = PBXGroup;
 			children = (
 				26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */,
-				26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */,
 				26719F051B7EAFB6007FBFE6 /* catacomb-f93fc80.tar.gz */,
 				26830A871AE880090054251E /* KeccakCodePackage-master.zip */,
+				26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */,
+				26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */,
 				26830A881AE880090054251E /* whirlpool.zip */,
 			);
 			path = Sources;
@@ -357,6 +369,19 @@
 			path = LCufullshld;
 			sourceTree = "<group>";
 		};
+		26D477131D248EFD000DD102 /* Skein */ = {
+			isa = PBXGroup;
+			children = (
+				26D477191D248F6E000DD102 /* brg_types.h */,
+				26D477151D248EFD000DD102 /* skein.h */,
+				26D477161D248EFD000DD102 /* skein_iv.h */,
+				26D477181D248F34000DD102 /* skein_port.h */,
+				26D4771A1D248F96000DD102 /* skein_block.c */,
+				26D477141D248EFD000DD102 /* skein.c */,
+			);
+			path = Skein;
+			sourceTree = "<group>";
+		};
 		26D69B5B1AE625B8005B114A /* RMD160 */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +488,7 @@
 			files = (
 				26B7A7451B83FC50008A0A78 /* icon_1024x1024.png in Resources */,
 				26B7A7461B83FC50008A0A78 /* icon_512x512.png in Resources */,
+				26D4771D1D24985F000DD102 /* NIST_CD_102610.zip in Resources */,
 				26B7A7471B83FC50008A0A78 /* icon_256x256.png in Resources */,
 				26D477111D22008E000DD102 /* KeccakF-1600-unrolling.macros in Resources */,
 				26B7A7481B83FC50008A0A78 /* icon_128x128.png in Resources */,
@@ -494,6 +520,7 @@
 			files = (
 				263FFA4519F24D4700E9E1C7 /* HashConstants.m in Sources */,
 				26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */,
+				26D477171D248EFD000DD102 /* skein.c in Sources */,
 				263FFA1D19F1CA5300E9E1C7 /* AppDelegate.m in Sources */,
 				268BC2781AE7888E00133859 /* KeccakHash.c in Sources */,
 				263FFA1A19F1CA5300E9E1C7 /* main.m in Sources */,
@@ -506,6 +533,7 @@
 				26D4770C1D220041000DD102 /* KeccakF-1600-opt64.c in Sources */,
 				26719F021B7EAE97007FBFE6 /* rmd320.c in Sources */,
 				26D477001D21DC54000DD102 /* blake2b.c in Sources */,
+				26D4771B1D248F96000DD102 /* skein_block.c in Sources */,
 				268BC28D1AE78A8000133859 /* SnP-FBWL-default.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

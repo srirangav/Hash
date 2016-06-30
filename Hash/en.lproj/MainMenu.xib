@@ -240,6 +240,17 @@ CA
                             <action selector="hashButtonClicked:" target="Ay7-r0-R4I" id="2dX-3X-Ng2"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" id="ZuZ-RP-dAA">
+                        <rect key="frame" x="532" y="58" width="115" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Clear All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FA7-fL-Hq4">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clearButtonClicked:" target="Ay7-r0-R4I" id="dM4-iu-5rw"/>
+                        </connections>
+                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VSy-wj-ksD">
                         <rect key="frame" x="18" y="125" width="30" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -272,15 +283,6 @@ CA
                             <action selector="verifyButtonCLicked:" target="Ay7-r0-R4I" id="svG-3e-IYe"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ceZ-Bi-fWQ">
-                        <rect key="frame" x="566" y="38" width="26" height="19"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="nJM-NH-xbE">
-                            <font key="font" metaFont="systemBold" size="16"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="P46-1X-zYe">
                         <rect key="frame" x="18" y="97" width="45" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -291,7 +293,7 @@ CA
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bRz-Lj-eIq">
-                        <rect key="frame" x="18" y="20" width="549" height="37"/>
+                        <rect key="frame" x="18" y="20" width="595" height="37"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" id="HxD-pj-weg">
                             <font key="font" metaFont="system"/>
@@ -346,21 +348,28 @@ CA
                                     <menuItem title="BLAKE2B 512" tag="13" id="wUD-CH-Tjy">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem title="Skein 256-256" tag="14" id="Cxm-Os-Scb">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Skein 512-256" tag="17" id="2uA-oM-qZX">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Skein 512-512" tag="15" id="1K8-l9-WqC">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                 </items>
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <button verticalHuggingPriority="750" id="ZuZ-RP-dAA">
-                        <rect key="frame" x="532" y="58" width="115" height="32"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ceZ-Bi-fWQ">
+                        <rect key="frame" x="617" y="29" width="26" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Clear All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FA7-fL-Hq4">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="clearButtonClicked:" target="Ay7-r0-R4I" id="dM4-iu-5rw"/>
-                        </connections>
-                    </button>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="nJM-NH-xbE">
+                            <font key="font" metaFont="systemBold" size="16"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="438.5" y="313"/>

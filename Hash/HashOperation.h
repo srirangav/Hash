@@ -9,6 +9,7 @@
     v. 1.0.2 (04/27/2015) - Add progress bar support
     v. 1.0.3 (08/15/2015) - Add support for CRC, cksum, and RMD320
     v. 1.0.4 (06/27/2016) - Add support for BLAKE2B
+    v. 1.0.5 (06/29/2016) - Add support for Skein
  
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -44,20 +45,26 @@
 // Supported Hash Types
 
 typedef enum {
-    HASH_NONE     = 0,
-    HASH_MD5      = 1,
-    HASH_SHA1     = 2,
-    HASH_SHA256   = 3,
-    HASH_RMD160   = 4,
-    HASH_SHA512   = 5,
-    HASH_WPOOL    = 6,
-    HASH_SHA3_256 = 7,
-    HASH_SHA3_512 = 8,
-    HASH_CRC32    = 9,
-    HASH_CKSUM    = 10,
-    HASH_RMD320   = 11,
-    HASH_BLAKE2B_256 = 12,
-    HASH_BLAKE2B_512 = 13,
+    HASH_NONE           =  0,
+    HASH_MD5            =  1,
+    HASH_SHA1           =  2,
+    HASH_SHA256         =  3,
+    HASH_RMD160         =  4,
+    HASH_SHA512         =  5,
+    HASH_WPOOL          =  6,
+    HASH_SHA3_256       =  7,
+    HASH_SHA3_512       =  8,
+    HASH_CRC32          =  9,
+    HASH_CKSUM          = 10,
+    HASH_RMD320         = 11,
+    HASH_BLAKE2B_256    = 12,
+    HASH_BLAKE2B_512    = 13,
+    HASH_SKEIN_256      = 14,
+    HASH_SKEIN_512      = 15,
+    HASH_SKEIN_1024     = 16,
+    HASH_SKEIN_512_256  = 17,
+    HASH_SKEIN_1024_256 = 18,
+    HASH_SKEIN_1024_512 = 19,
 } HashType;
 
 // Default File Buffer Size (400K)

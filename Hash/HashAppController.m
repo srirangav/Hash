@@ -10,7 +10,8 @@
     v. 1.0.3 (04/27/2015) - Add progress bar support
     v. 1.0.4 (08/15/2015) - Add support for CRC, cksum, and RMD320
     v. 1.0.5 (06/27/2016) - Add support for BLAKE2B
- 
+    v. 1.0.6 (06/29/2016) - Add support for Skein
+
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
     Copyright (c) 2014 Sriranga R. Veeraraghavan <ranga@calalum.org>
@@ -220,7 +221,13 @@
         case HASH_SHA3_512:
         case HASH_BLAKE2B_256:
         case HASH_BLAKE2B_512:
-
+        case HASH_SKEIN_256:
+        case HASH_SKEIN_512:
+        case HASH_SKEIN_512_256:
+        case HASH_SKEIN_1024:
+        case HASH_SKEIN_1024_256:
+        case HASH_SKEIN_1024_512:
+            
             // valid hash type selected, compute the file's hash and
             // display a sheet while the hash is being computed
 
@@ -608,6 +615,12 @@
         case HASH_SHA3_512:
         case HASH_BLAKE2B_256:
         case HASH_BLAKE2B_512:
+        case HASH_SKEIN_256:
+        case HASH_SKEIN_512:
+        case HASH_SKEIN_512_256:
+        case HASH_SKEIN_1024:
+        case HASH_SKEIN_1024_256:
+        case HASH_SKEIN_1024_512:
 
             // valid hashType, return it
 

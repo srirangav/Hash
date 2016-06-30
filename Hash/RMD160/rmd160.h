@@ -32,7 +32,7 @@
 
 #include <inttypes.h>
 
-// Added by Sriranga Veeraraghavan on 8/17/2015
+/* Added by Sriranga Veeraraghavan on 8/17/2015 */
 
 enum {
     RMD160_DIGEST_LENGTH = 20,

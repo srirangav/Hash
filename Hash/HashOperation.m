@@ -9,6 +9,7 @@
     v. 1.0.2 (04/27/2015) - Add progress bar support
     v. 1.0.3 (08/15/2015) - Add support for CRC, cksum, and RMD320
     v. 1.0.4 (06/27/2016) - Add support for BLAKE2B
+    v. 1.0.5 (06/29/2016) - Add support for Skein
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -45,6 +46,7 @@
 #import "Whirlpool.h"
 #import "KeccakHash.h"
 #import "blake2.h"
+#import "skein.h"
 
 @implementation HashOperation
 
@@ -94,6 +96,12 @@
             case HASH_SHA3_512:
             case HASH_BLAKE2B_256:
             case HASH_BLAKE2B_512:
+            case HASH_SKEIN_256:
+            case HASH_SKEIN_512:
+            case HASH_SKEIN_512_256:
+            case HASH_SKEIN_1024:
+            case HASH_SKEIN_1024_256:
+            case HASH_SKEIN_1024_512:
 
                 // valid hashType
 
@@ -168,6 +176,9 @@
         NESSIEstruct whirlpoolHashObject;
         Keccak_HashInstance sha3HashObject;
         blake2b_state blake2bHashObject;
+        Skein_256_Ctxt_t skein256HashObject;
+        Skein_512_Ctxt_t skein512HashObject;
+        Skein1024_Ctxt_t skein1024HashObject;
         
         do {
 
@@ -204,12 +215,20 @@
                 case HASH_SHA256:
                 case HASH_SHA3_256:
                 case HASH_BLAKE2B_256:
+                case HASH_SKEIN_256:
+                case HASH_SKEIN_512_256:
+                case HASH_SKEIN_1024_256:
                     digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SHA512:
                 case HASH_SHA3_512:
                 case HASH_BLAKE2B_512:
+                case HASH_SKEIN_512:
+                case HASH_SKEIN_1024_512:
                     digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(*digest);
+                    break;
+                case HASH_SKEIN_1024:
+                    digestLength = 2*(CC_SHA512_DIGEST_LENGTH*sizeof(*digest));
                     break;
                 case HASH_RMD160:
                     digestLength = RMD160_DIGEST_LENGTH*sizeof(*digest);
@@ -288,6 +307,24 @@
                     break;
                 case HASH_BLAKE2B_512:
                     blake2b_init(&blake2bHashObject, 64);
+                    break;
+                case HASH_SKEIN_256:
+                    Skein_256_Init(&skein256HashObject, 256);
+                    break;
+                case HASH_SKEIN_512_256:
+                    Skein_512_Init(&skein512HashObject, 256);
+                    break;
+                case HASH_SKEIN_512:
+                    Skein_512_Init(&skein512HashObject, 512);
+                    break;
+                case HASH_SKEIN_1024:
+                    Skein1024_Init(&skein1024HashObject, 1024);
+                    break;
+                case HASH_SKEIN_1024_256:
+                    Skein1024_Init(&skein1024HashObject, 256);
+                    break;
+                case HASH_SKEIN_1024_512:
+                    Skein1024_Init(&skein1024HashObject, 512);
                     break;
                 default:
                     hasMoreData = FALSE;
@@ -413,6 +450,24 @@
                                        (const uint8_t *)buffer,
                                        (uint64_t)bytesRead);
                         break;
+                    case HASH_SKEIN_256:
+                        Skein_256_Update(&skein256HashObject,
+                                         (const u08b_t *)buffer,
+                                         (size_t)bytesRead);
+                        break;
+                    case HASH_SKEIN_512:
+                    case HASH_SKEIN_512_256:
+                        Skein_512_Update(&skein512HashObject,
+                                         (const u08b_t *)buffer,
+                                         (size_t)bytesRead);
+                        break;
+                    case HASH_SKEIN_1024:
+                    case HASH_SKEIN_1024_256:
+                    case HASH_SKEIN_1024_512:
+                        Skein1024_Update(&skein1024HashObject,
+                                         (const u08b_t *)buffer,
+                                         (size_t)bytesRead);
+                        break;
                     default:
                         hasMoreData = FALSE;
                         readFailed = TRUE;
@@ -460,6 +515,18 @@
                     break;
                 case HASH_BLAKE2B_512:
                     blake2b_final(&blake2bHashObject, digest, 64);
+                    break;
+                case HASH_SKEIN_256:
+                    Skein_256_Final(&skein256HashObject, digest);
+                    break;
+                case HASH_SKEIN_512:
+                case HASH_SKEIN_512_256:
+                    Skein_512_Final(&skein512HashObject, digest);
+                    break;
+                case HASH_SKEIN_1024:
+                case HASH_SKEIN_1024_256:
+                case HASH_SKEIN_1024_512:
+                    Skein1024_Final(&skein1024HashObject, digest);
                     break;
                 default:
                     hasMoreData = FALSE;
