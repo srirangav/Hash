@@ -20,3 +20,8 @@ Source - https://github.com/srirangav/Hash
 Installation:
 
 Copy Hash.app to /Applications (or wherever you prefer)
+
+History:
+
+v. 1.0.11 - Added support for BLAKE2B and Skein hashes
+v. 1.0.10 - initial GitHub Release
