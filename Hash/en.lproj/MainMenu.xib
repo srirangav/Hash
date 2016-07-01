@@ -303,7 +303,7 @@ CA
                     <popUpButton verticalHuggingPriority="750" id="Ipw-pu-Uar">
                         <rect key="frame" x="365" y="62" width="168" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="SHA1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="2" imageScaling="proportionallyDown" inset="2" selectedItem="CA6-B6-lBt" id="kOr-mi-CZj">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="kOr-mi-CZj">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="syY-fO-aPF">
@@ -317,7 +317,7 @@ CA
                                     <menuItem title="MD5" tag="1" id="loj-YL-j1A">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="SHA1" state="on" tag="2" id="CA6-B6-lBt">
+                                    <menuItem title="SHA1" tag="2" id="CA6-B6-lBt">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="SHA256" tag="3" id="U8X-Ol-kt7">
@@ -354,6 +354,12 @@ CA
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="Skein 512-512" tag="15" id="1K8-l9-WqC">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Skein 1024-256" tag="18" id="qDb-v6-d75">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Skein 1024-512" tag="19" id="RpM-mV-NXv">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                 </items>
