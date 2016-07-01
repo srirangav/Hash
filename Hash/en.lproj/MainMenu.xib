@@ -21,7 +21,6 @@
         <customObject id="Ay7-r0-R4I" customClass="HashAppController">
             <connections>
                 <outlet property="aboutSheet" destination="nKa-HH-4ac" id="aG1-W6-8ga"/>
-                <outlet property="aboutText" destination="hqy-GN-8UC" id="Xmr-Fc-1Wf"/>
                 <outlet property="appNameField" destination="3SR-WO-ALT" id="PrH-Y7-d05"/>
                 <outlet property="cancelHashButton" destination="1UJ-Qb-MVB" id="vhZ-aG-v4i"/>
                 <outlet property="hashProgress" destination="GV4-zS-Oxl" id="bjD-wz-h1M"/>
@@ -304,7 +303,7 @@ CA
                     <popUpButton verticalHuggingPriority="750" id="Ipw-pu-Uar">
                         <rect key="frame" x="365" y="62" width="168" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="SHA1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" tag="2" imageScaling="proportionallyDown" inset="2" selectedItem="CA6-B6-lBt" id="kOr-mi-CZj">
+                        <popUpButtonCell key="cell" type="push" title="SHA1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="2" imageScaling="proportionallyDown" inset="2" selectedItem="CA6-B6-lBt" id="kOr-mi-CZj">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="syY-fO-aPF">
@@ -318,7 +317,7 @@ CA
                                     <menuItem title="MD5" tag="1" id="loj-YL-j1A">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="SHA1" tag="2" id="CA6-B6-lBt">
+                                    <menuItem title="SHA1" state="on" tag="2" id="CA6-B6-lBt">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="SHA256" tag="3" id="U8X-Ol-kt7">
@@ -380,7 +379,7 @@ CA
             <rect key="contentRect" x="120" y="65" width="367" height="83"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="0Mm-G5-jc2">
-                <rect key="frame" x="0.0" y="5" width="367" height="83"/>
+                <rect key="frame" x="0.0" y="0.0" width="367" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" id="1UJ-Qb-MVB">
@@ -417,14 +416,14 @@ Gw
         <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="nKa-HH-4ac" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="120" y="65" width="511" height="225"/>
+            <rect key="contentRect" x="120" y="65" width="301" height="136"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="3Nc-6n-aia">
-                <rect key="frame" x="0.0" y="-1" width="511" height="225"/>
+                <rect key="frame" x="0.0" y="0.0" width="301" height="136"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="3SR-WO-ALT">
-                        <rect key="frame" x="175" y="188" width="160" height="17"/>
+                        <rect key="frame" x="74" y="99" width="160" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Hash" id="Fyj-Cd-TdV">
                             <font key="font" metaFont="system"/>
@@ -432,1178 +431,8 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="801-fa-3xR">
-                        <rect key="frame" x="20" y="61" width="471" height="95"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <clipView key="contentView" id="3jw-fO-x60">
-                            <rect key="frame" x="1" y="1" width="458" height="93"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <textView editable="NO" importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" spellingCorrection="YES" id="hqy-GN-8UC">
-                                    <rect key="frame" x="0.0" y="-38" width="483" height="1756"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="454" height="93"/>
-                                    <size key="maxSize" width="489" height="1000000"/>
-                                    <attributedString key="textStorage">
-                                        <fragment content="Portions Copyright (c) 2014-2015 Sriranga Veeraraghavan &lt;ranga@calalum.org&gt; ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.0099999997764825821">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <mutableString key="content">  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-</mutableString>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.0099999997764825821">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <mutableString key="content">
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  </mutableString>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="CKSUM">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="  ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="crc.c ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="Copyright (c) 1991, 1993 The Regents of the University of California.  All rights reserved.">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <real key="NSKern" value="0.0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                                <real key="NSStrokeWidth" value="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <real key="NSKern" value="0.0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                                <real key="NSStrokeWidth" value="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="https://svnweb.freebsd.org/base/head/usr.bin/cksum/crc.c?revision=216370&amp;view=co">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Italic"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name=".HelveticaNeueDeskInterface-Italic"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="  ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content">This code is derived from software contributed to Berkeley by James W. Williams of NASA Goddard Space Flight Center.
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <real key="NSKern" value="0.0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                                <real key="NSStrokeWidth" value="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <mutableString key="content">
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
- 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.  2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 
-4. Neither the name of the University nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-</mutableString>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <real key="NSKern" value="0.0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36">
-                                                    <tabStops/>
-                                                </paragraphStyle>
-                                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                                <real key="NSStrokeWidth" value="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="CRC32">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="  ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="crc32.c ">
-                                            <attributes>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="COPYRIGHT (C) 1986 Gary S. Brown.  You may use this program, or">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Bold"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="code or tables extracted from it, as desired without restriction.">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="https://opensource.apple.com/source/xnu/xnu-1456.1.26/bsd/libkern/crc32.c">
-                                            <attributes>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Italic"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name=".HelveticaNeueDeskInterface-Italic"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="RMD 160">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="  ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="rmd160.h and rmd160.c Copyright (c) 2001 Markus Friedl.  All rights reserved.">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content">
- </string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="http://cvsweb.netbsd.org/bsdweb.cgi/othersrc/external/bsd/multigest/dist/?only_with_tag=MAIN">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Italic"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name=".HelveticaNeueDeskInterface-Italic"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Italic"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content" base64-UTF8="YES">
-IAo
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <mutableString key="content">Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:  
-1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 
-2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-</mutableString>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <mutableString key="content">THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  </mutableString>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="RMD320">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="  ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Bold"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="rmd320.c, rmd320.h, hash.h, bits.h From Catacomb and mLib (c) 1998 Straylight/Edgeware  ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="http://www.chiark.greenend.org.uk/ucgi/~mdw/git/catacomb">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Italic"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Italic"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Italic"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" http://www.chiark.greenend.org.uk/ucgi/~mdw/git/mLib">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Italic"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Italic"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="  [rmd320.c, rmd320.h, hash.h] ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.45490196078431372" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="11" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="This file is part of Catacomb.  C">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content">atacomb is free software; you can redistribute it and/or modify it under the terms of the GNU Library General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <mutableString key="content">
-Catacomb is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Library General Public License for more details.
-
-You should have received a copy of the GNU Library General Public License along with Catacomb; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- [bits.h]</mutableString>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.45490196078431372" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <mutableString key="content"> This file is part of the mLib utilities library.
-
-mLib is free software; you can redistribute it and/or modify it under the terms of the GNU Library General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
-
-mLib is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Library General Public License for more details.
-
-You should have received a copy of the GNU Library General Public License along with mLib; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.</mutableString>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Bold"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Bold"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="Whirlpool">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="  ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="nessie.h and Whirlpool.c by Vincent Rijmen and Paulo S. L. M. Barreto (public domain)">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="  ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="http://www.larc.usp.br/~pbarreto/WhirlpoolPage.html">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Italic"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name=".HelveticaNeueDeskInterface-Italic"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Italic"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <mutableString key="content"> THIS SOFTWARE IS PROVIDED BY THE AUTHORS ''AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE</mutableString>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content">CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <mutableString key="content">BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  </mutableString>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="SHA3">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="  ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content">Keccak Code Package by the Keccak Team (public domain) and brg_endian.h Copyright (c) 1998-2008, Brian Gladman, Worcester, UK. All rights reserved.</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="https://github.com/gvanas/KeccakCodePackage">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Italic"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name=".HelveticaNeueDeskInterface-Italic"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content"> 
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <mutableString key="content">LICENSE [brg_endian.h]  The redistribution and use of this software (with or without changes) is allowed without the payment of fees or royalties provided that:
-
-1. source code distributions include the above copyright notice, this list of conditions and the following disclaimer;
- 2. binary distributions include the above copyright notice, this list of conditions and the following disclaimer in their documentation;
-
-3. the name of the copyright holder is not used to endorse products built using this software without specific written permission.
-
-DISCLAIMER </mutableString>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="[brg_endian.h]">
-                                            <attributes>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content" base64-UTF8="YES">
-Cgo
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="This software is provided 'as">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296" tighteningFactorForTruncation="0.039999999105930328">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296" tighteningFactorForTruncation="0.039999999105930328">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="is' with no explicit or implied">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296" tighteningFactorForTruncation="0.039999999105930328">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296" tighteningFactorForTruncation="0.039999999105930328">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="warranties in respect of its ">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296" tighteningFactorForTruncation="0.039999999105930328">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="pr">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296" tighteningFactorForTruncation="0.039999999105930328">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="operties, including, but not limited to, correctness and/">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296" tighteningFactorForTruncation="0.039999999105930328">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="o">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name="Menlo-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296" tighteningFactorForTruncation="0.039999999105930328">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="r fitness for purpose.">
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <font key="NSOriginalFont" size="9" name="Menlo-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="26.449999999999999" hyphenationFactor="0.10999999195337296" tighteningFactorForTruncation="0.039999999105930328">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453"/>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="454" height="93"/>
-                                    <size key="maxSize" width="489" height="1000000"/>
-                                </textView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="4VW-md-QVH">
-                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" controlSize="mini" horizontal="NO" id="8fk-8E-xtQ">
-                            <rect key="frame" x="224" y="1" width="15" height="133"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                    </scrollView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fud-hk-hX0">
-                        <rect key="frame" x="161" y="164" width="188" height="17"/>
+                        <rect key="frame" x="60" y="49" width="188" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="https://github.com/srirangav/Hash" id="uTs-KP-heM">
                             <font key="font" metaFont="smallSystem"/>
@@ -1611,8 +440,17 @@ Cgo
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0h6-JS-ljf">
+                        <rect key="frame" x="18" y="74" width="265" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="By Sriranga Veeraraghavan &lt;ranga@calalum.org&gt;" id="Mxv-um-U6X">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <button verticalHuggingPriority="750" id="mjp-4Q-oRk">
-                        <rect key="frame" x="423" y="13" width="74" height="32"/>
+                        <rect key="frame" x="117" y="13" width="74" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7CV-3u-ilz">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1624,7 +462,7 @@ Cgo
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="384.5" y="742.5"/>
+            <point key="canvasLocation" x="279.5" y="698"/>
         </window>
     </objects>
 </document>
