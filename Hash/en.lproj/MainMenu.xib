@@ -326,6 +326,12 @@ CA
                                     <menuItem title="SHA512" tag="5" id="xJU-6q-GDP">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem title="SHA3 256" tag="7" id="qfe-p2-4TA">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="SHA3 512" tag="8" id="Wg3-tp-7Ra">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                     <menuItem title="RMD160" tag="4" id="MxO-iC-dw1">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
@@ -333,12 +339,6 @@ CA
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="Whirlpool" tag="6" id="x6m-f3-4MM">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="SHA3 256" tag="7" id="qfe-p2-4TA">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="SHA3 512" tag="8" id="Wg3-tp-7Ra">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="BLAKE2B 256" tag="12" id="c9X-Rl-hSO">
