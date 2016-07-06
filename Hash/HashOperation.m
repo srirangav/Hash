@@ -11,6 +11,7 @@
     v. 1.0.4 (06/27/2016) - Add support for BLAKE2B
     v. 1.0.5 (06/29/2016) - Add support for Skein
     v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
+    v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -88,13 +89,17 @@
             case HASH_CRC32:
             case HASH_MD5:
             case HASH_SHA1:
+            case HASH_SHA224:
             case HASH_SHA256:
+            case HASH_SHA384:
             case HASH_SHA512:
+            case HASH_SHA3_224:
+            case HASH_SHA3_256:
+            case HASH_SHA3_384:
+            case HASH_SHA3_512:
             case HASH_RMD160:
             case HASH_RMD320:
             case HASH_WPOOL:
-            case HASH_SHA3_256:
-            case HASH_SHA3_512:
             case HASH_BLAKE2B_256:
             case HASH_BLAKE2B_512:
             case HASH_BLAKE2BP_256:
@@ -222,6 +227,10 @@
                 case HASH_SHA1:
                     digestLength = CC_SHA1_DIGEST_LENGTH*sizeof(*digest);
                     break;
+                case HASH_SHA224:
+                case HASH_SHA3_224:
+                    digestLength = CC_SHA224_DIGEST_LENGTH*sizeof(*digest);
+                    break;
                 case HASH_SHA256:
                 case HASH_SHA3_256:
                 case HASH_BLAKE2B_256:
@@ -232,6 +241,10 @@
                 case HASH_SKEIN_512_256:
                 case HASH_SKEIN_1024_256:
                     digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(*digest);
+                    break;
+                case HASH_SHA384:
+                case HASH_SHA3_384:
+                    digestLength = CC_SHA384_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SHA512:
                 case HASH_SHA3_512:
@@ -297,8 +310,14 @@
                 case HASH_SHA1:
                     CC_SHA1_Init(&sha1HashObject);
                     break;
+                case HASH_SHA224:
+                    CC_SHA224_Init(&sha256HashObject);
+                    break;
                 case HASH_SHA256:
                     CC_SHA256_Init(&sha256HashObject);
+                    break;
+                case HASH_SHA384:
+                    CC_SHA384_Init(&sha512HashObject);
                     break;
                 case HASH_SHA512:
                     CC_SHA512_Init(&sha512HashObject);
@@ -447,8 +466,18 @@
                                        (const void *)buffer,
                                        (CC_LONG)bytesRead);
                         break;
+                    case HASH_SHA224:
+                        CC_SHA224_Update(&sha256HashObject,
+                                         (const void *)buffer,
+                                         (CC_LONG)bytesRead);
+                        break;
                     case HASH_SHA256:
                         CC_SHA256_Update(&sha256HashObject,
+                                         (const void *)buffer,
+                                         (CC_LONG)bytesRead);
+                        break;
+                    case HASH_SHA384:
+                        CC_SHA384_Update(&sha512HashObject,
                                          (const void *)buffer,
                                          (CC_LONG)bytesRead);
                         break;
@@ -543,8 +572,14 @@
                 case HASH_SHA1:
                     CC_SHA1_Final(digest, &sha1HashObject);
                     break;
+                case HASH_SHA224:
+                    CC_SHA224_Final(digest, &sha256HashObject);
+                    break;
                 case HASH_SHA256:
                     CC_SHA256_Final(digest, &sha256HashObject);
+                    break;
+                case HASH_SHA384:
+                    CC_SHA384_Final(digest, &sha512HashObject);
                     break;
                 case HASH_SHA512:
                     CC_SHA512_Final(digest, &sha512HashObject);

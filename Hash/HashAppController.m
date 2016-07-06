@@ -12,6 +12,7 @@
     v. 1.0.5 (06/27/2016) - Add support for BLAKE2B
     v. 1.0.6 (06/29/2016) - Add support for Skein
     v. 1.0.7 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
+    v. 1.0.8 (07/06/2016) - Add support for SHA224, SHA384, SHA3 224, SHA3 284
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -213,13 +214,17 @@
         case HASH_CRC32:
         case HASH_MD5:
         case HASH_SHA1:
+        case HASH_SHA224:
         case HASH_SHA256:
+        case HASH_SHA384:
         case HASH_SHA512:
+        case HASH_SHA3_224:
+        case HASH_SHA3_256:
+        case HASH_SHA3_384:
+        case HASH_SHA3_512:
         case HASH_RMD160:
         case HASH_RMD320:
         case HASH_WPOOL:
-        case HASH_SHA3_256:
-        case HASH_SHA3_512:
         case HASH_BLAKE2B_256:
         case HASH_BLAKE2B_512:
         case HASH_BLAKE2BP_256:
@@ -613,13 +618,17 @@
         case HASH_CRC32:
         case HASH_MD5:
         case HASH_SHA1:
+        case HASH_SHA224:
         case HASH_SHA256:
+        case HASH_SHA384:
         case HASH_SHA512:
+        case HASH_SHA3_224:
+        case HASH_SHA3_256:
+        case HASH_SHA3_384:
+        case HASH_SHA3_512:
         case HASH_RMD160:
         case HASH_RMD320:
         case HASH_WPOOL:
-        case HASH_SHA3_256:
-        case HASH_SHA3_512:
         case HASH_BLAKE2B_256:
         case HASH_BLAKE2B_512:
         case HASH_BLAKE2BP_256:

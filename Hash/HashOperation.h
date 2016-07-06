@@ -11,6 +11,7 @@
     v. 1.0.4 (06/27/2016) - Add support for BLAKE2B
     v. 1.0.5 (06/29/2016) - Add support for Skein
     v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
+    v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384, SHA3 224, SHA3 284
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -72,6 +73,10 @@ typedef enum {
     HASH_BLAKE2SP_512   = 23,
     HASH_BLAKE2BP_256   = 24,
     HASH_BLAKE2BP_512   = 25,
+    HASH_SHA224         = 26,
+    HASH_SHA384         = 27,
+    HASH_SHA3_224       = 28,
+    HASH_SHA3_384       = 29,
 } HashType;
 
 // Default File Buffer Size (400K)
