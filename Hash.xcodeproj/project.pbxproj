@@ -39,6 +39,9 @@
 		26D477171D248EFD000DD102 /* skein.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477141D248EFD000DD102 /* skein.c */; };
 		26D4771B1D248F96000DD102 /* skein_block.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D4771A1D248F96000DD102 /* skein_block.c */; };
 		26D4771D1D24985F000DD102 /* NIST_CD_102610.zip in Resources */ = {isa = PBXBuildFile; fileRef = 26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */; };
+		26D4771F1D2CE8FE000DD102 /* blake2bp.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D4771E1D2CE8FE000DD102 /* blake2bp.c */; };
+		26D477221D2CE941000DD102 /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477211D2CE941000DD102 /* blake2s.c */; };
+		26D477251D2CE9E8000DD102 /* blake2sp.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477241D2CE9E8000DD102 /* blake2sp.c */; };
 		26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D69B821AE62B7E005B114A /* Whirlpool.c */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +125,11 @@
 		26D477191D248F6E000DD102 /* brg_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brg_types.h; sourceTree = "<group>"; };
 		26D4771A1D248F96000DD102 /* skein_block.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = skein_block.c; sourceTree = "<group>"; };
 		26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = NIST_CD_102610.zip; sourceTree = "<group>"; };
+		26D4771E1D2CE8FE000DD102 /* blake2bp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = blake2bp.c; path = BLAKE2/blake2bp.c; sourceTree = "<group>"; };
+		26D477201D2CE941000DD102 /* blake2s-round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "blake2s-round.h"; path = "BLAKE2/blake2s-round.h"; sourceTree = "<group>"; };
+		26D477211D2CE941000DD102 /* blake2s.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = blake2s.c; path = BLAKE2/blake2s.c; sourceTree = "<group>"; };
+		26D477231D2CE9C9000DD102 /* blake2s-load-sse2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "blake2s-load-sse2.h"; path = "BLAKE2/blake2s-load-sse2.h"; sourceTree = "<group>"; };
+		26D477241D2CE9E8000DD102 /* blake2sp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = blake2sp.c; path = BLAKE2/blake2sp.c; sourceTree = "<group>"; };
 		26D69B821AE62B7E005B114A /* Whirlpool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Whirlpool.c; path = Whirlpool/Whirlpool.c; sourceTree = "<group>"; };
 		26D69B831AE62B7E005B114A /* nessie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nessie.h; path = Whirlpool/nessie.h; sourceTree = "<group>"; };
 		26D69B861AE62EDF005B114A /* Whirlpool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Whirlpool.h; path = Whirlpool/Whirlpool.h; sourceTree = "<group>"; };
@@ -239,8 +247,8 @@
 			children = (
 				26719F081B7EB365007FBFE6 /* bits.h */,
 				26719F031B7EAF53007FBFE6 /* hash.h */,
-				26719F001B7EAE97007FBFE6 /* rmd320.c */,
 				26719F011B7EAE97007FBFE6 /* rmd320.h */,
+				26719F001B7EAE97007FBFE6 /* rmd320.c */,
 			);
 			path = RMD320;
 			sourceTree = "<group>";
@@ -328,9 +336,9 @@
 		26B741E21B7D5ADB000D74A1 /* CRC */ = {
 			isa = PBXGroup;
 			children = (
+				26B741E51B7D5B56000D74A1 /* crc.h */,
 				26B741E61B7DC548000D74A1 /* crc.c */,
 				26B741E31B7D5AF6000D74A1 /* crc32.c */,
-				26B741E51B7D5B56000D74A1 /* crc.h */,
 			);
 			name = CRC;
 			sourceTree = "<group>";
@@ -344,6 +352,11 @@
 				26D477041D21DCC6000DD102 /* blake2b-load-sse2.h */,
 				26D477021D21DC81000DD102 /* blake2b-round.h */,
 				26D476FF1D21DC54000DD102 /* blake2b.c */,
+				26D4771E1D2CE8FE000DD102 /* blake2bp.c */,
+				26D477231D2CE9C9000DD102 /* blake2s-load-sse2.h */,
+				26D477201D2CE941000DD102 /* blake2s-round.h */,
+				26D477211D2CE941000DD102 /* blake2s.c */,
+				26D477241D2CE9E8000DD102 /* blake2sp.c */,
 			);
 			name = BLAKE2;
 			sourceTree = "<group>";
@@ -530,7 +543,10 @@
 				268BC27B1AE788DD00133859 /* KeccakSponge.c in Sources */,
 				26B741E41B7D5AF6000D74A1 /* crc32.c in Sources */,
 				26B741E71B7DC548000D74A1 /* crc.c in Sources */,
+				26D4771F1D2CE8FE000DD102 /* blake2bp.c in Sources */,
+				26D477221D2CE941000DD102 /* blake2s.c in Sources */,
 				26D4770C1D220041000DD102 /* KeccakF-1600-opt64.c in Sources */,
+				26D477251D2CE9E8000DD102 /* blake2sp.c in Sources */,
 				26719F021B7EAE97007FBFE6 /* rmd320.c in Sources */,
 				26D477001D21DC54000DD102 /* blake2b.c in Sources */,
 				26D4771B1D248F96000DD102 /* skein_block.c in Sources */,

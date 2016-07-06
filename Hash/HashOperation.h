@@ -10,7 +10,8 @@
     v. 1.0.3 (08/15/2015) - Add support for CRC, cksum, and RMD320
     v. 1.0.4 (06/27/2016) - Add support for BLAKE2B
     v. 1.0.5 (06/29/2016) - Add support for Skein
- 
+    v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
+
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
               http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues
@@ -65,6 +66,12 @@ typedef enum {
     HASH_SKEIN_512_256  = 17,
     HASH_SKEIN_1024_256 = 18,
     HASH_SKEIN_1024_512 = 19,
+    HASH_BLAKE2S_256    = 20,
+    HASH_BLAKE2S_512    = 21,
+    HASH_BLAKE2SP_256   = 22,
+    HASH_BLAKE2SP_512   = 23,
+    HASH_BLAKE2BP_256   = 24,
+    HASH_BLAKE2BP_512   = 25,
 } HashType;
 
 // Default File Buffer Size (400K)

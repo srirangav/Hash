@@ -303,7 +303,7 @@ CA
                     <popUpButton verticalHuggingPriority="750" id="Ipw-pu-Uar">
                         <rect key="frame" x="365" y="62" width="168" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="kOr-mi-CZj">
+                        <popUpButtonCell key="cell" type="push" title="SHA1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" tag="2" imageScaling="proportionallyDown" inset="2" selectedItem="CA6-B6-lBt" id="kOr-mi-CZj">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="syY-fO-aPF">
@@ -314,9 +314,11 @@ CA
                                     <menuItem title="CRC32" tag="9" id="3YT-RL-BPw">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="w1P-Wk-plf"/>
                                     <menuItem title="MD5" tag="1" id="loj-YL-j1A">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="HxQ-bE-q5e"/>
                                     <menuItem title="SHA1" tag="2" id="CA6-B6-lBt">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
@@ -332,21 +334,43 @@ CA
                                     <menuItem title="SHA3 512" tag="8" id="Wg3-tp-7Ra">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="wy9-IK-ttY"/>
                                     <menuItem title="RMD160" tag="4" id="MxO-iC-dw1">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="RMD320" tag="11" id="F6A-RK-6tD">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="mBK-47-G9y"/>
                                     <menuItem title="Whirlpool" tag="6" id="x6m-f3-4MM">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="mOk-uh-dHE"/>
                                     <menuItem title="BLAKE2B 256" tag="12" id="c9X-Rl-hSO">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="BLAKE2B 512" tag="13" id="wUD-CH-Tjy">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem title="BLAKE2BP 256" tag="24" id="N0J-IA-dQg">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="BLAKE2BP 512" tag="25" id="cRJ-b1-2uU">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="BLAKE2S 256" tag="20" id="wT3-YF-hFe">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="BLAKE2S 512" tag="21" id="3le-HB-aCA">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="BLAKE2SP 256" tag="22" id="gZa-lc-srp">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="BLAKE2SP 512" tag="23" id="AUi-6g-8OT">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="k5e-h8-S80"/>
                                     <menuItem title="Skein 256-256" tag="14" id="Cxm-Os-Scb">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>

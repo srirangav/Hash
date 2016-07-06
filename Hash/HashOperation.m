@@ -10,6 +10,7 @@
     v. 1.0.3 (08/15/2015) - Add support for CRC, cksum, and RMD320
     v. 1.0.4 (06/27/2016) - Add support for BLAKE2B
     v. 1.0.5 (06/29/2016) - Add support for Skein
+    v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -96,6 +97,12 @@
             case HASH_SHA3_512:
             case HASH_BLAKE2B_256:
             case HASH_BLAKE2B_512:
+            case HASH_BLAKE2BP_256:
+            case HASH_BLAKE2BP_512:
+            case HASH_BLAKE2S_256:
+            case HASH_BLAKE2S_512:
+            case HASH_BLAKE2SP_256:
+            case HASH_BLAKE2SP_512:
             case HASH_SKEIN_256:
             case HASH_SKEIN_512:
             case HASH_SKEIN_512_256:
@@ -176,6 +183,9 @@
         NESSIEstruct whirlpoolHashObject;
         Keccak_HashInstance sha3HashObject;
         blake2b_state blake2bHashObject;
+        blake2bp_state blake2bpHashObject;
+        blake2s_state blake2sHashObject;
+        blake2sp_state blake2spHashObject;
         Skein_256_Ctxt_t skein256HashObject;
         Skein_512_Ctxt_t skein512HashObject;
         Skein1024_Ctxt_t skein1024HashObject;
@@ -215,6 +225,9 @@
                 case HASH_SHA256:
                 case HASH_SHA3_256:
                 case HASH_BLAKE2B_256:
+                case HASH_BLAKE2BP_256:
+                case HASH_BLAKE2S_256:
+                case HASH_BLAKE2SP_256:
                 case HASH_SKEIN_256:
                 case HASH_SKEIN_512_256:
                 case HASH_SKEIN_1024_256:
@@ -223,6 +236,9 @@
                 case HASH_SHA512:
                 case HASH_SHA3_512:
                 case HASH_BLAKE2B_512:
+                case HASH_BLAKE2BP_512:
+                case HASH_BLAKE2S_512:
+                case HASH_BLAKE2SP_512:
                 case HASH_SKEIN_512:
                 case HASH_SKEIN_1024_512:
                     digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(*digest);
@@ -307,6 +323,24 @@
                     break;
                 case HASH_BLAKE2B_512:
                     blake2b_init(&blake2bHashObject, 64);
+                    break;
+                case HASH_BLAKE2BP_256:
+                    blake2bp_init(&blake2bpHashObject, 32);
+                    break;
+                case HASH_BLAKE2BP_512:
+                    blake2bp_init(&blake2bpHashObject, 64);
+                    break;
+                case HASH_BLAKE2S_256:
+                    blake2s_init(&blake2sHashObject, 32);
+                    break;
+                case HASH_BLAKE2S_512:
+                    blake2s_init(&blake2sHashObject, 64);
+                    break;
+                case HASH_BLAKE2SP_256:
+                    blake2sp_init(&blake2spHashObject, 32);
+                    break;
+                case HASH_BLAKE2SP_512:
+                    blake2sp_init(&blake2spHashObject, 64);
                     break;
                 case HASH_SKEIN_256:
                     Skein_256_Init(&skein256HashObject, 256);
@@ -450,6 +484,24 @@
                                        (const uint8_t *)buffer,
                                        (uint64_t)bytesRead);
                         break;
+                    case HASH_BLAKE2BP_256:
+                    case HASH_BLAKE2BP_512:
+                        blake2bp_update(&blake2bpHashObject,
+                                       (const uint8_t *)buffer,
+                                       (uint64_t)bytesRead);
+                        break;
+                    case HASH_BLAKE2S_256:
+                    case HASH_BLAKE2S_512:
+                        blake2s_update(&blake2sHashObject,
+                                       (const uint8_t *)buffer,
+                                       (uint64_t)bytesRead);
+                        break;
+                    case HASH_BLAKE2SP_256:
+                    case HASH_BLAKE2SP_512:
+                        blake2sp_update(&blake2spHashObject,
+                                        (const uint8_t *)buffer,
+                                        (uint64_t)bytesRead);
+                        break;
                     case HASH_SKEIN_256:
                         Skein_256_Update(&skein256HashObject,
                                          (const u08b_t *)buffer,
@@ -515,6 +567,24 @@
                     break;
                 case HASH_BLAKE2B_512:
                     blake2b_final(&blake2bHashObject, digest, 64);
+                    break;
+                case HASH_BLAKE2BP_256:
+                    blake2bp_final(&blake2bpHashObject, digest, 32);
+                    break;
+                case HASH_BLAKE2BP_512:
+                    blake2bp_final(&blake2bpHashObject, digest, 64);
+                    break;
+                case HASH_BLAKE2S_256:
+                    blake2s_final(&blake2sHashObject, digest, 32);
+                    break;
+                case HASH_BLAKE2S_512:
+                    blake2s_final(&blake2sHashObject, digest, 64);
+                    break;
+                case HASH_BLAKE2SP_256:
+                    blake2sp_final(&blake2spHashObject, digest, 32);
+                    break;
+                case HASH_BLAKE2SP_512:
+                    blake2sp_final(&blake2spHashObject, digest, 64);
                     break;
                 case HASH_SKEIN_256:
                     Skein_256_Final(&skein256HashObject, digest);
