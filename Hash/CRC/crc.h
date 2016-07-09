@@ -6,8 +6,9 @@
  
     v. 1.0.0 (08/13/2015) - Initial version
     v. 1.0.1 (08/17/2015) - Added crc_init, crc32_update, and crcContext
+    v. 1.0.2 (07/06/2016) - Added cksum_init, crc32_finalize
  
-    Copyright (c) 2015 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2015-2016 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -35,8 +36,11 @@ typedef struct crcContext {
     uint32_t crc;
 } crcContext;
 
-void crc_init(crcContext *ctx);
+void crc32_init(crcContext *ctx);
 void crc32_update(crcContext *ctx, const void *buf, size_t size);
+void crc32_finalize(crcContext *ctx);
+
+void cksum_init(crcContext *ctx);
 void cksum_update(crcContext *ctx, unsigned char *buf, uint32_t len);
 void cksum_finalize(crcContext *ctx, unsigned long long len);
 

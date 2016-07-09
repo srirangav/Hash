@@ -92,9 +92,6 @@ static uint32_t crc32_tab[] = {
     0xb40bbe37, 0xc30c8ea1, 0x5a05df1b, 0x2d02ef8d
 };
 
-// defined out by Sriranga Veeraraghavan on 8/13/2015
-
-#ifdef GSB_ORIG
 uint32_t
 crc32(uint32_t crc, const void *buf, size_t size)
 {
@@ -108,11 +105,22 @@ crc32(uint32_t crc, const void *buf, size_t size)
     
     return crc ^ ~0U;
 }
-#endif /* GBS_ORIG */
 
 /*
-    Added by Sriranga Veeraraghavan on 8/17/2015
- 
+    crc32_update - added by Sriranga Veeraraghavan on 8/17/2015
+    crc32_init, crc32_finalize - added by Sriranga Veeraraghavan on 7/06/2016
+ */
+
+/*
+    crc32_init - set the initial value of the crc to 0
+ */
+
+void crc32_init(crcContext *ctx)
+{
+    cksum_init(ctx);
+}
+
+/*
     crc32_update - update the crc based on the contents of the buffer
  */
 
@@ -136,4 +144,12 @@ void crc32_update(crcContext *ctx, const void *buf, size_t size)
     }
     
     ctx->crc = ctx->crc ^ ~0U;
+}
+
+/*
+    crc32_finalize - nothing to do for CRC32
+ */
+
+void crc32_finalize(crcContext *ctx)
+{
 }

@@ -183,10 +183,10 @@
         CC_SHA1_CTX sha1HashObject;
         CC_SHA256_CTX sha256HashObject;
         CC_SHA512_CTX sha512HashObject;
+        Keccak_HashInstance sha3HashObject;
         RMD160_CTX rmd160HashObject;
         rmd320_ctx rmd320HashObject;
         NESSIEstruct whirlpoolHashObject;
-        Keccak_HashInstance sha3HashObject;
         blake2b_state blake2bHashObject;
         blake2bp_state blake2bpHashObject;
         blake2s_state blake2sHashObject;
@@ -301,8 +301,10 @@
 
             switch (hashType) {
                 case HASH_CKSUM:
+                    cksum_init(&crcHashObject);
+                    break;
                 case HASH_CRC32:
-                    crc_init(&crcHashObject);
+                    crc32_init(&crcHashObject);
                     break;
                 case HASH_MD5:
                     CC_MD5_Init(&md5HashObject);
@@ -322,6 +324,18 @@
                 case HASH_SHA512:
                     CC_SHA512_Init(&sha512HashObject);
                     break;
+                case HASH_SHA3_224:
+                    Keccak_HashInitialize_SHA3_224(&sha3HashObject);
+                    break;
+                case HASH_SHA3_256:
+                    Keccak_HashInitialize_SHA3_256(&sha3HashObject);
+                    break;
+                case HASH_SHA3_384:
+                    Keccak_HashInitialize_SHA3_384(&sha3HashObject);
+                    break;
+                case HASH_SHA3_512:
+                    Keccak_HashInitialize_SHA3_512(&sha3HashObject);
+                    break;
                 case HASH_RMD160:
                     RMD160Init(&rmd160HashObject);
                     break;
@@ -330,12 +344,6 @@
                     break;
                 case HASH_WPOOL:
                     NESSIEinit(&whirlpoolHashObject);
-                    break;
-                case HASH_SHA3_256:
-                    Keccak_HashInitialize_SHA3_256(&sha3HashObject);
-                    break;
-                case HASH_SHA3_512:
-                    Keccak_HashInitialize_SHA3_512(&sha3HashObject);
                     break;
                 case HASH_BLAKE2B_256:
                     blake2b_init(&blake2bHashObject, 32);
@@ -486,6 +494,14 @@
                                          (const void *)buffer,
                                          (CC_LONG)bytesRead);
                         break;
+                    case HASH_SHA3_224:
+                    case HASH_SHA3_256:
+                    case HASH_SHA3_384:
+                    case HASH_SHA3_512:
+                        Keccak_HashUpdate(&sha3HashObject,
+                                          (const BitSequence *)buffer,
+                                          (DataLength)bytesRead*8);
+                        break;
                     case HASH_RMD160:
                         RMD160Update(&rmd160HashObject,
                                      (const void *)buffer,
@@ -500,12 +516,6 @@
                         NESSIEadd(buffer,
                                   (unsigned long)bytesRead*8,
                                   &whirlpoolHashObject);
-                        break;
-                    case HASH_SHA3_256:
-                    case HASH_SHA3_512:
-                        Keccak_HashUpdate(&sha3HashObject,
-                                          (const BitSequence *)buffer,
-                                          (DataLength)bytesRead*8);
                         break;
                     case HASH_BLAKE2B_256:
                     case HASH_BLAKE2B_512:
@@ -564,7 +574,7 @@
                     cksum_finalize(&crcHashObject, fileSize);
                     break;
                 case HASH_CRC32:
-                    // nothing to do for CRC32
+                    crc32_finalize(&crcHashObject);
                     break;
                 case HASH_MD5:
                     CC_MD5_Final(digest, &md5HashObject);
@@ -584,6 +594,12 @@
                 case HASH_SHA512:
                     CC_SHA512_Final(digest, &sha512HashObject);
                     break;
+                case HASH_SHA3_224:
+                case HASH_SHA3_256:
+                case HASH_SHA3_384:
+                case HASH_SHA3_512:
+                    Keccak_HashFinal(&sha3HashObject, digest);
+                    break;
                 case HASH_RMD160:
                     RMD160Final(digest, &rmd160HashObject);
                     break;
@@ -592,10 +608,6 @@
                     break;
                 case HASH_WPOOL:
                     NESSIEfinalize(&whirlpoolHashObject, digest);
-                    break;
-                case HASH_SHA3_256:
-                case HASH_SHA3_512:
-                    Keccak_HashFinal(&sha3HashObject, digest);
                     break;
                 case HASH_BLAKE2B_256:
                     blake2b_final(&blake2bHashObject, digest, 32);

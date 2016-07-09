@@ -152,19 +152,17 @@ crc(int fd, uint32_t *cval, off_t *clen)
 
 /*
     cksum_update and cksum_finalize added by Sriranga Veeraraghavan on 8/13/2015
-    crc_init added by Sriranga Veeraraghavan on 8/17/2015
+    cksum_init added by Sriranga Veeraraghavan on 7/06/2016
 */
 
-/*
-    crc_init - set the initial value of the cksum to 0
-*/
+/* chksum_init - set the initial value of the cksum to 0 */
 
-void crc_init(crcContext *ctx)
+void cksum_init(crcContext *ctx)
 {
     if (ctx != NULL) {
         ctx->crc = 0;
     }
-}   
+}
 
 /* 
     chksum_update - update the cksum based on the contents of the buffer
