@@ -32,13 +32,9 @@
 		26B7A74A1B83FC50008A0A78 /* icon_32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684481219F4D31F00C2D3A3 /* icon_32x32.png */; };
 		26B7A74B1B83FC50008A0A78 /* icon_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 2684481319F4D31F00C2D3A3 /* icon_16x16.png */; };
 		26D477001D21DC54000DD102 /* blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D476FF1D21DC54000DD102 /* blake2b.c */; };
-		26D477061D21EDD0000DD102 /* BLAKE2-20160619.zip in Resources */ = {isa = PBXBuildFile; fileRef = 26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */; };
 		26D4770C1D220041000DD102 /* KeccakF-1600-opt64.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477081D220041000DD102 /* KeccakF-1600-opt64.c */; };
-		26D477101D22008E000DD102 /* KeccakF-1600-64.macros in Resources */ = {isa = PBXBuildFile; fileRef = 26D4770E1D22008E000DD102 /* KeccakF-1600-64.macros */; };
-		26D477111D22008E000DD102 /* KeccakF-1600-unrolling.macros in Resources */ = {isa = PBXBuildFile; fileRef = 26D4770F1D22008E000DD102 /* KeccakF-1600-unrolling.macros */; };
 		26D477171D248EFD000DD102 /* skein.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477141D248EFD000DD102 /* skein.c */; };
 		26D4771B1D248F96000DD102 /* skein_block.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D4771A1D248F96000DD102 /* skein_block.c */; };
-		26D4771D1D24985F000DD102 /* NIST_CD_102610.zip in Resources */ = {isa = PBXBuildFile; fileRef = 26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */; };
 		26D4771F1D2CE8FE000DD102 /* blake2bp.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D4771E1D2CE8FE000DD102 /* blake2bp.c */; };
 		26D477221D2CE941000DD102 /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477211D2CE941000DD102 /* blake2s.c */; };
 		26D477251D2CE9E8000DD102 /* blake2sp.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477241D2CE9E8000DD102 /* blake2sp.c */; };
@@ -501,15 +497,11 @@
 			files = (
 				26B7A7451B83FC50008A0A78 /* icon_1024x1024.png in Resources */,
 				26B7A7461B83FC50008A0A78 /* icon_512x512.png in Resources */,
-				26D4771D1D24985F000DD102 /* NIST_CD_102610.zip in Resources */,
 				26B7A7471B83FC50008A0A78 /* icon_256x256.png in Resources */,
-				26D477111D22008E000DD102 /* KeccakF-1600-unrolling.macros in Resources */,
 				26B7A7481B83FC50008A0A78 /* icon_128x128.png in Resources */,
 				26B7A7491B83FC50008A0A78 /* icon_64x64.png in Resources */,
 				26B7A74A1B83FC50008A0A78 /* icon_32x32.png in Resources */,
 				26B7A74B1B83FC50008A0A78 /* icon_16x16.png in Resources */,
-				26D477101D22008E000DD102 /* KeccakF-1600-64.macros in Resources */,
-				26D477061D21EDD0000DD102 /* BLAKE2-20160619.zip in Resources */,
 				263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */,
 				266C334219FB8E1E00089684 /* Localizable.strings in Resources */,
 				266C334A19FB8FF700089684 /* MainMenu.xib in Resources */,
