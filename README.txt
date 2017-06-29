@@ -13,11 +13,6 @@ RMD160, RMD320, Whirlpool, BLAKE2B 256, BLAKE2B 512, BLAKE2BP 256, BLAKE2BP
 512, BLAKE2S 256, BLAKE2S512, BLAKE2SP 256, BLAKE2SP 512, Skein 256-256,
 Skein 512-256, Skein 512-512, Skein 1024-256, and Skein 1024-512.  
  
-Urls:
-
-Binary - https://grommit.com/~ranga/pgms/hash/Hash-1.0.11.zip
-Source - https://github.com/srirangav/Hash
-
 Installation:
 
 Copy Hash.app to /Applications (or wherever you prefer)
@@ -25,5 +20,5 @@ Copy Hash.app to /Applications (or wherever you prefer)
 History:
 
 v. 1.0.11 - Added support for BLAKE2, Skein, SHA224, SHA384, SHA3 224, SHA3
-			384
+            384
 v. 1.0.10 - Initial GitHub Release
