@@ -12,7 +12,8 @@
     v. 1.0.5 (06/29/2016) - Add support for Skein
     v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
     v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384
-
+    v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 (untested)
+ 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
               http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues
@@ -43,6 +44,7 @@
 #import "HashAppController.h"
 #import "HashConstants.h"
 #import "crc.h"
+#import "md6.h"
 #import "rmd160.h"
 #import "rmd320.h"
 #import "Whirlpool.h"
@@ -88,6 +90,8 @@
             case HASH_CKSUM:
             case HASH_CRC32:
             case HASH_MD5:
+            case HASH_MD6_256:
+            case HASH_MD6_512:
             case HASH_SHA1:
             case HASH_SHA224:
             case HASH_SHA256:
@@ -142,7 +146,7 @@
 
 -(void)main {
     @autoreleasepool {
-
+        
         /* the string containing the hash result */
 
         NSMutableString *hashResult = nil;
@@ -184,6 +188,7 @@
         CC_SHA256_CTX sha256HashObject;
         CC_SHA512_CTX sha512HashObject;
         Keccak_HashInstance sha3HashObject;
+        md6_state md6HashObject;
         RMD160_CTX rmd160HashObject;
         rmd320_ctx rmd320HashObject;
         NESSIEstruct whirlpoolHashObject;
@@ -194,9 +199,9 @@
         Skein_256_Ctxt_t skein256HashObject;
         Skein_512_Ctxt_t skein512HashObject;
         Skein1024_Ctxt_t skein1024HashObject;
-        
-        do {
 
+        do {
+            
             // return if no file is specified
 
             if (filePath == nil) {
@@ -231,6 +236,7 @@
                 case HASH_SHA3_224:
                     digestLength = CC_SHA224_DIGEST_LENGTH*sizeof(*digest);
                     break;
+                case HASH_MD6_256:
                 case HASH_SHA256:
                 case HASH_SHA3_256:
                 case HASH_BLAKE2B_256:
@@ -246,6 +252,7 @@
                 case HASH_SHA3_384:
                     digestLength = CC_SHA384_DIGEST_LENGTH*sizeof(*digest);
                     break;
+                case HASH_MD6_512:
                 case HASH_SHA512:
                 case HASH_SHA3_512:
                 case HASH_BLAKE2B_512:
@@ -308,6 +315,12 @@
                     break;
                 case HASH_MD5:
                     CC_MD5_Init(&md5HashObject);
+                    break;
+                case HASH_MD6_256:
+                    md6_init(&md6HashObject, 256);
+                    break;
+                case HASH_MD6_512:
+                    md6_init(&md6HashObject, 512);
                     break;
                 case HASH_SHA1:
                     CC_SHA1_Init(&sha1HashObject);
@@ -409,9 +422,17 @@
             //           http://stackoverflow.com/questions/2509612/how-do-i-update-a-progress-bar-in-cocoa-during-a-long-running-loop#2520387
 
             if (progress != nil ) {
-                [progress setIndeterminate: NO];
-                [progress setDoubleValue: 0.0];
-                [progress startAnimation: sender];
+
+                // make sure the progress bar runs in the main queue (to fix a
+                // Xcode 9 warning.
+                // based on:
+                // https://stackoverflow.com/questions/11582223/ios-ensure-execution-on-main-thread#11582577
+                
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    [self->progress setIndeterminate: NO];
+                    [self->progress setDoubleValue: 0.0];
+                    [self->progress startAnimation: self->sender];
+                }];
             }
 
             while (hasMoreData) {
@@ -446,9 +467,17 @@
 
                 if (progress != nil) {
                     bytesSoFar += bytesRead;
-                    [progress setDoubleValue:
-                        (double)(((double)bytesSoFar/(double)fileSize)*100)];
-                    [progress displayIfNeeded];
+                    
+                    // make sure the progress bar runs in the main queue (to fix a
+                    // Xcode 9 warning.
+                    // based on:
+                    // https://stackoverflow.com/questions/11582223/ios-ensure-execution-on-main-thread#11582577
+
+                    [[NSOperationQueue mainQueue] addOperationWithBlock: ^{
+                        [self->progress setDoubleValue:
+                         (double)(((double)bytesSoFar/(double)fileSize)*100)];
+                        [self->progress displayIfNeeded];
+                    }];
                 }
 
                 // update the hash with the data that was just read
@@ -468,6 +497,12 @@
                         CC_MD5_Update(&md5HashObject,
                                       (const void *)buffer,
                                       (CC_LONG)bytesRead);
+                        break;
+                    case HASH_MD6_256:
+                    case HASH_MD6_512:
+                        md6_update(&md6HashObject,
+                                   (unsigned char *)buffer,
+                                   bytesRead);
                         break;
                     case HASH_SHA1:
                         CC_SHA1_Update(&sha1HashObject,
@@ -578,6 +613,10 @@
                     break;
                 case HASH_MD5:
                     CC_MD5_Final(digest, &md5HashObject);
+                    break;
+                case HASH_MD6_256:
+                case HASH_MD6_512:
+                    md6_final(&md6HashObject, digest);
                     break;
                 case HASH_SHA1:
                     CC_SHA1_Final(digest, &sha1HashObject);

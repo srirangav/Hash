@@ -12,7 +12,9 @@
     v. 1.0.5 (06/27/2016) - Add support for BLAKE2B
     v. 1.0.6 (06/29/2016) - Add support for Skein
     v. 1.0.7 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
-    v. 1.0.8 (07/06/2016) - Add support for SHA224, SHA384, SHA3 224, SHA3 284
+    v. 1.0.8 (07/06/2016) - Add support for SHA224, SHA384, SHA3 224, SHA3
+                            284
+    v. 1.0.9 (06/28/2017) - Add support for MD6 256, MD6 512 (untested)
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -213,6 +215,8 @@
         case HASH_CKSUM:
         case HASH_CRC32:
         case HASH_MD5:
+        case HASH_MD6_256:
+        case HASH_MD6_512:
         case HASH_SHA1:
         case HASH_SHA224:
         case HASH_SHA256:
@@ -565,7 +569,7 @@
          NSString *path = NULL;
          
          if (result == NSOKButton) {
-             selection = selectFilePanel.URLs[0];
+             selection = self->selectFilePanel.URLs[0];
              if (selection != nil) {
                  path = [[selection path] stringByResolvingSymlinksInPath];
                  [self setSelectedFile:path];
@@ -617,6 +621,8 @@
         case HASH_CKSUM:
         case HASH_CRC32:
         case HASH_MD5:
+        case HASH_MD6_256:
+        case HASH_MD6_512:
         case HASH_SHA1:
         case HASH_SHA224:
         case HASH_SHA256:
