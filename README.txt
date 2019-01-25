@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.0.12
+Hash v. 1.0.14
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -18,13 +18,15 @@ Installation:
 
 Copy Hash.app to /Applications (or wherever you prefer)
 
+License:
+
+Please see LICENSE.txt
+
 History:
 
+v. 1.0.14 - Enabled app sandbox and hardened runtime
 v. 1.0.12 - Added support for MD6 256, MD6 512
 v. 1.0.11 - Added support for BLAKE2, Skein, SHA224, SHA384, SHA3 224, SHA3
             384
 v. 1.0.10 - Initial GitHub Release
 
-License:
-
-Please see LICENSE.txt
