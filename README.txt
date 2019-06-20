@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.0.14
+Hash v. 1.0.15
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -18,12 +18,18 @@ Installation:
 
 Copy Hash.app to /Applications (or wherever you prefer)
 
+Supported MacOSX versions:
+
+v. 1.0.15 - 10.9+
+v. 1.0.14 (and earlier) - 10.6+
+
 License:
 
 Please see LICENSE.txt
 
 History:
 
+v. 1.0.15 - Update for app notarizing
 v. 1.0.14 - Enabled app sandbox and hardened runtime
 v. 1.0.12 - Added support for MD6 256, MD6 512
 v. 1.0.11 - Added support for BLAKE2, Skein, SHA224, SHA384, SHA3 224, SHA3
