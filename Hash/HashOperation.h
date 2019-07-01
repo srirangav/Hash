@@ -11,8 +11,7 @@
     v. 1.0.4 (06/27/2016) - Add support for BLAKE2B
     v. 1.0.5 (06/29/2016) - Add support for Skein
     v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
-    v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384, SHA3 224, SHA3
-                            284
+    v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384, SHA3 224, SHA3 284
     v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 (untested)
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/

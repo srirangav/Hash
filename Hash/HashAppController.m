@@ -4,21 +4,21 @@
  
     History:
  
-    v. 1.0.0 (10/20/2014) - Initial version
-    v. 1.0.1 (04/17/2014) - Update to allow background processing of hashes
-    v. 1.0.2 (04/17/2014) - Add support for Whirlpool and SHA3
-    v. 1.0.3 (04/27/2015) - Add progress bar support
-    v. 1.0.4 (08/15/2015) - Add support for CRC, cksum, and RMD320
-    v. 1.0.5 (06/27/2016) - Add support for BLAKE2B
-    v. 1.0.6 (06/29/2016) - Add support for Skein
-    v. 1.0.7 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
-    v. 1.0.8 (07/06/2016) - Add support for SHA224, SHA384, SHA3 224, SHA3
-                            284
-    v. 1.0.9 (06/28/2017) - Add support for MD6 256, MD6 512 (untested)
+    v. 1.0.0  (10/20/2014) - Initial version
+    v. 1.0.1  (04/17/2014) - Update to allow background processing of hashes
+    v. 1.0.2  (04/17/2014) - Add support for Whirlpool and SHA3
+    v. 1.0.3  (04/27/2015) - Add progress bar support
+    v. 1.0.4  (08/15/2015) - Add support for CRC, cksum, and RMD320
+    v. 1.0.5  (06/27/2016) - Add support for BLAKE2B
+    v. 1.0.6  (06/29/2016) - Add support for Skein
+    v. 1.0.7  (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
+    v. 1.0.8  (07/06/2016) - Add support for SHA224, SHA384, SHA3 224, SHA3 284
+    v. 1.0.9  (06/28/2017) - Add support for MD6 256, MD6 512 (untested)
+    v. 1.1.0  (06/30/2019) - Add dark mode support
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
-    Copyright (c) 2014 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2014-2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -813,20 +813,26 @@
     
     if (message != nil) {
 
-        // if this is a error message, set the text color to red
+        /*
+            if this is a error message, set the text color to system's
+            current accessibility / mode equivalent of red:
+            https://developer.apple.com/documentation/appkit/nscolor/2879262-systemred
+         */
         
         if (isErrorMessage == YES) {
-            [messageField setTextColor: [NSColor redColor]];
+            [messageField setTextColor: [NSColor systemRedColor]];
         } else {
         
             /*
                 this is not an error message, so enable copying of text
-                from the messageField and set the text color to black
+                from the messageField and set the text color to the system's
+                label color:
+                https://developer.apple.com/documentation/appkit/nscolor/1534657-labelcolor
              */
         
             [messageField setEnabled: TRUE];
             [messageField setSelectable: TRUE];
-            [messageField setTextColor: [NSColor blackColor]];
+            [messageField setTextColor: [NSColor labelColor]];
             
             /*
                 if monospaced text is requested, set the font to
@@ -931,15 +937,15 @@
 {
     [verifyConfirmField setEnabled: FALSE];
     [verifyConfirmField setSelectable: FALSE];
-    [verifyConfirmField setTextColor: [NSColor blackColor]];
+    [verifyConfirmField setTextColor: [NSColor labelColor]];
 
     switch (verified) {
         case VERIFY_SUCCESS:
-            [verifyConfirmField setTextColor: [NSColor greenColor]];
+            [verifyConfirmField setTextColor: [NSColor systemGreenColor]];
             [verifyConfirmField setStringValue: @"✔︎"];
             break;
         case VERIFY_FAILED:
-            [verifyConfirmField setTextColor: [NSColor redColor]];
+            [verifyConfirmField setTextColor: [NSColor systemRedColor]];
             [verifyConfirmField setStringValue: @"✘"];
             break;
         case VERIFY_CLEAR:

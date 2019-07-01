@@ -6,7 +6,9 @@
  
     v. 1.0.0 (10/20/2014) - Initial version
     v. 1.0.1 (04/17/2014) - Update to allow background processing of hashes
-
+    v. 1.1.0 (06/30/2019) - Update default version to 1.1 due to changes to
+                            support only MacOSX 10.9+
+ 
     Based on: https://stackoverflow.com/questions/538996/constants-in-objective-c
  
     Copyright (c) 2014 Sriranga R. Veeraraghavan <ranga@calalum.org>
@@ -35,7 +37,7 @@
 NSString *const fileDroppedEvent = @"fileDroppedEvent";
 NSString *const fileDroppedKey = @"droppedFile";
 NSString *const defaultHashAppName = @"Hash";
-NSString *const defaultHashAppVers = @"1.0";
+NSString *const defaultHashAppVers = @"1.1";
 NSString *const defaultHashAppBuild = @"1";
 NSString *const keyHashResult = @"hashResult";
 NSString *const keySender = @"sender";

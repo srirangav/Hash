@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.0.15
+Hash v. 1.1.0
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -29,6 +29,7 @@ Please see LICENSE.txt
 
 History:
 
+v. 1.1.0  - Add suport for dark mode 
 v. 1.0.15 - Update for app notarizing
 v. 1.0.14 - Enabled app sandbox and hardened runtime
 v. 1.0.12 - Added support for MD6 256, MD6 512

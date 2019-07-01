@@ -77,7 +77,6 @@
 		2661CA671ADB9CA000E57BD1 /* HashOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HashOperation.m; sourceTree = "<group>"; };
 		2661CA691ADB9CCA00E57BD1 /* HashOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashOperation.h; sourceTree = "<group>"; };
 		266C334719FB8FD100089684 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		266C334919FB8FF700089684 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		26719F001B7EAE97007FBFE6 /* rmd320.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rmd320.c; sourceTree = "<group>"; };
 		26719F011B7EAE97007FBFE6 /* rmd320.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rmd320.h; sourceTree = "<group>"; };
 		26719F031B7EAF53007FBFE6 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
@@ -135,6 +134,7 @@
 		26D69B821AE62B7E005B114A /* Whirlpool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Whirlpool.c; path = Whirlpool/Whirlpool.c; sourceTree = "<group>"; };
 		26D69B831AE62B7E005B114A /* nessie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nessie.h; path = Whirlpool/nessie.h; sourceTree = "<group>"; };
 		26D69B861AE62EDF005B114A /* Whirlpool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Whirlpool.h; path = Whirlpool/Whirlpool.h; sourceTree = "<group>"; };
+		26F5F0C722C9E38600B38AE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,7 +472,7 @@
 		263FFA0C19F1CA5300E9E1C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Sriranga Veeraraghavan";
 				TargetAttributes = {
 					263FFA1319F1CA5300E9E1C7 = {
@@ -496,10 +496,11 @@
 			};
 			buildConfigurationList = 263FFA0F19F1CA5300E9E1C7 /* Build configuration list for PBXProject "Hash" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 263FFA0B19F1CA5300E9E1C7;
 			productRefGroup = 263FFA1519F1CA5300E9E1C7 /* Products */;
@@ -600,7 +601,7 @@
 		266C334819FB8FF700089684 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				266C334919FB8FF700089684 /* en */,
+				26F5F0C722C9E38600B38AE0 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -612,6 +613,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -665,6 +667,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
