@@ -500,10 +500,18 @@
                         break;
                     case HASH_MD6_256:
                     case HASH_MD6_512:
+                        
+                        /*
+                            Update the MD6 sum, passing in the number
+                            of bits (bytes*8) read (see md6sum.c in the
+                            reference implementation).
+                         */
+                        
                         md6_update(&md6HashObject,
                                    (unsigned char *)buffer,
-                                   bytesRead);
+                                   bytesRead*8);
                         break;
+                        
                     case HASH_SHA1:
                         CC_SHA1_Update(&sha1HashObject,
                                        (const void *)buffer,
@@ -533,6 +541,12 @@
                     case HASH_SHA3_256:
                     case HASH_SHA3_384:
                     case HASH_SHA3_512:
+                        
+                        /*
+                            Update the SHA3 sum, passing in the number
+                            of bits (bytes*8) read.
+                         */
+                        
                         Keccak_HashUpdate(&sha3HashObject,
                                           (const BitSequence *)buffer,
                                           (DataLength)bytesRead*8);
