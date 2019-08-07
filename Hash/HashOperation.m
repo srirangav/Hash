@@ -13,13 +13,14 @@
     v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
     v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384
     v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 (untested)
- 
+    v. 1.1.0 (08/07/2019) - Add support for JH
+
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
               http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues
               http://www.informit.com/articles/article.aspx?p=1768318
 
-    Copyright (c) 2015 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2015-2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -51,6 +52,7 @@
 #import "KeccakHash.h"
 #import "blake2.h"
 #import "skein.h"
+#import "jh.h"
 
 @implementation HashOperation
 
@@ -118,6 +120,10 @@
             case HASH_SKEIN_1024:
             case HASH_SKEIN_1024_256:
             case HASH_SKEIN_1024_512:
+            case HASH_JH_224:
+            case HASH_JH_256:
+            case HASH_JH_384:
+            case HASH_JH_512:
 
                 // valid hashType
 
@@ -199,7 +205,8 @@
         Skein_256_Ctxt_t skein256HashObject;
         Skein_512_Ctxt_t skein512HashObject;
         Skein1024_Ctxt_t skein1024HashObject;
-
+        JH_HashState jhHashObject;
+        
         do {
             
             // return if no file is specified
@@ -234,6 +241,7 @@
                     break;
                 case HASH_SHA224:
                 case HASH_SHA3_224:
+                case HASH_JH_224:
                     digestLength = CC_SHA224_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_MD6_256:
@@ -246,10 +254,12 @@
                 case HASH_SKEIN_256:
                 case HASH_SKEIN_512_256:
                 case HASH_SKEIN_1024_256:
+                case HASH_JH_256:
                     digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SHA384:
                 case HASH_SHA3_384:
+                case HASH_JH_384:
                     digestLength = CC_SHA384_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_MD6_512:
@@ -261,6 +271,7 @@
                 case HASH_BLAKE2SP_512:
                 case HASH_SKEIN_512:
                 case HASH_SKEIN_1024_512:
+                case HASH_JH_512:
                     digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SKEIN_1024:
@@ -399,6 +410,18 @@
                     break;
                 case HASH_SKEIN_1024_512:
                     Skein1024_Init(&skein1024HashObject, 512);
+                    break;
+                case HASH_JH_224:
+                    JH_Init(&jhHashObject, 224);
+                    break;
+                case HASH_JH_256:
+                    JH_Init(&jhHashObject, 256);
+                    break;
+                case HASH_JH_384:
+                    JH_Init(&jhHashObject, 384);
+                    break;
+                case HASH_JH_512:
+                    JH_Init(&jhHashObject, 512);
                     break;
                 default:
                     hasMoreData = FALSE;
@@ -608,6 +631,20 @@
                                          (const u08b_t *)buffer,
                                          (size_t)bytesRead);
                         break;
+                    case HASH_JH_224:
+                    case HASH_JH_256:
+                    case HASH_JH_384:
+                    case HASH_JH_512:
+
+                        /*
+                            Update the JH sum, passing in the number
+                            of bits (bytes*8) read.
+                         */
+
+                        JH_Update(&jhHashObject,
+                                  (const JH_BitSequence *)buffer,
+                                  (JH_DataLength)(bytesRead*8));
+                        break;
                     default:
                         hasMoreData = FALSE;
                         readFailed = TRUE;
@@ -698,6 +735,12 @@
                 case HASH_SKEIN_1024_512:
                     Skein1024_Final(&skein1024HashObject, digest);
                     break;
+                case HASH_JH_224:
+                case HASH_JH_256:
+                case HASH_JH_384:
+                case HASH_JH_512:
+                    JH_Final(&jhHashObject, (JH_BitSequence *)digest);
+                    break;
                 default:
                     hasMoreData = FALSE;
                     readFailed = TRUE;
@@ -715,7 +758,7 @@
                     hashResult = [NSMutableString stringWithCapacity:
                               (2*digestLength) + 1];
                     for (i = 0; i < digestLength; ++i) {
-                        [hashResult appendFormat:@"%02x",(int)(digest[i])];
+                        [hashResult appendFormat:@"%02X",(int)(digest[i])];
                     }
                 }
             }

@@ -11,15 +11,17 @@
     v. 1.0.4 (06/27/2016) - Add support for BLAKE2B
     v. 1.0.5 (06/29/2016) - Add support for Skein
     v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
-    v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384, SHA3 224, SHA3 284
+    v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384, SHA3 224,
+                            SHA3 284
     v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 (untested)
+    v. 1.1.0 (08/07/2019) - Add support for JH
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
               http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues
               http://www.informit.com/articles/article.aspx?p=1768318
 
-    Copyright (c) 2015 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2015-2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -80,6 +82,10 @@ typedef enum {
     HASH_SHA3_384       = 29,
     HASH_MD6_256        = 30,
     HASH_MD6_512        = 31,
+    HASH_JH_224         = 32,
+    HASH_JH_256         = 33,
+    HASH_JH_384         = 34,
+    HASH_JH_512         = 35,
 } HashType;
 
 // Default File Buffer Size (400K)

@@ -323,18 +323,19 @@ CA
                                     <menuItem title="SHA1" state="on" tag="2" id="CA6-B6-lBt">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="SHA224" tag="26" id="Z6V-lM-ZJP">
+                                    <menuItem title="SHA 224" tag="26" id="Z6V-lM-ZJP">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="SHA256" tag="3" id="U8X-Ol-kt7">
+                                    <menuItem title="SHA 256" tag="3" id="U8X-Ol-kt7">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="SHA384" tag="27" id="IgS-gG-R9g">
+                                    <menuItem title="SHA 384" tag="27" id="IgS-gG-R9g">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="SHA512" tag="5" id="xJU-6q-GDP">
+                                    <menuItem title="SHA 512" tag="5" id="xJU-6q-GDP">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="920-AC-C5i"/>
                                     <menuItem title="SHA3 224" tag="28" id="ZMR-iH-Amm">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
@@ -348,10 +349,10 @@ CA
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="wy9-IK-ttY"/>
-                                    <menuItem title="RMD160" tag="4" id="MxO-iC-dw1">
+                                    <menuItem title="RIPEMD 160" tag="4" id="MxO-iC-dw1">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="RMD320" tag="11" id="F6A-RK-6tD">
+                                    <menuItem title="RIPEMD 320" tag="11" id="F6A-RK-6tD">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="mBK-47-G9y"/>
@@ -404,6 +405,19 @@ CA
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="MD6 512" tag="31" id="hAk-C7-bjm">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="zUS-uj-ute"/>
+                                    <menuItem title="JH 224" tag="32" id="Rxi-Bg-adc" userLabel="JH 224">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="JH 256" tag="33" id="Bsz-eH-BLR" userLabel="JH 256">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="JH 384" tag="34" id="sTX-wn-QDA" userLabel="JH 384">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="JH 512" tag="35" id="LZ5-Vk-R1y" userLabel="JH 512">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                 </items>

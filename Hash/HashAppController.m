@@ -12,9 +12,13 @@
     v. 1.0.5  (06/27/2016) - Add support for BLAKE2B
     v. 1.0.6  (06/29/2016) - Add support for Skein
     v. 1.0.7  (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
-    v. 1.0.8  (07/06/2016) - Add support for SHA224, SHA384, SHA3 224, SHA3 284
+    v. 1.0.8  (07/06/2016) - Add support for SHA224, SHA384, SHA3 224,
+                             SHA3 284
     v. 1.0.9  (06/28/2017) - Add support for MD6 256, MD6 512 (untested)
     v. 1.1.0  (06/30/2019) - Add dark mode support
+    v. 1.1.1  (08/01/2019) - Try to ensure text fields always display some
+                             text
+    v. 1.1.2  (08/07/2019) - Add support for JH
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -63,6 +67,17 @@
     */
 
     hashQueue = [[NSOperationQueue alloc] init];
+
+    /*
+        Try to make sure that text is always shown in the editable text
+        fields.  See:
+    https://stackoverflow.com/questions/7113371/how-do-i-force-the-cursor-to-the-end-of-a-nstextfield
+     */
+    
+    [[selectedFileField currentEditor] moveToEndOfLine: nil];
+    [[selectedFileField currentEditor] moveToEndOfDocument: nil];
+    [[verifyHashField currentEditor] moveToEndOfLine: nil];
+    [[verifyHashField currentEditor] moveToEndOfDocument: nil];
 }
 
 /*
@@ -243,7 +258,11 @@
         case HASH_SKEIN_1024:
         case HASH_SKEIN_1024_256:
         case HASH_SKEIN_1024_512:
-            
+        case HASH_JH_224:
+        case HASH_JH_256:
+        case HASH_JH_384:
+        case HASH_JH_512:
+
             // valid hash type selected, compute the file's hash and
             // display a sheet while the hash is being computed
 
@@ -649,6 +668,10 @@
         case HASH_SKEIN_1024:
         case HASH_SKEIN_1024_256:
         case HASH_SKEIN_1024_512:
+        case HASH_JH_224:
+        case HASH_JH_256:
+        case HASH_JH_384:
+        case HASH_JH_512:
 
             // valid hashType, return it
 
