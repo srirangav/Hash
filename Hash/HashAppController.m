@@ -14,11 +14,11 @@
     v. 1.0.7  (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
     v. 1.0.8  (07/06/2016) - Add support for SHA224, SHA384, SHA3 224,
                              SHA3 284
-    v. 1.0.9  (06/28/2017) - Add support for MD6 256, MD6 512 (untested)
+    v. 1.0.9  (06/28/2017) - Add support for MD6 256, MD6 512
     v. 1.1.0  (06/30/2019) - Add dark mode support
     v. 1.1.1  (08/01/2019) - Try to ensure text fields always display some
                              text
-    v. 1.1.2  (08/07/2019) - Add support for JH
+    v. 1.1.2  (08/07/2019) - Add support for JH, Tiger, and Tiger 2
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -262,6 +262,8 @@
         case HASH_JH_256:
         case HASH_JH_384:
         case HASH_JH_512:
+        case HASH_TIGER:
+        case HASH_TIGER2:
 
             // valid hash type selected, compute the file's hash and
             // display a sheet while the hash is being computed
@@ -419,16 +421,8 @@
 
 -(IBAction)clearButtonClicked:(id)sender
 {
-    /*
-    [self setSelectedFile: @""];
-    [self setMessage: @""];
-    [self setVerifyConfirm: VERIFY_CLEAR];
-    [verifyHashField setStringValue: @""];
-     */
-
     [self clearFileFieldButtonClicked: sender];
     [self clearVerifyFieldButtonClicked: sender];
-
     [self setMessage: @""];
 }
 
@@ -672,6 +666,8 @@
         case HASH_JH_256:
         case HASH_JH_384:
         case HASH_JH_512:
+        case HASH_TIGER:
+        case HASH_TIGER2:
 
             // valid hashType, return it
 

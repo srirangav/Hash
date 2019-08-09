@@ -12,8 +12,8 @@
     v. 1.0.5 (06/29/2016) - Add support for Skein
     v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
     v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384
-    v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 (untested)
-    v. 1.1.0 (08/07/2019) - Add support for JH
+    v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 
+    v. 1.1.0 (08/07/2019) - Add support for JH, Tiger and Tiger2
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -53,6 +53,7 @@
 #import "blake2.h"
 #import "skein.h"
 #import "jh.h"
+#import "tiger.h"
 
 @implementation HashOperation
 
@@ -124,6 +125,8 @@
             case HASH_JH_256:
             case HASH_JH_384:
             case HASH_JH_512:
+            case HASH_TIGER:
+            case HASH_TIGER2:
 
                 // valid hashType
 
@@ -206,6 +209,7 @@
         Skein_512_Ctxt_t skein512HashObject;
         Skein1024_Ctxt_t skein1024HashObject;
         JH_HashState jhHashObject;
+        tiger_ctx tigerHashObject;
         
         do {
             
@@ -238,6 +242,10 @@
                     break;
                 case HASH_SHA1:
                     digestLength = CC_SHA1_DIGEST_LENGTH*sizeof(*digest);
+                    break;
+                case HASH_TIGER:
+                case HASH_TIGER2:
+                    digestLength = tiger_hash_length*sizeof(*digest);
                     break;
                 case HASH_SHA224:
                 case HASH_SHA3_224:
@@ -422,6 +430,12 @@
                     break;
                 case HASH_JH_512:
                     JH_Init(&jhHashObject, 512);
+                    break;
+                case HASH_TIGER:
+                    rhash_tiger_init(&tigerHashObject);
+                    break;
+                case HASH_TIGER2:
+                    rhash_tiger2_init(&tigerHashObject);
                     break;
                 default:
                     hasMoreData = FALSE;
@@ -645,6 +659,12 @@
                                   (const JH_BitSequence *)buffer,
                                   (JH_DataLength)(bytesRead*8));
                         break;
+                    case HASH_TIGER:
+                    case HASH_TIGER2:
+                        rhash_tiger_update(&tigerHashObject,
+                                           (const unsigned char*)buffer,
+                                           (size_t)bytesRead);
+                        break;
                     default:
                         hasMoreData = FALSE;
                         readFailed = TRUE;
@@ -740,6 +760,10 @@
                 case HASH_JH_384:
                 case HASH_JH_512:
                     JH_Final(&jhHashObject, (JH_BitSequence *)digest);
+                    break;
+                case HASH_TIGER:
+                case HASH_TIGER2:
+                    rhash_tiger_final(&tigerHashObject, digest);
                     break;
                 default:
                     hasMoreData = FALSE;

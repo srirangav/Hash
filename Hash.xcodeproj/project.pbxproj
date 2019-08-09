@@ -43,6 +43,9 @@
 		26D477221D2CE941000DD102 /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477211D2CE941000DD102 /* blake2s.c */; };
 		26D477251D2CE9E8000DD102 /* blake2sp.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477241D2CE9E8000DD102 /* blake2sp.c */; };
 		26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D69B821AE62B7E005B114A /* Whirlpool.c */; };
+		26DA4D9F22FD037200B38AE0 /* RHash-1.3.8.zip in Resources */ = {isa = PBXBuildFile; fileRef = 26DA4D9E22FD037200B38AE0 /* RHash-1.3.8.zip */; };
+		26DA4DA522FD03A000B38AE0 /* tiger.c in Sources */ = {isa = PBXBuildFile; fileRef = 26DA4DA122FD03A000B38AE0 /* tiger.c */; };
+		26DA4DA622FD03A000B38AE0 /* tiger_sbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 26DA4DA222FD03A000B38AE0 /* tiger_sbox.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +142,12 @@
 		26D69B821AE62B7E005B114A /* Whirlpool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Whirlpool.c; path = Whirlpool/Whirlpool.c; sourceTree = "<group>"; };
 		26D69B831AE62B7E005B114A /* nessie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nessie.h; path = Whirlpool/nessie.h; sourceTree = "<group>"; };
 		26D69B861AE62EDF005B114A /* Whirlpool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Whirlpool.h; path = Whirlpool/Whirlpool.h; sourceTree = "<group>"; };
+		26DA4D9E22FD037200B38AE0 /* RHash-1.3.8.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "RHash-1.3.8.zip"; sourceTree = "<group>"; };
+		26DA4DA122FD03A000B38AE0 /* tiger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tiger.c; path = Tiger/tiger.c; sourceTree = "<group>"; };
+		26DA4DA222FD03A000B38AE0 /* tiger_sbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tiger_sbox.c; path = Tiger/tiger_sbox.c; sourceTree = "<group>"; };
+		26DA4DA322FD03A000B38AE0 /* ustd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ustd.h; path = Tiger/ustd.h; sourceTree = "<group>"; };
+		26DA4DA422FD03A000B38AE0 /* tiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tiger.h; path = Tiger/tiger.h; sourceTree = "<group>"; };
+		26DA4DA722FD03ED00B38AE0 /* byte_order.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = byte_order.h; path = Tiger/byte_order.h; sourceTree = "<group>"; };
 		26F5F0C722C9E38600B38AE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +209,7 @@
 				26719EF61B7E8D99007FBFE6 /* RMD320 */,
 				268BC2751AE7886500133859 /* SHA3 */,
 				26D477131D248EFD000DD102 /* Skein */,
+				26DA4DA022FD038300B38AE0 /* Tiger */,
 				26D69B851AE62B86005B114A /* Whirlpool */,
 				266C334819FB8FF700089684 /* MainMenu.xib */,
 				263FFA1E19F1CA5300E9E1C7 /* Images.xcassets */,
@@ -281,6 +291,7 @@
 				26830A871AE880090054251E /* KeccakCodePackage-master.zip */,
 				26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */,
 				26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */,
+				26DA4D9E22FD037200B38AE0 /* RHash-1.3.8.zip */,
 				26830A881AE880090054251E /* whirlpool.zip */,
 			);
 			path = Sources;
@@ -444,6 +455,18 @@
 			name = Whirlpool;
 			sourceTree = "<group>";
 		};
+		26DA4DA022FD038300B38AE0 /* Tiger */ = {
+			isa = PBXGroup;
+			children = (
+				26DA4DA722FD03ED00B38AE0 /* byte_order.h */,
+				26DA4DA222FD03A000B38AE0 /* tiger_sbox.c */,
+				26DA4DA122FD03A000B38AE0 /* tiger.c */,
+				26DA4DA422FD03A000B38AE0 /* tiger.h */,
+				26DA4DA322FD03A000B38AE0 /* ustd.h */,
+			);
+			name = Tiger;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -537,6 +560,7 @@
 				26B7A7451B83FC50008A0A78 /* icon_1024x1024.png in Resources */,
 				26B7A7461B83FC50008A0A78 /* icon_512x512.png in Resources */,
 				26B7A7471B83FC50008A0A78 /* icon_256x256.png in Resources */,
+				26DA4D9F22FD037200B38AE0 /* RHash-1.3.8.zip in Resources */,
 				26B7A7481B83FC50008A0A78 /* icon_128x128.png in Resources */,
 				26B7A7491B83FC50008A0A78 /* icon_64x64.png in Resources */,
 				2696171022FAB82A00B38AE0 /* jh_20110116.zip in Resources */,
@@ -566,6 +590,7 @@
 				263FFA4519F24D4700E9E1C7 /* HashConstants.m in Sources */,
 				263FFA1D19F1CA5300E9E1C7 /* AppDelegate.m in Sources */,
 				263FFA1A19F1CA5300E9E1C7 /* main.m in Sources */,
+				26DA4DA522FD03A000B38AE0 /* tiger.c in Sources */,
 				2661CA681ADB9CA000E57BD1 /* HashOperation.m in Sources */,
 				263FFA4319F1CDF600E9E1C7 /* HashAppController.m in Sources */,
 				268BC2781AE7888E00133859 /* KeccakHash.c in Sources */,
@@ -581,6 +606,7 @@
 				26D4771F1D2CE8FE000DD102 /* blake2bp.c in Sources */,
 				26D477221D2CE941000DD102 /* blake2s.c in Sources */,
 				26D477251D2CE9E8000DD102 /* blake2sp.c in Sources */,
+				26DA4DA622FD03A000B38AE0 /* tiger_sbox.c in Sources */,
 				26D477001D21DC54000DD102 /* blake2b.c in Sources */,
 				26D477171D248EFD000DD102 /* skein.c in Sources */,
 				26D4771B1D248F96000DD102 /* skein_block.c in Sources */,

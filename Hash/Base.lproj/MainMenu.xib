@@ -408,6 +408,13 @@ CA
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="zUS-uj-ute"/>
+                                    <menuItem title="Tiger" tag="36" id="5wO-5V-d2L">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Tiger 2" tag="37" id="3Jh-Kl-aRD">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="C8v-zF-XQJ"/>
                                     <menuItem title="JH 224" tag="32" id="Rxi-Bg-adc" userLabel="JH 224">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
