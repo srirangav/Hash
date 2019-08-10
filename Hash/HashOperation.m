@@ -13,7 +13,7 @@
     v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
     v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384
     v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 
-    v. 1.1.0 (08/07/2019) - Add support for JH, Tiger and Tiger2
+    v. 1.1.0 (08/07/2019) - Add support for JH, Tiger, Tiger2, HAS-160, BLAKE
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -54,6 +54,8 @@
 #import "skein.h"
 #import "jh.h"
 #import "tiger.h"
+#import "has160.h"
+#import "blake.h"
 
 @implementation HashOperation
 
@@ -127,6 +129,11 @@
             case HASH_JH_512:
             case HASH_TIGER:
             case HASH_TIGER2:
+            case HASH_HAS160:
+            case HASH_BLAKE224:
+            case HASH_BLAKE256:
+            case HASH_BLAKE384:
+            case HASH_BLAKE512:
 
                 // valid hashType
 
@@ -202,14 +209,21 @@
         rmd320_ctx rmd320HashObject;
         NESSIEstruct whirlpoolHashObject;
         blake2b_state blake2bHashObject;
-        blake2bp_state blake2bpHashObject;
         blake2s_state blake2sHashObject;
+        /*
+        blake2bp_state blake2bpHashObject;
         blake2sp_state blake2spHashObject;
+        */
         Skein_256_Ctxt_t skein256HashObject;
         Skein_512_Ctxt_t skein512HashObject;
         Skein1024_Ctxt_t skein1024HashObject;
         JH_HashState jhHashObject;
         tiger_ctx tigerHashObject;
+        has160_ctx has160HashObject;
+        state224 blake224HashObject;
+        state256 blake256HashObject;
+        state384 blake384HashObject;
+        state512 blake512HashObject;
         
         do {
             
@@ -250,6 +264,7 @@
                 case HASH_SHA224:
                 case HASH_SHA3_224:
                 case HASH_JH_224:
+                case HASH_BLAKE224:
                     digestLength = CC_SHA224_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_MD6_256:
@@ -263,11 +278,13 @@
                 case HASH_SKEIN_512_256:
                 case HASH_SKEIN_1024_256:
                 case HASH_JH_256:
+                case HASH_BLAKE256:
                     digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SHA384:
                 case HASH_SHA3_384:
                 case HASH_JH_384:
+                case HASH_BLAKE384:
                     digestLength = CC_SHA384_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_MD6_512:
@@ -280,6 +297,7 @@
                 case HASH_SKEIN_512:
                 case HASH_SKEIN_1024_512:
                 case HASH_JH_512:
+                case HASH_BLAKE512:
                     digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SKEIN_1024:
@@ -293,6 +311,9 @@
                     break;
                 case HASH_WPOOL:
                     digestLength = NESSIE_DIGEST_LENGTH*sizeof(*digest);
+                    break;
+                case HASH_HAS160:
+                    digestLength = has160_hash_size*sizeof(*digest);
                     break;
                 default:
                     digestLength = 0;
@@ -383,15 +404,18 @@
                 case HASH_BLAKE2B_512:
                     blake2b_init(&blake2bHashObject, 64);
                     break;
+                /*
                 case HASH_BLAKE2BP_256:
                     blake2bp_init(&blake2bpHashObject, 32);
                     break;
                 case HASH_BLAKE2BP_512:
                     blake2bp_init(&blake2bpHashObject, 64);
                     break;
+                */
                 case HASH_BLAKE2S_256:
                     blake2s_init(&blake2sHashObject, 32);
                     break;
+                /*
                 case HASH_BLAKE2S_512:
                     blake2s_init(&blake2sHashObject, 64);
                     break;
@@ -401,6 +425,7 @@
                 case HASH_BLAKE2SP_512:
                     blake2sp_init(&blake2spHashObject, 64);
                     break;
+                */
                 case HASH_SKEIN_256:
                     Skein_256_Init(&skein256HashObject, 256);
                     break;
@@ -436,6 +461,21 @@
                     break;
                 case HASH_TIGER2:
                     rhash_tiger2_init(&tigerHashObject);
+                    break;
+                case HASH_HAS160:
+                    rhash_has160_init(&has160HashObject);
+                    break;
+                case HASH_BLAKE224:
+                    blake224_init(&blake224HashObject);
+                    break;
+                case HASH_BLAKE256:
+                    blake256_init(&blake256HashObject);
+                    break;
+                case HASH_BLAKE384:
+                    blake384_init(&blake384HashObject);
+                    break;
+                case HASH_BLAKE512:
+                    blake512_init(&blake512HashObject);
                     break;
                 default:
                     hasMoreData = FALSE;
@@ -609,24 +649,28 @@
                                        (const uint8_t *)buffer,
                                        (uint64_t)bytesRead);
                         break;
+                    /*
                     case HASH_BLAKE2BP_256:
                     case HASH_BLAKE2BP_512:
                         blake2bp_update(&blake2bpHashObject,
                                        (const uint8_t *)buffer,
                                        (uint64_t)bytesRead);
                         break;
+                    */
                     case HASH_BLAKE2S_256:
-                    case HASH_BLAKE2S_512:
+                    //case HASH_BLAKE2S_512:
                         blake2s_update(&blake2sHashObject,
                                        (const uint8_t *)buffer,
                                        (uint64_t)bytesRead);
                         break;
+                    /*
                     case HASH_BLAKE2SP_256:
                     case HASH_BLAKE2SP_512:
                         blake2sp_update(&blake2spHashObject,
                                         (const uint8_t *)buffer,
                                         (uint64_t)bytesRead);
                         break;
+                    */
                     case HASH_SKEIN_256:
                         Skein_256_Update(&skein256HashObject,
                                          (const u08b_t *)buffer,
@@ -665,11 +709,35 @@
                                            (const unsigned char*)buffer,
                                            (size_t)bytesRead);
                         break;
+                    case HASH_HAS160:
+                        rhash_has160_update(&has160HashObject,
+                                           (const unsigned char*)buffer,
+                                           (size_t)bytesRead);
+                        break;
+                    case HASH_BLAKE224:
+                        blake224_update(&blake224HashObject,
+                                        (const uint8_t *)buffer,
+                                        bytesRead);
+                        break;
+                    case HASH_BLAKE256:
+                        blake256_update(&blake256HashObject,
+                                        (const uint8_t *)buffer,
+                                        bytesRead);
+                        break;
+                    case HASH_BLAKE384:
+                        blake384_update(&blake384HashObject,
+                                        (const uint8_t *)buffer,
+                                        bytesRead);
+                        break;
+                    case HASH_BLAKE512:
+                        blake512_update(&blake512HashObject,
+                                        (const uint8_t *)buffer,
+                                        bytesRead);
+                        break;
                     default:
                         hasMoreData = FALSE;
                         readFailed = TRUE;
                         break;
-
                 }
             }
 
@@ -725,15 +793,18 @@
                 case HASH_BLAKE2B_512:
                     blake2b_final(&blake2bHashObject, digest, 64);
                     break;
+                /*
                 case HASH_BLAKE2BP_256:
                     blake2bp_final(&blake2bpHashObject, digest, 32);
                     break;
                 case HASH_BLAKE2BP_512:
                     blake2bp_final(&blake2bpHashObject, digest, 64);
                     break;
+                 */
                 case HASH_BLAKE2S_256:
                     blake2s_final(&blake2sHashObject, digest, 32);
                     break;
+                /*
                 case HASH_BLAKE2S_512:
                     blake2s_final(&blake2sHashObject, digest, 64);
                     break;
@@ -743,6 +814,7 @@
                 case HASH_BLAKE2SP_512:
                     blake2sp_final(&blake2spHashObject, digest, 64);
                     break;
+                */
                 case HASH_SKEIN_256:
                     Skein_256_Final(&skein256HashObject, digest);
                     break;
@@ -764,6 +836,21 @@
                 case HASH_TIGER:
                 case HASH_TIGER2:
                     rhash_tiger_final(&tigerHashObject, digest);
+                    break;
+                case HASH_HAS160:
+                    rhash_has160_final(&has160HashObject, digest);
+                    break;
+                case HASH_BLAKE224:
+                    blake224_final(&blake224HashObject, digest);
+                    break;
+                case HASH_BLAKE256:
+                    blake256_final(&blake256HashObject, digest);
+                    break;
+                case HASH_BLAKE384:
+                    blake384_final(&blake384HashObject, digest);
+                    break;
+                case HASH_BLAKE512:
+                    blake512_final(&blake512HashObject, digest);
                     break;
                 default:
                     hasMoreData = FALSE;

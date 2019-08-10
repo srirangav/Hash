@@ -18,7 +18,7 @@
     v. 1.1.0  (06/30/2019) - Add dark mode support
     v. 1.1.1  (08/01/2019) - Try to ensure text fields always display some
                              text
-    v. 1.1.2  (08/07/2019) - Add support for JH, Tiger, and Tiger 2
+    v. 1.1.2  (08/07/2019) - Add support for JH, Tiger, Tiger 2, HAS-160, BLAKE
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -264,7 +264,12 @@
         case HASH_JH_512:
         case HASH_TIGER:
         case HASH_TIGER2:
-
+        case HASH_HAS160:
+        case HASH_BLAKE224:
+        case HASH_BLAKE256:
+        case HASH_BLAKE384:
+        case HASH_BLAKE512:
+            
             // valid hash type selected, compute the file's hash and
             // display a sheet while the hash is being computed
 
@@ -668,6 +673,11 @@
         case HASH_JH_512:
         case HASH_TIGER:
         case HASH_TIGER2:
+        case HASH_HAS160:
+        case HASH_BLAKE224:
+        case HASH_BLAKE256:
+        case HASH_BLAKE384:
+        case HASH_BLAKE512:
 
             // valid hashType, return it
 

@@ -1,0 +1,323 @@
+Hash Licenses
+-------------
+
+Portions Copyright (c) 2014-2019 Sriranga Veeraraghavan <ranga@calalum.org>.
+All rights reserved.
+
+For those portions Copyright (c) Sriranga Veeraraghavan, the following license
+applies:
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+For other portions, the following licenses / terms apply:
+
+Checksum:
+
+    crc.c Copyright (c) 1991, 1993 The Regents of the University of
+    California. All rights reserved.
+
+    https://svnweb.freebsd.org/base/head/usr.bin/cksum/crc.c?revision=216370&view=co
+
+    This code is derived from software contributed to Berkeley by James W.
+    Williams of NASA Goddard Space Flight Center.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are
+    met:
+
+    1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+    2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+    4. Neither the name of the University nor the names of its contributors
+    may be used to endorse or promote products derived from this software
+    without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS
+    BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+    BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+    ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+CRC32:
+
+    crc32.c COPYRIGHT (C) 1986 Gary S. Brown.
+
+    You may use this program, or code or tables extracted from it, as desired
+    without restriction.
+
+    https://opensource.apple.com/source/xnu/xnu-1456.1.26/bsd/libkern/crc32.c
+
+RMD160:
+
+    rmd160.h and rmd160.c Copyright (c) 2001 Markus Friedl.  All rights reserved.
+
+    http://cvsweb.netbsd.org/bsdweb.cgi/othersrc/external/bsd/multigest/dist/?only_with_tag=MAIN
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+    1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+    2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+    THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+    IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+    INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+    SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+    HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+    STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+    IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+    POSSIBILITY OF SUCH DAMAGE.
+
+RMD320:
+
+    rmd320.c, rmd320.h, hash.h, bits.h From Catacomb and mLib (c) 1998
+    Straylight/Edgeware
+
+    http://www.chiark.greenend.org.uk/ucgi/~mdw/git/catacomb
+    http://www.chiark.greenend.org.uk/ucgi/~mdw/git/mLib
+
+    [rmd320.c, rmd320.h, hash.h]
+
+    This file is part of Catacomb.
+
+    Catacomb is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Library General Public License as published
+    by the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    Catacomb is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Library General Public
+    License for more details.
+
+    You should have received a copy of the GNU Library General Public
+    License along with Catacomb; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
+    USA.
+
+    [bits.h]
+
+    This file is part of the mLib utilities library.
+
+    mLib is free software; you can redistribute it and/or modify it under
+    the terms of the GNU Library General Public License as published by the
+    Free Software Foundation; either version 2 of the License, or (at your
+    option) any later version.
+
+    mLib is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Library General Public
+    License for more details.
+
+    You should have received a copy of the GNU Library General Public
+    License along with mLib; if not, write to the Free Software Foundation,
+    Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+Whirlpool:
+
+    nessie.h and Whirlpool.c by Vincent Rijmen and Paulo S. L. M. Barreto
+    (public domain)
+
+    http://www.larc.usp.br/~pbarreto/WhirlpoolPage.html
+
+    THIS SOFTWARE IS PROVIDED BY THE AUTHORS ''AS IS'' AND ANY EXPRESS OR
+    IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE
+    FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+    BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+    ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+SHA3:
+
+    Keccak Code Package by the Keccak Team (public domain) and brg_endian.h
+    Copyright (c) 1998-2008, Brian Gladman, Worcester, UK. All rights
+    reserved.
+
+    https://github.com/gvanas/KeccakCodePackage
+
+    [brg_endian.h]
+
+    LICENSE
+
+    The redistribution and use of this software (with or without changes)
+    is allowed without the payment of fees or royalties provided that:
+
+    1. source code distributions include the above copyright notice, this
+    list of conditions and the following disclaimer;
+
+    2. binary distributions include the above copyright notice, this list
+    of conditions and the following disclaimer in their documentation;
+
+    3. the name of the copyright holder is not used to endorse products
+    built using this software without specific written permission.
+
+    DISCLAIMER
+
+    This software is provided 'as is' with no explicit or implied
+    warranties in respect of its properties, including, but not limited to,
+    correctness and/or fitness for purpose.
+
+BLAKE:
+
+    BLAKE reference C implementation
+
+    [blake.h, blake_support.h, blake.c]
+
+    Copyright (c) 2012 Jean-Philippe Aumasson <jeanphilippe.aumasson@gmail.com>
+
+    To the extent possible under law, the author(s) have dedicated all
+    copyright and related and neighboring rights to this software to the
+    public domain worldwide. This software is distributed without any
+    warranty.
+
+    You should have received a copy of the CC0 Public Domain Dedication
+    along with this software. If not, see
+    <http://creativecommons.org/publicdomain/zero/1.0/>.
+
+BLAKE2:
+
+    BLAKE2 Copyright 2012, Samuel Neves <sneves@dei.uc.pt>
+
+    https://github.com/BLAKE2/BLAKE2
+
+    You may use this under the terms of the CC0, the OpenSSL Licence, or
+    the Apache Public License 2.0, at your option.  The terms of these
+    licenses can be found at:
+
+    - CC0 1.0 Universal : http://creativecommons.org/publicdomain/zero/1.0
+
+    - OpenSSL license   : https://www.openssl.org/source/license.html
+
+    - Apache 2.0        : http://www.apache.org/licenses/LICENSE-2.0
+
+Skein:
+
+    Skein source code by Doug Whiting 2008 (public domain) and brg_types.h
+    Copyright (c) 1998-2006, Brian Gladman, Worcester, UK. All rights
+    reserved.
+
+    http://www.skein-hash.info/
+
+    [skein.h, skein_iv.h, skein_port.h, skein_block.c, skein.c]
+
+    This algorithm and source code is released to the public domain.
+
+    [brg_types.h]
+
+    LICENSE TERMS
+
+    The free distribution and use of this software in both source and
+    binary form is allowed (with or without changes) provided that:
+
+    1. distributions of this source code include the above copyright
+    notice, this list of conditions and the following disclaimer;
+
+    2. distributions in binary form include the above copyright notice,
+    this list of conditions and the following disclaimer in the
+    documentation and/or other associated materials;
+
+    3. the copyright holder's name is not used to endorse products built
+    using this software without specific written permission.
+
+    ALTERNATIVELY, provided that this notice is retained in full, this
+    product may be distributed under the terms of the GNU General Public
+    License (GPL), in which case the provisions of the GPL apply INSTEAD OF
+    those given above.
+
+    DISCLAIMER
+
+    This software is provided 'as is' with no explicit or implied
+    warranties in respect of its properties, including, but not limited to,
+    correctness and/or fitness for purpose.
+
+MD6:
+
+    Copyright (c) 2008 Ronald L. Rivest
+
+    https://groups.csail.mit.edu/cis/md6/
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+JH:
+
+    https://www3.ntu.edu.sg/home/wuhj/research/jh/index.html
+
+    JH is not covered by any patent and JH is freely-available.
+
+Tiger, HAS-160:
+
+    https://github.com/rhash/RHash
+
+    [byte_order.h, tiger_sbox.c, tiger.c, tiger.h, ustd.h, has160.h,
+     has160.c]
+
+    Copyright: 2007-2012 Aleksey Kravchenko <rhash.admin@gmail.com>
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to  use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so.
+
+    This program is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  Use this program
+    at your own risk!

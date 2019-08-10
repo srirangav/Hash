@@ -360,28 +360,43 @@ CA
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="mOk-uh-dHE"/>
+                                    <menuItem title="Tiger" tag="36" id="5wO-5V-d2L">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Tiger 2" tag="37" id="3Jh-Kl-aRD">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="C8v-zF-XQJ"/>
+                                    <menuItem title="HAS-160" tag="38" id="gt9-FK-T5r">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="syc-bA-k6k"/>
+                                    <menuItem title="MD6 256" tag="30" id="IWm-F1-tqI">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="MD6 512" tag="31" id="UQt-ZY-iIn">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="RZp-LA-gnb"/>
+                                    <menuItem title="BLAKE 224" tag="39" id="0u0-X0-Wb6">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="BLAKE 256" tag="40" id="KuR-VK-Mlt">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="BLAKE 384" tag="41" id="3ke-G3-swm">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="BLAKE 512" tag="42" id="V57-Kc-FJB">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="BLAKE2S 256" tag="20" id="fqL-VU-8LC">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                     <menuItem title="BLAKE2B 256" tag="12" id="c9X-Rl-hSO">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="BLAKE2B 512" tag="13" id="wUD-CH-Tjy">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="BLAKE2BP 256" tag="24" id="N0J-IA-dQg">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="BLAKE2BP 512" tag="25" id="cRJ-b1-2uU">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="BLAKE2S 256" tag="20" id="wT3-YF-hFe">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="BLAKE2S 512" tag="21" id="3le-HB-aCA">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="BLAKE2SP 256" tag="22" id="gZa-lc-srp">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="BLAKE2SP 512" tag="23" id="AUi-6g-8OT">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="k5e-h8-S80"/>
@@ -401,20 +416,6 @@ CA
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="dZF-1I-r4K"/>
-                                    <menuItem title="MD6 256" tag="30" id="y7q-VS-8gI">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="MD6 512" tag="31" id="hAk-C7-bjm">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem isSeparatorItem="YES" id="zUS-uj-ute"/>
-                                    <menuItem title="Tiger" tag="36" id="5wO-5V-d2L">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="Tiger 2" tag="37" id="3Jh-Kl-aRD">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem isSeparatorItem="YES" id="C8v-zF-XQJ"/>
                                     <menuItem title="JH 224" tag="32" id="Rxi-Bg-adc" userLabel="JH 224">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>

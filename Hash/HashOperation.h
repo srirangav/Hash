@@ -14,7 +14,7 @@
     v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384, SHA3 224,
                             SHA3 284
     v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 
-    v. 1.1.0 (08/07/2019) - Add support for JH, Tiger, Tiger2
+    v. 1.1.0 (08/07/2019) - Add support for JH, Tiger, Tiger2. HAS-160, BLAKE
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -88,6 +88,11 @@ typedef enum {
     HASH_JH_512         = 35,
     HASH_TIGER          = 36,
     HASH_TIGER2         = 37,
+    HASH_HAS160         = 38,
+    HASH_BLAKE224       = 39,
+    HASH_BLAKE256       = 40,
+    HASH_BLAKE384       = 41,
+    HASH_BLAKE512       = 42,
 } HashType;
 
 // Default File Buffer Size (400K)
