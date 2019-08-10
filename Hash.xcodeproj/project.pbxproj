@@ -10,8 +10,6 @@
 		263C03B422FD582300B38AE0 /* has160.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03B222FD582300B38AE0 /* has160.c */; };
 		263C03B822FD64F600B38AE0 /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03B622FD64F600B38AE0 /* blake2s.c */; };
 		263C03C522FE4B9100B38AE0 /* blake.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03C422FE4B9100B38AE0 /* blake.c */; };
-		263C03C922FE51D800B38AE0 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 263C03C722FE51D800B38AE0 /* README.txt */; };
-		263C03CA22FE51D800B38AE0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 263C03C822FE51D800B38AE0 /* LICENSE.txt */; };
 		263FFA1A19F1CA5300E9E1C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FFA1919F1CA5300E9E1C7 /* main.m */; };
 		263FFA1D19F1CA5300E9E1C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FFA1C19F1CA5300E9E1C7 /* AppDelegate.m */; };
 		263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263FFA1E19F1CA5300E9E1C7 /* Images.xcassets */; };
@@ -30,7 +28,6 @@
 		268BC2781AE7888E00133859 /* KeccakHash.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC2761AE7888E00133859 /* KeccakHash.c */; };
 		268BC27B1AE788DD00133859 /* KeccakSponge.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC27A1AE788DD00133859 /* KeccakSponge.c */; };
 		268BC28D1AE78A8000133859 /* SnP-FBWL-default.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC28C1AE78A8000133859 /* SnP-FBWL-default.c */; };
-		2696171022FAB82A00B38AE0 /* jh_20110116.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2696170F22FAB82900B38AE0 /* jh_20110116.zip */; };
 		26B48BE622FEA2C000B38AE0 /* Groestl-mmx.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B48BE222FEA2C000B38AE0 /* Groestl-mmx.c */; };
 		26B741E41B7D5AF6000D74A1 /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B741E31B7D5AF6000D74A1 /* crc32.c */; };
 		26B741E71B7DC548000D74A1 /* crc.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B741E61B7DC548000D74A1 /* crc.c */; };
@@ -46,7 +43,6 @@
 		26D477171D248EFD000DD102 /* skein.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D477141D248EFD000DD102 /* skein.c */; };
 		26D4771B1D248F96000DD102 /* skein_block.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D4771A1D248F96000DD102 /* skein_block.c */; };
 		26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D69B821AE62B7E005B114A /* Whirlpool.c */; };
-		26DA4D9F22FD037200B38AE0 /* RHash-1.3.8.zip in Resources */ = {isa = PBXBuildFile; fileRef = 26DA4D9E22FD037200B38AE0 /* RHash-1.3.8.zip */; };
 		26DA4DA522FD03A000B38AE0 /* tiger.c in Sources */ = {isa = PBXBuildFile; fileRef = 26DA4DA122FD03A000B38AE0 /* tiger.c */; };
 		26DA4DA622FD03A000B38AE0 /* tiger_sbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 26DA4DA222FD03A000B38AE0 /* tiger_sbox.c */; };
 /* End PBXBuildFile section */
@@ -603,17 +599,13 @@
 				26B7A7451B83FC50008A0A78 /* icon_1024x1024.png in Resources */,
 				26B7A7461B83FC50008A0A78 /* icon_512x512.png in Resources */,
 				26B7A7471B83FC50008A0A78 /* icon_256x256.png in Resources */,
-				263C03CA22FE51D800B38AE0 /* LICENSE.txt in Resources */,
-				26DA4D9F22FD037200B38AE0 /* RHash-1.3.8.zip in Resources */,
 				26B7A7481B83FC50008A0A78 /* icon_128x128.png in Resources */,
 				26B7A7491B83FC50008A0A78 /* icon_64x64.png in Resources */,
-				2696171022FAB82A00B38AE0 /* jh_20110116.zip in Resources */,
 				26B7A74A1B83FC50008A0A78 /* icon_32x32.png in Resources */,
 				26B7A74B1B83FC50008A0A78 /* icon_16x16.png in Resources */,
 				263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */,
 				266C334219FB8E1E00089684 /* Localizable.strings in Resources */,
 				266C334A19FB8FF700089684 /* MainMenu.xib in Resources */,
-				263C03C922FE51D800B38AE0 /* README.txt in Resources */,
 				2684481419F4D31F00C2D3A3 /* icon.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
