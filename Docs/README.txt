@@ -20,6 +20,7 @@ About:
     Skein (256-256, 512-256, 512-512, 1024-256, 1024-512)
     MD6 (256, 512)
     JH (224, 256, 384, 512)
+    Groestl (224, 256, 384, 512)
     Tiger, Tiger2
     HAS-160
 
@@ -39,7 +40,7 @@ License:
 History:
 
     v. 1.1.2  - Added support for JH (224, 256, 384, 512), Tiger/Tiger2,
-                BLAKE (224, 256, 384, 512)
+                BLAKE (224, 256, 384, 512), GROESTL (224, 256, 384, 512)
     v. 1.1.1  - Enabled MD6
     v. 1.1.0  - Added suport for dark mode
     v. 1.0.15 - Updated for app notarizing
@@ -75,6 +76,8 @@ References:
                    https://lib.rs/crates/md6
     JH           - https://www3.ntu.edu.sg/home/wuhj/research/jh/index.html
                    https://en.wikipedia.org/wiki/JH_(hash_function)
+    Groestl      - https://www.groestl.info/
+                   https://en.wikipedia.org/wiki/Gr%C3%B8stl
     Tiger/Tiger2 - https://www.cs.technion.ac.il/~biham/Reports/Tiger/
                    https://en.wikipedia.org/wiki/Tiger_(hash_function)
                    https://github.com/rhash/RHash

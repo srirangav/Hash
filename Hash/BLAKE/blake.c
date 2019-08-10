@@ -12,7 +12,10 @@
  */
 
 #include "blake.h"
-#include "blake_support.h"  /* use support header to eliminate duplicate symbols  - SRV 08/09/2019 */
+
+/* use support header to eliminate duplicate symbols  - SRV 08/09/2019 */
+
+#include "blake_support.h"
 
 #define ROT(x,n) (((x)<<(32-n))|( (x)>>(n)))
 #define G(a,b,c,d,e)          \
@@ -24,6 +27,9 @@ v[a] += (m[sigma[i][e+1]] ^ u256[sigma[i][e]])+v[b]; \
 v[d] = ROT( v[d] ^ v[a], 8);        \
 v[c] += v[d];           \
 v[b] = ROT( v[b] ^ v[c], 7);
+
+/* rename ROT and G for BLAKE 384, 512 as ROT64 and G64 so all BLAKE
+   can be in one file - SRV 08/09/2019 */
 
 #define ROT64(x,n) (((x)<<(64-n))|( (x)>>(n)))
 #define G64(a,b,c,d,e)          \

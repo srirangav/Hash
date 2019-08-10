@@ -56,6 +56,7 @@
 #import "tiger.h"
 #import "has160.h"
 #import "blake.h"
+#import "Groestl-mmx.h"
 
 @implementation HashOperation
 
@@ -134,6 +135,10 @@
             case HASH_BLAKE256:
             case HASH_BLAKE384:
             case HASH_BLAKE512:
+            case HASH_GROESTL224:
+            case HASH_GROESTL256:
+            case HASH_GROESTL384:
+            case HASH_GROESTL512:
 
                 // valid hashType
 
@@ -224,6 +229,7 @@
         state256 blake256HashObject;
         state384 blake384HashObject;
         state512 blake512HashObject;
+        groestl_hashState groestlHashObject;
         
         do {
             
@@ -265,6 +271,7 @@
                 case HASH_SHA3_224:
                 case HASH_JH_224:
                 case HASH_BLAKE224:
+                case HASH_GROESTL224:
                     digestLength = CC_SHA224_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_MD6_256:
@@ -279,12 +286,14 @@
                 case HASH_SKEIN_1024_256:
                 case HASH_JH_256:
                 case HASH_BLAKE256:
+                case HASH_GROESTL256:
                     digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SHA384:
                 case HASH_SHA3_384:
                 case HASH_JH_384:
                 case HASH_BLAKE384:
+                case HASH_GROESTL384:
                     digestLength = CC_SHA384_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_MD6_512:
@@ -298,6 +307,7 @@
                 case HASH_SKEIN_1024_512:
                 case HASH_JH_512:
                 case HASH_BLAKE512:
+                case HASH_GROESTL512:
                     digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SKEIN_1024:
@@ -476,6 +486,18 @@
                     break;
                 case HASH_BLAKE512:
                     blake512_init(&blake512HashObject);
+                    break;
+                case HASH_GROESTL224:
+                    groestl_Init(&groestlHashObject, 224);
+                    break;
+                case HASH_GROESTL256:
+                    groestl_Init(&groestlHashObject, 256);
+                    break;
+                case HASH_GROESTL384:
+                    groestl_Init(&groestlHashObject, 384);
+                    break;
+                case HASH_GROESTL512:
+                    groestl_Init(&groestlHashObject, 512);
                     break;
                 default:
                     hasMoreData = FALSE;
@@ -734,6 +756,14 @@
                                         (const uint8_t *)buffer,
                                         bytesRead);
                         break;
+                    case HASH_GROESTL224:
+                    case HASH_GROESTL256:
+                    case HASH_GROESTL384:
+                    case HASH_GROESTL512:
+                        groestl_Update(&groestlHashObject,
+                                       (const groestl_BitSequence *)buffer,
+                                       (groestl_DataLength)(bytesRead*8));
+                        break;
                     default:
                         hasMoreData = FALSE;
                         readFailed = TRUE;
@@ -851,6 +881,13 @@
                     break;
                 case HASH_BLAKE512:
                     blake512_final(&blake512HashObject, digest);
+                    break;
+                case HASH_GROESTL224:
+                case HASH_GROESTL256:
+                case HASH_GROESTL384:
+                case HASH_GROESTL512:
+                    groestl_Final(&groestlHashObject,
+                                  (groestl_BitSequence *)digest);
                     break;
                 default:
                     hasMoreData = FALSE;

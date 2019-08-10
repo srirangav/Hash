@@ -403,17 +403,19 @@ HashReturn Init(hashState *state, int hashbitlen)
 /* change function name, return type, state to prevent name collisions - SRV 08/05/2019 */
 
 #ifdef JH_H
-JH_HashReturn JH_Update(JH_HashState *state, const JH_BitSequence *data, JH_DataLength databitlen)
+JH_HashReturn JH_Update(JH_HashState *state,
+                        const JH_BitSequence *data,
+                        JH_DataLength databitlen)
 #else
 HashReturn Update(hashState *state, const BitSequence *data, DataLength databitlen)
 #endif /* JH_H */
 {
 
-/* change to JH_DataLength to prevent name collisions - SRV 08/05/2019 */
 #ifdef JH_H
-    JH_DataLength index; /*the starting address of the data to be compressed*/
+      JH_DataLength index; /*the starting address of the data to be
+                            compressed*/
 #else
-    DataLength index; /*the starting address of the data to be compressed*/
+      DataLength index; /*the starting address of the data to be compressed*/
 #endif /* JH_H */
     
       state->databitlen += databitlen;
@@ -470,7 +472,8 @@ HashReturn Update(hashState *state, const BitSequence *data, DataLength databitl
 /* change function name, return type, state to prevent name collisions - SRV 08/05/2019 */
 
 #ifdef JH_H
-JH_HashReturn JH_Final(JH_HashState *state, JH_BitSequence *hashval)
+JH_HashReturn JH_Final(JH_HashState *state,
+                       JH_BitSequence *hashval)
 #else
 HashReturn Final(hashState *state, BitSequence *hashval)
 #endif /* JH_H */

@@ -428,6 +428,19 @@ CA
                                     <menuItem title="JH 512" tag="35" id="LZ5-Vk-R1y" userLabel="JH 512">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="grl-wO-Zvk"/>
+                                    <menuItem title="Groestl 224" tag="43" id="Buv-Ek-mdg">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Groestl 256" tag="44" id="SOo-6V-qxk">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Groestl 384" tag="45" id="RtY-vb-l9W">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Groestl 512" tag="46" id="1gt-7J-hoF">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                 </items>
                             </menu>
                         </popUpButtonCell>

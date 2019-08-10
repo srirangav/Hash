@@ -269,6 +269,10 @@
         case HASH_BLAKE256:
         case HASH_BLAKE384:
         case HASH_BLAKE512:
+        case HASH_GROESTL224:
+        case HASH_GROESTL256:
+        case HASH_GROESTL384:
+        case HASH_GROESTL512:
             
             // valid hash type selected, compute the file's hash and
             // display a sheet while the hash is being computed
@@ -678,6 +682,10 @@
         case HASH_BLAKE256:
         case HASH_BLAKE384:
         case HASH_BLAKE512:
+        case HASH_GROESTL224:
+        case HASH_GROESTL256:
+        case HASH_GROESTL384:
+        case HASH_GROESTL512:
 
             // valid hashType, return it
 
