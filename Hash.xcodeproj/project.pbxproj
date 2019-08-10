@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2612682622FEB81A00B38AE0 /* Groestl.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2612682522FEB81A00B38AE0 /* Groestl.zip */; };
 		263C03B422FD582300B38AE0 /* has160.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03B222FD582300B38AE0 /* has160.c */; };
 		263C03B822FD64F600B38AE0 /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03B622FD64F600B38AE0 /* blake2s.c */; };
 		263C03C522FE4B9100B38AE0 /* blake.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03C422FE4B9100B38AE0 /* blake.c */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2612682522FEB81A00B38AE0 /* Groestl.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Groestl.zip; sourceTree = "<group>"; };
 		263C03B222FD582300B38AE0 /* has160.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = has160.c; path = "HAS-160/has160.c"; sourceTree = "<group>"; };
 		263C03B322FD582300B38AE0 /* has160.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = has160.h; path = "HAS-160/has160.h"; sourceTree = "<group>"; };
 		263C03B522FD64F500B38AE0 /* blake2s-round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "blake2s-round.h"; path = "BLAKE2/blake2s-round.h"; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				265F79ED1F049C3300CCFB2D /* md6_c_code-2009-04-15.zip */,
 				26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */,
 				26719F051B7EAFB6007FBFE6 /* catacomb-f93fc80.tar.gz */,
+				2612682522FEB81A00B38AE0 /* Groestl.zip */,
 				2696170F22FAB82900B38AE0 /* jh_20110116.zip */,
 				26830A871AE880090054251E /* KeccakCodePackage-master.zip */,
 				26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */,
@@ -604,6 +607,7 @@
 				26B7A74A1B83FC50008A0A78 /* icon_32x32.png in Resources */,
 				26B7A74B1B83FC50008A0A78 /* icon_16x16.png in Resources */,
 				263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */,
+				2612682622FEB81A00B38AE0 /* Groestl.zip in Resources */,
 				266C334219FB8E1E00089684 /* Localizable.strings in Resources */,
 				266C334A19FB8FF700089684 /* MainMenu.xib in Resources */,
 				2684481419F4D31F00C2D3A3 /* icon.svg in Resources */,
