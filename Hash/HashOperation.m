@@ -111,12 +111,12 @@
             case HASH_WPOOL:
             case HASH_BLAKE2B_256:
             case HASH_BLAKE2B_512:
-            case HASH_BLAKE2BP_256:
-            case HASH_BLAKE2BP_512:
+            //case HASH_BLAKE2BP_256:
+            //case HASH_BLAKE2BP_512:
             case HASH_BLAKE2S_256:
-            case HASH_BLAKE2S_512:
-            case HASH_BLAKE2SP_256:
-            case HASH_BLAKE2SP_512:
+            //case HASH_BLAKE2S_512:
+            //case HASH_BLAKE2SP_256:
+            //case HASH_BLAKE2SP_512:
             case HASH_SKEIN_256:
             case HASH_SKEIN_512:
             case HASH_SKEIN_512_256:
