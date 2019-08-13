@@ -7,8 +7,9 @@
     v. 1.0.0 (10/20/2014) - Initial version
     v. 1.0.1 (04/17/2014) - Update to allow background processing of hashes
     v. 1.0.2 (04/27/2015) - Add progress bar support
-
-    Copyright (c) 2014 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    v. 1.0.3 (08/13/2019) - Add method to clear verification fields
+ 
+    Copyright (c) 2014, 2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -73,6 +74,8 @@ typedef enum {
 -(IBAction)clearFileFieldButtonClicked:(id)sender;
 
 -(IBAction)clearVerifyFieldButtonClicked:(id)sender;
+
+-(void)clearVerifyField;
 
 -(IBAction)selectedFileEditingFinished:(id)sender;
 

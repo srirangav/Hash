@@ -5,8 +5,9 @@
     History:
  
     v. 1.0.0 (10/20/2014) - Initial version
+    v. 1.0.1 (08/13/2019) - Add support for finder service
  
-    Copyright (c) 2014 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2014, 2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -45,8 +46,17 @@
 
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
+    /*
+        Register the Hash finder service.  See:
+    https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/SysServices/Articles/providing.html#//apple_ref/doc/uid/20000853-98488
+    https://stackoverflow.com/questions/41442474/how-to-register-service-from-app-in-macos-application
+     */
+    
+    service = [[HashAppService alloc] init];
+    [NSApp setServicesProvider: service];
+    NSUpdateDynamicServices();
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -58,7 +68,8 @@
     Based on: https://stackoverflow.com/questions/5268757/how-to-quit-cocoa-app-when-windows-close
  */
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
+{
     return TRUE;
 }
 
@@ -69,7 +80,9 @@
               https://stackoverflow.com/questions/7896646/how-to-pass-object-with-nsnotificationcenter
  */
 
--(BOOL)application:(NSApplication *)theApplication openFile:(NSString *)path {
+-(BOOL)application: (NSApplication *)theApplication
+          openFile: (NSString *)path
+{
     NSDictionary* fileInfo = nil;
 
     // if no path was specified, there is nothing to do
@@ -86,4 +99,5 @@
                                                       userInfo: fileInfo];
     return TRUE;
 }
+
 @end

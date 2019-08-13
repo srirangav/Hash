@@ -1,13 +1,11 @@
-/* 
-    Hash - AppDelegate.h
-    $Id: AppDelegate.h 1399 2015-04-27 07:23:23Z ranga $
- 
+/*
+    Hash - HashAppService.h
+
     History:
  
-    v. 1.0.0 (10/20/2014) - Initial version
-    v. 1.0.1 (08/13/2019) - Add support for finder service
+    v. 1.0.0 (08/13/2019) - Initial version
  
-    Copyright (c) 2014, 2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -28,12 +26,17 @@
     DEALINGS IN THE SOFTWARE.
 */
 
-#import <Cocoa/Cocoa.h>
-#import "HashAppService.h"
+#ifndef HashAppService_h
+#define HashAppService_h
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
-{
-    HashAppService *service;
-}
+#import <Cocoa/Cocoa.h>
+
+@interface HashAppService : NSObject <NSApplicationDelegate,NSObject>
+
+- (void)hashSelectedFile: (NSPasteboard *)pboard
+                userData: (NSString *)userData
+                   error: (NSString **)error;
+    
 @end
 
+#endif /* HashAppService_h */

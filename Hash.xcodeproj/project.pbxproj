@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2608516B23023F9900B38AE0 /* HashAppService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608516A23023F9900B38AE0 /* HashAppService.m */; };
 		2612682622FEB81A00B38AE0 /* Groestl.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2612682522FEB81A00B38AE0 /* Groestl.zip */; };
 		263C03B422FD582300B38AE0 /* has160.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03B222FD582300B38AE0 /* has160.c */; };
 		263C03B822FD64F600B38AE0 /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03B622FD64F600B38AE0 /* blake2s.c */; };
@@ -59,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2608516A23023F9900B38AE0 /* HashAppService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashAppService.m; sourceTree = "<group>"; };
+		2608516C23023FE600B38AE0 /* HashAppService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashAppService.h; sourceTree = "<group>"; };
 		2612682522FEB81A00B38AE0 /* Groestl.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Groestl.zip; sourceTree = "<group>"; };
 		263C03B222FD582300B38AE0 /* has160.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = has160.c; path = "HAS-160/has160.c"; sourceTree = "<group>"; };
 		263C03B322FD582300B38AE0 /* has160.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = has160.h; path = "HAS-160/has160.h"; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 				263FFA4719F257B000E9E1C7 /* Hash.entitlements */,
 				263FFA1B19F1CA5300E9E1C7 /* AppDelegate.h */,
 				263FFA1C19F1CA5300E9E1C7 /* AppDelegate.m */,
+				2608516C23023FE600B38AE0 /* HashAppService.h */,
+				2608516A23023F9900B38AE0 /* HashAppService.m */,
 				263FFA4119F1CDF600E9E1C7 /* HashAppController.h */,
 				263FFA4219F1CDF600E9E1C7 /* HashAppController.m */,
 				263FFA4619F24D5C00E9E1C7 /* HashConstants.h */,
@@ -635,6 +640,7 @@
 				2661CA681ADB9CA000E57BD1 /* HashOperation.m in Sources */,
 				263FFA4319F1CDF600E9E1C7 /* HashAppController.m in Sources */,
 				268BC2781AE7888E00133859 /* KeccakHash.c in Sources */,
+				2608516B23023F9900B38AE0 /* HashAppService.m in Sources */,
 				263C03C522FE4B9100B38AE0 /* blake.c in Sources */,
 				268BC27B1AE788DD00133859 /* KeccakSponge.c in Sources */,
 				26D4770C1D220041000DD102 /* KeccakF-1600-opt64.c in Sources */,

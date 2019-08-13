@@ -19,6 +19,8 @@
     v. 1.1.1  (08/01/2019) - Try to ensure text fields always display some
                              text
     v. 1.1.2  (08/07/2019) - Add support for JH, Tiger, Tiger 2, HAS-160, BLAKE
+    v. 1.1.3  (08/13/2019) - Clear verification and message fields when the
+                             selected file changes
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -117,6 +119,11 @@
     // set the selected file to the specificed path
     
     [self setSelectedFile: path];
+
+    // clear the verification fields and the message file
+    
+    [self clearVerifyField];
+    [self setMessage: @""];
 }
 
 /*
@@ -458,6 +465,15 @@
 */
 
 -(IBAction)clearVerifyFieldButtonClicked:(id)sender
+{
+    [self clearVerifyField];
+}
+
+/*
+    clearVerifyField - clear the verify field
+*/
+
+-(void)clearVerifyField
 {
     [self setVerifyConfirm: VERIFY_CLEAR];
     [verifyHashField setStringValue: @""];
