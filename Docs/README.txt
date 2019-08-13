@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.2
+Hash v. 1.1.3
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -39,6 +39,7 @@ License:
 
 History:
 
+    v. 1.1.3  - Added finder service to hash a selected file
     v. 1.1.2  - Added support for JH (224, 256, 384, 512), Tiger/Tiger2,
                 BLAKE (224, 256, 384, 512), GROESTL (224, 256, 384, 512)
     v. 1.1.1  - Enabled MD6
