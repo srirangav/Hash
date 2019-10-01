@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2608516B23023F9900B38AE0 /* HashAppService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608516A23023F9900B38AE0 /* HashAppService.m */; };
-		2612682622FEB81A00B38AE0 /* Groestl.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2612682522FEB81A00B38AE0 /* Groestl.zip */; };
 		263C03B422FD582300B38AE0 /* has160.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03B222FD582300B38AE0 /* has160.c */; };
 		263C03B822FD64F600B38AE0 /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03B622FD64F600B38AE0 /* blake2s.c */; };
 		263C03C522FE4B9100B38AE0 /* blake.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03C422FE4B9100B38AE0 /* blake.c */; };
+		263E467F2342E38C00B38AE0 /* sha1dc.c in Sources */ = {isa = PBXBuildFile; fileRef = 263E467C2342E38C00B38AE0 /* sha1dc.c */; };
+		263E46802342E38C00B38AE0 /* ubc_check.c in Sources */ = {isa = PBXBuildFile; fileRef = 263E467E2342E38C00B38AE0 /* ubc_check.c */; };
 		263FFA1A19F1CA5300E9E1C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FFA1919F1CA5300E9E1C7 /* main.m */; };
 		263FFA1D19F1CA5300E9E1C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FFA1C19F1CA5300E9E1C7 /* AppDelegate.m */; };
 		263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263FFA1E19F1CA5300E9E1C7 /* Images.xcassets */; };
@@ -73,6 +74,11 @@
 		263C03C422FE4B9100B38AE0 /* blake.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = blake.c; path = BLAKE/blake.c; sourceTree = "<group>"; };
 		263C03C722FE51D800B38AE0 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = Docs/README.txt; sourceTree = SOURCE_ROOT; };
 		263C03C822FE51D800B38AE0 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = Docs/LICENSE.txt; sourceTree = SOURCE_ROOT; };
+		263E467B2342E38C00B38AE0 /* ubc_check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ubc_check.h; sourceTree = "<group>"; };
+		263E467C2342E38C00B38AE0 /* sha1dc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1dc.c; sourceTree = "<group>"; };
+		263E467D2342E38C00B38AE0 /* sha1dc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1dc.h; sourceTree = "<group>"; };
+		263E467E2342E38C00B38AE0 /* ubc_check.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ubc_check.c; sourceTree = "<group>"; };
+		263E468123434AC000B38AE0 /* sha1collisiondetection-master.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "sha1collisiondetection-master.zip"; sourceTree = "<group>"; };
 		263FFA1419F1CA5300E9E1C7 /* Hash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		263FFA1819F1CA5300E9E1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		263FFA1919F1CA5300E9E1C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -209,6 +215,17 @@
 			path = Docs;
 			sourceTree = "<group>";
 		};
+		263E467A2342E38C00B38AE0 /* SHA1DC */ = {
+			isa = PBXGroup;
+			children = (
+				263E467D2342E38C00B38AE0 /* sha1dc.h */,
+				263E467B2342E38C00B38AE0 /* ubc_check.h */,
+				263E467C2342E38C00B38AE0 /* sha1dc.c */,
+				263E467E2342E38C00B38AE0 /* ubc_check.c */,
+			);
+			path = SHA1DC;
+			sourceTree = "<group>";
+		};
 		263FFA0B19F1CA5300E9E1C7 = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +270,7 @@
 				26B4DEF41F048EC400F340FA /* MD6 */,
 				26D69B5B1AE625B8005B114A /* RMD160 */,
 				26719EF61B7E8D99007FBFE6 /* RMD320 */,
+				263E467A2342E38C00B38AE0 /* SHA1DC */,
 				268BC2751AE7886500133859 /* SHA3 */,
 				26D477131D248EFD000DD102 /* Skein */,
 				26DA4DA022FD038300B38AE0 /* Tiger */,
@@ -330,15 +348,16 @@
 		26830A861AE880090054251E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				265F79ED1F049C3300CCFB2D /* md6_c_code-2009-04-15.zip */,
 				26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */,
 				26719F051B7EAFB6007FBFE6 /* catacomb-f93fc80.tar.gz */,
 				2612682522FEB81A00B38AE0 /* Groestl.zip */,
 				2696170F22FAB82900B38AE0 /* jh_20110116.zip */,
 				26830A871AE880090054251E /* KeccakCodePackage-master.zip */,
+				265F79ED1F049C3300CCFB2D /* md6_c_code-2009-04-15.zip */,
 				26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */,
 				26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */,
 				26DA4D9E22FD037200B38AE0 /* RHash-1.3.8.zip */,
+				263E468123434AC000B38AE0 /* sha1collisiondetection-master.zip */,
 				26830A881AE880090054251E /* whirlpool.zip */,
 			);
 			path = Sources;
@@ -612,7 +631,6 @@
 				26B7A74A1B83FC50008A0A78 /* icon_32x32.png in Resources */,
 				26B7A74B1B83FC50008A0A78 /* icon_16x16.png in Resources */,
 				263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */,
-				2612682622FEB81A00B38AE0 /* Groestl.zip in Resources */,
 				266C334219FB8E1E00089684 /* Localizable.strings in Resources */,
 				266C334A19FB8FF700089684 /* MainMenu.xib in Resources */,
 				2684481419F4D31F00C2D3A3 /* icon.svg in Resources */,
@@ -634,6 +652,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				263FFA4519F24D4700E9E1C7 /* HashConstants.m in Sources */,
+				263E46802342E38C00B38AE0 /* ubc_check.c in Sources */,
 				263FFA1D19F1CA5300E9E1C7 /* AppDelegate.m in Sources */,
 				263FFA1A19F1CA5300E9E1C7 /* main.m in Sources */,
 				26DA4DA522FD03A000B38AE0 /* tiger.c in Sources */,
@@ -650,6 +669,7 @@
 				265C0D801F0492BE00D587B1 /* md6_mode.c in Sources */,
 				265C0D7F1F0492BE00D587B1 /* md6_compress.c in Sources */,
 				263C03B822FD64F600B38AE0 /* blake2s.c in Sources */,
+				263E467F2342E38C00B38AE0 /* sha1dc.c in Sources */,
 				26B741E71B7DC548000D74A1 /* crc.c in Sources */,
 				263FFA4019F1CB2400E9E1C7 /* rmd160.c in Sources */,
 				26719F021B7EAE97007FBFE6 /* rmd320.c in Sources */,
@@ -816,6 +836,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -837,6 +858,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

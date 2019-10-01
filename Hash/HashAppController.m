@@ -21,6 +21,7 @@
     v. 1.1.2  (08/07/2019) - Add support for JH, Tiger, Tiger 2, HAS-160, BLAKE
     v. 1.1.3  (08/13/2019) - Clear verification and message fields when the
                              selected file changes
+    v. 1.1.4  (09/30/2019) - Add support for SHA1 collision detection
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -240,6 +241,7 @@
         case HASH_MD6_256:
         case HASH_MD6_512:
         case HASH_SHA1:
+        case HASH_SHA1DC:
         case HASH_SHA224:
         case HASH_SHA256:
         case HASH_SHA384:
@@ -662,6 +664,7 @@
         case HASH_MD6_256:
         case HASH_MD6_512:
         case HASH_SHA1:
+        case HASH_SHA1DC:
         case HASH_SHA224:
         case HASH_SHA256:
         case HASH_SHA384:

@@ -355,3 +355,13 @@ Groestl:
     This software is provided 'as is' with no explicit or implied
     warranties in respect of its properties, including, but not limited to,
     correctness and/or fitness for purpose.
+
+SHA1 Collision Detection:
+
+    https://github.com/cr-marcstevens/sha1collisiondetection
+    
+    Copyright 2017 Marc Stevens <marc@marc-stevens.nl>,
+    Dan Shumow <danshu@microsoft.com>
+    
+    Distributed under the MIT Software License.
+    https://opensource.org/licenses/MIT

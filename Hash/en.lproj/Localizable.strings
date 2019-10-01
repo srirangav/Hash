@@ -6,7 +6,8 @@
  
     v. 1.0.0 (10/25/2014) - Initial version
     v. 1.0.1 (04/12/2015) - Added strings corresponding to threading
-
+    v. 1.0.2 (10/01/2019) - Add strings for collision detection
+ 
     Based on: http://rshankar.com/internationalization-and-localization-of-apps-in-xcode-6-and-swift/
               https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/LoadingResources/Strings/Strings.html#//apple_ref/doc/uid/20000005-97055
               http://bdunagan.com/2009/03/15/ibtool-localization-made-easy/
@@ -67,3 +68,7 @@ HASH_CANT_GET_HASH = "Cannot calculate hash.";
 /* HASH_ALREADY_RUNNING */
 
 HASH_ALREADY_RUNNING = "Already calculating a hash.";
+
+/* HASH_COLLISION_DETECTED */
+
+HASH_COLLISION_DETECTED = "(Collision)";

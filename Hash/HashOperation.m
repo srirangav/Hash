@@ -14,6 +14,7 @@
     v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384
     v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 
     v. 1.1.0 (08/07/2019) - Add support for JH, Tiger, Tiger2, HAS-160, BLAKE
+    v. 1.1.1 (09/30/2019) - Add support for SHA1 collision detection
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -57,6 +58,7 @@
 #import "has160.h"
 #import "blake.h"
 #import "Groestl-mmx.h"
+#import "sha1dc.h"
 
 @implementation HashOperation
 
@@ -99,6 +101,7 @@
             case HASH_MD6_256:
             case HASH_MD6_512:
             case HASH_SHA1:
+            case HASH_SHA1DC:
             case HASH_SHA224:
             case HASH_SHA256:
             case HASH_SHA384:
@@ -201,11 +204,19 @@
         bool hasMoreData = TRUE;
         bool readFailed = FALSE;
 
+        /* variables to handle collisions */
+        
+        int collision = 0;
+        NSString *collisonMsg = NSLocalizedString(@"HASH_COLLISION_DETECTED",
+                                                  @"HASH_COLLISION_DETECTED");
+        unsigned long collisionMsgExtraBufferSize = [collisonMsg length] + 1;
+        
         /* hash objects for the supported hashes */
 
         crcContext crcHashObject;
         CC_MD5_CTX md5HashObject;
         CC_SHA1_CTX sha1HashObject;
+        SHA1_CTX sha1DCHashObject;
         CC_SHA256_CTX sha256HashObject;
         CC_SHA512_CTX sha512HashObject;
         Keccak_HashInstance sha3HashObject;
@@ -261,6 +272,7 @@
                     digestLength = CC_MD5_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SHA1:
+                case HASH_SHA1DC:
                     digestLength = CC_SHA1_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_TIGER:
@@ -374,6 +386,9 @@
                     break;
                 case HASH_SHA1:
                     CC_SHA1_Init(&sha1HashObject);
+                    break;
+                case HASH_SHA1DC:
+                    SHA1DCInit(&sha1DCHashObject);
                     break;
                 case HASH_SHA224:
                     CC_SHA224_Init(&sha256HashObject);
@@ -610,11 +625,15 @@
                                    (unsigned char *)buffer,
                                    bytesRead*8);
                         break;
-                        
                     case HASH_SHA1:
                         CC_SHA1_Update(&sha1HashObject,
                                        (const void *)buffer,
                                        (CC_LONG)bytesRead);
+                        break;
+                    case HASH_SHA1DC:
+                        SHA1DCUpdate(&sha1DCHashObject,
+                                     (const char*)buffer,
+                                     (unsigned)bytesRead);
                         break;
                     case HASH_SHA224:
                         CC_SHA224_Update(&sha256HashObject,
@@ -790,6 +809,9 @@
                 case HASH_SHA1:
                     CC_SHA1_Final(digest, &sha1HashObject);
                     break;
+                case HASH_SHA1DC:
+                    collision = SHA1DCFinal(digest, &sha1DCHashObject);
+                    break;
                 case HASH_SHA224:
                     CC_SHA224_Final(digest, &sha256HashObject);
                     break;
@@ -903,10 +925,29 @@
                     hashResult = [NSMutableString stringWithFormat: @"%u",
                                   crcHashObject.crc];
                 } else {
+                    
+                    /*
+                        allocate enough room to store the hash result,
+                        plus a collision detected message.
+                     */
+                    
                     hashResult = [NSMutableString stringWithCapacity:
-                              (2*digestLength) + 1];
+                                  (2*digestLength) +
+                                  (hashType == HASH_SHA1DC ?
+                                   collisionMsgExtraBufferSize : 0) +
+                                  1];
+                    
+                    /* output the hash in hex with capital letters for A-F */
+                    
                     for (i = 0; i < digestLength; ++i) {
-                        [hashResult appendFormat:@"%02X",(int)(digest[i])];
+                        [hashResult appendFormat:@"%02X", (int)(digest[i])];
+                    }
+                    
+                    /* if there was a collision, add the collision message */
+                    
+                    if (hashType == HASH_SHA1DC &&
+                        collision != 0) {
+                        [hashResult appendString: collisonMsg];
                     }
                 }
             }

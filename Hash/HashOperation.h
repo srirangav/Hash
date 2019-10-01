@@ -15,6 +15,7 @@
                             SHA3 284
     v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 
     v. 1.1.0 (08/07/2019) - Add support for JH, Tiger, Tiger2. HAS-160, BLAKE
+    v. 1.1.1 (09/30/2019) - Add support for SHA1 collision detection
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -97,6 +98,7 @@ typedef enum {
     HASH_GROESTL256     = 44,
     HASH_GROESTL384     = 45,
     HASH_GROESTL512     = 46,
+    HASH_SHA1DC         = 47,
 } HashType;
 
 // Default File Buffer Size (400K)

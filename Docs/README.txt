@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.3
+Hash v. 1.1.4
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -11,6 +11,7 @@ About:
 
     MD5
     SHA1
+    SHA1 DC (SHA1 with collision detection / protection enabled)
     SHA2 (SHA224, SHA256, SHA384, SHA512)
     SHA3 (224, 256, 384, 512)
     RIPEMD (160, 320)
@@ -39,6 +40,7 @@ License:
 
 History:
 
+    v. 1.1.4  - Added SHA1 collision detection
     v. 1.1.3  - Added finder service to hash a selected file
     v. 1.1.2  - Added support for JH (224, 256, 384, 512), Tiger/Tiger2,
                 BLAKE (224, 256, 384, 512), GROESTL (224, 256, 384, 512)
@@ -54,6 +56,7 @@ References:
 
     MD5          - RFC 1321 (https://tools.ietf.org/html/rfc1321)
     SHA1         - https://en.wikipedia.org/wiki/SHA-1
+    SHA1 DC      - https://github.com/cr-marcstevens/sha1collisiondetection
     SHA2         - https://en.wikipedia.org/wiki/SHA-2
     SHA3         - https://keccak.team/
                    https://en.wikipedia.org/wiki/SHA-3
