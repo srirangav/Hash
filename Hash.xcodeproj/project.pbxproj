@@ -31,6 +31,8 @@
 		268BC2781AE7888E00133859 /* KeccakHash.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC2761AE7888E00133859 /* KeccakHash.c */; };
 		268BC27B1AE788DD00133859 /* KeccakSponge.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC27A1AE788DD00133859 /* KeccakSponge.c */; };
 		268BC28D1AE78A8000133859 /* SnP-FBWL-default.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC28C1AE78A8000133859 /* SnP-FBWL-default.c */; };
+		269E9C10237E321800B38AE0 /* snefru.c in Sources */ = {isa = PBXBuildFile; fileRef = 269E9C0E237E321800B38AE0 /* snefru.c */; };
+		269E9C12237E381600B38AE0 /* byte_order.c in Sources */ = {isa = PBXBuildFile; fileRef = 269E9C11237E381600B38AE0 /* byte_order.c */; };
 		26B48BE622FEA2C000B38AE0 /* Groestl-mmx.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B48BE222FEA2C000B38AE0 /* Groestl-mmx.c */; };
 		26B741E41B7D5AF6000D74A1 /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B741E31B7D5AF6000D74A1 /* crc32.c */; };
 		26B741E71B7DC548000D74A1 /* crc.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B741E61B7DC548000D74A1 /* crc.c */; };
@@ -129,6 +131,9 @@
 		268BC2871AE789D000133859 /* brg_endian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = brg_endian.h; path = SHA3/Common/brg_endian.h; sourceTree = "<group>"; };
 		268BC28C1AE78A8000133859 /* SnP-FBWL-default.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "SnP-FBWL-default.c"; path = "SHA3/SnP/SnP-FBWL-default.c"; sourceTree = "<group>"; };
 		2696170F22FAB82900B38AE0 /* jh_20110116.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = jh_20110116.zip; sourceTree = "<group>"; };
+		269E9C0E237E321800B38AE0 /* snefru.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = snefru.c; sourceTree = "<group>"; };
+		269E9C0F237E321800B38AE0 /* snefru.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snefru.h; sourceTree = "<group>"; };
+		269E9C11237E381600B38AE0 /* byte_order.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = byte_order.c; path = Tiger/byte_order.c; sourceTree = "<group>"; };
 		26B48BE122FEA2C000B38AE0 /* brg_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = brg_types.h; path = Groestl/brg_types.h; sourceTree = "<group>"; };
 		26B48BE222FEA2C000B38AE0 /* Groestl-mmx.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "Groestl-mmx.c"; path = "Groestl/Groestl-mmx.c"; sourceTree = "<group>"; };
 		26B48BE322FEA2C000B38AE0 /* tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tables.h; path = Groestl/tables.h; sourceTree = "<group>"; };
@@ -273,6 +278,7 @@
 				263E467A2342E38C00B38AE0 /* SHA1DC */,
 				268BC2751AE7886500133859 /* SHA3 */,
 				26D477131D248EFD000DD102 /* Skein */,
+				269E9C0D237E321800B38AE0 /* Snefru */,
 				26DA4DA022FD038300B38AE0 /* Tiger */,
 				26D69B851AE62B86005B114A /* Whirlpool */,
 				266C334819FB8FF700089684 /* MainMenu.xib */,
@@ -420,6 +426,15 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		269E9C0D237E321800B38AE0 /* Snefru */ = {
+			isa = PBXGroup;
+			children = (
+				269E9C0F237E321800B38AE0 /* snefru.h */,
+				269E9C0E237E321800B38AE0 /* snefru.c */,
+			);
+			path = Snefru;
+			sourceTree = "<group>";
+		};
 		26B48BE022FEA29C00B38AE0 /* Groestl */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				26DA4DA722FD03ED00B38AE0 /* byte_order.h */,
+				269E9C11237E381600B38AE0 /* byte_order.c */,
 				26DA4DA322FD03A000B38AE0 /* ustd.h */,
 				26DA4DA422FD03A000B38AE0 /* tiger.h */,
 				26DA4DA122FD03A000B38AE0 /* tiger.c */,
@@ -671,6 +687,8 @@
 				263C03B822FD64F600B38AE0 /* blake2s.c in Sources */,
 				263E467F2342E38C00B38AE0 /* sha1dc.c in Sources */,
 				26B741E71B7DC548000D74A1 /* crc.c in Sources */,
+				269E9C10237E321800B38AE0 /* snefru.c in Sources */,
+				269E9C12237E381600B38AE0 /* byte_order.c in Sources */,
 				263FFA4019F1CB2400E9E1C7 /* rmd160.c in Sources */,
 				26719F021B7EAE97007FBFE6 /* rmd320.c in Sources */,
 				26DA4DA622FD03A000B38AE0 /* tiger_sbox.c in Sources */,
@@ -836,7 +854,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -858,7 +876,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

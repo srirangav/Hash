@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.4
+Hash v. 1.1.5
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -24,6 +24,7 @@ About:
     Groestl (224, 256, 384, 512)
     Tiger, Tiger2
     HAS-160
+    Snefru (128, 256)
 
 Installation:
 
@@ -40,6 +41,7 @@ License:
 
 History:
 
+    v. 1.1.5  - Added support for Snefru (128, 256)
     v. 1.1.4  - Added SHA1 collision detection
     v. 1.1.3  - Added finder service to hash a selected file
     v. 1.1.2  - Added support for JH (224, 256, 384, 512), Tiger/Tiger2,
@@ -86,4 +88,6 @@ References:
                    https://en.wikipedia.org/wiki/Tiger_(hash_function)
                    https://github.com/rhash/RHash
     HAS-160      - https://www.randombit.net/has160.html
+                   https://github.com/rhash/RHash
+    Snefru       - https://en.wikipedia.org/wiki/Snefru
                    https://github.com/rhash/RHash

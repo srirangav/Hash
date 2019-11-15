@@ -301,12 +301,12 @@ JH:
 
     JH is not covered by any patent and JH is freely-available.
 
-Tiger, HAS-160:
+Tiger, HAS-160, Snefru:
 
     https://github.com/rhash/RHash
 
-    [byte_order.h, tiger_sbox.c, tiger.c, tiger.h, ustd.h, has160.h,
-     has160.c]
+    [byte_order.h, byte_order.c, tiger_sbox.c, tiger.c, tiger.h, ustd.h,
+     has160.h, has160.c, snefru.h, snefru.c]
 
     Copyright: 2007-2012 Aleksey Kravchenko <rhash.admin@gmail.com>
 

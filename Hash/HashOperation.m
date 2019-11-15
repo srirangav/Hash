@@ -59,6 +59,7 @@
 #import "blake.h"
 #import "Groestl-mmx.h"
 #import "sha1dc.h"
+#import "snefru.h"
 
 @implementation HashOperation
 
@@ -142,7 +143,9 @@
             case HASH_GROESTL256:
             case HASH_GROESTL384:
             case HASH_GROESTL512:
-
+            case HASH_SNEFRU128:
+            case HASH_SNEFRU256:
+                
                 // valid hashType
 
                 hashType = hash;
@@ -241,6 +244,7 @@
         state384 blake384HashObject;
         state512 blake512HashObject;
         groestl_hashState groestlHashObject;
+        snefru_ctx snefruHashObject;
         
         do {
             
@@ -336,6 +340,12 @@
                     break;
                 case HASH_HAS160:
                     digestLength = has160_hash_size*sizeof(*digest);
+                    break;
+                case HASH_SNEFRU128:
+                    digestLength = snefru128_hash_length*sizeof(*digest);
+                    break;
+                case HASH_SNEFRU256:
+                    digestLength = snefru256_hash_length*sizeof(*digest);
                     break;
                 default:
                     digestLength = 0;
@@ -513,6 +523,12 @@
                     break;
                 case HASH_GROESTL512:
                     groestl_Init(&groestlHashObject, 512);
+                    break;
+                case HASH_SNEFRU128:
+                    rhash_snefru128_init(&snefruHashObject);
+                    break;
+                case HASH_SNEFRU256:
+                    rhash_snefru256_init(&snefruHashObject);
                     break;
                 default:
                     hasMoreData = FALSE;
@@ -783,6 +799,12 @@
                                        (const groestl_BitSequence *)buffer,
                                        (groestl_DataLength)(bytesRead*8));
                         break;
+                    case HASH_SNEFRU128:
+                    case HASH_SNEFRU256:
+                        rhash_snefru_update(&snefruHashObject,
+                                            (const unsigned char*)buffer,
+                                            (size_t)bytesRead);
+                        break;
                     default:
                         hasMoreData = FALSE;
                         readFailed = TRUE;
@@ -910,6 +932,10 @@
                 case HASH_GROESTL512:
                     groestl_Final(&groestlHashObject,
                                   (groestl_BitSequence *)digest);
+                    break;
+                case HASH_SNEFRU128:
+                case HASH_SNEFRU256:
+                    rhash_snefru_final(&snefruHashObject, digest);
                     break;
                 default:
                     hasMoreData = FALSE;
