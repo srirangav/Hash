@@ -71,17 +71,19 @@
 {
     return [self initWithFileHashTypeAndProgress: nil
                                             type: HASH_NONE
+                                       lowercase: false
                                         progress: nil
                                        requester: nil
                                           sender: nil];
 }
 
 /*
-    initWithFileAndHashType - initial the file path and the hash type
+    initWithFileAndHashType - initialize the file path and the hash type
 */
 
 -(id) initWithFileHashTypeAndProgress: (NSString *)path
                                  type: (HashType)hash
+                            lowercase: (BOOL)lowerCase
                              progress: (NSProgressIndicator *)progressBar
                             requester: (id)requestingObj
                                sender: (id)sendingObj
@@ -93,6 +95,8 @@
 
         filePath = path;
 
+        isLowerCase = lowerCase;
+        
         // verify that a valid hash type was specified
 
         switch (hash) {
@@ -966,7 +970,8 @@
                     /* output the hash in hex with capital letters for A-F */
                     
                     for (i = 0; i < digestLength; ++i) {
-                        [hashResult appendFormat:@"%02X", (int)(digest[i])];
+                        [hashResult appendFormat:
+                         (isLowerCase ? @"%02x" : @"%02X"), (int)(digest[i])];
                     }
                     
                     /* if there was a collision, add the collision message */

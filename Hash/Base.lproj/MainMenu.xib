@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,6 +24,7 @@
                 <outlet property="aboutSheet" destination="nKa-HH-4ac" id="aG1-W6-8ga"/>
                 <outlet property="appNameField" destination="3SR-WO-ALT" id="PrH-Y7-d05"/>
                 <outlet property="cancelHashButton" destination="1UJ-Qb-MVB" id="vhZ-aG-v4i"/>
+                <outlet property="hashMenuItemToggleLowerCase" destination="FDm-Dq-a3M" id="CXl-GV-5sN"/>
                 <outlet property="hashProgress" destination="GV4-zS-Oxl" id="bjD-wz-h1M"/>
                 <outlet property="hashSheet" destination="LsI-gp-8uL" id="Oic-Be-4xB"/>
                 <outlet property="messageField" destination="bRz-Lj-eIq" id="mGB-zq-YWX"/>
@@ -99,6 +100,14 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="aPe-zp-uBF"/>
+                            <menuItem title="Lowercase" id="FDm-Dq-a3M">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionToggleLowerCase:" target="Ay7-r0-R4I" id="skz-dj-NGz"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="K1O-Di-adZ"/>
                             <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="HmO-Ls-i7Q"/>
@@ -202,7 +211,7 @@ CA
         <window title="Hash" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="335" y="390" width="661" height="164"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="663" height="164"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -522,7 +531,7 @@ CA
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="120" y="65" width="367" height="83"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="0Mm-G5-jc2">
                 <rect key="frame" x="0.0" y="0.0" width="367" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -574,7 +583,7 @@ Gw
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="120" y="65" width="301" height="136"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="3Nc-6n-aia">
                 <rect key="frame" x="0.0" y="0.0" width="301" height="136"/>
                 <autoresizingMask key="autoresizingMask"/>

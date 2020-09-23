@@ -53,12 +53,15 @@ typedef enum {
     IBOutlet id clearFileFieldButton;
     IBOutlet id clearVerifyFieldButton;
     IBOutlet id aboutText;
+    IBOutlet NSMenuItem *hashMenuItemToggleLowerCase;
     IBOutlet NSProgressIndicator *hashProgress;
     IBOutlet NSPanel *hashSheet;
     IBOutlet NSPanel *aboutSheet;
     NSOpenPanel *selectFilePanel;
     NSString *appNameStr;
     NSOperationQueue *hashQueue;
+    BOOL prefLowercase;
+    NSUserDefaults *hashDefaults;
 }
 
 -(IBAction)hashButtonClicked:(id)sender;
@@ -88,6 +91,8 @@ typedef enum {
 -(IBAction)showHashSheet:(id)sender;
 
 -(IBAction)endHashSheet:(id)sender;
+
+-(IBAction)actionToggleLowerCase:(id)sender;
 
 -(void)hashComplete:(NSDictionary *)dict;
 

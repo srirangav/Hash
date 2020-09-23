@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.5
+Hash v. 1.1.6
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -41,6 +41,7 @@ License:
 
 History:
 
+    v. 1.1.6  - Added a menu item to toggle lower case output
     v. 1.1.5  - Added support for Snefru (128, 256)
     v. 1.1.4  - Added SHA1 collision detection
     v. 1.1.3  - Added finder service to hash a selected file
@@ -91,3 +92,4 @@ References:
                    https://github.com/rhash/RHash
     Snefru       - https://en.wikipedia.org/wiki/Snefru
                    https://github.com/rhash/RHash
+

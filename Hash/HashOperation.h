@@ -115,10 +115,12 @@ enum {
     NSProgressIndicator *progress;
     NSWindow *sender;
     HashType hashType;
+    BOOL isLowerCase;
 }
 
 -(id)initWithFileHashTypeAndProgress: (NSString *)path
                                 type: (HashType)hash
+                           lowercase: (BOOL)lowerCase
                             progress: (NSProgressIndicator *)progressBar
                            requester: (id)requestingObj
                               sender: (NSWindow *)sendingObj;

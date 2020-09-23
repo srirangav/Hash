@@ -50,6 +50,9 @@
 #import "HashConstants.h"
 #import "HashOperation.h"
 
+NSString *gAppGroup = @"CLN8R9E6QM.org.calalum.ranga.HashGroup";
+NSString *gPrefLowercase = @"lowercase";
+
 @implementation HashAppController
 
 -(void)awakeFromNib
@@ -81,6 +84,14 @@
     [[selectedFileField currentEditor] moveToEndOfDocument: nil];
     [[verifyHashField currentEditor] moveToEndOfLine: nil];
     [[verifyHashField currentEditor] moveToEndOfDocument: nil];
+    
+    hashDefaults = [[NSUserDefaults alloc] initWithSuiteName: gAppGroup];
+    
+    prefLowercase = [hashDefaults boolForKey: gPrefLowercase];
+    
+    [hashMenuItemToggleLowerCase setState: (prefLowercase ?
+                                            NSControlStateValueOn :
+                                            NSControlStateValueOff)];
 }
 
 /*
@@ -125,6 +136,17 @@
     
     [self clearVerifyField];
     [self setMessage: @""];
+}
+
+-(IBAction)actionToggleLowerCase:(id)sender
+{
+    prefLowercase = !prefLowercase;
+    
+    [hashDefaults setBool:prefLowercase forKey:gPrefLowercase];
+    
+    [hashMenuItemToggleLowerCase setState: (prefLowercase ?
+                                            NSControlStateValueOn :
+                                            NSControlStateValueOff)];
 }
 
 /*
@@ -291,6 +313,7 @@
             hashOp = [[HashOperation alloc]
                       initWithFileHashTypeAndProgress: theFile
                                                  type: (HashType)selectedHash
+                                            lowercase: prefLowercase
                                              progress: hashProgress
                                             requester: self
                                                sender: hashSheet];
@@ -411,7 +434,7 @@
             specified verification hash; use a case insensitive search in
             case the user specified uppercase letters
             Based on: http://stackoverflow.com/questions/2582306/case-insensitive-comparison-nsstring
-                      https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Strings/Articles/SearchingStrings.html
+            https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Strings/Articles/SearchingStrings.html
          */
 
         verifyHash = [self verifyHash];

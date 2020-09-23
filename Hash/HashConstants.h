@@ -42,5 +42,6 @@ FOUNDATION_EXPORT NSString *const defaultHashAppVers;
 FOUNDATION_EXPORT NSString *const defaultHashAppBuild;
 FOUNDATION_EXPORT NSString *const keyHashResult;
 FOUNDATION_EXPORT NSString *const keySender;
+FOUNDATION_EXPORT NSString *const outputLowerCase;
 
 #endif /* Hash_HashConstants_h */
