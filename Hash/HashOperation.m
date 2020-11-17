@@ -967,7 +967,10 @@
                                    collisionMsgExtraBufferSize : 0) +
                                   1];
                     
-                    /* output the hash in hex with capital letters for A-F */
+                    /*
+                        unless lowercase output was requested, output the
+                        hash in hex with capital letters for A-F
+                     */
                     
                     for (i = 0; i < digestLength; ++i) {
                         [hashResult appendFormat:

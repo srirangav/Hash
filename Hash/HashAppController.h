@@ -8,8 +8,10 @@
     v. 1.0.1 (04/17/2014) - Update to allow background processing of hashes
     v. 1.0.2 (04/27/2015) - Add progress bar support
     v. 1.0.3 (08/13/2019) - Add method to clear verification fields
+    v. 1.0.4 (11/12/2020) - Add support for checking if a verification hash
+                            is the correct length
  
-    Copyright (c) 2014, 2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2014-2020 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -33,6 +35,8 @@
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
 
+#import "HashOperation.h"
+
 // Verification Message Types
 
 typedef enum {
@@ -40,6 +44,15 @@ typedef enum {
     VERIFY_SUCCESS = 1,
     VERIFY_CLEAR   = 2,
 } VerifyMessageType;
+
+// Verification Hash Error Types
+
+typedef enum {
+    VERIFY_HASH_OKAY      = 0,
+    VERIFY_HASH_TOO_SHORT = 1,
+    VERIFY_HASH_TOO_LONG  = 2,
+    VERIFY_HASH_INVALID   = 3,
+} VerifyHashError;
 
 @interface HashAppController : NSObject
 {
@@ -98,7 +111,8 @@ typedef enum {
 
 -(NSString *)verifyHash;
 
--(BOOL)isValidHash:(NSString *)hash;
+-(VerifyHashError)isValidHash: (HashType)type
+                       verify: (NSString *)hash;
 
 -(NSInteger)selectedHashType;
 

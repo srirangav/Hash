@@ -16,7 +16,6 @@
 		263FFA1A19F1CA5300E9E1C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FFA1919F1CA5300E9E1C7 /* main.m */; };
 		263FFA1D19F1CA5300E9E1C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FFA1C19F1CA5300E9E1C7 /* AppDelegate.m */; };
 		263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263FFA1E19F1CA5300E9E1C7 /* Images.xcassets */; };
-		263FFA2E19F1CA5300E9E1C7 /* HashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FFA2D19F1CA5300E9E1C7 /* HashTests.m */; };
 		263FFA4019F1CB2400E9E1C7 /* rmd160.c in Sources */ = {isa = PBXBuildFile; fileRef = 263FFA3E19F1CB2400E9E1C7 /* rmd160.c */; };
 		263FFA4319F1CDF600E9E1C7 /* HashAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FFA4219F1CDF600E9E1C7 /* HashAppController.m */; };
 		263FFA4519F24D4700E9E1C7 /* HashConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FFA4419F24D4700E9E1C7 /* HashConstants.m */; };
@@ -52,16 +51,6 @@
 		26DA4DA622FD03A000B38AE0 /* tiger_sbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 26DA4DA222FD03A000B38AE0 /* tiger_sbox.c */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		263FFA2819F1CA5300E9E1C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 263FFA0C19F1CA5300E9E1C7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 263FFA1319F1CA5300E9E1C7;
-			remoteInfo = Hash;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		2608516A23023F9900B38AE0 /* HashAppService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashAppService.m; sourceTree = "<group>"; };
 		2608516C23023FE600B38AE0 /* HashAppService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashAppService.h; sourceTree = "<group>"; };
@@ -87,9 +76,6 @@
 		263FFA1B19F1CA5300E9E1C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		263FFA1C19F1CA5300E9E1C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		263FFA1E19F1CA5300E9E1C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		263FFA2719F1CA5300E9E1C7 /* HashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		263FFA2C19F1CA5300E9E1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		263FFA2D19F1CA5300E9E1C7 /* HashTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashTests.m; sourceTree = "<group>"; };
 		263FFA3E19F1CB2400E9E1C7 /* rmd160.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rmd160.c; path = RMD160/rmd160.c; sourceTree = "<group>"; };
 		263FFA3F19F1CB2400E9E1C7 /* rmd160.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rmd160.h; path = RMD160/rmd160.h; sourceTree = "<group>"; };
 		263FFA4119F1CDF600E9E1C7 /* HashAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashAppController.h; sourceTree = "<group>"; };
@@ -182,13 +168,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		263FFA2419F1CA5300E9E1C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -235,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				263FFA1619F1CA5300E9E1C7 /* Hash */,
-				263FFA2A19F1CA5300E9E1C7 /* HashTests */,
 				263C03C622FE51C800B38AE0 /* Docs */,
 				26830A861AE880090054251E /* Sources */,
 				263FFA1519F1CA5300E9E1C7 /* Products */,
@@ -246,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				263FFA1419F1CA5300E9E1C7 /* Hash.app */,
-				263FFA2719F1CA5300E9E1C7 /* HashTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -294,23 +271,6 @@
 				263FFA4819F39E0600E9E1C7 /* Icons */,
 				263FFA1819F1CA5300E9E1C7 /* Info.plist */,
 				263FFA1919F1CA5300E9E1C7 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		263FFA2A19F1CA5300E9E1C7 /* HashTests */ = {
-			isa = PBXGroup;
-			children = (
-				263FFA2D19F1CA5300E9E1C7 /* HashTests.m */,
-				263FFA2B19F1CA5300E9E1C7 /* Supporting Files */,
-			);
-			path = HashTests;
-			sourceTree = "<group>";
-		};
-		263FFA2B19F1CA5300E9E1C7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				263FFA2C19F1CA5300E9E1C7 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -569,24 +529,6 @@
 			productReference = 263FFA1419F1CA5300E9E1C7 /* Hash.app */;
 			productType = "com.apple.product-type.application";
 		};
-		263FFA2619F1CA5300E9E1C7 /* HashTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 263FFA3419F1CA5300E9E1C7 /* Build configuration list for PBXNativeTarget "HashTests" */;
-			buildPhases = (
-				263FFA2319F1CA5300E9E1C7 /* Sources */,
-				263FFA2419F1CA5300E9E1C7 /* Frameworks */,
-				263FFA2519F1CA5300E9E1C7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				263FFA2919F1CA5300E9E1C7 /* PBXTargetDependency */,
-			);
-			name = HashTests;
-			productName = HashTests;
-			productReference = 263FFA2719F1CA5300E9E1C7 /* HashTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -609,10 +551,6 @@
 							};
 						};
 					};
-					263FFA2619F1CA5300E9E1C7 = {
-						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 263FFA1319F1CA5300E9E1C7;
-					};
 				};
 			};
 			buildConfigurationList = 263FFA0F19F1CA5300E9E1C7 /* Build configuration list for PBXProject "Hash" */;
@@ -629,7 +567,6 @@
 			projectRoot = "";
 			targets = (
 				263FFA1319F1CA5300E9E1C7 /* Hash */,
-				263FFA2619F1CA5300E9E1C7 /* HashTests */,
 			);
 		};
 /* End PBXProject section */
@@ -650,13 +587,6 @@
 				266C334219FB8E1E00089684 /* Localizable.strings in Resources */,
 				266C334A19FB8FF700089684 /* MainMenu.xib in Resources */,
 				2684481419F4D31F00C2D3A3 /* icon.svg in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		263FFA2519F1CA5300E9E1C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,23 +631,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		263FFA2319F1CA5300E9E1C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				263FFA2E19F1CA5300E9E1C7 /* HashTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		263FFA2919F1CA5300E9E1C7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 263FFA1319F1CA5300E9E1C7 /* Hash */;
-			targetProxy = 263FFA2819F1CA5300E9E1C7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		266C334419FB8E1E00089684 /* Localizable.strings */ = {
@@ -854,7 +768,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.6;
+				MARKETING_VERSION = 1.1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -876,49 +790,11 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.6;
+				MARKETING_VERSION = 1.1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-			};
-			name = Release;
-		};
-		263FFA3519F1CA5300E9E1C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HashTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hash.app/Contents/MacOS/Hash";
-			};
-			name = Debug;
-		};
-		263FFA3619F1CA5300E9E1C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HashTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hash.app/Contents/MacOS/Hash";
 			};
 			name = Release;
 		};
@@ -939,15 +815,6 @@
 			buildConfigurations = (
 				263FFA3219F1CA5300E9E1C7 /* Debug */,
 				263FFA3319F1CA5300E9E1C7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		263FFA3419F1CA5300E9E1C7 /* Build configuration list for PBXNativeTarget "HashTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				263FFA3519F1CA5300E9E1C7 /* Debug */,
-				263FFA3619F1CA5300E9E1C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

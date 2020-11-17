@@ -1,6 +1,5 @@
 /* 
     Hash - HashAppController.m
-    $Id: HashAppController.m 1443 2015-08-15 08:22:14Z ranga $
  
     History:
  
@@ -22,10 +21,13 @@
     v. 1.1.3  (08/13/2019) - Clear verification and message fields when the
                              selected file changes
     v. 1.1.4  (09/30/2019) - Add support for SHA1 collision detection
+    v. 1.1.6  (XX/XX/2020) - Add support for outputing the hash in lowercase
+    v. 1.1.6  (11/12/2020) - Check the verfication hash to see if it the right
+                             length
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
-    Copyright (c) 2014-2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2014-2020 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -49,6 +51,11 @@
 #import "HashAppController.h"
 #import "HashConstants.h"
 #import "HashOperation.h"
+#import "rmd160.h"
+#import "Whirlpool.h"
+#import "tiger.h"
+#import "has160.h"
+#import "snefru.h"
 
 NSString *gAppGroup = @"CLN8R9E6QM.org.calalum.ranga.HashGroup";
 NSString *gPrefLowercase = @"lowercase";
@@ -185,6 +192,7 @@ NSString *gPrefLowercase = @"lowercase";
     NSFileManager *fileManager = nil;
     NSInteger selectedHash = -1;
     BOOL isDir = NO;
+    VerifyHashError verifyErr = VERIFY_HASH_OKAY;
     HashOperation *hashOp = nil;
 
     // clear the message field and the verification confirmation field
@@ -228,35 +236,11 @@ NSString *gPrefLowercase = @"lowercase";
         return;
     }
 
-    // if verification is requested, check to see if a valid verification
-    // hash was specified
-    
-    if (verifyHash == YES) {
-        verificationHash = [self verifyHash];
-        if (verificationHash == nil) {
-            [self setErrorMessage: NSLocalizedString(@"HASH_NO_HASH",
-                                                     @"HASH_NO_HASH")];
-            return;
-        }
-        if ([self isValidHash: verificationHash] == NO) {
-            [self setErrorMessage:
-             NSLocalizedString(@"HASH_INVALID_HASH",
-                               @"HASH_INVALID_HASH")];
-            return;
-        }
-    } else {
-
-        // verification was not requested, so clear the verify field
-
-        [self setVerifyConfirm: VERIFY_CLEAR];
-        [verifyHashField setStringValue: @""];
-    }
-
     // get the select hash
     
     selectedHash = [self selectedHashType];
     
-    switch ([self selectedHashType]) {
+    switch ((HashType)selectedHash) {
         case HASH_CKSUM:
         case HASH_CRC32:
         case HASH_MD5:
@@ -307,9 +291,53 @@ NSString *gPrefLowercase = @"lowercase";
         case HASH_SNEFRU128:
         case HASH_SNEFRU256:
             
-            // valid hash type selected, compute the file's hash and
-            // display a sheet while the hash is being computed
+            /*
+                valid hash type selected, compute the file's hash and
+                display a sheet while the hash is being computed
+             */
 
+            /*
+                if verification is requested, check to see if a valid
+                verification hash was specified
+             */
+            
+            if (verifyHash == YES) {
+                verificationHash = [self verifyHash];
+                if (verificationHash == nil) {
+                    [self setErrorMessage: NSLocalizedString(@"HASH_NO_HASH",
+                                                             @"HASH_NO_HASH")];
+                    return;
+                }
+                verifyErr = [self isValidHash: (HashType)selectedHash
+                                       verify: verificationHash];
+                if (verifyErr != VERIFY_HASH_OKAY) {
+                    switch(verifyErr) {
+                        case VERIFY_HASH_TOO_SHORT:
+                            [self setErrorMessage:
+                                NSLocalizedString(@"HASH_INVALID_HASH_SHORT",
+                                                  @"HASH_INVALID_HASH_SHORT")];
+                            break;
+                        case VERIFY_HASH_TOO_LONG:
+                            [self setErrorMessage:
+                                NSLocalizedString(@"HASH_INVALID_HASH_LONG",
+                                                  @"HASH_INVALID_HASH_LONG")];
+                            break;
+                        default:
+                            [self setErrorMessage:
+                                NSLocalizedString(@"HASH_INVALID_HASH",
+                                                  @"HASH_INVALID_HASH")];
+                            break;
+                    }
+                    return;
+                }
+            } else {
+
+                // verification was not requested, so clear the verify field
+
+                [self setVerifyConfirm: VERIFY_CLEAR];
+                [verifyHashField setStringValue: @""];
+            }
+            
             hashOp = [[HashOperation alloc]
                       initWithFileHashTypeAndProgress: theFile
                                                  type: (HashType)selectedHash
@@ -976,16 +1004,25 @@ NSString *gPrefLowercase = @"lowercase";
     isValidHash - verify whether the specified hash is valid
 */
 
--(BOOL)isValidHash:(NSString *)hash
+-(VerifyHashError)isValidHash: (HashType)type
+                       verify: (NSString *)hash
 {
     NSRegularExpression *regex = nil;
     NSError *error = nil;
     NSUInteger matches = 0;
+    size_t digestLength = 0;
+    size_t verifyLength = 0;
     
     if (hash == nil) {
-        return NO;
+        return VERIFY_HASH_INVALID;
     }
 
+    verifyLength = [hash length];
+
+    if (verifyLength == 0) {
+        return VERIFY_HASH_TOO_SHORT;
+    }
+    
     /* 
         Use a regular expression to verify that only hex digits and letters
         are present in the specified hash string.
@@ -997,19 +1034,116 @@ NSString *gPrefLowercase = @"lowercase";
                                   options: NSRegularExpressionCaseInsensitive
                                     error:  &error];
     if (regex == nil || error != nil) {
-        return NO;
+        return VERIFY_HASH_INVALID;
     }
 
     matches = [regex numberOfMatchesInString: hash
                                      options: 0
                                        range: NSMakeRange(0, [hash length])];
     if (matches != 1) {
-        return NO;
+        return VERIFY_HASH_INVALID;
     }
 
     // TODO: make sure the specified hash has the right length
 
-    return YES;
+    switch (type) {
+        case HASH_CKSUM:
+            digestLength = 1;
+            break;
+        case HASH_CRC32:
+            digestLength = 1;
+            break;
+        case HASH_MD5:
+            digestLength = CC_MD5_DIGEST_LENGTH*sizeof(unsigned char);
+            break;
+        case HASH_SHA1:
+        case HASH_SHA1DC:
+            digestLength = CC_SHA1_DIGEST_LENGTH*sizeof(unsigned char);
+            break;
+        case HASH_TIGER:
+        case HASH_TIGER2:
+            digestLength = tiger_hash_length*sizeof(unsigned char);
+            break;
+        case HASH_SHA224:
+        case HASH_SHA3_224:
+        case HASH_JH_224:
+        case HASH_BLAKE224:
+        case HASH_GROESTL224:
+            digestLength = CC_SHA224_DIGEST_LENGTH*sizeof(unsigned char);
+            break;
+        case HASH_MD6_256:
+        case HASH_SHA256:
+        case HASH_SHA3_256:
+        case HASH_BLAKE2B_256:
+        case HASH_BLAKE2BP_256:
+        case HASH_BLAKE2S_256:
+        case HASH_BLAKE2SP_256:
+        case HASH_SKEIN_256:
+        case HASH_SKEIN_512_256:
+        case HASH_SKEIN_1024_256:
+        case HASH_JH_256:
+        case HASH_BLAKE256:
+        case HASH_GROESTL256:
+            digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(unsigned char);
+            break;
+        case HASH_SHA384:
+        case HASH_SHA3_384:
+        case HASH_JH_384:
+        case HASH_BLAKE384:
+        case HASH_GROESTL384:
+            digestLength = CC_SHA384_DIGEST_LENGTH*sizeof(unsigned char);
+            break;
+        case HASH_MD6_512:
+        case HASH_SHA512:
+        case HASH_SHA3_512:
+        case HASH_BLAKE2B_512:
+        case HASH_BLAKE2BP_512:
+        case HASH_BLAKE2S_512:
+        case HASH_BLAKE2SP_512:
+        case HASH_SKEIN_512:
+        case HASH_SKEIN_1024_512:
+        case HASH_JH_512:
+        case HASH_BLAKE512:
+        case HASH_GROESTL512:
+            digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(unsigned char);
+            break;
+        case HASH_SKEIN_1024:
+            digestLength = 2*(CC_SHA512_DIGEST_LENGTH*sizeof(unsigned char));
+            break;
+        case HASH_RMD160:
+            digestLength = RMD160_DIGEST_LENGTH*sizeof(unsigned char);
+            break;
+        case HASH_RMD320:
+            digestLength = 2*(RMD160_DIGEST_LENGTH*sizeof(unsigned char));
+            break;
+        case HASH_WPOOL:
+            digestLength = NESSIE_DIGEST_LENGTH*sizeof(unsigned char);
+            break;
+        case HASH_HAS160:
+            digestLength = has160_hash_size*sizeof(unsigned char);
+            break;
+        case HASH_SNEFRU128:
+            digestLength = snefru128_hash_length*sizeof(unsigned char);
+            break;
+        case HASH_SNEFRU256:
+            digestLength = snefru256_hash_length*sizeof(unsigned char);
+            break;
+        default:
+            digestLength = 0;
+            break;
+    }
+
+    digestLength *= 2;
+    
+    if (verifyLength < digestLength) {
+        return VERIFY_HASH_TOO_SHORT;
+    }
+    
+    if (verifyLength > digestLength) {
+        return VERIFY_HASH_TOO_LONG;
+    }
+    
+    return VERIFY_HASH_OKAY;
 }
 
 /*
