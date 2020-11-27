@@ -25,9 +25,6 @@
 		266C334A19FB8FF700089684 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266C334819FB8FF700089684 /* MainMenu.xib */; };
 		26719F021B7EAE97007FBFE6 /* rmd320.c in Sources */ = {isa = PBXBuildFile; fileRef = 26719F001B7EAE97007FBFE6 /* rmd320.c */; };
 		2684481419F4D31F00C2D3A3 /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 2684480C19F4D31F00C2D3A3 /* icon.svg */; };
-		268BC2781AE7888E00133859 /* KeccakHash.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC2761AE7888E00133859 /* KeccakHash.c */; };
-		268BC27B1AE788DD00133859 /* KeccakSponge.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC27A1AE788DD00133859 /* KeccakSponge.c */; };
-		268BC28D1AE78A8000133859 /* SnP-FBWL-default.c in Sources */ = {isa = PBXBuildFile; fileRef = 268BC28C1AE78A8000133859 /* SnP-FBWL-default.c */; };
 		269E9C10237E321800B38AE0 /* snefru.c in Sources */ = {isa = PBXBuildFile; fileRef = 269E9C0E237E321800B38AE0 /* snefru.c */; };
 		269E9C12237E381600B38AE0 /* byte_order.c in Sources */ = {isa = PBXBuildFile; fileRef = 269E9C11237E381600B38AE0 /* byte_order.c */; };
 		26B741E41B7D5AF6000D74A1 /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B741E31B7D5AF6000D74A1 /* crc32.c */; };
@@ -50,7 +47,6 @@
 		A6E46DC12570F1CB0063E58C /* blake2b-ref.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DBC2570F1CA0063E58C /* blake2b-ref.c */; };
 		A6E46DC22570F1CB0063E58C /* blake2sp-ref.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DBD2570F1CA0063E58C /* blake2sp-ref.c */; };
 		A6E46DCA2570F5430063E58C /* Groestl-opt.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DC92570F5430063E58C /* Groestl-opt.c */; };
-		A6E46DF9257108C40063E58C /* KeccakF-1600-compact64.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DF8257108C40063E58C /* KeccakF-1600-compact64.c */; };
 		A6E46E1625718A810063E58C /* crypto_util.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46E1025718A810063E58C /* crypto_util.c */; };
 		A6E46E1725718A810063E58C /* keccak-tiny-unrolled.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46E1525718A810063E58C /* keccak-tiny-unrolled.c */; };
 		A6E46E1D25718BB90063E58C /* malloc.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46E1C25718BB90063E58C /* malloc.c */; };
@@ -109,13 +105,6 @@
 		2684481119F4D31F00C2D3A3 /* icon_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_64x64.png; sourceTree = "<group>"; };
 		2684481219F4D31F00C2D3A3 /* icon_32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_32x32.png; sourceTree = "<group>"; };
 		2684481319F4D31F00C2D3A3 /* icon_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_16x16.png; sourceTree = "<group>"; };
-		268BC2761AE7888E00133859 /* KeccakHash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = KeccakHash.c; path = SHA3/Modes/KeccakHash.c; sourceTree = "<group>"; };
-		268BC2771AE7888E00133859 /* KeccakHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeccakHash.h; path = SHA3/Modes/KeccakHash.h; sourceTree = "<group>"; };
-		268BC2791AE788D200133859 /* KeccakSponge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeccakSponge.h; path = SHA3/Construction/KeccakSponge.h; sourceTree = "<group>"; };
-		268BC27A1AE788DD00133859 /* KeccakSponge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = KeccakSponge.c; path = SHA3/Construction/KeccakSponge.c; sourceTree = "<group>"; };
-		268BC2821AE7897E00133859 /* KeccakF-1600-interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "KeccakF-1600-interface.h"; path = "SHA3/SnP/KeccakF-1600/KeccakF-1600-interface.h"; sourceTree = "<group>"; };
-		268BC2831AE7899300133859 /* SnP-FBWL-default.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SnP-FBWL-default.h"; path = "SHA3/SnP/SnP-FBWL-default.h"; sourceTree = "<group>"; };
-		268BC28C1AE78A8000133859 /* SnP-FBWL-default.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "SnP-FBWL-default.c"; path = "SHA3/SnP/SnP-FBWL-default.c"; sourceTree = "<group>"; };
 		2696170F22FAB82900B38AE0 /* jh_20110116.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = jh_20110116.zip; sourceTree = "<group>"; };
 		269E9C0E237E321800B38AE0 /* snefru.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = snefru.c; sourceTree = "<group>"; };
 		269E9C0F237E321800B38AE0 /* snefru.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snefru.h; sourceTree = "<group>"; };
@@ -126,7 +115,6 @@
 		26B741E51B7D5B56000D74A1 /* crc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = crc.h; path = CRC/crc.h; sourceTree = "<group>"; };
 		26B741E61B7DC548000D74A1 /* crc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc.c; path = Hash/CRC/crc.c; sourceTree = SOURCE_ROOT; };
 		26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE2-20160619.zip"; sourceTree = "<group>"; };
-		26D477121D220118000DD102 /* SnP-Relaned.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SnP-Relaned.h"; path = "SHA3/SnP/KeccakF-1600/SnP-Relaned.h"; sourceTree = "<group>"; };
 		26D477141D248EFD000DD102 /* skein.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = skein.c; sourceTree = "<group>"; };
 		26D477151D248EFD000DD102 /* skein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skein.h; sourceTree = "<group>"; };
 		26D477161D248EFD000DD102 /* skein_iv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skein_iv.h; sourceTree = "<group>"; };
@@ -153,8 +141,6 @@
 		A6E46DC82570F5430063E58C /* Groestl-opt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Groestl-opt.h"; path = "Groestl/Groestl-opt.h"; sourceTree = "<group>"; };
 		A6E46DC92570F5430063E58C /* Groestl-opt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "Groestl-opt.c"; path = "Groestl/Groestl-opt.c"; sourceTree = "<group>"; };
 		A6E46DF2257107780063E58C /* brg_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brg_types.h; sourceTree = "<group>"; };
-		A6E46DF8257108C40063E58C /* KeccakF-1600-compact64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "KeccakF-1600-compact64.c"; sourceTree = "<group>"; };
-		A6E46DFB257108C70063E58C /* SnP-interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnP-interface.h"; sourceTree = "<group>"; };
 		A6E46E0A25718A810063E58C /* compat_compiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compat_compiler.h; sourceTree = "<group>"; };
 		A6E46E0B25718A810063E58C /* torint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = torint.h; sourceTree = "<group>"; };
 		A6E46E0D25718A810063E58C /* orconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orconfig.h; sourceTree = "<group>"; };
@@ -342,49 +328,8 @@
 			children = (
 				A6E46E1125718A810063E58C /* ext */,
 				A6E46E0825718A810063E58C /* lib */,
-				268BC27F1AE7892E00133859 /* SnP */,
-				268BC27D1AE7890000133859 /* Construction */,
-				268BC27C1AE788ED00133859 /* Modes */,
 			);
 			name = SHA3;
-			sourceTree = "<group>";
-		};
-		268BC27C1AE788ED00133859 /* Modes */ = {
-			isa = PBXGroup;
-			children = (
-				268BC2771AE7888E00133859 /* KeccakHash.h */,
-				268BC2761AE7888E00133859 /* KeccakHash.c */,
-			);
-			name = Modes;
-			sourceTree = "<group>";
-		};
-		268BC27D1AE7890000133859 /* Construction */ = {
-			isa = PBXGroup;
-			children = (
-				268BC2791AE788D200133859 /* KeccakSponge.h */,
-				268BC27A1AE788DD00133859 /* KeccakSponge.c */,
-			);
-			name = Construction;
-			sourceTree = "<group>";
-		};
-		268BC27F1AE7892E00133859 /* SnP */ = {
-			isa = PBXGroup;
-			children = (
-				268BC2831AE7899300133859 /* SnP-FBWL-default.h */,
-				268BC28C1AE78A8000133859 /* SnP-FBWL-default.c */,
-				26D477121D220118000DD102 /* SnP-Relaned.h */,
-				268BC2801AE7894800133859 /* KeccakF-1600 */,
-			);
-			name = SnP;
-			sourceTree = "<group>";
-		};
-		268BC2801AE7894800133859 /* KeccakF-1600 */ = {
-			isa = PBXGroup;
-			children = (
-				A6E46DFD257108D40063E58C /* Compact64 */,
-				268BC2821AE7897E00133859 /* KeccakF-1600-interface.h */,
-			);
-			name = "KeccakF-1600";
 			sourceTree = "<group>";
 		};
 		269E9C0D237E321800B38AE0 /* Snefru */ = {
@@ -482,15 +427,6 @@
 				26DA4DA222FD03A000B38AE0 /* tiger_sbox.c */,
 			);
 			name = Tiger;
-			sourceTree = "<group>";
-		};
-		A6E46DFD257108D40063E58C /* Compact64 */ = {
-			isa = PBXGroup;
-			children = (
-				A6E46DF8257108C40063E58C /* KeccakF-1600-compact64.c */,
-				A6E46DFB257108C70063E58C /* SnP-interface.h */,
-			);
-			path = Compact64;
 			sourceTree = "<group>";
 		};
 		A6E46E0825718A810063E58C /* lib */ = {
@@ -655,13 +591,10 @@
 				A6E46E1D25718BB90063E58C /* malloc.c in Sources */,
 				2661CA681ADB9CA000E57BD1 /* HashOperation.m in Sources */,
 				263FFA4319F1CDF600E9E1C7 /* HashAppController.m in Sources */,
-				268BC2781AE7888E00133859 /* KeccakHash.c in Sources */,
 				A6E46DBF2570F1CB0063E58C /* blake2s-ref.c in Sources */,
 				2608516B23023F9900B38AE0 /* HashAppService.m in Sources */,
 				263C03C522FE4B9100B38AE0 /* blake.c in Sources */,
-				268BC27B1AE788DD00133859 /* KeccakSponge.c in Sources */,
 				A6E46DC02570F1CB0063E58C /* blake2bp-ref.c in Sources */,
-				268BC28D1AE78A8000133859 /* SnP-FBWL-default.c in Sources */,
 				263C03B422FD582300B38AE0 /* has160.c in Sources */,
 				26B741E41B7D5AF6000D74A1 /* crc32.c in Sources */,
 				A6E46E1625718A810063E58C /* crypto_util.c in Sources */,
@@ -678,7 +611,6 @@
 				26DA4DA622FD03A000B38AE0 /* tiger_sbox.c in Sources */,
 				A6E46DC12570F1CB0063E58C /* blake2b-ref.c in Sources */,
 				A6E46DC22570F1CB0063E58C /* blake2sp-ref.c in Sources */,
-				A6E46DF9257108C40063E58C /* KeccakF-1600-compact64.c in Sources */,
 				26D477171D248EFD000DD102 /* skein.c in Sources */,
 				26D4771B1D248F96000DD102 /* skein_block.c in Sources */,
 				26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */,

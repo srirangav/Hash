@@ -51,7 +51,6 @@
 #import "rmd160.h"
 #import "rmd320.h"
 #import "Whirlpool.h"
-#import "KeccakHash.h"
 #import "keccak-tiny.h"
 #import "blake2.h"
 #import "skein.h"
@@ -230,7 +229,6 @@
         SHA1_CTX sha1DCHashObject;
         CC_SHA256_CTX sha256HashObject;
         CC_SHA512_CTX sha512HashObject;
-        //Keccak_HashInstance sha3HashObject;
         keccak_state sha3HashObject;
         md6_state md6HashObject;
         RMD160_CTX rmd160HashObject;
@@ -426,35 +424,26 @@
                 case HASH_SHAKE128:
                     keccak_cleanse(&sha3HashObject);
                     keccak_xof_init(&sha3HashObject, 128);
-//                    Keccak_HashInitialize_SHAKE128(&sha3HashObject);
                     break;
                 case HASH_SHAKE256:
                     keccak_cleanse(&sha3HashObject);
                     keccak_xof_init(&sha3HashObject, 256);
-//                    Keccak_HashInitialize_SHAKE256(&sha3HashObject);
                     break;
                 case HASH_SHA3_224:
                     keccak_cleanse(&sha3HashObject);
                     keccak_digest_init(&sha3HashObject, 224);
-//                    Keccak_HashInitialize_SHA3_224(&sha3HashObject);
                     break;
                 case HASH_SHA3_256:
                     keccak_cleanse(&sha3HashObject);
                     keccak_digest_init(&sha3HashObject, 256);
-
-//                    Keccak_HashInitialize_SHA3_256(&sha3HashObject);
                     break;
                 case HASH_SHA3_384:
                     keccak_cleanse(&sha3HashObject);
                     keccak_digest_init(&sha3HashObject, 384);
-
-//                    Keccak_HashInitialize_SHA3_384(&sha3HashObject);
                     break;
                 case HASH_SHA3_512:
                     keccak_cleanse(&sha3HashObject);
                     keccak_digest_init(&sha3HashObject, 512);
-
-//                    Keccak_HashInitialize_SHA3_512(&sha3HashObject);
                     break;
                 case HASH_RMD160:
                     RMD160Init(&rmd160HashObject);
@@ -721,11 +710,6 @@
                         keccak_digest_update(&sha3HashObject,
                                              buffer,
                                              bytesRead);
-                        /*
-                        Keccak_HashUpdate(&sha3HashObject,
-                                          (const BitSequence *)buffer,
-                                          (DataLength)bytesRead*8);
-                         */
                         break;
                     case HASH_RMD160:
                         RMD160Update(&rmd160HashObject,
@@ -902,7 +886,6 @@
                     keccak_squeeze(&sha3HashObject,
                                    digest,
                                    digestLength);
-                    //Keccak_HashFinal(&sha3HashObject, digest);
                     break;
                 case HASH_RMD160:
                     RMD160Final(digest, &rmd160HashObject);
