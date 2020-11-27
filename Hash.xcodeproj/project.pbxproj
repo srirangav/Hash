@@ -50,7 +50,7 @@
 		A6E46DC12570F1CB0063E58C /* blake2b-ref.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DBC2570F1CA0063E58C /* blake2b-ref.c */; };
 		A6E46DC22570F1CB0063E58C /* blake2sp-ref.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DBD2570F1CA0063E58C /* blake2sp-ref.c */; };
 		A6E46DCA2570F5430063E58C /* Groestl-opt.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DC92570F5430063E58C /* Groestl-opt.c */; };
-		A6E46DE5257104A40063E58C /* Compact64 in Resources */ = {isa = PBXBuildFile; fileRef = A6E46DE4257104A40063E58C /* Compact64 */; };
+		A6E46DF9257108C40063E58C /* KeccakF-1600-compact64.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DF8257108C40063E58C /* KeccakF-1600-compact64.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,8 +149,9 @@
 		A6E46DBE2570F1CA0063E58C /* blake2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = blake2.h; path = BLAKE2/blake2.h; sourceTree = "<group>"; };
 		A6E46DC82570F5430063E58C /* Groestl-opt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Groestl-opt.h"; path = "Groestl/Groestl-opt.h"; sourceTree = "<group>"; };
 		A6E46DC92570F5430063E58C /* Groestl-opt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "Groestl-opt.c"; path = "Groestl/Groestl-opt.c"; sourceTree = "<group>"; };
-		A6E46DE4257104A40063E58C /* Compact64 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Compact64; path = "SHA3/SnP/KeccakF-1600/Compact64"; sourceTree = "<group>"; };
 		A6E46DF2257107780063E58C /* brg_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brg_types.h; sourceTree = "<group>"; };
+		A6E46DF8257108C40063E58C /* KeccakF-1600-compact64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "KeccakF-1600-compact64.c"; sourceTree = "<group>"; };
+		A6E46DFB257108C70063E58C /* SnP-interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnP-interface.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,7 +366,7 @@
 		268BC2801AE7894800133859 /* KeccakF-1600 */ = {
 			isa = PBXGroup;
 			children = (
-				A6E46DE4257104A40063E58C /* Compact64 */,
+				A6E46DFD257108D40063E58C /* Compact64 */,
 				268BC2821AE7897E00133859 /* KeccakF-1600-interface.h */,
 			);
 			name = "KeccakF-1600";
@@ -468,6 +469,15 @@
 			name = Tiger;
 			sourceTree = "<group>";
 		};
+		A6E46DFD257108D40063E58C /* Compact64 */ = {
+			isa = PBXGroup;
+			children = (
+				A6E46DF8257108C40063E58C /* KeccakF-1600-compact64.c */,
+				A6E46DFB257108C70063E58C /* SnP-interface.h */,
+			);
+			path = Compact64;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -545,7 +555,6 @@
 				263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */,
 				266C334219FB8E1E00089684 /* Localizable.strings in Resources */,
 				266C334A19FB8FF700089684 /* MainMenu.xib in Resources */,
-				A6E46DE5257104A40063E58C /* Compact64 in Resources */,
 				2684481419F4D31F00C2D3A3 /* icon.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,6 +595,7 @@
 				26DA4DA622FD03A000B38AE0 /* tiger_sbox.c in Sources */,
 				A6E46DC12570F1CB0063E58C /* blake2b-ref.c in Sources */,
 				A6E46DC22570F1CB0063E58C /* blake2sp-ref.c in Sources */,
+				A6E46DF9257108C40063E58C /* KeccakF-1600-compact64.c in Sources */,
 				26D477171D248EFD000DD102 /* skein.c in Sources */,
 				26D4771B1D248F96000DD102 /* skein_block.c in Sources */,
 				26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */,
