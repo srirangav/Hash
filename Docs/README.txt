@@ -6,12 +6,13 @@ By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
 
-    Hash is a MacOSX application to generate and verify the hash, crc, or
-    checksum of a file.  Hash supports the following hash functions:
+    Hash is a MacOSX application to generate and verify the
+    hash, crc, or checksum of a file.  The following hash
+    functions are supported:
 
     MD5
     SHA1
-    SHA1 DC (SHA1 with collision detection / protection enabled)
+    SHA1 DC (SHA1 with collision detection / protection)
     SHA2 (SHA224, SHA256, SHA384, SHA512)
     SHA3 (224, 256, 384, 512)
     RIPEMD (160, 320)
@@ -42,20 +43,22 @@ License:
 History:
 
     v. 1.1.8  - Build on Big Sur
-    v. 1.1.7  - Added support for checking the length of the verification
-                hash
+    v. 1.1.7  - Added support for checking the length of the
+                verification hash
     v. 1.1.6  - Added a menu item to toggle lower case output
     v. 1.1.5  - Added support for Snefru (128, 256)
     v. 1.1.4  - Added SHA1 collision detection
     v. 1.1.3  - Added finder service to hash a selected file
-    v. 1.1.2  - Added support for JH (224, 256, 384, 512), Tiger/Tiger2,
-                BLAKE (224, 256, 384, 512), GROESTL (224, 256, 384, 512)
+    v. 1.1.2  - Added support for JH (224, 256, 384, 512),
+                Tiger/Tiger2, BLAKE (224, 256, 384, 512),
+                GROESTL (224, 256, 384, 512)
     v. 1.1.1  - Enabled MD6
     v. 1.1.0  - Added suport for dark mode
     v. 1.0.15 - Updated for app notarizing
     v. 1.0.14 - Enabled app sandbox and hardened runtime
     v. 1.0.12 - Added support for MD6 (256, 512)
-    v. 1.0.11 - Added support for BLAKE2, Skein, SHA224, SHA384, SHA3
+    v. 1.0.11 - Added support for BLAKE2, Skein, SHA224,
+                SHA384, SHA3
     v. 1.0.10 - Initial GitHub Release
 
 References:
@@ -95,4 +98,3 @@ References:
                    https://github.com/rhash/RHash
     Snefru       - https://en.wikipedia.org/wiki/Snefru
                    https://github.com/rhash/RHash
-
