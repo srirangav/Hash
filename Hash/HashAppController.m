@@ -24,6 +24,7 @@
     v. 1.1.6  (XX/XX/2020) - Add support for outputing the hash in lowercase
     v. 1.1.6  (11/12/2020) - Check the verfication hash to see if it the right
                              length
+    v. 1.1.7 (11/27/2020)  - Add support for SHAKE128, SHAKE256
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -1058,7 +1059,6 @@ NSString *gPrefLowercase = @"lowercase";
             digestLength = 1;
             break;
         case HASH_MD5:
-        case HASH_SHAKE128:
             digestLength = CC_MD5_DIGEST_LENGTH*sizeof(unsigned char);
             break;
         case HASH_SHA1:
@@ -1078,7 +1078,7 @@ NSString *gPrefLowercase = @"lowercase";
             break;
         case HASH_MD6_256:
         case HASH_SHA256:
-        case HASH_SHAKE256:
+        case HASH_SHAKE128:
         case HASH_SHA3_256:
         case HASH_BLAKE2B_256:
         case HASH_BLAKE2BP_256:
@@ -1101,6 +1101,7 @@ NSString *gPrefLowercase = @"lowercase";
             break;
         case HASH_MD6_512:
         case HASH_SHA512:
+        case HASH_SHAKE256:
         case HASH_SHA3_512:
         case HASH_BLAKE2B_512:
         case HASH_BLAKE2BP_512:
