@@ -365,3 +365,13 @@ SHA1 Collision Detection:
     
     Distributed under the MIT Software License.
     https://opensource.org/licenses/MIT
+
+tor:
+
+    https://github.com/torproject/tor
+    https://raw.githubusercontent.com/torproject/tor/master/LICENSE
+    
+tiny-keccak:
+
+    https://github.com/coruus/keccak-tiny
+    CC0 (https://creativecommons.org/publicdomain/zero/1.0/)

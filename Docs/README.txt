@@ -42,7 +42,7 @@ License:
 
 History:
 
-    v. 1.1.8  - Build on Big Sur, add SHAKE128, SHAKE256
+    v. 1.1.8  - Build on Big Sur, add SHAKE128 & SHAKE256
     v. 1.1.7  - Added support for checking the length of the
                 verification hash
     v. 1.1.6  - Added a menu item to toggle lower case output
