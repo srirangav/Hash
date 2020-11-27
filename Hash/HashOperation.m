@@ -57,7 +57,7 @@
 #import "tiger.h"
 #import "has160.h"
 #import "blake.h"
-#import "Groestl-mmx.h"
+#import "Groestl-opt.h"
 #import "sha1dc.h"
 #import "snefru.h"
 
@@ -247,7 +247,7 @@
         state256 blake256HashObject;
         state384 blake384HashObject;
         state512 blake512HashObject;
-        groestl_hashState groestlHashObject;
+        groestl_HashState groestlHashObject;
         snefru_ctx snefruHashObject;
         
         do {

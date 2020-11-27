@@ -17,6 +17,7 @@ http://creativecommons.org/publicdomain/zero/1.0/
 #define _SnP_Interface_h_
 
 #include "KeccakF-1600-interface.h"
+#include "SnP-FBWL-default.h"
 
 #define SnP_width                           KeccakF_width
 #define SnP_stateSizeInBytes                KeccakF_stateSizeInBytes
@@ -39,9 +40,9 @@ http://creativecommons.org/publicdomain/zero/1.0/
 
 #include "SnP-Relaned.h"
 
-#define SnP_FBWL_Absorb                     KeccakF1600_FBWL_Absorb
-#define SnP_FBWL_Squeeze                    KeccakF1600_FBWL_Squeeze
-#define SnP_FBWL_Wrap                       KeccakF1600_FBWL_Wrap
-#define SnP_FBWL_Unwrap                     KeccakF1600_FBWL_Unwrap
+#define SnP_FBWL_Absorb                     SnP_FBWL_Absorb_Default
+#define SnP_FBWL_Squeeze                    SnP_FBWL_Squeeze_Default
+#define SnP_FBWL_Wrap                       SnP_FBWL_Wrap_Default
+#define SnP_FBWL_Unwrap                     SnP_FBWL_Unwrap_Default
 
 #endif
