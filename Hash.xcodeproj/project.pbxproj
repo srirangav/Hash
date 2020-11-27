@@ -151,6 +151,7 @@
 		A6E46E1525718A810063E58C /* keccak-tiny-unrolled.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "keccak-tiny-unrolled.c"; sourceTree = "<group>"; };
 		A6E46E1B25718BB90063E58C /* malloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = malloc.h; sourceTree = "<group>"; };
 		A6E46E1C25718BB90063E58C /* malloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = malloc.c; sourceTree = "<group>"; };
+		A6E46E492571A3430063E58C /* tor-tor-0.4.5.2-alpha.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "tor-tor-0.4.5.2-alpha.zip"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +319,7 @@
 				26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */,
 				26DA4D9E22FD037200B38AE0 /* RHash-1.3.8.zip */,
 				263E468123434AC000B38AE0 /* sha1collisiondetection-master.zip */,
+				A6E46E492571A3430063E58C /* tor-tor-0.4.5.2-alpha.zip */,
 				26830A881AE880090054251E /* whirlpool.zip */,
 			);
 			path = Sources;
