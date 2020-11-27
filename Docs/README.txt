@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.7
+Hash v. 1.1.8
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -41,6 +41,7 @@ License:
 
 History:
 
+    v. 1.1.8  - Build on Big Sur
     v. 1.1.7  - Added support for checking the length of the verification
                 hash
     v. 1.1.6  - Added a menu item to toggle lower case output
