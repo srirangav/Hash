@@ -15,6 +15,7 @@
     v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 
     v. 1.1.0 (08/07/2019) - Add support for JH, Tiger, Tiger2, HAS-160, BLAKE
     v. 1.1.1 (09/30/2019) - Add support for SHA1 collision detection
+    v. 1.1.2 (11/27/2020) - Add support for SHAKE128, SHAKE256
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -111,6 +112,8 @@
             case HASH_SHA256:
             case HASH_SHA384:
             case HASH_SHA512:
+            case HASH_SHAKE128:
+            case HASH_SHAKE256:
             case HASH_SHA3_224:
             case HASH_SHA3_256:
             case HASH_SHA3_384:
@@ -277,6 +280,7 @@
                     digestLength = 1;
                     break;
                 case HASH_MD5:
+                case HASH_SHAKE128:
                     digestLength = CC_MD5_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SHA1:
@@ -296,6 +300,7 @@
                     break;
                 case HASH_MD6_256:
                 case HASH_SHA256:
+                case HASH_SHAKE256:
                 case HASH_SHA3_256:
                 case HASH_BLAKE2B_256:
                 case HASH_BLAKE2BP_256:
@@ -415,6 +420,12 @@
                     break;
                 case HASH_SHA512:
                     CC_SHA512_Init(&sha512HashObject);
+                    break;
+                case HASH_SHAKE128:
+                    Keccak_HashInitialize_SHAKE128(&sha3HashObject);
+                    break;
+                case HASH_SHAKE256:
+                    Keccak_HashInitialize_SHAKE256(&sha3HashObject);
                     break;
                 case HASH_SHA3_224:
                     Keccak_HashInitialize_SHA3_224(&sha3HashObject);
@@ -675,6 +686,8 @@
                                          (const void *)buffer,
                                          (CC_LONG)bytesRead);
                         break;
+                    case HASH_SHAKE128:
+                    case HASH_SHAKE256:
                     case HASH_SHA3_224:
                     case HASH_SHA3_256:
                     case HASH_SHA3_384:
@@ -850,6 +863,8 @@
                 case HASH_SHA512:
                     CC_SHA512_Final(digest, &sha512HashObject);
                     break;
+                case HASH_SHAKE128:
+                case HASH_SHAKE256:
                 case HASH_SHA3_224:
                 case HASH_SHA3_256:
                 case HASH_SHA3_384:

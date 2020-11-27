@@ -14,7 +14,7 @@ About:
     SHA1
     SHA1 DC (SHA1 with collision detection / protection)
     SHA2 (SHA224, SHA256, SHA384, SHA512)
-    SHA3 (224, 256, 384, 512)
+    SHA3/SHAKE (128, 224, 256, 384, 512)
     RIPEMD (160, 320)
     Whirlpool
     BLAKE (224, 256, 384, 512)
@@ -42,7 +42,7 @@ License:
 
 History:
 
-    v. 1.1.8  - Build on Big Sur
+    v. 1.1.8  - Build on Big Sur, add SHAKE128, SHAKE256
     v. 1.1.7  - Added support for checking the length of the
                 verification hash
     v. 1.1.6  - Added a menu item to toggle lower case output
@@ -67,7 +67,7 @@ References:
     SHA1         - https://en.wikipedia.org/wiki/SHA-1
     SHA1 DC      - https://github.com/cr-marcstevens/sha1collisiondetection
     SHA2         - https://en.wikipedia.org/wiki/SHA-2
-    SHA3         - https://keccak.team/
+    SHA3/SHAKE   - https://keccak.team/
                    https://en.wikipedia.org/wiki/SHA-3
                    https://www.di-mgt.com.au/sha_testvectors.html
     RIPEMD       - https://homes.esat.kuleuven.be/~bosselae/ripemd160.html

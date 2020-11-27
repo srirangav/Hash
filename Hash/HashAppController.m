@@ -252,6 +252,8 @@ NSString *gPrefLowercase = @"lowercase";
         case HASH_SHA256:
         case HASH_SHA384:
         case HASH_SHA512:
+        case HASH_SHAKE128:
+        case HASH_SHAKE256:
         case HASH_SHA3_224:
         case HASH_SHA3_256:
         case HASH_SHA3_384:
@@ -722,6 +724,8 @@ NSString *gPrefLowercase = @"lowercase";
         case HASH_SHA256:
         case HASH_SHA384:
         case HASH_SHA512:
+        case HASH_SHAKE128:
+        case HASH_SHAKE256:
         case HASH_SHA3_224:
         case HASH_SHA3_256:
         case HASH_SHA3_384:
@@ -1054,6 +1058,7 @@ NSString *gPrefLowercase = @"lowercase";
             digestLength = 1;
             break;
         case HASH_MD5:
+        case HASH_SHAKE128:
             digestLength = CC_MD5_DIGEST_LENGTH*sizeof(unsigned char);
             break;
         case HASH_SHA1:
@@ -1073,6 +1078,7 @@ NSString *gPrefLowercase = @"lowercase";
             break;
         case HASH_MD6_256:
         case HASH_SHA256:
+        case HASH_SHAKE256:
         case HASH_SHA3_256:
         case HASH_BLAKE2B_256:
         case HASH_BLAKE2BP_256:

@@ -101,6 +101,8 @@ typedef enum {
     HASH_SHA1DC         = 47,
     HASH_SNEFRU128      = 48,
     HASH_SNEFRU256      = 49,
+    HASH_SHAKE128       = 50,
+    HASH_SHAKE256       = 51,
 } HashType;
 
 // Default File Buffer Size (400K)
