@@ -44,6 +44,8 @@
 		A646C0982571EDF400F2ECDD /* blake3_dispatch.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0942571EDF400F2ECDD /* blake3_dispatch.c */; };
 		A646C0992571EDF400F2ECDD /* blake3_portable.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0952571EDF400F2ECDD /* blake3_portable.c */; };
 		A646C09A2571EDF400F2ECDD /* blake3.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0962571EDF400F2ECDD /* blake3.c */; };
+		A646C0A42571FDAF00F2ECDD /* BLAKE3-0.3.7.zip in Resources */ = {isa = PBXBuildFile; fileRef = A646C0A32571FDAF00F2ECDD /* BLAKE3-0.3.7.zip */; };
+		A646C0A72571FDB800F2ECDD /* BLAKE-master.zip in Resources */ = {isa = PBXBuildFile; fileRef = A646C0A62571FDB800F2ECDD /* BLAKE-master.zip */; };
 		A6E46DA82570DA9C0063E58C /* jh_ansi_opt64.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DA72570DA9C0063E58C /* jh_ansi_opt64.c */; };
 		A6E46DBF2570F1CB0063E58C /* blake2s-ref.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DB92570F1CA0063E58C /* blake2s-ref.c */; };
 		A6E46DC02570F1CB0063E58C /* blake2bp-ref.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DBA2570F1CA0063E58C /* blake2bp-ref.c */; };
@@ -139,6 +141,8 @@
 		A646C0962571EDF400F2ECDD /* blake3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blake3.c; sourceTree = "<group>"; };
 		A646C0972571EDF400F2ECDD /* blake3_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blake3_impl.h; sourceTree = "<group>"; };
 		A646C09D2571F2CE00F2ECDD /* blake3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blake3.h; sourceTree = "<group>"; };
+		A646C0A32571FDAF00F2ECDD /* BLAKE3-0.3.7.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE3-0.3.7.zip"; sourceTree = "<group>"; };
+		A646C0A62571FDB800F2ECDD /* BLAKE-master.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE-master.zip"; sourceTree = "<group>"; };
 		A6E46DA72570DA9C0063E58C /* jh_ansi_opt64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jh_ansi_opt64.c; path = JH/jh_ansi_opt64.c; sourceTree = "<group>"; };
 		A6E46DB92570F1CA0063E58C /* blake2s-ref.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "blake2s-ref.c"; path = "BLAKE2/blake2s-ref.c"; sourceTree = "<group>"; };
 		A6E46DBA2570F1CA0063E58C /* blake2bp-ref.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "blake2bp-ref.c"; path = "BLAKE2/blake2bp-ref.c"; sourceTree = "<group>"; };
@@ -318,7 +322,9 @@
 		26830A861AE880090054251E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A646C0A62571FDB800F2ECDD /* BLAKE-master.zip */,
 				26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */,
+				A646C0A32571FDAF00F2ECDD /* BLAKE3-0.3.7.zip */,
 				26719F051B7EAFB6007FBFE6 /* catacomb-f93fc80.tar.gz */,
 				2612682522FEB81A00B38AE0 /* Groestl.zip */,
 				2696170F22FAB82900B38AE0 /* jh_20110116.zip */,
@@ -589,8 +595,10 @@
 				26B7A7461B83FC50008A0A78 /* icon_512x512.png in Resources */,
 				26B7A7471B83FC50008A0A78 /* icon_256x256.png in Resources */,
 				26B7A7481B83FC50008A0A78 /* icon_128x128.png in Resources */,
+				A646C0A72571FDB800F2ECDD /* BLAKE-master.zip in Resources */,
 				26B7A7491B83FC50008A0A78 /* icon_64x64.png in Resources */,
 				26B7A74A1B83FC50008A0A78 /* icon_32x32.png in Resources */,
+				A646C0A42571FDAF00F2ECDD /* BLAKE3-0.3.7.zip in Resources */,
 				26B7A74B1B83FC50008A0A78 /* icon_16x16.png in Resources */,
 				263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */,
 				266C334219FB8E1E00089684 /* Localizable.strings in Resources */,
@@ -784,7 +792,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 1.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -808,7 +816,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 1.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

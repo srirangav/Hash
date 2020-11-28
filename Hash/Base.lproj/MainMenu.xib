@@ -416,6 +416,9 @@ CA
                                     <menuItem title="BLAKE2B 512" tag="13" id="wUD-CH-Tjy">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem title="BLAKE3" tag="52" id="P94-WG-1Gt">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                     <menuItem isSeparatorItem="YES" id="k5e-h8-S80"/>
                                     <menuItem title="Skein 256-256" tag="14" id="Cxm-Os-Scb">
                                         <modifierMask key="keyEquivalentModifierMask"/>

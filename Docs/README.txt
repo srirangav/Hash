@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.8
+Hash v. 1.1.9
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -19,6 +19,7 @@ About:
     Whirlpool
     BLAKE (224, 256, 384, 512)
     BLAKE2 (BLAKE2S 256; BLAKE2B 256, 512)
+    BLAKE3
     Skein (256-256, 512-256, 512-512, 1024-256, 1024-512)
     MD6 (256, 512)
     JH (224, 256, 384, 512)
@@ -42,6 +43,7 @@ License:
 
 History:
 
+    v. 1.1.9  - Add support for BLAKE3
     v. 1.1.8  - Build on Big Sur, add SHAKE128 & SHAKE256
     v. 1.1.7  - Added support for checking the length of the
                 verification hash
@@ -82,6 +84,7 @@ References:
                    https://blake2.net/
                    https://github.com/BLAKE2/BLAKE2
                    https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
+    BLAKE3       - https://github.com/BLAKE3-team/BLAKE3
     Skein        - http://www.skein-hash.info/
                    https://en.wikipedia.org/wiki/Skein_(hash_function)
     MD6          - https://groups.csail.mit.edu/cis/md6/

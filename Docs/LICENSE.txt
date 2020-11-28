@@ -375,3 +375,8 @@ tiny-keccak:
 
     https://github.com/coruus/keccak-tiny
     CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+
+blake3:
+
+   https://github.com/BLAKE3-team/BLAKE3
+   CC1: https://github.com/BLAKE3-team/BLAKE3/blob/master/LICENSE
