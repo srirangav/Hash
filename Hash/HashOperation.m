@@ -16,6 +16,7 @@
     v. 1.1.0 (08/07/2019) - Add support for JH, Tiger, Tiger2, HAS-160, BLAKE
     v. 1.1.1 (09/30/2019) - Add support for SHA1 collision detection
     v. 1.1.2 (11/27/2020) - Add support for SHAKE128, SHAKE256
+    v. 1.1.3 (11/27/2020) - Add support for BLAKE3
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -53,6 +54,7 @@
 #import "Whirlpool.h"
 #import "keccak-tiny.h"
 #import "blake2.h"
+#import "blake3_impl.h"
 #import "skein.h"
 #import "jh.h"
 #import "tiger.h"
@@ -129,6 +131,7 @@
             //case HASH_BLAKE2S_512:
             //case HASH_BLAKE2SP_256:
             //case HASH_BLAKE2SP_512:
+            case HASH_BLAKE3:
             case HASH_SKEIN_256:
             case HASH_SKEIN_512:
             case HASH_SKEIN_512_256:
@@ -236,6 +239,7 @@
         NESSIEstruct whirlpoolHashObject;
         blake2b_state blake2bHashObject;
         blake2s_state blake2sHashObject;
+        blake3_hasher blake3HashObject;
         /*
         blake2bp_state blake2bpHashObject;
         blake2sp_state blake2spHashObject;
@@ -305,6 +309,7 @@
                 case HASH_BLAKE2BP_256:
                 case HASH_BLAKE2S_256:
                 case HASH_BLAKE2SP_256:
+                case HASH_BLAKE3:
                 case HASH_SKEIN_256:
                 case HASH_SKEIN_512_256:
                 case HASH_SKEIN_1024_256:
@@ -482,6 +487,9 @@
                     blake2sp_init(&blake2spHashObject, 64);
                     break;
                 */
+                case HASH_BLAKE3:
+                    blake3_hasher_init(&blake3HashObject);
+                    break;
                 case HASH_SKEIN_256:
                     Skein_256_Init(&skein256HashObject, 256);
                     break;
@@ -754,6 +762,11 @@
                                         (uint64_t)bytesRead);
                         break;
                     */
+                    case HASH_BLAKE3:
+                        blake3_hasher_update(&blake3HashObject,
+                                             buffer,
+                                             bytesRead);
+                        break;
                     case HASH_SKEIN_256:
                         Skein_256_Update(&skein256HashObject,
                                          (const u08b_t *)buffer,
@@ -924,42 +937,57 @@
                     blake2sp_final(&blake2spHashObject, digest, 64);
                     break;
                 */
+                case HASH_BLAKE3:
+                    blake3_hasher_finalize(&blake3HashObject,
+                                           digest,
+                                           digestLength);
+                    break;
                 case HASH_SKEIN_256:
-                    Skein_256_Final(&skein256HashObject, digest);
+                    Skein_256_Final(&skein256HashObject,
+                                    digest);
                     break;
                 case HASH_SKEIN_512:
                 case HASH_SKEIN_512_256:
-                    Skein_512_Final(&skein512HashObject, digest);
+                    Skein_512_Final(&skein512HashObject,
+                                    digest);
                     break;
                 case HASH_SKEIN_1024:
                 case HASH_SKEIN_1024_256:
                 case HASH_SKEIN_1024_512:
-                    Skein1024_Final(&skein1024HashObject, digest);
+                    Skein1024_Final(&skein1024HashObject,
+                                    digest);
                     break;
                 case HASH_JH_224:
                 case HASH_JH_256:
                 case HASH_JH_384:
                 case HASH_JH_512:
-                    JH_Final(&jhHashObject, (JH_BitSequence *)digest);
+                    JH_Final(&jhHashObject,
+                             (JH_BitSequence *)digest);
                     break;
                 case HASH_TIGER:
                 case HASH_TIGER2:
-                    rhash_tiger_final(&tigerHashObject, digest);
+                    rhash_tiger_final(&tigerHashObject,
+                                      digest);
                     break;
                 case HASH_HAS160:
-                    rhash_has160_final(&has160HashObject, digest);
+                    rhash_has160_final(&has160HashObject,
+                                       digest);
                     break;
                 case HASH_BLAKE224:
-                    blake224_final(&blake224HashObject, digest);
+                    blake224_final(&blake224HashObject,
+                                   digest);
                     break;
                 case HASH_BLAKE256:
-                    blake256_final(&blake256HashObject, digest);
+                    blake256_final(&blake256HashObject,
+                                   digest);
                     break;
                 case HASH_BLAKE384:
-                    blake384_final(&blake384HashObject, digest);
+                    blake384_final(&blake384HashObject,
+                                   digest);
                     break;
                 case HASH_BLAKE512:
-                    blake512_final(&blake512HashObject, digest);
+                    blake512_final(&blake512HashObject,
+                                   digest);
                     break;
                 case HASH_GROESTL224:
                 case HASH_GROESTL256:
@@ -970,7 +998,8 @@
                     break;
                 case HASH_SNEFRU128:
                 case HASH_SNEFRU256:
-                    rhash_snefru_final(&snefruHashObject, digest);
+                    rhash_snefru_final(&snefruHashObject,
+                                       digest);
                     break;
                 default:
                     hasMoreData = FALSE;

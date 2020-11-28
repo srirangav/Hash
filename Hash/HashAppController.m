@@ -25,6 +25,7 @@
     v. 1.1.6  (11/12/2020) - Check the verfication hash to see if it the right
                              length
     v. 1.1.7 (11/27/2020)  - Add support for SHAKE128, SHAKE256
+    v. 1.1.8 (11/27/2020)  - Add support for BLAKE3
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -270,6 +271,7 @@ NSString *gPrefLowercase = @"lowercase";
         //case HASH_BLAKE2S_512:
         //case HASH_BLAKE2SP_256:
         //case HASH_BLAKE2SP_512:
+        case HASH_BLAKE3:
         case HASH_SKEIN_256:
         case HASH_SKEIN_512:
         case HASH_SKEIN_512_256:
@@ -742,6 +744,7 @@ NSString *gPrefLowercase = @"lowercase";
         //case HASH_BLAKE2S_512:
         //case HASH_BLAKE2SP_256:
         //case HASH_BLAKE2SP_512:
+        case HASH_BLAKE3:
         case HASH_SKEIN_256:
         case HASH_SKEIN_512:
         case HASH_SKEIN_512_256:
@@ -1089,6 +1092,7 @@ NSString *gPrefLowercase = @"lowercase";
         case HASH_SKEIN_1024_256:
         case HASH_JH_256:
         case HASH_BLAKE256:
+        case HASH_BLAKE3:
         case HASH_GROESTL256:
             digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(unsigned char);
             break;

@@ -41,6 +41,9 @@
 		26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D69B821AE62B7E005B114A /* Whirlpool.c */; };
 		26DA4DA522FD03A000B38AE0 /* tiger.c in Sources */ = {isa = PBXBuildFile; fileRef = 26DA4DA122FD03A000B38AE0 /* tiger.c */; };
 		26DA4DA622FD03A000B38AE0 /* tiger_sbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 26DA4DA222FD03A000B38AE0 /* tiger_sbox.c */; };
+		A646C0982571EDF400F2ECDD /* blake3_dispatch.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0942571EDF400F2ECDD /* blake3_dispatch.c */; };
+		A646C0992571EDF400F2ECDD /* blake3_portable.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0952571EDF400F2ECDD /* blake3_portable.c */; };
+		A646C09A2571EDF400F2ECDD /* blake3.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0962571EDF400F2ECDD /* blake3.c */; };
 		A6E46DA82570DA9C0063E58C /* jh_ansi_opt64.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DA72570DA9C0063E58C /* jh_ansi_opt64.c */; };
 		A6E46DBF2570F1CB0063E58C /* blake2s-ref.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DB92570F1CA0063E58C /* blake2s-ref.c */; };
 		A6E46DC02570F1CB0063E58C /* blake2bp-ref.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DBA2570F1CA0063E58C /* blake2bp-ref.c */; };
@@ -131,6 +134,11 @@
 		26DA4DA422FD03A000B38AE0 /* tiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tiger.h; path = Tiger/tiger.h; sourceTree = "<group>"; };
 		26DA4DA722FD03ED00B38AE0 /* byte_order.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = byte_order.h; path = Tiger/byte_order.h; sourceTree = "<group>"; };
 		26F5F0C722C9E38600B38AE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A646C0942571EDF400F2ECDD /* blake3_dispatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blake3_dispatch.c; sourceTree = "<group>"; };
+		A646C0952571EDF400F2ECDD /* blake3_portable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blake3_portable.c; sourceTree = "<group>"; };
+		A646C0962571EDF400F2ECDD /* blake3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blake3.c; sourceTree = "<group>"; };
+		A646C0972571EDF400F2ECDD /* blake3_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blake3_impl.h; sourceTree = "<group>"; };
+		A646C09D2571F2CE00F2ECDD /* blake3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blake3.h; sourceTree = "<group>"; };
 		A6E46DA72570DA9C0063E58C /* jh_ansi_opt64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jh_ansi_opt64.c; path = JH/jh_ansi_opt64.c; sourceTree = "<group>"; };
 		A6E46DB92570F1CA0063E58C /* blake2s-ref.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "blake2s-ref.c"; path = "BLAKE2/blake2s-ref.c"; sourceTree = "<group>"; };
 		A6E46DBA2570F1CA0063E58C /* blake2bp-ref.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "blake2bp-ref.c"; path = "BLAKE2/blake2bp-ref.c"; sourceTree = "<group>"; };
@@ -240,6 +248,7 @@
 				26B48BE522FEA2C000B38AE0 /* brg_endian.h */,
 				263C03B922FE3EE300B38AE0 /* BLAKE */,
 				26D476FE1D21DC30000DD102 /* BLAKE2 */,
+				A646C0932571EDF400F2ECDD /* BLAKE3 */,
 				26B741E21B7D5ADB000D74A1 /* CRC */,
 				263C03B122FD580800B38AE0 /* HAS-160 */,
 				26B48BE022FEA29C00B38AE0 /* Groestl */,
@@ -431,6 +440,18 @@
 			name = Tiger;
 			sourceTree = "<group>";
 		};
+		A646C0932571EDF400F2ECDD /* BLAKE3 */ = {
+			isa = PBXGroup;
+			children = (
+				A646C09D2571F2CE00F2ECDD /* blake3.h */,
+				A646C0972571EDF400F2ECDD /* blake3_impl.h */,
+				A646C0962571EDF400F2ECDD /* blake3.c */,
+				A646C0942571EDF400F2ECDD /* blake3_dispatch.c */,
+				A646C0952571EDF400F2ECDD /* blake3_portable.c */,
+			);
+			path = BLAKE3;
+			sourceTree = "<group>";
+		};
 		A6E46E0825718A810063E58C /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +620,7 @@
 				A6E46DC02570F1CB0063E58C /* blake2bp-ref.c in Sources */,
 				263C03B422FD582300B38AE0 /* has160.c in Sources */,
 				26B741E41B7D5AF6000D74A1 /* crc32.c in Sources */,
+				A646C09A2571EDF400F2ECDD /* blake3.c in Sources */,
 				A6E46E1625718A810063E58C /* crypto_util.c in Sources */,
 				265C0D801F0492BE00D587B1 /* md6_mode.c in Sources */,
 				A6E46DCA2570F5430063E58C /* Groestl-opt.c in Sources */,
@@ -609,9 +631,11 @@
 				269E9C12237E381600B38AE0 /* byte_order.c in Sources */,
 				263FFA4019F1CB2400E9E1C7 /* rmd160.c in Sources */,
 				26719F021B7EAE97007FBFE6 /* rmd320.c in Sources */,
+				A646C0982571EDF400F2ECDD /* blake3_dispatch.c in Sources */,
 				A6E46DA82570DA9C0063E58C /* jh_ansi_opt64.c in Sources */,
 				26DA4DA622FD03A000B38AE0 /* tiger_sbox.c in Sources */,
 				A6E46DC12570F1CB0063E58C /* blake2b-ref.c in Sources */,
+				A646C0992571EDF400F2ECDD /* blake3_portable.c in Sources */,
 				A6E46DC22570F1CB0063E58C /* blake2sp-ref.c in Sources */,
 				26D477171D248EFD000DD102 /* skein.c in Sources */,
 				26D4771B1D248F96000DD102 /* skein_block.c in Sources */,
