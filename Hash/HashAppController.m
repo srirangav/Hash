@@ -26,6 +26,7 @@
                              length
     v. 1.1.7 (11/27/2020)  - Add support for SHAKE128, SHAKE256
     v. 1.1.8 (11/27/2020)  - Add support for BLAKE3
+    v. 1.1.9 (05/22/2021)  - Add preference pane
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -97,10 +98,6 @@ NSString *gPrefLowercase = @"lowercase";
     hashDefaults = [[NSUserDefaults alloc] initWithSuiteName: gAppGroup];
     
     prefLowercase = [hashDefaults boolForKey: gPrefLowercase];
-    
-    [hashMenuItemToggleLowerCase setState: (prefLowercase ?
-                                            NSControlStateValueOn :
-                                            NSControlStateValueOff)];
 }
 
 /*
@@ -147,15 +144,17 @@ NSString *gPrefLowercase = @"lowercase";
     [self setMessage: @""];
 }
 
--(IBAction)actionToggleLowerCase:(id)sender
+/* actionToggleLowerCaseCheckbox - toggle the state of the lower case checkbox */
+
+-(IBAction)actionToggleLowerCaseCheckbox:(id)sender
 {
     prefLowercase = !prefLowercase;
     
     [hashDefaults setBool:prefLowercase forKey:gPrefLowercase];
     
-    [hashMenuItemToggleLowerCase setState: (prefLowercase ?
-                                            NSControlStateValueOn :
-                                            NSControlStateValueOff)];
+    [lowerCaseCheckBox setState: (prefLowercase ?
+                                  NSControlStateValueOn :
+                                  NSControlStateValueOff)];
 }
 
 /*
@@ -628,6 +627,48 @@ NSString *gPrefLowercase = @"lowercase";
 {
     [NSApp endSheet: aboutSheet];
     [aboutSheet orderOut:sender];
+}
+
+/*
+    showPrefSheet - show a panel to set preferences
+    Based on: https://stackoverflow.com/questions/8058653/displaying-a-cocoa-window-as-a-sheet-in-xcode-4-osx-10-7-2-with-arc
+              http://www.macdevcenter.com/pub/a/mac/2002/06/14/cocoa.html?page=2
+              http://cocoadevcentral.com/articles/000071.php
+              http://www.cocoabuilder.com/archive/cocoa/211734-trying-to-display-static-image-on-my-window-any-tips-would-be-great.html
+
+ */
+
+-(IBAction)showPrefSheet:(id)sender
+{
+    NSWindow *theWindow = nil;
+
+    // get the main window
+
+    theWindow = [[NSApplication sharedApplication] mainWindow];
+    if (theWindow == nil) {
+        return;
+    }
+
+    [lowerCaseCheckBox setState: (prefLowercase ?
+                                  NSControlStateValueOn :
+                                  NSControlStateValueOff)];
+
+    [NSApp beginSheet: prefSheet
+       modalForWindow: theWindow
+        modalDelegate: self
+       didEndSelector: nil
+          contextInfo: nil];
+}
+
+/*
+    endPrefSheet - close the prefernce panel
+    Based on: https://stackoverflow.com/questions/8058653/displaying-a-cocoa-window-as-a-sheet-in-xcode-4-osx-10-7-2-with-arc
+ */
+
+-(IBAction)endPrefSheet:(id)sender
+{
+    [NSApp endSheet: prefSheet];
+    [prefSheet orderOut:sender];
 }
 
 /*

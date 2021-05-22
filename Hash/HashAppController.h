@@ -10,7 +10,8 @@
     v. 1.0.3 (08/13/2019) - Add method to clear verification fields
     v. 1.0.4 (11/12/2020) - Add support for checking if a verification hash
                             is the correct length
- 
+    v. 1.0.5 (05/22/2021)  - Add preference pane
+
     Copyright (c) 2014-2020 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
@@ -66,10 +67,11 @@ typedef enum {
     IBOutlet id clearFileFieldButton;
     IBOutlet id clearVerifyFieldButton;
     IBOutlet id aboutText;
-    IBOutlet NSMenuItem *hashMenuItemToggleLowerCase;
+    IBOutlet id lowerCaseCheckBox;
     IBOutlet NSProgressIndicator *hashProgress;
     IBOutlet NSPanel *hashSheet;
     IBOutlet NSPanel *aboutSheet;
+    IBOutlet NSPanel *prefSheet;
     NSOpenPanel *selectFilePanel;
     NSString *appNameStr;
     NSOperationQueue *hashQueue;
@@ -105,7 +107,11 @@ typedef enum {
 
 -(IBAction)endHashSheet:(id)sender;
 
--(IBAction)actionToggleLowerCase:(id)sender;
+-(IBAction)showPrefSheet:(id)sender;
+
+-(IBAction)endPrefSheet:(id)sender;
+
+-(IBAction)actionToggleLowerCaseCheckbox:(id)sender;
 
 -(void)hashComplete:(NSDictionary *)dict;
 

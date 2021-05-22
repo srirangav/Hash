@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,10 +24,11 @@
                 <outlet property="aboutSheet" destination="nKa-HH-4ac" id="aG1-W6-8ga"/>
                 <outlet property="appNameField" destination="3SR-WO-ALT" id="PrH-Y7-d05"/>
                 <outlet property="cancelHashButton" destination="1UJ-Qb-MVB" id="vhZ-aG-v4i"/>
-                <outlet property="hashMenuItemToggleLowerCase" destination="FDm-Dq-a3M" id="CXl-GV-5sN"/>
                 <outlet property="hashProgress" destination="GV4-zS-Oxl" id="bjD-wz-h1M"/>
                 <outlet property="hashSheet" destination="LsI-gp-8uL" id="Oic-Be-4xB"/>
+                <outlet property="lowerCaseCheckBox" destination="PpV-2u-jCU" id="P8o-Vz-g9Q"/>
                 <outlet property="messageField" destination="bRz-Lj-eIq" id="mGB-zq-YWX"/>
+                <outlet property="prefSheet" destination="YW0-Rv-ao8" id="PIm-vk-zAm"/>
                 <outlet property="selectedFileField" destination="R5x-qa-tFj" id="rbl-Sn-s4P"/>
                 <outlet property="selectedHashPopUp" destination="Ipw-pu-Uar" id="kzh-oi-SoB"/>
                 <outlet property="verifyConfirmField" destination="ceZ-Bi-fWQ" id="TiG-7T-i6C"/>
@@ -47,6 +48,13 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                            <menuItem title="Preferences..." id="6KY-iy-5je">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showPrefSheet:" target="Ay7-r0-R4I" id="bJs-U1-Qaf"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="cBb-R4-H3s"/>
                             <menuItem title="Services" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
@@ -101,13 +109,6 @@
                                 </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="aPe-zp-uBF"/>
-                            <menuItem title="Lowercase" id="FDm-Dq-a3M">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="actionToggleLowerCase:" target="Ay7-r0-R4I" id="skz-dj-NGz"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="K1O-Di-adZ"/>
                             <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="HmO-Ls-i7Q"/>
@@ -210,8 +211,8 @@ CA
         </menu>
         <window title="Hash" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="335" y="390" width="661" height="164"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
+            <rect key="contentRect" x="335" y="390" width="663" height="163"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="663" height="163"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -540,7 +541,7 @@ CA
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="120" y="65" width="367" height="83"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
             <view key="contentView" id="0Mm-G5-jc2">
                 <rect key="frame" x="0.0" y="0.0" width="367" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -592,7 +593,7 @@ Gw
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="120" y="65" width="301" height="136"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
             <view key="contentView" id="3Nc-6n-aia">
                 <rect key="frame" x="0.0" y="0.0" width="301" height="136"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -631,7 +632,7 @@ Gw
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mjp-4Q-oRk">
-                        <rect key="frame" x="119" y="14" width="70" height="32"/>
+                        <rect key="frame" x="120" y="14" width="69" height="32"/>
                         <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7CV-3u-ilz">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -656,6 +657,53 @@ Gw
                 </constraints>
             </view>
             <point key="canvasLocation" x="279.5" y="698"/>
+        </window>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="YW0-Rv-ao8" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="139" y="81" width="222" height="152"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
+            <view key="contentView" id="19R-9C-QE7">
+                <rect key="frame" x="0.0" y="0.0" width="222" height="152"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="WEW-gr-wco">
+                        <rect key="frame" x="73" y="116" width="77" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Preferences" id="cbV-lx-Gh2">
+                            <font key="font" usesAppearanceFont="YES"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" id="i2Z-Q1-HHT">
+                        <rect key="frame" x="77" y="13" width="69" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ku0-p9-0Jd">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="endPrefSheet:" target="Ay7-r0-R4I" id="Phu-Pl-1Jh"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" id="PpV-2u-jCU">
+                        <rect key="frame" x="18" y="83" width="187" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="check" title="Display Hash in Lowercase" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="uMc-kl-R4f">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="actionToggleLowerCaseCheckbox:" target="Ay7-r0-R4I" id="KrJ-2W-O6c"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="746" y="719"/>
         </window>
     </objects>
 </document>
