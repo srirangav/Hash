@@ -209,8 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				263E467D2342E38C00B38AE0 /* sha1dc.h */,
-				263E467B2342E38C00B38AE0 /* ubc_check.h */,
 				263E467C2342E38C00B38AE0 /* sha1dc.c */,
+				263E467B2342E38C00B38AE0 /* ubc_check.h */,
 				263E467E2342E38C00B38AE0 /* ubc_check.c */,
 			);
 			path = SHA1DC;
