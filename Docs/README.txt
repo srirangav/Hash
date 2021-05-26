@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.10
+Hash v. 1.1.11
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -43,6 +43,7 @@ License:
 
 History:
 
+    v. 1.1.11 - Update to Blake3 v.0.3.8
     v. 1.1.10 - Add preference pane
     v. 1.1.9  - Add support for BLAKE3
     v. 1.1.8  - Build on Big Sur, add SHAKE128 & SHAKE256
