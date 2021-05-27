@@ -42,6 +42,10 @@ License:
 
     Please see LICENSE.txt
 
+Homepage / Sources:
+
+    https://github.com/srirangav/Hash
+
 History:
 
     v. 1.1.11 - Update to Blake3 v.0.3.8, add LSH (224, 256,
@@ -107,3 +111,4 @@ References:
                    https://github.com/rhash/RHash
     LSH          - https://seed.kisa.or.kr/kisa/Board/22/detailView.do
                  - https://en.wikipedia.org/wiki/LSH_(hash_function)
+
