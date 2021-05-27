@@ -41,6 +41,10 @@
 		26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */ = {isa = PBXBuildFile; fileRef = 26D69B821AE62B7E005B114A /* Whirlpool.c */; };
 		26DA4DA522FD03A000B38AE0 /* tiger.c in Sources */ = {isa = PBXBuildFile; fileRef = 26DA4DA122FD03A000B38AE0 /* tiger.c */; };
 		26DA4DA622FD03A000B38AE0 /* tiger_sbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 26DA4DA222FD03A000B38AE0 /* tiger_sbox.c */; };
+		26F779B9265F24D700A6B34D /* lsh512.c in Sources */ = {isa = PBXBuildFile; fileRef = 26F779B5265F24D700A6B34D /* lsh512.c */; };
+		26F779BA265F24D700A6B34D /* lsh256.c in Sources */ = {isa = PBXBuildFile; fileRef = 26F779B6265F24D700A6B34D /* lsh256.c */; };
+		26F779BB265F24D700A6B34D /* lsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 26F779B7265F24D700A6B34D /* lsh.c */; };
+		26F779BD265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip in Resources */ = {isa = PBXBuildFile; fileRef = 26F779BC265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip */; };
 		A646C0982571EDF400F2ECDD /* blake3_dispatch.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0942571EDF400F2ECDD /* blake3_dispatch.c */; };
 		A646C0992571EDF400F2ECDD /* blake3_portable.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0952571EDF400F2ECDD /* blake3_portable.c */; };
 		A646C09A2571EDF400F2ECDD /* blake3.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0962571EDF400F2ECDD /* blake3.c */; };
@@ -136,6 +140,15 @@
 		26DA4DA422FD03A000B38AE0 /* tiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tiger.h; path = Tiger/tiger.h; sourceTree = "<group>"; };
 		26DA4DA722FD03ED00B38AE0 /* byte_order.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = byte_order.h; path = Tiger/byte_order.h; sourceTree = "<group>"; };
 		26F5F0C722C9E38600B38AE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		26F779B1265F24D700A6B34D /* lsh512.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsh512.h; sourceTree = "<group>"; };
+		26F779B2265F24D700A6B34D /* lsh256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsh256.h; sourceTree = "<group>"; };
+		26F779B3265F24D700A6B34D /* lsh_def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsh_def.h; sourceTree = "<group>"; };
+		26F779B4265F24D700A6B34D /* lsh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsh.h; sourceTree = "<group>"; };
+		26F779B5265F24D700A6B34D /* lsh512.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lsh512.c; sourceTree = "<group>"; };
+		26F779B6265F24D700A6B34D /* lsh256.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lsh256.c; sourceTree = "<group>"; };
+		26F779B7265F24D700A6B34D /* lsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lsh.c; sourceTree = "<group>"; };
+		26F779B8265F24D700A6B34D /* lsh_local.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsh_local.h; sourceTree = "<group>"; };
+		26F779BC265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "해시함수 LSH_소스코드(v1.0.2).zip"; sourceTree = "<group>"; };
 		A646C0942571EDF400F2ECDD /* blake3_dispatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blake3_dispatch.c; sourceTree = "<group>"; };
 		A646C0952571EDF400F2ECDD /* blake3_portable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blake3_portable.c; sourceTree = "<group>"; };
 		A646C0962571EDF400F2ECDD /* blake3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blake3.c; sourceTree = "<group>"; };
@@ -257,6 +270,7 @@
 				263C03B122FD580800B38AE0 /* HAS-160 */,
 				26B48BE022FEA29C00B38AE0 /* Groestl */,
 				264644C522FA661500B38AE0 /* JH */,
+				26F779B0265F24D700A6B34D /* LSH */,
 				26B4DEF41F048EC400F340FA /* MD6 */,
 				26D69B5B1AE625B8005B114A /* RMD160 */,
 				26719EF61B7E8D99007FBFE6 /* RMD320 */,
@@ -329,6 +343,7 @@
 				2612682522FEB81A00B38AE0 /* Groestl.zip */,
 				2696170F22FAB82900B38AE0 /* jh_20110116.zip */,
 				26830A871AE880090054251E /* KeccakCodePackage-master.zip */,
+				26F779BC265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip */,
 				265F79ED1F049C3300CCFB2D /* md6_c_code-2009-04-15.zip */,
 				26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */,
 				26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */,
@@ -444,6 +459,21 @@
 				26DA4DA222FD03A000B38AE0 /* tiger_sbox.c */,
 			);
 			name = Tiger;
+			sourceTree = "<group>";
+		};
+		26F779B0265F24D700A6B34D /* LSH */ = {
+			isa = PBXGroup;
+			children = (
+				26F779B4265F24D700A6B34D /* lsh.h */,
+				26F779B3265F24D700A6B34D /* lsh_def.h */,
+				26F779B8265F24D700A6B34D /* lsh_local.h */,
+				26F779B7265F24D700A6B34D /* lsh.c */,
+				26F779B2265F24D700A6B34D /* lsh256.h */,
+				26F779B6265F24D700A6B34D /* lsh256.c */,
+				26F779B1265F24D700A6B34D /* lsh512.h */,
+				26F779B5265F24D700A6B34D /* lsh512.c */,
+			);
+			path = LSH;
 			sourceTree = "<group>";
 		};
 		A646C0932571EDF400F2ECDD /* BLAKE3 */ = {
@@ -595,6 +625,7 @@
 				26B7A7461B83FC50008A0A78 /* icon_512x512.png in Resources */,
 				26B7A7471B83FC50008A0A78 /* icon_256x256.png in Resources */,
 				26B7A7481B83FC50008A0A78 /* icon_128x128.png in Resources */,
+				26F779BD265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip in Resources */,
 				A646C0A72571FDB800F2ECDD /* BLAKE-master.zip in Resources */,
 				26B7A7491B83FC50008A0A78 /* icon_64x64.png in Resources */,
 				26B7A74A1B83FC50008A0A78 /* icon_32x32.png in Resources */,
@@ -618,8 +649,10 @@
 				263E46802342E38C00B38AE0 /* ubc_check.c in Sources */,
 				263FFA1D19F1CA5300E9E1C7 /* AppDelegate.m in Sources */,
 				263FFA1A19F1CA5300E9E1C7 /* main.m in Sources */,
+				26F779B9265F24D700A6B34D /* lsh512.c in Sources */,
 				26DA4DA522FD03A000B38AE0 /* tiger.c in Sources */,
 				A6E46E1D25718BB90063E58C /* malloc.c in Sources */,
+				26F779BB265F24D700A6B34D /* lsh.c in Sources */,
 				2661CA681ADB9CA000E57BD1 /* HashOperation.m in Sources */,
 				263FFA4319F1CDF600E9E1C7 /* HashAppController.m in Sources */,
 				A6E46DBF2570F1CB0063E58C /* blake2s-ref.c in Sources */,
@@ -635,6 +668,7 @@
 				265C0D7F1F0492BE00D587B1 /* md6_compress.c in Sources */,
 				263E467F2342E38C00B38AE0 /* sha1dc.c in Sources */,
 				26B741E71B7DC548000D74A1 /* crc.c in Sources */,
+				26F779BA265F24D700A6B34D /* lsh256.c in Sources */,
 				269E9C10237E321800B38AE0 /* snefru.c in Sources */,
 				269E9C12237E381600B38AE0 /* byte_order.c in Sources */,
 				263FFA4019F1CB2400E9E1C7 /* rmd160.c in Sources */,

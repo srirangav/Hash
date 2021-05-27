@@ -18,6 +18,7 @@
     v. 1.1.1 (09/30/2019) - Add support for SHA1 collision detection
     v. 1.1.2 (11/27/2020) - Add support for SHAKE128, SHAKE256
     v. 1.1.3 (11/27/2020) - Add support for BLAKE3
+    v. 1.1.4 (05/26/2021) - Add support for LSH
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -106,6 +107,10 @@ typedef enum {
     HASH_SHAKE128       = 50,
     HASH_SHAKE256       = 51,
     HASH_BLAKE3         = 52,
+    HASH_LSH224         = 53,
+    HASH_LSH256         = 54,
+    HASH_LSH384         = 55,
+    HASH_LSH512         = 56,
 } HashType;
 
 // Default File Buffer Size (400K)

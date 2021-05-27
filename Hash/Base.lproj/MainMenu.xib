@@ -469,6 +469,19 @@ CA
                                     <menuItem title="Snefru 256" tag="49" id="VfG-os-mte">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="CAy-Ly-aIT"/>
+                                    <menuItem title="LSH 224" tag="53" id="tlz-sl-lwi">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="LSH 256" tag="54" id="mxf-js-iQI">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="LSH 384" tag="55" id="7wS-La-0Vk">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="LSH 512" tag="56" id="TTT-Ug-RpZ">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                 </items>
                             </menu>
                         </popUpButtonCell>

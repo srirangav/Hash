@@ -63,6 +63,7 @@
 #import "Groestl-opt.h"
 #import "sha1dc.h"
 #import "snefru.h"
+#import "lsh.h"
 
 @implementation HashOperation
 
@@ -155,7 +156,11 @@
             case HASH_GROESTL512:
             case HASH_SNEFRU128:
             case HASH_SNEFRU256:
-                
+            case HASH_LSH224:
+            case HASH_LSH256:
+            case HASH_LSH384:
+            case HASH_LSH512:
+
                 // valid hashType
 
                 hashType = hash;
@@ -256,6 +261,7 @@
         state512 blake512HashObject;
         groestl_HashState groestlHashObject;
         snefru_ctx snefruHashObject;
+        union LSH_Context lshHashObject;
         
         do {
             
@@ -299,6 +305,7 @@
                 case HASH_JH_224:
                 case HASH_BLAKE224:
                 case HASH_GROESTL224:
+                case HASH_LSH224:
                     digestLength = CC_SHA224_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_MD6_256:
@@ -316,6 +323,7 @@
                 case HASH_JH_256:
                 case HASH_BLAKE256:
                 case HASH_GROESTL256:
+                case HASH_LSH256:
                     digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SHA384:
@@ -323,6 +331,7 @@
                 case HASH_JH_384:
                 case HASH_BLAKE384:
                 case HASH_GROESTL384:
+                case HASH_LSH384:
                     digestLength = CC_SHA384_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_MD6_512:
@@ -338,6 +347,7 @@
                 case HASH_JH_512:
                 case HASH_BLAKE512:
                 case HASH_GROESTL512:
+                case HASH_LSH512:
                     digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SKEIN_1024:
@@ -558,6 +568,18 @@
                     break;
                 case HASH_SNEFRU256:
                     rhash_snefru256_init(&snefruHashObject);
+                    break;
+                case HASH_LSH224:
+                    lsh_init(&lshHashObject, LSH_TYPE_224);
+                    break;
+                case HASH_LSH256:
+                    lsh_init(&lshHashObject, LSH_TYPE_256);
+                    break;
+                case HASH_LSH384:
+                    lsh_init(&lshHashObject, LSH_TYPE_384);
+                    break;
+                case HASH_LSH512:
+                    lsh_init(&lshHashObject, LSH_TYPE_512);
                     break;
                 default:
                     hasMoreData = FALSE;
@@ -844,6 +866,15 @@
                                             (const unsigned char*)buffer,
                                             (size_t)bytesRead);
                         break;
+                        
+                    case HASH_LSH224:
+                    case HASH_LSH256:
+                    case HASH_LSH384:
+                    case HASH_LSH512:
+                        lsh_update(&lshHashObject,
+                                   (const lsh_u8 *)buffer,
+                                   (size_t)bytesRead*8);
+                        break;
                     default:
                         hasMoreData = FALSE;
                         readFailed = TRUE;
@@ -1000,6 +1031,12 @@
                 case HASH_SNEFRU256:
                     rhash_snefru_final(&snefruHashObject,
                                        digest);
+                    break;
+                case HASH_LSH224:
+                case HASH_LSH256:
+                case HASH_LSH384:
+                case HASH_LSH512:
+                    lsh_final(&lshHashObject, digest);
                     break;
                 default:
                     hasMoreData = FALSE;

@@ -24,9 +24,10 @@
     v. 1.1.6  (XX/XX/2020) - Add support for outputing the hash in lowercase
     v. 1.1.6  (11/12/2020) - Check the verfication hash to see if it the right
                              length
-    v. 1.1.7 (11/27/2020)  - Add support for SHAKE128, SHAKE256
-    v. 1.1.8 (11/27/2020)  - Add support for BLAKE3
-    v. 1.1.9 (05/22/2021)  - Add preference pane
+    v. 1.1.7  (11/27/2020) - Add support for SHAKE128, SHAKE256
+    v. 1.1.8  (11/27/2020) - Add support for BLAKE3
+    v. 1.1.9  (05/22/2021) - Add preference pane
+    v. 1.1.10 (05/26/2021) - Add support for LSH
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -294,6 +295,10 @@ NSString *gPrefLowercase = @"lowercase";
         case HASH_GROESTL512:
         case HASH_SNEFRU128:
         case HASH_SNEFRU256:
+        case HASH_LSH224:
+        case HASH_LSH256:
+        case HASH_LSH384:
+        case HASH_LSH512:
             
             /*
                 valid hash type selected, compute the file's hash and
@@ -809,6 +814,10 @@ NSString *gPrefLowercase = @"lowercase";
         case HASH_GROESTL512:
         case HASH_SNEFRU128:
         case HASH_SNEFRU256:
+        case HASH_LSH224:
+        case HASH_LSH256:
+        case HASH_LSH384:
+        case HASH_LSH512:
 
             // valid hashType, return it
 
@@ -1118,6 +1127,7 @@ NSString *gPrefLowercase = @"lowercase";
         case HASH_JH_224:
         case HASH_BLAKE224:
         case HASH_GROESTL224:
+        case HASH_LSH224:
             digestLength = CC_SHA224_DIGEST_LENGTH*sizeof(unsigned char);
             break;
         case HASH_MD6_256:
@@ -1135,6 +1145,7 @@ NSString *gPrefLowercase = @"lowercase";
         case HASH_BLAKE256:
         case HASH_BLAKE3:
         case HASH_GROESTL256:
+        case HASH_LSH256:
             digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(unsigned char);
             break;
         case HASH_SHA384:
@@ -1142,6 +1153,7 @@ NSString *gPrefLowercase = @"lowercase";
         case HASH_JH_384:
         case HASH_BLAKE384:
         case HASH_GROESTL384:
+        case HASH_LSH384:
             digestLength = CC_SHA384_DIGEST_LENGTH*sizeof(unsigned char);
             break;
         case HASH_MD6_512:
@@ -1157,6 +1169,7 @@ NSString *gPrefLowercase = @"lowercase";
         case HASH_JH_512:
         case HASH_BLAKE512:
         case HASH_GROESTL512:
+        case HASH_LSH512:
             digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(unsigned char);
             break;
         case HASH_SKEIN_1024:
