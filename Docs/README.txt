@@ -48,7 +48,7 @@ Homepage / Sources:
 
 History:
 
-    v. 1.1.11 - Update to Blake3 v.0.3.8, add LSH (224, 256,
+    v. 1.1.11 - Update to BLAKE3 v.0.3.8, add LSH (224, 256,
                 384, 512)
     v. 1.1.10 - Add preference pane
     v. 1.1.9  - Add support for BLAKE3
@@ -111,4 +111,3 @@ References:
                    https://github.com/rhash/RHash
     LSH          - https://seed.kisa.or.kr/kisa/Board/22/detailView.do
                  - https://en.wikipedia.org/wiki/LSH_(hash_function)
-

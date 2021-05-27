@@ -230,6 +230,11 @@ BLAKE2:
 
     - Apache 2.0        : http://www.apache.org/licenses/LICENSE-2.0
 
+BLAKE3:
+
+   https://github.com/BLAKE3-team/BLAKE3
+   CC1: https://github.com/BLAKE3-team/BLAKE3/blob/master/LICENSE
+
 Skein:
 
     Skein source code by Doug Whiting 2008 (public domain) and brg_types.h
@@ -375,11 +380,6 @@ tiny-keccak:
 
     https://github.com/coruus/keccak-tiny
     CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
-
-blake3:
-
-   https://github.com/BLAKE3-team/BLAKE3
-   CC1: https://github.com/BLAKE3-team/BLAKE3/blob/master/LICENSE
 
 LSH:
 

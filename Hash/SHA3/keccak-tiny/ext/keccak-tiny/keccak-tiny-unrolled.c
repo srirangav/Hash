@@ -175,7 +175,7 @@ keccak_update(keccak_state *s, const uint8_t *buf, size_t len)
   return 0;
 }
 
-/* srv 2020-11-27 add prototype fo keccak_finalize */
+/* srv 2020-11-27 add prototype for keccak_finalize */
 #ifndef HAVE_SHA3_FINALIZE
 void
 keccak_finalize(keccak_state *s)
@@ -209,7 +209,7 @@ keccak_squeeze_blocks(keccak_state *s, uint8_t *out, size_t nr_blocks)
   }
 }
 
-/* srv 2020-11-27 add prototype fo keccak_finalize */
+/* srv 2020-11-27 add prototype for keccak_finalize */
 #ifndef HAVE_SHA3_FINALIZE
 int
 keccak_squeeze(keccak_state *s, uint8_t *out, size_t outlen)

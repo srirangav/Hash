@@ -100,7 +100,6 @@
 		26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "mLib-7a376ba.tar.gz"; sourceTree = "<group>"; };
 		26719F051B7EAFB6007FBFE6 /* catacomb-f93fc80.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "catacomb-f93fc80.tar.gz"; sourceTree = "<group>"; };
 		26719F081B7EB365007FBFE6 /* bits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bits.h; sourceTree = "<group>"; };
-		26830A871AE880090054251E /* KeccakCodePackage-master.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "KeccakCodePackage-master.zip"; sourceTree = "<group>"; };
 		26830A881AE880090054251E /* whirlpool.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = whirlpool.zip; sourceTree = "<group>"; };
 		2684480C19F4D31F00C2D3A3 /* icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icon.svg; sourceTree = "<group>"; };
 		2684480D19F4D31F00C2D3A3 /* icon_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_1024x1024.png; sourceTree = "<group>"; };
@@ -119,6 +118,8 @@
 		26B741E31B7D5AF6000D74A1 /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc32.c; path = Hash/CRC/crc32.c; sourceTree = SOURCE_ROOT; };
 		26B741E51B7D5B56000D74A1 /* crc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = crc.h; path = CRC/crc.h; sourceTree = "<group>"; };
 		26B741E61B7DC548000D74A1 /* crc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc.c; path = Hash/CRC/crc.c; sourceTree = SOURCE_ROOT; };
+		26BB29A2265F86560058AA73 /* BLAKE3-0.3.8.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE3-0.3.8.zip"; sourceTree = "<group>"; };
+		26BB29A3265F8DFE0058AA73 /* tor-tor-0.4.5.8.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "tor-tor-0.4.5.8.zip"; sourceTree = "<group>"; };
 		26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE2-20160619.zip"; sourceTree = "<group>"; };
 		26D477141D248EFD000DD102 /* skein.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = skein.c; sourceTree = "<group>"; };
 		26D477151D248EFD000DD102 /* skein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skein.h; sourceTree = "<group>"; };
@@ -150,7 +151,6 @@
 		A646C0962571EDF400F2ECDD /* blake3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blake3.c; sourceTree = "<group>"; };
 		A646C0972571EDF400F2ECDD /* blake3_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blake3_impl.h; sourceTree = "<group>"; };
 		A646C09D2571F2CE00F2ECDD /* blake3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blake3.h; sourceTree = "<group>"; };
-		A646C0A32571FDAF00F2ECDD /* BLAKE3-0.3.7.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE3-0.3.7.zip"; sourceTree = "<group>"; };
 		A646C0A62571FDB800F2ECDD /* BLAKE-master.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE-master.zip"; sourceTree = "<group>"; };
 		A6E46DA72570DA9C0063E58C /* jh_ansi_opt64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jh_ansi_opt64.c; path = JH/jh_ansi_opt64.c; sourceTree = "<group>"; };
 		A6E46DB92570F1CA0063E58C /* blake2s-ref.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "blake2s-ref.c"; path = "BLAKE2/blake2s-ref.c"; sourceTree = "<group>"; };
@@ -172,7 +172,6 @@
 		A6E46E1525718A810063E58C /* keccak-tiny-unrolled.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "keccak-tiny-unrolled.c"; sourceTree = "<group>"; };
 		A6E46E1B25718BB90063E58C /* malloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = malloc.h; sourceTree = "<group>"; };
 		A6E46E1C25718BB90063E58C /* malloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = malloc.c; sourceTree = "<group>"; };
-		A6E46E492571A3430063E58C /* tor-tor-0.4.5.2-alpha.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "tor-tor-0.4.5.2-alpha.zip"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,18 +333,17 @@
 			children = (
 				A646C0A62571FDB800F2ECDD /* BLAKE-master.zip */,
 				26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */,
-				A646C0A32571FDAF00F2ECDD /* BLAKE3-0.3.7.zip */,
+				26BB29A2265F86560058AA73 /* BLAKE3-0.3.8.zip */,
 				26719F051B7EAFB6007FBFE6 /* catacomb-f93fc80.tar.gz */,
 				2612682522FEB81A00B38AE0 /* Groestl.zip */,
 				2696170F22FAB82900B38AE0 /* jh_20110116.zip */,
-				26830A871AE880090054251E /* KeccakCodePackage-master.zip */,
 				26F779BC265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip */,
 				265F79ED1F049C3300CCFB2D /* md6_c_code-2009-04-15.zip */,
 				26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */,
 				26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */,
 				26DA4D9E22FD037200B38AE0 /* RHash-1.3.8.zip */,
 				263E468123434AC000B38AE0 /* sha1collisiondetection-master.zip */,
-				A6E46E492571A3430063E58C /* tor-tor-0.4.5.2-alpha.zip */,
+				26BB29A3265F8DFE0058AA73 /* tor-tor-0.4.5.8.zip */,
 				26830A881AE880090054251E /* whirlpool.zip */,
 			);
 			path = Sources;
@@ -813,7 +811,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CLN8R9E6QM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Hash/Info.plist;
@@ -838,7 +836,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CLN8R9E6QM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Hash/Info.plist;
