@@ -4,6 +4,11 @@
 
 #include "blake3_impl.h"
 
+/* srv 2020-11-27 - force portable version */
+#ifndef BLAKE3_X86
+#undef IS_X86
+#endif
+
 #if defined(IS_X86)
 #if defined(_MSC_VER)
 #include <intrin.h>
