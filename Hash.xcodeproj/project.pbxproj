@@ -24,7 +24,6 @@
 		266C334219FB8E1E00089684 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 266C334419FB8E1E00089684 /* Localizable.strings */; };
 		266C334A19FB8FF700089684 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266C334819FB8FF700089684 /* MainMenu.xib */; };
 		26719F021B7EAE97007FBFE6 /* rmd320.c in Sources */ = {isa = PBXBuildFile; fileRef = 26719F001B7EAE97007FBFE6 /* rmd320.c */; };
-		2684481419F4D31F00C2D3A3 /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 2684480C19F4D31F00C2D3A3 /* icon.svg */; };
 		269E9C10237E321800B38AE0 /* snefru.c in Sources */ = {isa = PBXBuildFile; fileRef = 269E9C0E237E321800B38AE0 /* snefru.c */; };
 		269E9C12237E381600B38AE0 /* byte_order.c in Sources */ = {isa = PBXBuildFile; fileRef = 269E9C11237E381600B38AE0 /* byte_order.c */; };
 		26B741E41B7D5AF6000D74A1 /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B741E31B7D5AF6000D74A1 /* crc32.c */; };
@@ -44,12 +43,9 @@
 		26F779B9265F24D700A6B34D /* lsh512.c in Sources */ = {isa = PBXBuildFile; fileRef = 26F779B5265F24D700A6B34D /* lsh512.c */; };
 		26F779BA265F24D700A6B34D /* lsh256.c in Sources */ = {isa = PBXBuildFile; fileRef = 26F779B6265F24D700A6B34D /* lsh256.c */; };
 		26F779BB265F24D700A6B34D /* lsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 26F779B7265F24D700A6B34D /* lsh.c */; };
-		26F779BD265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip in Resources */ = {isa = PBXBuildFile; fileRef = 26F779BC265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip */; };
 		A646C0982571EDF400F2ECDD /* blake3_dispatch.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0942571EDF400F2ECDD /* blake3_dispatch.c */; };
 		A646C0992571EDF400F2ECDD /* blake3_portable.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0952571EDF400F2ECDD /* blake3_portable.c */; };
 		A646C09A2571EDF400F2ECDD /* blake3.c in Sources */ = {isa = PBXBuildFile; fileRef = A646C0962571EDF400F2ECDD /* blake3.c */; };
-		A646C0A42571FDAF00F2ECDD /* BLAKE3-0.3.7.zip in Resources */ = {isa = PBXBuildFile; fileRef = A646C0A32571FDAF00F2ECDD /* BLAKE3-0.3.7.zip */; };
-		A646C0A72571FDB800F2ECDD /* BLAKE-master.zip in Resources */ = {isa = PBXBuildFile; fileRef = A646C0A62571FDB800F2ECDD /* BLAKE-master.zip */; };
 		A6E46DA82570DA9C0063E58C /* jh_ansi_opt64.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DA72570DA9C0063E58C /* jh_ansi_opt64.c */; };
 		A6E46DBF2570F1CB0063E58C /* blake2s-ref.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DB92570F1CA0063E58C /* blake2s-ref.c */; };
 		A6E46DC02570F1CB0063E58C /* blake2bp-ref.c in Sources */ = {isa = PBXBuildFile; fileRef = A6E46DBA2570F1CA0063E58C /* blake2bp-ref.c */; };
@@ -625,16 +621,12 @@
 				26B7A7461B83FC50008A0A78 /* icon_512x512.png in Resources */,
 				26B7A7471B83FC50008A0A78 /* icon_256x256.png in Resources */,
 				26B7A7481B83FC50008A0A78 /* icon_128x128.png in Resources */,
-				26F779BD265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip in Resources */,
-				A646C0A72571FDB800F2ECDD /* BLAKE-master.zip in Resources */,
 				26B7A7491B83FC50008A0A78 /* icon_64x64.png in Resources */,
 				26B7A74A1B83FC50008A0A78 /* icon_32x32.png in Resources */,
-				A646C0A42571FDAF00F2ECDD /* BLAKE3-0.3.7.zip in Resources */,
 				26B7A74B1B83FC50008A0A78 /* icon_16x16.png in Resources */,
 				263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */,
 				266C334219FB8E1E00089684 /* Localizable.strings in Resources */,
 				266C334A19FB8FF700089684 /* MainMenu.xib in Resources */,
-				2684481419F4D31F00C2D3A3 /* icon.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
