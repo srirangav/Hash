@@ -19,6 +19,10 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>Hash.help</string>
+	<key>CFBundleHelpBookName</key>
+	<string>org.calalum.ranga.Hash.help</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>

@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.11
+Hash v. 1.1.12
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 About:
@@ -48,6 +48,7 @@ Homepage / Sources:
 
 History:
 
+    v. 1.1.12 - Add basic help support
     v. 1.1.11 - Update to BLAKE3 v.0.3.8, add LSH (224, 256,
                 384, 512)
     v. 1.1.10 - Add preference pane
@@ -82,8 +83,7 @@ References:
                    https://www.di-mgt.com.au/sha_testvectors.html
     RIPEMD       - https://homes.esat.kuleuven.be/~bosselae/ripemd160.html
                    https://en.wikipedia.org/wiki/RIPEMD
-    Whirlpool    - http://www.larc.usp.br/~pbarreto/WhirlpoolPage.html
-                   https://en.wikipedia.org/wiki/Whirlpool_(hash_function)
+    Whirlpool    - https://en.wikipedia.org/wiki/Whirlpool_(hash_function)
     BLAKE        - https://131002.net/blake/
                    https://github.com/veorq/BLAKE
                    https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29
@@ -93,10 +93,8 @@ References:
                    https://github.com/BLAKE2/BLAKE2
                    https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
     BLAKE3       - https://github.com/BLAKE3-team/BLAKE3
-    Skein        - http://www.skein-hash.info/
-                   https://en.wikipedia.org/wiki/Skein_(hash_function)
-    MD6          - https://groups.csail.mit.edu/cis/md6/
-                   https://en.wikipedia.org/wiki/MD6
+    Skein        - https://en.wikipedia.org/wiki/Skein_(hash_function)
+    MD6          - https://en.wikipedia.org/wiki/MD6
                    https://lib.rs/crates/md6
     JH           - https://www3.ntu.edu.sg/home/wuhj/research/jh/index.html
                    https://en.wikipedia.org/wiki/JH_(hash_function)

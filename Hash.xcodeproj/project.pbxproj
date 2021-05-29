@@ -24,6 +24,7 @@
 		266C334219FB8E1E00089684 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 266C334419FB8E1E00089684 /* Localizable.strings */; };
 		266C334A19FB8FF700089684 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266C334819FB8FF700089684 /* MainMenu.xib */; };
 		26719F021B7EAE97007FBFE6 /* rmd320.c in Sources */ = {isa = PBXBuildFile; fileRef = 26719F001B7EAE97007FBFE6 /* rmd320.c */; };
+		268F4A532661C5BF000547F3 /* Hash.help in Resources */ = {isa = PBXBuildFile; fileRef = 268F4A522661C5BF000547F3 /* Hash.help */; };
 		269E9C10237E321800B38AE0 /* snefru.c in Sources */ = {isa = PBXBuildFile; fileRef = 269E9C0E237E321800B38AE0 /* snefru.c */; };
 		269E9C12237E381600B38AE0 /* byte_order.c in Sources */ = {isa = PBXBuildFile; fileRef = 269E9C11237E381600B38AE0 /* byte_order.c */; };
 		26B741E41B7D5AF6000D74A1 /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 26B741E31B7D5AF6000D74A1 /* crc32.c */; };
@@ -109,6 +110,7 @@
 		2684481119F4D31F00C2D3A3 /* icon_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_64x64.png; sourceTree = "<group>"; };
 		2684481219F4D31F00C2D3A3 /* icon_32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_32x32.png; sourceTree = "<group>"; };
 		2684481319F4D31F00C2D3A3 /* icon_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_16x16.png; sourceTree = "<group>"; };
+		268F4A522661C5BF000547F3 /* Hash.help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hash.help; sourceTree = "<group>"; };
 		2696170F22FAB82900B38AE0 /* jh_20110116.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = jh_20110116.zip; sourceTree = "<group>"; };
 		269E9C0E237E321800B38AE0 /* snefru.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = snefru.c; sourceTree = "<group>"; };
 		269E9C0F237E321800B38AE0 /* snefru.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snefru.h; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		263C03C622FE51C800B38AE0 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				268F4A522661C5BF000547F3 /* Hash.help */,
 				263C03C822FE51D800B38AE0 /* LICENSE.txt */,
 				263C03C722FE51D800B38AE0 /* README.txt */,
 			);
@@ -625,6 +628,7 @@
 				263FFA1F19F1CA5300E9E1C7 /* Images.xcassets in Resources */,
 				266C334219FB8E1E00089684 /* Localizable.strings in Resources */,
 				266C334A19FB8FF700089684 /* MainMenu.xib in Resources */,
+				268F4A532661C5BF000547F3 /* Hash.help in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,13 +815,13 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CLN8R9E6QM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.11;
+				MARKETING_VERSION = 1.1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -836,13 +840,13 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CLN8R9E6QM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.11;
+				MARKETING_VERSION = 1.1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
