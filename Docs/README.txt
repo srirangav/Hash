@@ -46,10 +46,6 @@ License:
 
     Please see LICENSE.txt
 
-Homepage / Sources:
-
-    https://github.com/srirangav/Hash
-
 History:
 
     v. 1.1.13 - Update to BLAKE3 v.1.0
