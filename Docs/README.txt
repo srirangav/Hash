@@ -1,8 +1,12 @@
 README
 ------
 
-Hash v. 1.1.12
+Hash v. 1.1.13
 By Sriranga Veeraraghavan <ranga@calalum.org>
+
+Homepage:
+
+    https://github.com/srirangav/Hash
 
 About:
 
@@ -48,6 +52,7 @@ Homepage / Sources:
 
 History:
 
+    v. 1.1.13 - Update to BLAKE3 v.1.0
     v. 1.1.12 - Add basic help support
     v. 1.1.11 - Update to BLAKE3 v.0.3.8, add LSH (224, 256,
                 384, 512)
@@ -109,3 +114,4 @@ References:
                    https://github.com/rhash/RHash
     LSH          - https://seed.kisa.or.kr/kisa/Board/22/detailView.do
                  - https://en.wikipedia.org/wiki/LSH_(hash_function)
+
