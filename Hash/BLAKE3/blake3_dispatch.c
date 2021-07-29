@@ -4,11 +4,6 @@
 
 #include "blake3_impl.h"
 
-/* srv 2020-11-27 - force portable version */
-#ifndef BLAKE3_X86
-#undef IS_X86
-#endif
-
 #if defined(IS_X86)
 #if defined(_MSC_VER)
 #include <intrin.h>
@@ -66,7 +61,10 @@ static void cpuidex(uint32_t out[4], uint32_t id, uint32_t sid) {
 
 #endif
 
+/* 2021-07-27 srv - add NONE=0 as a valid value because it is returned below */
+
 enum cpu_feature {
+  NONE = 0,
   SSE2 = 1 << 0,
   SSSE3 = 1 << 1,
   SSE41 = 1 << 2,
@@ -78,14 +76,10 @@ enum cpu_feature {
   UNDEFINED = 1 << 30
 };
 
-/* SRV 05/26/2021 - get_cpu_features() unused */
-#ifdef BLAKE3_GET_CPU_FEATURES
-
 #if !defined(BLAKE3_TESTING)
 static /* Allow the variable to be controlled manually for testing */
 #endif
     enum cpu_feature g_cpu_features = UNDEFINED;
-
 
 #if !defined(BLAKE3_TESTING)
 static
@@ -141,8 +135,6 @@ static
 #endif
   }
 }
-
-#endif /* BLAKE3_GET_CPU_FEATURES */
 
 void blake3_compress_in_place(uint32_t cv[8],
                               const uint8_t block[BLAKE3_BLOCK_LEN],

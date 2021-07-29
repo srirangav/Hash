@@ -37,6 +37,21 @@
 #define DebugSaveTweak(ctx)
 #endif
 
+/* 2021-07-27 srv - add prototypes */
+void Skein_256_Process_Block(Skein_256_Ctxt_t *ctx,
+                             const u08b_t *blkPtr,
+                             size_t blkCnt,
+                             size_t byteCntAdd);
+void Skein_512_Process_Block(Skein_512_Ctxt_t *ctx,
+                             const u08b_t *blkPtr,
+                             size_t blkCnt,
+                             size_t byteCntAdd);
+void Skein1024_Process_Block(Skein1024_Ctxt_t *ctx,
+                             const u08b_t *blkPtr,
+                             size_t blkCnt,
+                             size_t byteCntAdd);
+
+
 /*****************************  Skein_256 ******************************/
 #if !(SKEIN_USE_ASM & 256)
 void Skein_256_Process_Block(Skein_256_Ctxt_t *ctx,const u08b_t *blkPtr,size_t blkCnt,size_t byteCntAdd)

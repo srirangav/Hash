@@ -283,8 +283,9 @@ int md6_byte_order = 0;
 */
 #define MD6_LITTLE_ENDIAN (md6_byte_order == 1)
 #define MD6_BIG_ENDIAN    (md6_byte_order == 2)
- 
-void md6_detect_byte_order( void )
+
+/* 2021-07-27 srv - make internal function static */
+static void md6_detect_byte_order( void )
 /* determine if underlying machine is little-endian or big-endian
 ** set global variable md6_byte_order to reflect result
 ** Written to work for any w.
@@ -296,7 +297,8 @@ void md6_detect_byte_order( void )
   else                   md6_byte_order = 0;      /* unknown       */
 }
 
-md6_word md6_byte_reverse( md6_word x )
+/* 2021-07-27 srv - make internal function static */
+static md6_word md6_byte_reverse( md6_word x )
 /* return byte-reversal of md6_word x.
 ** Written to work for any w, w=8,16,32,64.
 */
@@ -315,7 +317,8 @@ md6_word md6_byte_reverse( md6_word x )
   return x;
 }
 
-void md6_reverse_little_endian( md6_word *x, int count )
+/* 2021-07-27 srv - make internal function static */
+static void md6_reverse_little_endian( md6_word *x, int count )
 /* Byte-reverse words x[0...count-1] if machine is little_endian */
 {
   int i;
@@ -327,8 +330,9 @@ void md6_reverse_little_endian( md6_word *x, int count )
 /* Appending one bit string onto another.
 */
 
-void append_bits( unsigned char *dest, unsigned int destlen,
-		  unsigned char *src,  unsigned int srclen )
+/* 2021-07-27 srv - make internal function static */
+static void append_bits( unsigned char *dest, unsigned int destlen,
+                         unsigned char *src,  unsigned int srclen )
 /* Append bit string src to the end of bit string dest
 ** Input:
 **     dest         a bit string of destlen bits, starting in dest[0]
@@ -510,11 +514,12 @@ Here are some notes on the data structures used (inside state).
 /* Compress one block -- compress data at a node (md6_compress_block).
 */
 
-int md6_compress_block( md6_word *C,
-			md6_state *st, 
-			int ell, 
-			int z
-			)
+/* 2021-07-27 srv - make internal function static */
+static int md6_compress_block( md6_word *C,
+                               md6_state *st,
+                               int ell,
+                               int z
+                              )
 /* compress block at level ell, and put c-word result into C.
 ** Input:
 **     st         current md6 computation state
@@ -571,12 +576,13 @@ int md6_compress_block( md6_word *C,
   return MD6_SUCCESS;
 }
 
-/* Process (compress) a node and its compressible ancestors.
-*/
+/* Process (compress) a node and its compressible ancestors. */
 
-int md6_process( md6_state *st,
-		 int ell,
-		 int final )
+/* 2021-07-27 srv - make internal function static */
+
+static int md6_process( md6_state *st,
+                        int ell,
+                        int final )
 /*
 ** Do processing of level ell (and higher, if necessary) blocks.
 ** 
@@ -720,10 +726,10 @@ int md6_update( md6_state *st,
   return MD6_SUCCESS;
 }
 
-/* Convert hash value to hexadecimal, and store it in state.
-*/
+/* Convert hash value to hexadecimal, and store it in state. */
+/* 2021-07-27 srv - make internal function static */
 
-int md6_compute_hex_hashval( md6_state *st )
+static int md6_compute_hex_hashval( md6_state *st )
 /*
 ** Convert hashval in st->hashval into hexadecimal, and
 ** save result in st->hexhashval
@@ -756,7 +762,9 @@ int md6_compute_hex_hashval( md6_state *st )
 /* Extract last d bits of chaining variable as hash value.
 */
 
-void trim_hashval(md6_state *st)
+/* 2021-07-27 srv - make internal function static */
+
+static void trim_hashval(md6_state *st)
 { /* trim hashval to desired length d bits by taking only last d bits */
   /* note that high-order bit of a byte is considered its *first* bit */
   int full_or_partial_bytes = (st->d+7)/8;

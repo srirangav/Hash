@@ -44,7 +44,9 @@ v[b] = ROT64( v[b] ^ v[c],11);
 
 /* from blake224.c */
 
-void blake224_compress( state224 *S, const uint8_t *block )
+/* 2021-07-27 srv - make internal function static */
+
+static void blake224_compress( state224 *S, const uint8_t *block )
 {
     uint32_t v[16], m[16], i;
     
@@ -195,7 +197,9 @@ void blake224_final( state224 *S, uint8_t *out )
 
 /* from blake256.c */
 
-void blake256_compress( state256 *S, const uint8_t *block )
+/* 2021-07-27 srv - make internal function static */
+
+static void blake256_compress( state256 *S, const uint8_t *block )
 {
     uint32_t v[16], m[16], i;
 
@@ -347,7 +351,9 @@ void blake256_final( state256 *S, uint8_t *out )
 
 /* from blake384.c */
 
-void blake384_compress( state384 *S, const uint8_t *block )
+/* 2021-07-27 srv - make internal function static */
+
+static void blake384_compress( state384 *S, const uint8_t *block )
 {
     uint64_t v[16], m[16], i;
 
@@ -497,7 +503,9 @@ void blake384_final( state384 *S, uint8_t *out )
 
 /* from blake512.c */
 
-void blake512_compress( state512 *S, const uint8_t *block )
+/* 2021-07-27 srv - make internal function static */
+
+static void blake512_compress( state512 *S, const uint8_t *block )
 {
     uint64_t v[16], m[16], i;
     

@@ -38,5 +38,8 @@ JH_HashReturn JH_Update(JH_HashState *state,
                         JH_DataLength databitlen);
 JH_HashReturn JH_Final(JH_HashState *state,
                        JH_BitSequence *hashval);
-
+JH_HashReturn JH_Hash(int hashbitlen,
+                      const JH_BitSequence *data,
+                      JH_DataLength databitlen,
+                      JH_BitSequence *hashval);
 #endif /* JH_H */

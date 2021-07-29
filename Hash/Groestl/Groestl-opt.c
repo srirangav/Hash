@@ -10,8 +10,8 @@
 #include "tables.h"
 #include <string.h>
 
-
-void PrintState(u64 y[COLS512]) {
+/* 2021-07-21 srv - make internal function static */
+static void PrintState(u64 y[COLS512]) {
   int i;
   for (i = 0; i < COLS512; i++) printf("%016llx\n", U64BIG(y[i]));
   printf("\n");
@@ -184,7 +184,10 @@ inline void F512(u64 *h, const u64 *m) {
   RND512P(z,y,  U64BIG(0x0900000000000000ull));
 	
   /* h' == h + Q(m) + P(h+m) */
+/* 2021-07-27 - #pragma vector aligned not available on MacOSX 11.x */
+#ifdef HAVE_PRAGMA_VECTOR_ALIGNED
 #pragma vector aligned
+#endif /* HAVE_PRAGMA_VECTOR_ALIGNED */
   for (i = 0; i < COLS512; i++) {
     h[i] ^= outQ[i] ^ y[i];
   }
@@ -222,7 +225,10 @@ static inline void F1024(u64 *h, const u64 *m) {
   RND1024P(z,y,U64BIG(((u64)(ROUNDS1024-1))<<56));
 	
   /* h' == h + Q(m) + P(h+m) */
+/* 2021-07-27 - #pragma vector aligned not available on MacOSX 11.x */
+#ifdef HAVE_PRAGMA_VECTOR_ALIGNED
 #pragma vector aligned
+#endif /* HAVE_PRAGMA_VECTOR_ALIGNED */
   for (i = 0; i < COLS1024; i++) {
     h[i] ^= outQ[i] ^ y[i];
   }
@@ -230,13 +236,16 @@ static inline void F1024(u64 *h, const u64 *m) {
 
 
 /* digest up to msglen bytes of input (full blocks only) */
-/* srv 2020-11-27 - modify the NIST API to avoid name collisions */
+/*
+    srv 2020-11-27 - modify the NIST API to avoid name collisions
+    srv 2021-07-21 - make internal function static
+ */
 #ifndef NIST_API
-void Transform(groestl_HashState *ctx,
+static void Transform(groestl_HashState *ctx,
                const u8 *input,
                int msglen) {
 #else /* NIST_API */
-void Transform(hashState *ctx,
+static void Transform(hashState *ctx,
 	       const u8 *input,
 	       int msglen) {
 #endif /* NIST_API */
@@ -264,11 +273,14 @@ void Transform(hashState *ctx,
 }
 
 /* given state h, do h <- P(h)+h */
-/* srv 2020-11-27 - modify the NIST API to avoid name collisions */
+/*
+    srv 2020-11-27 - modify the NIST API to avoid name collisions
+    srv 2021-07-21 - make internal function static
+ */
 #ifndef NIST_API
-void OutputTransformation(groestl_HashState *ctx) {
+static void OutputTransformation(groestl_HashState *ctx) {
 #else
-void OutputTransformation(hashState *ctx) {
+static void OutputTransformation(hashState *ctx) {
 #endif
   int j;
   u64 temp[COLS1024];

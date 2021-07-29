@@ -38,7 +38,7 @@ typedef struct crcContext {
 
 void crc32_init(crcContext *ctx);
 void crc32_update(crcContext *ctx, const void *buf, size_t size);
-void crc32_finalize(crcContext *ctx);
+int  crc32_finalize(crcContext *ctx);
 
 void cksum_init(crcContext *ctx);
 void cksum_update(crcContext *ctx, unsigned char *buf, uint32_t len);

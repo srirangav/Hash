@@ -61,7 +61,9 @@
 #include <string.h>
 #include <time.h>
 
-#include "nessie.h"
+/* srv 2021-07-27 - use Whirlpool.h with function prototypes */
+#include "Whirlpool.h"
+/* #include "nessie.h" */
 
 /* #define TRACE_INTERMEDIATE_VALUES */
 
@@ -1573,7 +1575,8 @@ void NESSIEadd(const unsigned char * const source,
              */
             bufferBits = bufferPos = 0;
         }
-        buffer[bufferPos] = b << (8 - bufferRem);
+        /* 2021-07-27 - express cast to u8 as above */
+        buffer[bufferPos] = (u8)(b << (8 - bufferRem));
         bufferBits += bufferRem;
         /*
          * proceed to remaining data:
@@ -1619,7 +1622,8 @@ void NESSIEadd(const unsigned char * const source,
              */
             bufferBits = bufferPos = 0;
         }
-        buffer[bufferPos] = b << (8 - bufferRem);
+        /* 2021-07-27 - express cast to u8 as above */
+        buffer[bufferPos] = (u8)(b << (8 - bufferRem));
         bufferBits += (int)sourceBits;
     }
     structpointer->bufferBits   = bufferBits;

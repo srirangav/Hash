@@ -30,11 +30,15 @@
 #undef MALLOC_ZERO_WORKS
 #endif
 
-/* srv 2020-11-27 - do not use tor support */
+/*
+    srv 2020-11-27 - do not use tor support
+    srv 2021-07-27 - modify assert with message macro, see:
+    https://stackoverflow.com/questions/5867834/assert-with-message
+ */
 #ifndef TOR_SUPPORT
 #include <assert.h>
 #define raw_assert(x) assert(x)
-#define raw_assert_unreached_msg(x) assert(x)
+#define raw_assert_unreached_msg(x, msg) assert(((void) msg, x))
 #endif
 
 /** Allocate a chunk of <b>size</b> bytes of memory, and return a pointer to
@@ -62,9 +66,12 @@ tor_malloc_(size_t size)
     /* If these functions die within a worker process, they won't call
      * spawn_exit, but that's ok, since the parent will run out of memory soon
      * anyway. */
-    raw_assert_unreached_msg("Out of memory on malloc(). Dying.");
+    /* srv 2021-07-27 - use updated assert with message macro */
+      raw_assert_unreached_msg(result == NULL,
+                               "Out of memory on malloc(). Dying.");
     /* LCOV_EXCL_STOP */
   }
+    
   return result;
 }
 
@@ -145,7 +152,9 @@ tor_realloc_(void *ptr, size_t size)
 
   if (PREDICT_UNLIKELY(result == NULL)) {
     /* LCOV_EXCL_START */
-    raw_assert_unreached_msg("Out of memory on realloc(). Dying.");
+    /* srv 2021-07-27 - use updated assert with message macro */
+    raw_assert_unreached_msg(result == NULL,
+                             "Out of memory on realloc(). Dying.");
     /* LCOV_EXCL_STOP */
   }
   return result;
@@ -179,7 +188,9 @@ tor_strdup_(const char *s)
 
   if (PREDICT_UNLIKELY(duplicate == NULL)) {
     /* LCOV_EXCL_START */
-    raw_assert_unreached_msg("Out of memory on strdup(). Dying.");
+    /* srv 2021-07-27 - use updated assert with message macro */
+    raw_assert_unreached_msg(duplicate == NULL,
+                             "Out of memory on strdup(). Dying.");
     /* LCOV_EXCL_STOP */
   }
   return duplicate;
