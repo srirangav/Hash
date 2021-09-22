@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.13
+Hash v. 1.1.14
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -48,6 +48,7 @@ License:
 
 History:
 
+    v. 1.1.14 - Fix HTML validation errors in help file
     v. 1.1.13 - Update to BLAKE3 v.1.0
     v. 1.1.12 - Add basic help support
     v. 1.1.11 - Update to BLAKE3 v.0.3.8, add LSH (224, 256,
