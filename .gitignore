@@ -2,6 +2,7 @@
 Makefile
 *.dmg
 Archives
+Hash-*
 # MacOSX specific files
 .DS_Store
 # Xcode
