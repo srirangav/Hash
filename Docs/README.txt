@@ -49,7 +49,7 @@ License:
 
 History:
 
-    v. 1.1.14 - Fix HTML validation errors in help file
+    v. 1.1.14 - Update help pages
     v. 1.1.13 - Update to BLAKE3 v.1.0
     v. 1.1.12 - Add basic help support
     v. 1.1.11 - Update to BLAKE3 v.0.3.8, add LSH (224, 256,
