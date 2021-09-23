@@ -11,27 +11,28 @@ Homepage:
 About:
 
     Hash is a MacOSX application to generate and verify the
-    hash, crc, or checksum of a file.  The following hash
-    functions are supported:
+    hash, crc, or checksum of a file.
+    
+    The following hash functions are supported:
 
-    MD5
-    SHA1
-    SHA1 DC (SHA1 with collision detection / protection)
-    SHA2 (SHA224, SHA256, SHA384, SHA512)
-    SHA3/SHAKE (128, 224, 256, 384, 512)
-    RIPEMD (160, 320)
-    Whirlpool
-    BLAKE (224, 256, 384, 512)
-    BLAKE2 (BLAKE2S 256; BLAKE2B 256, 512)
-    BLAKE3
-    Skein (256-256, 512-256, 512-512, 1024-256, 1024-512)
-    MD6 (256, 512)
-    JH (224, 256, 384, 512)
-    Groestl (224, 256, 384, 512)
-    Tiger, Tiger2
-    HAS-160
-    Snefru (128, 256)
-    LSH (224, 256, 384, 512)
+        MD5
+        SHA1
+        SHA1 DC (SHA1 with collision detection / protection)
+        SHA2 (SHA224, SHA256, SHA384, SHA512)
+        SHA3/SHAKE (128, 224, 256, 384, 512)
+        RIPEMD (160, 320)
+        Whirlpool
+        BLAKE (224, 256, 384, 512)
+        BLAKE2 (BLAKE2S 256; BLAKE2B 256, 512)
+        BLAKE3
+        Skein (256-256, 512-256, 512-512, 1024-256, 1024-512)
+        MD6 (256, 512)
+        JH (224, 256, 384, 512)
+        Groestl (224, 256, 384, 512)
+        Tiger, Tiger2
+        HAS-160
+        Snefru (128, 256)
+        LSH (224, 256, 384, 512)
 
 Installation:
 
@@ -76,6 +77,8 @@ History:
 
 References:
 
+    CRC/checksum - https://en.wikipedia.org/wiki/Cyclic_redundancy_check
+                   https://en.wikipedia.org/wiki/Checksum
     MD5          - RFC 1321 (https://tools.ietf.org/html/rfc1321)
     SHA1         - https://en.wikipedia.org/wiki/SHA-1
     SHA1 DC      - https://github.com/cr-marcstevens/sha1collisiondetection
@@ -111,4 +114,3 @@ References:
                    https://github.com/rhash/RHash
     LSH          - https://seed.kisa.or.kr/kisa/Board/22/detailView.do
                  - https://en.wikipedia.org/wiki/LSH_(hash_function)
-
