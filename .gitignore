@@ -1,8 +1,8 @@
 # General files
-Makefile
 *.dmg
 Archives
 Hash-*
+sign.mk
 # MacOSX specific files
 .DS_Store
 # Xcode
