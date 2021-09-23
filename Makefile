@@ -7,7 +7,7 @@ PROJEXT    = app
 PROJVERS   = 1.1.14
 BUNDLEID   = "org.calalum.ranga.$(PROJNAME)"
 
-# # code signing information
+# code signing information
 
 include sign.mk
 
