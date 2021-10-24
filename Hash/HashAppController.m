@@ -28,10 +28,11 @@
     v. 1.1.8  (11/27/2020) - Add support for BLAKE3
     v. 1.1.9  (05/22/2021) - Add preference pane
     v. 1.1.10 (05/26/2021) - Add support for LSH
- 
+    v. 1.1.11 (10/24/2021) - Add support for showing the file size
+
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
-    Copyright (c) 2014-2020 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2014-2021 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -63,6 +64,7 @@
 
 NSString *gAppGroup = @"CLN8R9E6QM.org.calalum.ranga.HashGroup";
 NSString *gPrefLowercase = @"lowercase";
+NSString *gPrefShowSize = @"showsize";
 
 @implementation HashAppController
 
@@ -99,6 +101,7 @@ NSString *gPrefLowercase = @"lowercase";
     hashDefaults = [[NSUserDefaults alloc] initWithSuiteName: gAppGroup];
     
     prefLowercase = [hashDefaults boolForKey: gPrefLowercase];
+    prefShowSize = [hashDefaults boolForKey: gPrefShowSize];
 }
 
 /*
@@ -145,7 +148,10 @@ NSString *gPrefLowercase = @"lowercase";
     [self setMessage: @""];
 }
 
-/* actionToggleLowerCaseCheckbox - toggle the state of the lower case checkbox */
+/*
+   actionToggleLowerCaseCheckbox - toggle the state of the lower case
+                                   checkbox
+ */
 
 -(IBAction)actionToggleLowerCaseCheckbox:(id)sender
 {
@@ -156,6 +162,22 @@ NSString *gPrefLowercase = @"lowercase";
     [lowerCaseCheckBox setState: (prefLowercase ?
                                   NSControlStateValueOn :
                                   NSControlStateValueOff)];
+}
+
+/*
+   actionToggleShowSizeCheckbox - toggle the state of the show size
+                                  checkbox
+ */
+
+-(IBAction)actionToggleShowSizeCheckbox:(id)sender
+{
+    prefShowSize = !prefShowSize;
+    
+    [hashDefaults setBool:prefShowSize forKey:gPrefShowSize];
+    
+    [showSizeCheckBox setState: (prefShowSize ?
+                                NSControlStateValueOn :
+                                NSControlStateValueOff)];
 }
 
 /*
@@ -435,8 +457,10 @@ NSString *gPrefLowercase = @"lowercase";
 {
     NSString *verifyHash = nil;
     NSString *hashResult = nil;
+    NSString *fileSize = nil;
     NSWindow *sender = nil;
-
+    NSMutableString *resultString = nil;
+    
     // if the dictionary is nil or contains no elements,
     // some problem occured while calculating the hash
 
@@ -459,13 +483,36 @@ NSString *gPrefLowercase = @"lowercase";
             break;
         }
 
-        // display the calculated hash
+        /*
+            display the calculated hash with the file's size
+            (when requested through the prefs)
+         */
 
-        [self setMessage: hashResult
-                 comment: nil
-                   error: NO
-               monospace: YES];
-
+        resultString = [NSMutableString stringWithString: hashResult];
+        if (resultString != nil)
+        {
+            if (prefShowSize == TRUE)
+            {
+                fileSize = [dict objectForKey: keyFileSize];
+                if (fileSize != nil)
+                {
+                    [resultString appendFormat: @" (%@ B)", fileSize];
+                }
+            }
+            
+            [self setMessage: resultString
+                     comment: nil
+                       error: NO
+                   monospace: YES];
+        }
+        else
+        {
+            [self setMessage: hashResult
+                     comment: nil
+                       error: NO
+                   monospace: YES];
+        }
+        
         /* 
             if verification was requested, verify if the hash matches the
             specified verification hash; use a case insensitive search in

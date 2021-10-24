@@ -17,6 +17,7 @@
     v. 1.1.1 (09/30/2019) - Add support for SHA1 collision detection
     v. 1.1.2 (11/27/2020) - Add support for SHAKE128, SHAKE256
     v. 1.1.3 (11/27/2020) - Add support for BLAKE3
+    v. 1.1.4 (10/24/2021) - Add support for showing the file size
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -198,7 +199,8 @@
         NSError *error = nil;
         NSDictionary *attribs = nil;
         unsigned long long fileSize = -1;
-
+        NSString *fileSizeStr = nil;
+        
         /* the digest */
 
         unsigned char *digest = NULL;
@@ -278,6 +280,8 @@
                        attributesOfItemAtPath:filePath error:&error];
             if (attribs != nil) {
                 fileSize = [attribs fileSize];
+                fileSizeStr = [NSString stringWithFormat: @"%llu",
+                                                          fileSize];
             }
 
             // set the digest length for the specified hash
@@ -1104,6 +1108,7 @@
                         [NSDictionary dictionaryWithObjectsAndKeys:
                                     hashResult, keyHashResult,
                                     sender, keySender,
+                                    fileSizeStr, keyFileSize,
                                     nil]
                                      waitUntilDone: YES];
         }

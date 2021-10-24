@@ -6,10 +6,11 @@
  
     v. 1.0.0 (10/20/2014) - Initial version
     v. 1.0.1 (04/17/2014) - Update to allow background processing of hashes
+    v. 1.0.2 (10/24/2021) - Add support for showing the file size
 
     Based on: https://stackoverflow.com/questions/538996/constants-in-objective-c
 
-    Copyright (c) 2014 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2014, 2021 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -42,6 +43,7 @@ FOUNDATION_EXPORT NSString *const defaultHashAppVers;
 FOUNDATION_EXPORT NSString *const defaultHashAppBuild;
 FOUNDATION_EXPORT NSString *const keyHashResult;
 FOUNDATION_EXPORT NSString *const keySender;
+FOUNDATION_EXPORT NSString *const keyFileSize;
 FOUNDATION_EXPORT NSString *const outputLowerCase;
 
 #endif /* Hash_HashConstants_h */

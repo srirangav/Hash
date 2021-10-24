@@ -31,6 +31,7 @@
                 <outlet property="prefSheet" destination="YW0-Rv-ao8" id="PIm-vk-zAm"/>
                 <outlet property="selectedFileField" destination="R5x-qa-tFj" id="rbl-Sn-s4P"/>
                 <outlet property="selectedHashPopUp" destination="Ipw-pu-Uar" id="kzh-oi-SoB"/>
+                <outlet property="showSizeCheckBox" destination="dWg-nf-Apj" id="NVR-A5-3Lt"/>
                 <outlet property="verifyConfirmField" destination="ceZ-Bi-fWQ" id="TiG-7T-i6C"/>
                 <outlet property="verifyHashField" destination="EbL-fy-9mm" id="OF4-u4-8km"/>
             </connections>
@@ -674,14 +675,14 @@ Gw
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="YW0-Rv-ao8" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="139" y="81" width="222" height="152"/>
+            <rect key="contentRect" x="139" y="81" width="223" height="152"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
             <view key="contentView" id="19R-9C-QE7">
-                <rect key="frame" x="0.0" y="0.0" width="222" height="152"/>
+                <rect key="frame" x="0.0" y="0.0" width="223" height="152"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="WEW-gr-wco">
-                        <rect key="frame" x="73" y="116" width="77" height="16"/>
+                        <rect key="frame" x="74" y="116" width="77" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Preferences" id="cbV-lx-Gh2">
                             <font key="font" usesAppearanceFont="YES"/>
@@ -690,7 +691,7 @@ Gw
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="i2Z-Q1-HHT">
-                        <rect key="frame" x="77" y="13" width="69" height="32"/>
+                        <rect key="frame" x="78" y="13" width="69" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ku0-p9-0Jd">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -714,9 +715,20 @@ DQ
                             <action selector="actionToggleLowerCaseCheckbox:" target="Ay7-r0-R4I" id="KrJ-2W-O6c"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" id="dWg-nf-Apj">
+                        <rect key="frame" x="18" y="59" width="185" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="check" title="Display file size after hash" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="JZ8-Io-QvI">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="actionToggleShowSizeCheckbox:" target="Ay7-r0-R4I" id="6an-MY-3F6"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="746" y="719"/>
+            <point key="canvasLocation" x="746.5" y="719"/>
         </window>
     </objects>
 </document>

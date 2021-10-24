@@ -5,8 +5,15 @@
 #include "blake3_impl.h"
 
 /* srv 2020-11-27 - force portable version */
+
 #ifndef BLAKE3_X86
 #undef IS_X86
+#endif
+
+/* srv 2021-10-23 - force portable version */
+
+#ifdef BLAKE3_USE_NEON
+#undef BLAKE3_USE_NEON
 #endif
 
 #if defined(IS_X86)
@@ -240,7 +247,7 @@ void blake3_hash_many(const uint8_t *const *inputs, size_t num_inputs,
 #endif
 #endif
 
-#if defined(BLAKE3_USE_NEON)
+#if BLAKE3_USE_NEON == 1
   blake3_hash_many_neon(inputs, num_inputs, blocks, key, counter,
                         increment_counter, flags, flags_start, flags_end, out);
   return;
@@ -277,7 +284,7 @@ size_t blake3_simd_degree(void) {
   }
 #endif
 #endif
-#if defined(BLAKE3_USE_NEON)
+#if BLAKE3_USE_NEON == 1
   return 4;
 #endif
   return 1;
