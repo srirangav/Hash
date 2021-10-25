@@ -213,6 +213,7 @@ NSString *gPrefShowSize = @"showsize";
 {
     NSString *theFile = nil;
     NSString *verificationHash = nil;
+    NSMutableString *hashProgressStr = nil;
     NSFileManager *fileManager = nil;
     NSInteger selectedHash = -1;
     BOOL isDir = NO;
@@ -368,7 +369,184 @@ NSString *gPrefShowSize = @"showsize";
                 [self setVerifyConfirm: VERIFY_CLEAR];
                 [verifyHashField setStringValue: @""];
             }
+
+            hashProgressStr =
+                [NSMutableString stringWithString: @"Calculating "];
             
+            switch ((HashType)selectedHash) {
+                case HASH_CKSUM:
+                    [hashProgressStr appendString: @"Checksum"];
+                    break;
+                case HASH_CRC32:
+                    [hashProgressStr appendString: @"CRC32"];
+                    break;
+                case HASH_MD5:
+                    [hashProgressStr appendString: @"MD5"];
+                    break;
+                case HASH_MD6_256:
+                    [hashProgressStr appendString: @"MD6 (256)"];
+                    break;
+                case HASH_MD6_512:
+                    [hashProgressStr appendString: @"MD6 (512)"];
+                    break;
+                case HASH_SHA1:
+                    [hashProgressStr appendString: @"SHA1"];
+                    break;
+                case HASH_SHA1DC:
+                    [hashProgressStr appendString:
+                         @"SHA1 (with collision detection)"];
+                    break;
+                case HASH_SHA224:
+                    [hashProgressStr appendString: @"SHA224"];
+                    break;
+                case HASH_SHA256:
+                    [hashProgressStr appendString: @"SHA256"];
+                    break;
+                case HASH_SHA384:
+                    [hashProgressStr appendString: @"SHA384"];
+                    break;
+                case HASH_SHA512:
+                    [hashProgressStr appendString: @"SHA512"];
+                    break;
+                case HASH_SHAKE128:
+                    [hashProgressStr appendString: @"SHAKE (128)"];
+                   break;
+                case HASH_SHAKE256:
+                    [hashProgressStr appendString: @"SHAKE (256)"];
+                    break;
+                case HASH_SHA3_224:
+                    [hashProgressStr appendString: @"SHA3 (224)"];
+                    break;
+                case HASH_SHA3_256:
+                    [hashProgressStr appendString: @"SHA3 (256)"];
+                    break;
+                case HASH_SHA3_384:
+                    [hashProgressStr appendString: @"SHA3 (384)"];
+                    break;
+                case HASH_SHA3_512:
+                    [hashProgressStr appendString: @"SHA3 (512)"];
+                    break;
+                case HASH_RMD160:
+                    [hashProgressStr appendString: @"RIPEMD (160)"];
+                    break;
+                case HASH_RMD320:
+                    [hashProgressStr appendString: @"RIPEMD (320)"];
+                    break;
+                case HASH_WPOOL:
+                    [hashProgressStr appendString: @"Whirlpool"];
+                    break;
+                case HASH_BLAKE2B_256:
+                    [hashProgressStr appendString: @"BLAKE2B (256)"];
+                    break;
+                case HASH_BLAKE2B_512:
+                    [hashProgressStr appendString: @"BLAKE2B (512)"];
+                    break;
+                //case HASH_BLAKE2BP_256:
+                //case HASH_BLAKE2BP_512:
+                case HASH_BLAKE2S_256:
+                    [hashProgressStr appendString: @"BLAKE2S (256)"];
+                    break;
+                //case HASH_BLAKE2S_512:
+                //case HASH_BLAKE2SP_256:
+                //case HASH_BLAKE2SP_512:
+                case HASH_BLAKE3:
+                    [hashProgressStr appendString: @"BLAKE3"];
+                    break;
+                case HASH_SKEIN_256:
+                    [hashProgressStr appendString: @"Skein (256)"];
+                    break;
+                case HASH_SKEIN_512:
+                    [hashProgressStr appendString: @"Skein (512)"];
+                    break;
+                case HASH_SKEIN_512_256:
+                    [hashProgressStr appendString: @"Skein (512/256)"];
+                    break;
+                case HASH_SKEIN_1024:
+                    [hashProgressStr appendString: @"Skein (1024)"];
+                    break;
+                case HASH_SKEIN_1024_256:
+                    [hashProgressStr appendString: @"Skein (1024/256)"];
+                    break;
+                case HASH_SKEIN_1024_512:
+                    [hashProgressStr appendString: @"Skein (1024/512)"];
+                    break;
+                case HASH_JH_224:
+                    [hashProgressStr appendString: @"JH (224)"];
+                    break;
+                case HASH_JH_256:
+                    [hashProgressStr appendString: @"JH (256)"];
+                    break;
+                case HASH_JH_384:
+                    [hashProgressStr appendString: @"JH (384)"];
+                    break;
+                case HASH_JH_512:
+                    [hashProgressStr appendString: @"JH (512)"];
+                    break;
+                case HASH_TIGER:
+                    [hashProgressStr appendString: @"Tiger"];
+                    break;
+                case HASH_TIGER2:
+                    [hashProgressStr appendString: @"Tiger2"];
+                    break;
+                case HASH_HAS160:
+                    [hashProgressStr appendString: @"HAS160"];
+                    break;
+                case HASH_BLAKE224:
+                    [hashProgressStr appendString: @"BLAKE (224)"];
+                    break;
+                case HASH_BLAKE256:
+                    [hashProgressStr appendString: @"BLAKE (256)"];
+                    break;
+                case HASH_BLAKE384:
+                    [hashProgressStr appendString: @"BLAKE (384)"];
+                    break;
+                case HASH_BLAKE512:
+                    [hashProgressStr appendString: @"BLAKE (512)"];
+                    break;
+                case HASH_GROESTL224:
+                    [hashProgressStr appendString: @"Grøstl (224)"];
+                    break;
+                case HASH_GROESTL256:
+                    [hashProgressStr appendString: @"Grøstl (256)"];
+                    break;
+                case HASH_GROESTL384:
+                    [hashProgressStr appendString: @"Grøstl (384)"];
+                    break;
+                case HASH_GROESTL512:
+                    [hashProgressStr appendString: @"Grøstl (512)"];
+                    break;
+                case HASH_SNEFRU128:
+                    [hashProgressStr appendString: @"Snefru (128)"];
+                    break;
+                case HASH_SNEFRU256:
+                    [hashProgressStr appendString: @"Snefru (256)"];
+                    break;
+                case HASH_LSH224:
+                    [hashProgressStr appendString: @"LSH (224)"];
+                    break;
+                case HASH_LSH256:
+                    [hashProgressStr appendString: @"LSH (256)"];
+                    break;
+                case HASH_LSH384:
+                    [hashProgressStr appendString: @"LSH (384)"];
+                    break;
+                case HASH_LSH512:
+                    [hashProgressStr appendString: @"LSH (512)"];
+                    break;
+                default:
+                    [hashProgressStr appendString: @"Hash"];
+                    break;
+            }
+
+            [hashProgressStr appendString: @" for "];
+            
+            [hashProgressStr appendString:
+             [fileManager displayNameAtPath: theFile]];
+
+            [hashProgressStr appendString: @"..."];
+
+            [hashProgressMessage setStringValue: hashProgressStr];
+    
             hashOp = [[HashOperation alloc]
                       initWithFileHashTypeAndProgress: theFile
                                                  type: (HashType)selectedHash
@@ -377,7 +555,7 @@ NSString *gPrefShowSize = @"showsize";
                                             requester: self
                                                sender: hashSheet];
             [hashQueue addOperation: hashOp];
-
+        
             [self showHashSheet: sender];
 
             break;

@@ -36,7 +36,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr valign="top">
                 <td>File:</td>
                 <td>Text Field</td>
                 <td>Filesystem path to the file whose hash needs to be
@@ -46,7 +46,7 @@
                     >hexadecimal</a> format in a field 
                     below the buttons.</td>
             </tr>
-            <tr>
+            <tr valign="top">
                 <td>Verify:</td>
                 <td>Text Field</td>
                 <td>The verification hash, in hexadecimal format, for the
@@ -54,7 +54,7 @@
                     calculated for the specified file and no verification
                     will be performed.</td>
             </tr>
-            <tr>
+            <tr valign="top">
                 <td>Select File...</td>
                 <td>Button</td>
                 <td>Brings up a file browser to select the file whose hash
@@ -62,24 +62,35 @@
                     selecting the 'Select File...' menu item from the 'File'
                     menu.</td>
             </tr>
-            <tr>
+            <tr valign="top">
+                <td>Hash</td>
+                <td>Button</td>
+                <td>Calculates the hash for the specified file.  For large
+                    files a progress bar is displayed.  The progress bar
+                    includes a a cancel button to stop a in progress hash
+                    calculation.</td>
+            </tr>
+            <tr valign="top">
                 <td>Verify</td>
                 <td>Button</td>
-                <td>If a file and a verification path are both specified,
+                <td>If a file and a verification hash are both specified,
                     calculates the hash for the specified file and then
                     checks whether it matches the specified verification
                     hash.  If the specified verification hash matches the
                     calculated hash, a check mark (&#10003;) is shown next 
-                    to the calculated hash.  Otherwise, an 'X' is shown.</td>
+                    to the calculated hash.  Otherwise, an 'X' is shown. 
+                    For large files a progress bar is displayed.  The progress
+                    bar includes a a cancel button to stop a in progress hash
+                    calculation.</td>
             </tr>
-            <tr>
+            <tr valign="top">
                 <td>[Hashes]</td>
                 <td>Menu</td>
                 <td>A menu containing all of the <a href="hashes.html"
                     >supported hashes</a>.  The default is <a href=
                     "https://en.wikipedia.org/wiki/SHA-1">SHA1</a>.</td>
             </tr>
-            <tr>
+            <tr valign="top">
                 <td>Clear All</td>
                 <td>Button</td>
                 <td>Clears the 'File:' and 'Verify:' fields.</td>

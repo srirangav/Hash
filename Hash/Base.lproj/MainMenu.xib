@@ -25,6 +25,7 @@
                 <outlet property="appNameField" destination="3SR-WO-ALT" id="PrH-Y7-d05"/>
                 <outlet property="cancelHashButton" destination="1UJ-Qb-MVB" id="vhZ-aG-v4i"/>
                 <outlet property="hashProgress" destination="GV4-zS-Oxl" id="bjD-wz-h1M"/>
+                <outlet property="hashProgressMessage" destination="KgS-O7-mhf" id="JUJ-pl-BZ3"/>
                 <outlet property="hashSheet" destination="LsI-gp-8uL" id="Oic-Be-4xB"/>
                 <outlet property="lowerCaseCheckBox" destination="PpV-2u-jCU" id="P8o-Vz-g9Q"/>
                 <outlet property="messageField" destination="bRz-Lj-eIq" id="mGB-zq-YWX"/>
@@ -554,14 +555,14 @@ CA
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="LsI-gp-8uL" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="120" y="65" width="367" height="83"/>
+            <rect key="contentRect" x="120" y="65" width="634" height="83"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
             <view key="contentView" id="0Mm-G5-jc2">
-                <rect key="frame" x="0.0" y="0.0" width="367" height="83"/>
+                <rect key="frame" x="0.0" y="0.0" width="634" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1UJ-Qb-MVB">
-                        <rect key="frame" x="278" y="11" width="76" height="34"/>
+                        <rect key="frame" x="545" y="11" width="76" height="34"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZTh-8x-hOq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -574,10 +575,10 @@ Gw
                         </connections>
                     </button>
                     <progressIndicator maxValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="GV4-zS-Oxl">
-                        <rect key="frame" x="20" y="19" width="257" height="20"/>
+                        <rect key="frame" x="20" y="19" width="524" height="20"/>
                     </progressIndicator>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KgS-O7-mhf">
-                        <rect key="frame" x="123" y="46" width="122" height="17"/>
+                        <rect key="frame" x="256" y="46" width="122" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="118" id="pgl-C2-XGF"/>
                         </constraints>
@@ -601,7 +602,7 @@ Gw
                     <constraint firstAttribute="bottom" secondItem="GV4-zS-Oxl" secondAttribute="bottom" constant="20" symbolic="YES" id="y9L-cW-mz7"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="380.5" y="510.5"/>
+            <point key="canvasLocation" x="438" y="510"/>
         </window>
         <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="nKa-HH-4ac" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>

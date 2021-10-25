@@ -70,6 +70,7 @@ typedef enum {
     IBOutlet id aboutText;
     IBOutlet id lowerCaseCheckBox;
     IBOutlet id showSizeCheckBox;
+    IBOutlet id hashProgressMessage;
     IBOutlet NSProgressIndicator *hashProgress;
     IBOutlet NSPanel *hashSheet;
     IBOutlet NSPanel *aboutSheet;
