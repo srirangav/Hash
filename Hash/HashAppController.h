@@ -12,6 +12,7 @@
                             is the correct length
     v. 1.0.5 (05/22/2021) - Add preference pane
     v. 1.0.6 (10/24/2021) - Add support for showing the file size
+    v. 1.0.7 (10/24/2021) - Add selected hash and file to progress sheet
  
     Copyright (c) 2014-2021 Sriranga R. Veeraraghavan <ranga@calalum.org>
  

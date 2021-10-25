@@ -29,6 +29,7 @@
     v. 1.1.9  (05/22/2021) - Add preference pane
     v. 1.1.10 (05/26/2021) - Add support for LSH
     v. 1.1.11 (10/24/2021) - Add support for showing the file size
+    v. 1.1.12 (10/24/2021) - Add selected hash and file to progress sheet
 
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
