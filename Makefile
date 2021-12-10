@@ -4,7 +4,7 @@
 
 PROJNAME   = Hash
 PROJEXT    = app
-PROJVERS   = 1.1.16
+PROJVERS   = 1.1.17
 BUNDLEID   = "org.calalum.ranga.$(PROJNAME)"
 
 # code signing information
@@ -50,11 +50,15 @@ SUPPORT_FILES = Docs/README.txt Docs/LICENSE.txt
 all: helpindex
 	$(XCODEBUILD) -project $(PROJNAME).xcodeproj -configuration Release
 
-# sign the app, if frameworks are include, then sign_frameworks should
+# sign the app, if frameworks are included, then sign_frameworks should
 # be the pre-requisite target instead of "all" 
 
 sign: all
 	$(CODESIGN) $(CODESIGN_ARGS) build/Release/$(PROJNAME).$(PROJEXT)
+	if [ -d build/Release/$(PROJNAME).$(PROJEXT)/Contents/Frameworks/ ] ; then \
+        $(CODESIGN) $(CODESIGN_ARGS) \
+                build/Release/$(PROJNAME).$(PROJEXT)/Contents/Frameworks/* ; \
+    fi
 
 # sign any included frameworks (not always needed)
 
@@ -102,3 +106,4 @@ clean:
                 $(PROJNAME)-$(PROJVERS).dmg \
                 $(HELP_EN_DIR)/$(HELP_INDEX)
 	$(XCODEBUILD) -project $(PROJNAME).xcodeproj -alltargets clean
+

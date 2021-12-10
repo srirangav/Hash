@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.16
+Hash v. 1.1.17
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -49,6 +49,7 @@ License:
 
 History:
 
+    v. 1.1.17 - Update to BLAKE3 v.1.2.0
     v. 1.1.16 - Show the name of the selected hash and file
                 above the progress bar
     v. 1.1.15 - Update to BLAKE3 v.1.1.0, add option to show

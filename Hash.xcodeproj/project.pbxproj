@@ -95,6 +95,7 @@
 		2661CA671ADB9CA000E57BD1 /* HashOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HashOperation.m; sourceTree = "<group>"; };
 		2661CA691ADB9CCA00E57BD1 /* HashOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashOperation.h; sourceTree = "<group>"; };
 		266C334719FB8FD100089684 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		266E3D3C2762DA4D00713E91 /* BLAKE3-1.2.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE3-1.2.0.zip"; sourceTree = "<group>"; };
 		26719F001B7EAE97007FBFE6 /* rmd320.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rmd320.c; sourceTree = "<group>"; };
 		26719F011B7EAE97007FBFE6 /* rmd320.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rmd320.h; sourceTree = "<group>"; };
 		26719F031B7EAF53007FBFE6 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		26B741E31B7D5AF6000D74A1 /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc32.c; path = Hash/CRC/crc32.c; sourceTree = SOURCE_ROOT; };
 		26B741E51B7D5B56000D74A1 /* crc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = crc.h; path = CRC/crc.h; sourceTree = "<group>"; };
 		26B741E61B7DC548000D74A1 /* crc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc.c; path = Hash/CRC/crc.c; sourceTree = SOURCE_ROOT; };
-		26BB29A2265F86560058AA73 /* BLAKE3-0.3.8.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE3-0.3.8.zip"; sourceTree = "<group>"; };
 		26BB29A3265F8DFE0058AA73 /* tor-tor-0.4.5.8.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "tor-tor-0.4.5.8.zip"; sourceTree = "<group>"; };
 		26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE2-20160619.zip"; sourceTree = "<group>"; };
 		26D477141D248EFD000DD102 /* skein.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = skein.c; sourceTree = "<group>"; };
@@ -336,7 +336,7 @@
 			children = (
 				A646C0A62571FDB800F2ECDD /* BLAKE-master.zip */,
 				26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */,
-				26BB29A2265F86560058AA73 /* BLAKE3-0.3.8.zip */,
+				266E3D3C2762DA4D00713E91 /* BLAKE3-1.2.0.zip */,
 				26719F051B7EAFB6007FBFE6 /* catacomb-f93fc80.tar.gz */,
 				2612682522FEB81A00B38AE0 /* Groestl.zip */,
 				2696170F22FAB82900B38AE0 /* jh_20110116.zip */,
@@ -847,7 +847,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.16;
+				MARKETING_VERSION = 1.1.17;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -899,7 +899,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.16;
+				MARKETING_VERSION = 1.1.17;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
