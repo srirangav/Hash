@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.17
+Hash v. 1.1.18
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -49,6 +49,7 @@ License:
 
 History:
 
+    v. 1.1.18 - Update to BLAKE3 v.1.3.0
     v. 1.1.17 - Update to BLAKE3 v.1.2.0
     v. 1.1.16 - Show the name of the selected hash and file
                 above the progress bar
@@ -119,3 +120,4 @@ References:
                    https://github.com/rhash/RHash
     LSH          - https://seed.kisa.or.kr/kisa/Board/22/detailView.do
                  - https://en.wikipedia.org/wiki/LSH_(hash_function)
+

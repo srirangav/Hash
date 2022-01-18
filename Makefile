@@ -4,7 +4,7 @@
 
 PROJNAME   = Hash
 PROJEXT    = app
-PROJVERS   = 1.1.17
+PROJVERS   = 1.1.18
 BUNDLEID   = "org.calalum.ranga.$(PROJNAME)"
 
 # code signing information
