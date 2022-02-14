@@ -95,7 +95,6 @@
 		2661CA671ADB9CA000E57BD1 /* HashOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HashOperation.m; sourceTree = "<group>"; };
 		2661CA691ADB9CCA00E57BD1 /* HashOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashOperation.h; sourceTree = "<group>"; };
 		266C334719FB8FD100089684 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		266E3D3C2762DA4D00713E91 /* BLAKE3-1.2.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "BLAKE3-1.2.0.zip"; sourceTree = "<group>"; };
 		26719F001B7EAE97007FBFE6 /* rmd320.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rmd320.c; sourceTree = "<group>"; };
 		26719F011B7EAE97007FBFE6 /* rmd320.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rmd320.h; sourceTree = "<group>"; };
 		26719F031B7EAF53007FBFE6 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		269E9C0E237E321800B38AE0 /* snefru.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = snefru.c; sourceTree = "<group>"; };
 		269E9C0F237E321800B38AE0 /* snefru.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snefru.h; sourceTree = "<group>"; };
 		269E9C11237E381600B38AE0 /* byte_order.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = byte_order.c; path = Tiger/byte_order.c; sourceTree = "<group>"; };
+		26A6F7F227BADC6400713E91 /* BLAKE3-1.3.1.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "BLAKE3-1.3.1.tar.gz"; sourceTree = "<group>"; };
 		26B48BE322FEA2C000B38AE0 /* tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tables.h; path = Groestl/tables.h; sourceTree = "<group>"; };
 		26B48BE522FEA2C000B38AE0 /* brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
 		26B741E31B7D5AF6000D74A1 /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc32.c; path = Hash/CRC/crc32.c; sourceTree = SOURCE_ROOT; };
@@ -336,11 +336,10 @@
 			children = (
 				A646C0A62571FDB800F2ECDD /* BLAKE-master.zip */,
 				26D477051D21EDD0000DD102 /* BLAKE2-20160619.zip */,
-				266E3D3C2762DA4D00713E91 /* BLAKE3-1.2.0.zip */,
+				26A6F7F227BADC6400713E91 /* BLAKE3-1.3.1.tar.gz */,
 				26719F051B7EAFB6007FBFE6 /* catacomb-f93fc80.tar.gz */,
 				2612682522FEB81A00B38AE0 /* Groestl.zip */,
 				2696170F22FAB82900B38AE0 /* jh_20110116.zip */,
-				26F779BC265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip */,
 				265F79ED1F049C3300CCFB2D /* md6_c_code-2009-04-15.zip */,
 				26719F041B7EAFB6007FBFE6 /* mLib-7a376ba.tar.gz */,
 				26D4771C1D24985F000DD102 /* NIST_CD_102610.zip */,
@@ -348,6 +347,7 @@
 				263E468123434AC000B38AE0 /* sha1collisiondetection-master.zip */,
 				26BB29A3265F8DFE0058AA73 /* tor-tor-0.4.5.8.zip */,
 				26830A881AE880090054251E /* whirlpool.zip */,
+				26F779BC265F321600A6B34D /* 해시함수 LSH_소스코드(v1.0.2).zip */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -847,7 +847,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.18;
+				MARKETING_VERSION = 1.1.19;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -899,7 +899,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.18;
+				MARKETING_VERSION = 1.1.19;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
