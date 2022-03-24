@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.19
+Hash v. 1.1.20
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -49,6 +49,7 @@ License:
 
 History:
 
+    v. 1.1.20 - Added progress bar to dock icon
     v. 1.1.19 - Update to BLAKE3 v.1.3.1
     v. 1.1.18 - Update to BLAKE3 v.1.3.0
     v. 1.1.17 - Update to BLAKE3 v.1.2.0
@@ -121,4 +122,3 @@ References:
                    https://github.com/rhash/RHash
     LSH          - https://seed.kisa.or.kr/kisa/Board/22/detailView.do
                  - https://en.wikipedia.org/wiki/LSH_(hash_function)
-

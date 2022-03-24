@@ -1,6 +1,5 @@
 /*
     Hash - HashOperation.h
-    $Id: HashConstants.h 1377 2014-10-29 07:43:13Z ranga $
 
     History:
 
@@ -19,6 +18,7 @@
     v. 1.1.2 (11/27/2020) - Add support for SHAKE128, SHAKE256
     v. 1.1.3 (11/27/2020) - Add support for BLAKE3
     v. 1.1.4 (05/26/2021) - Add support for LSH
+    v. 1.1.5 (03/24/2022) - Add dock progress bar
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -123,6 +123,8 @@ enum {
     NSObject *requester;
     NSString *filePath;
     NSProgressIndicator *progress;
+    NSProgressIndicator *dockProgress;
+    NSDockTile *dockTile;
     NSWindow *sender;
     HashType hashType;
     BOOL isLowerCase;

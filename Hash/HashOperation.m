@@ -1,6 +1,5 @@
 /*
     Hash - HashOperation.m
-    $Id: HashConstants.h 1377 2014-10-29 07:43:13Z ranga $
 
     History:
 
@@ -18,6 +17,7 @@
     v. 1.1.2 (11/27/2020) - Add support for SHAKE128, SHAKE256
     v. 1.1.3 (11/27/2020) - Add support for BLAKE3
     v. 1.1.4 (10/24/2021) - Add support for showing the file size
+    v. 1.1.5 (03/24/2022) - Add dock progress bar
 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
@@ -230,6 +230,10 @@
         NSString *collisonMsg = NSLocalizedString(@"HASH_COLLISION_DETECTED",
                                                   @"HASH_COLLISION_DETECTED");
         unsigned long collisionMsgExtraBufferSize = [collisonMsg length] + 1;
+        
+        /* progress bar */
+        
+        double currentProgressPercentage = 0.0;
         
         /* hash objects for the supported hashes */
 
@@ -612,11 +616,46 @@
                 // Xcode 9 warning.
                 // based on:
                 // https://stackoverflow.com/questions/11582223/ios-ensure-execution-on-main-thread#11582577
+
+                /*
+                    dock progress bar
+                    based on: https://github.com/hokein/DockProgressBar/blob/master/DockProgressBar/DockDownloadProgressBar.mm
+                 */
                 
                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                     [self->progress setIndeterminate: NO];
-                    [self->progress setDoubleValue: 0.0];
+                    [self->progress setDoubleValue:
+                     currentProgressPercentage];
                     [self->progress startAnimation: self->sender];
+
+                    /* dock progress bar */
+                
+                    self->dockTile = [NSApp dockTile];
+                    
+                    self->dockProgress =
+                        [[NSProgressIndicator alloc] initWithFrame:
+                         NSMakeRect(0.0f,
+                                    self->dockTile.size.height/8,
+                                    self->dockTile.size.width,
+                                    35.0f)];
+                    
+                    if ([self->dockTile contentView] == NULL)
+                    {
+                        NSImageView *contentView =
+                            [[NSImageView alloc] init];
+                        [contentView setImage:
+                            [NSApp applicationIconImage]];
+                        [self->dockTile setContentView: contentView];
+                        [contentView addSubview: self->dockProgress];
+                    }
+
+                    [self->dockProgress setIndeterminate: NO];
+                    [self->dockProgress setDoubleValue:
+                     currentProgressPercentage];
+                    [self->dockProgress setHidden: NO];
+                    [self->dockProgress setBezeled: YES];
+                    [self->dockProgress startAnimation: self->sender];
+                    [self->dockTile display];
                 }];
             }
 
@@ -653,6 +692,9 @@
                 if (progress != nil) {
                     bytesSoFar += bytesRead;
                     
+                    currentProgressPercentage =
+                        (double)(((double)bytesSoFar/(double)fileSize)*100);
+                    
                     // make sure the progress bar runs in the main queue (to fix a
                     // Xcode 9 warning.
                     // based on:
@@ -660,8 +702,16 @@
 
                     [[NSOperationQueue mainQueue] addOperationWithBlock: ^{
                         [self->progress setDoubleValue:
-                         (double)(((double)bytesSoFar/(double)fileSize)*100)];
+                         currentProgressPercentage];
                         [self->progress displayIfNeeded];
+
+                        /* update the dock progress bar */
+                        
+                        [self->dockProgress setDoubleValue:
+                         currentProgressPercentage];
+                        [self->dockProgress setHidden: NO];
+                        [self->dockProgress displayIfNeeded];
+                        [self->dockTile display];
                     }];
                 }
 
@@ -1046,6 +1096,17 @@
                     hasMoreData = FALSE;
                     readFailed = TRUE;
                     break;
+            }
+            
+            /* hide the dock progress bar */
+            
+            if (progress != nil)
+            {
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    [self->dockProgress setHidden: YES];
+                    [self->dockTile setContentView: NULL];
+                    [self->dockTile display];
+                }];
             }
             
             // If the file was successfully read, covert the hash to a string
