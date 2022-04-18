@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.20
+Hash v. 1.1.21
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -49,6 +49,7 @@ License:
 
 History:
 
+    v. 1.1.21 - Build using Xcode 13
     v. 1.1.20 - Added progress bar to dock icon
     v. 1.1.19 - Update to BLAKE3 v.1.3.1
     v. 1.1.18 - Update to BLAKE3 v.1.3.0
