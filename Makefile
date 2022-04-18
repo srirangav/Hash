@@ -106,6 +106,7 @@ clean:
 	/bin/rm -rf ./build \
                 $(PROJNAME)-$(PROJVERS) \
                 $(PROJNAME)-$(PROJVERS).dmg \
+                $(PROJNAME)-$(PROJVERS).dmg.asc \
                 $(HELP_EN_DIR)/$(HELP_INDEX)
 	$(XCODEBUILD) -project $(PROJNAME).xcodeproj -alltargets clean
 
