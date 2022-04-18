@@ -7,6 +7,18 @@ PROJEXT    = app
 PROJVERS   = 1.1.21
 BUNDLEID   = "org.calalum.ranga.$(PROJNAME)"
 
+# Help bundle directory
+
+HELP_EN_DIR = Docs/Hash.help/Contents/Resources/en.lproj/
+
+# Help index file
+
+HELP_INDEX = help.helpindex
+
+# extra files to include in the package
+
+SUPPORT_FILES = Docs/README.txt Docs/LICENSE.txt
+
 # code signing information
 
 include sign.mk
@@ -33,17 +45,9 @@ CODESIGN_ARGS = --force \
                 --options runtime \
                 --sign $(SIGNID)
 
-# Help bundle directory
+# build results directory
 
-HELP_EN_DIR = Docs/Hash.help/Contents/Resources/en.lproj/
-
-# Help index file
-
-HELP_INDEX = help.helpindex
-
-# extra files to include in the package
-
-SUPPORT_FILES = Docs/README.txt Docs/LICENSE.txt
+BUILD_RESULTS_DIR = build/Release/$(PROJNAME).$(PROJEXT)
 
 # build the app
 
@@ -53,18 +57,16 @@ all: helpindex
 # sign the app, if frameworks are included, then sign_frameworks should
 # be the pre-requisite target instead of "all" 
 
-sign: all
-	$(CODESIGN) $(CODESIGN_ARGS) build/Release/$(PROJNAME).$(PROJEXT)
-	if [ -d build/Release/$(PROJNAME).$(PROJEXT)/Contents/Frameworks/ ] ; then \
-        $(CODESIGN) $(CODESIGN_ARGS) \
-                build/Release/$(PROJNAME).$(PROJEXT)/Contents/Frameworks/* ; \
-    fi
+sign: sign_frameworks
+	$(CODESIGN) $(CODESIGN_ARGS) $(BUILD_RESULTS_DIR)
 
 # sign any included frameworks (not always needed)
 
 sign_frameworks: all
-	$(CODESIGN) $(CODESIGN_ARGS) \
-                build/Release/$(PROJNAME).$(PROJEXT)/Contents/Frameworks/*
+	if [ -d $(BUILD_RESULTS_DIR)/Contents/Frameworks/ ] ; then \
+        $(CODESIGN) $(CODESIGN_ARGS) \
+                    $(BUILD_RESULTS_DIR)/Contents/Frameworks/* ; \
+    fi
 
 # sign the disk image
 
@@ -75,7 +77,7 @@ sign_dmg: dmg
 
 dmg: clean all sign
 	/bin/mkdir $(PROJNAME)-$(PROJVERS)
-	/bin/mv build/Release/$(PROJNAME).$(PROJEXT) $(PROJNAME)-$(PROJVERS)
+	/bin/mv $(BUILD_RESULTS_DIR) $(PROJNAME)-$(PROJVERS)
 	/bin/cp $(SUPPORT_FILES) $(PROJNAME)-$(PROJVERS)
 	$(HDIUTIL) create -srcfolder $(PROJNAME)-$(PROJVERS) \
                       -format UDBZ $(PROJNAME)-$(PROJVERS).dmg
