@@ -45,6 +45,11 @@
     DEALINGS IN THE SOFTWARE.
 */
 
+#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
+#import <CoreFoundation/CoreFoundation.h>
+#import <CommonCrypto/CommonDigest.h>
+
 #import "HashOperation.h"
 #import "HashAppController.h"
 #import "HashConstants.h"

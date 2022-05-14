@@ -46,10 +46,8 @@
     DEALINGS IN THE SOFTWARE.
 */
 
-#import <Foundation/Foundation.h>
-#import <AppKit/AppKit.h>
-#import <CoreFoundation/CoreFoundation.h>
-#import <CommonCrypto/CommonDigest.h>
+#ifndef HashOperation_h
+#define HashOperation_h
 
 // Supported Hash Types
 
@@ -139,3 +137,5 @@ enum {
 -(void)main;
 
 @end
+
+#endif /* HashOperation_h */

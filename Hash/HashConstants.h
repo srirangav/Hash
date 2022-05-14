@@ -31,10 +31,8 @@
     DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef Hash_HashConstants_h
-#define Hash_HashConstants_h
-
-#import <Foundation/Foundation.h>
+#ifndef HashConstants_h
+#define HashConstants_h
 
 FOUNDATION_EXPORT NSString *const fileDroppedEvent;
 FOUNDATION_EXPORT NSString *const fileDroppedKey;
@@ -46,4 +44,4 @@ FOUNDATION_EXPORT NSString *const keySender;
 FOUNDATION_EXPORT NSString *const keyFileSize;
 FOUNDATION_EXPORT NSString *const outputLowerCase;
 
-#endif /* Hash_HashConstants_h */
+#endif /* HashConstants_h */

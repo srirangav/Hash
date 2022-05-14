@@ -28,8 +28,11 @@
     DEALINGS IN THE SOFTWARE.
 */
 
-#import "AppDelegate.h"
+#import <Cocoa/Cocoa.h>
+
+#import "HashAppService.h"
 #import "HashConstants.h"
+#import "AppDelegate.h"
 
 @interface AppDelegate ()
 

@@ -33,6 +33,8 @@
     DEALINGS IN THE SOFTWARE.
 */
 
+#import <Foundation/Foundation.h>
+
 #import "HashConstants.h"
 
 NSString *const fileDroppedEvent = @"fileDroppedEvent";

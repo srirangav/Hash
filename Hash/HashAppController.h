@@ -35,10 +35,8 @@
     DEALINGS IN THE SOFTWARE.
 */
 
-#import <Foundation/Foundation.h>
-#import <AppKit/AppKit.h>
-
-#import "HashOperation.h"
+#ifndef HashAppController_h
+#define HashAppController_h
 
 // Verification Message Types
 
@@ -155,3 +153,5 @@ typedef enum {
         monospace:(BOOL)makeTextMonoSpace;
 
 @end
+
+#endif /* HashAppController_h */

@@ -29,8 +29,6 @@
 #ifndef HashAppService_h
 #define HashAppService_h
 
-#import <Cocoa/Cocoa.h>
-
 @interface HashAppService : NSObject <NSApplicationDelegate,NSObject>
 
 - (void)hashSelectedFile: (NSPasteboard *)pboard

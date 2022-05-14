@@ -28,12 +28,14 @@
     DEALINGS IN THE SOFTWARE.
 */
 
-#import <Cocoa/Cocoa.h>
-#import "HashAppService.h"
+#ifndef AppDelegate_h
+#define AppDelegate_h
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
     HashAppService *service;
 }
 @end
+
+#endif /* AppDelegate_h */
 

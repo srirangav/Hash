@@ -54,9 +54,14 @@
     DEALINGS IN THE SOFTWARE.
 */
 
-#import "HashAppController.h"
+#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
+#import <CoreFoundation/CoreFoundation.h>
+#import <CommonCrypto/CommonDigest.h>
+
 #import "HashConstants.h"
 #import "HashOperation.h"
+#import "HashAppController.h"
 #import "rmd160.h"
 #import "Whirlpool.h"
 #import "tiger.h"
