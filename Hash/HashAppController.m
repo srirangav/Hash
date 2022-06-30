@@ -30,10 +30,13 @@
     v. 1.1.10 (05/26/2021) - Add support for LSH
     v. 1.1.11 (10/24/2021) - Add support for showing the file size
     v. 1.1.12 (10/24/2021) - Add selected hash and file to progress sheet
-
+    v. 1.1.13 (06/30/2022) - Synchronize preferences sheet checkboxs with
+                             stored preference settings on application
+                             startup
+ 
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
-    Copyright (c) 2014-2021 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2014-2022 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -107,7 +110,14 @@ NSString *gPrefShowSize = @"showsize";
     hashDefaults = [[NSUserDefaults alloc] initWithSuiteName: gAppGroup];
     
     prefLowercase = [hashDefaults boolForKey: gPrefLowercase];
+    [lowerCaseCheckBox setState: (prefLowercase ?
+                                  NSControlStateValueOn :
+                                  NSControlStateValueOff)];
+
     prefShowSize = [hashDefaults boolForKey: gPrefShowSize];
+    [showSizeCheckBox setState: (prefShowSize ?
+                                NSControlStateValueOn :
+                                NSControlStateValueOff)];
 }
 
 /*

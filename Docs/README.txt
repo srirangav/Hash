@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.22
+Hash v. 1.1.23
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -49,6 +49,8 @@ License:
 
 History:
 
+    v. 1.1.23 - Synchronize preferences window with saved preferences
+                on application startup
     v. 1.1.22 - Try to adopt #include/#import discipline for .h files
                 (see https://doc.cat-v.org/bell_labs/pikestyle)
     v. 1.1.21 - Build using Xcode 13

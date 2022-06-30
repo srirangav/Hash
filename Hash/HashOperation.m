@@ -232,8 +232,9 @@
         /* variables to handle collisions */
         
         int collision = 0;
-        NSString *collisonMsg = NSLocalizedString(@"HASH_COLLISION_DETECTED",
-                                                  @"HASH_COLLISION_DETECTED");
+        NSString *collisonMsg =
+            NSLocalizedString(@"HASH_COLLISION_DETECTED",
+                              @"HASH_COLLISION_DETECTED");
         unsigned long collisionMsgExtraBufferSize = [collisonMsg length] + 1;
         
         /* progress bar */
