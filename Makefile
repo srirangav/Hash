@@ -29,9 +29,11 @@ XCODEBUILD = /usr/bin/xcodebuild
 XCRUN      = /usr/bin/xcrun
 HIUTIL     = /usr/bin/hiutil
 ALTOOL     = $(XCRUN) altool
+NOTARYTOOL = xcrun notarytool
 STAPLER    = $(XCRUN) stapler
 HDIUTIL    = /usr/bin/hdiutil
 CODESIGN   = /usr/bin/codesign
+GPG        = /opt/local/bin/gpg
 
 # code sign arguments
 # based on:
@@ -84,7 +86,18 @@ dmg: clean all sign
 
 # notarize the signed disk image
 
+# Xcode13 notarization
+# See: https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/customizing_the_notarization_workflow?preferredLanguage=occ
+#      https://scriptingosx.com/2021/07/notarize-a-command-line-tool-with-notarytool/
+#      https://indiespark.top/programming/new-xcode-13-notarization/
+
 notarize: sign_dmg
+	$(NOTARYTOOL) submit $(PROJNAME)-$(PROJVERS).dmg \
+                  --apple-id $(USERID) --team-id $(TEAMID)
+
+# Pre-Xcode13 notarization
+
+notarize_old: sign_dmg
 	$(ALTOOL) --notarize-app \
               --primary-bundle-id $(BUNDLEID) \
               --username $(USERID) \
@@ -96,6 +109,9 @@ notarize: sign_dmg
 staple: 
 	$(STAPLER) staple $(PROJNAME)-$(PROJVERS).dmg
 	$(STAPLER) validate $(PROJNAME)-$(PROJVERS).dmg
+
+clear_sign: staple
+	$(GPG) -asb $(PROJNAME)-$(PROJVERS).dmg
 
 # generate / update the helpindex
 
