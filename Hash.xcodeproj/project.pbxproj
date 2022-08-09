@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2608516B23023F9900B38AE0 /* HashAppService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608516A23023F9900B38AE0 /* HashAppService.m */; };
+		26135A67289DB39100713E91 /* KangarooTwelve.c in Sources */ = {isa = PBXBuildFile; fileRef = 26135A63289DB39100713E91 /* KangarooTwelve.c */; };
+		26135A6C289DBBBD00713E91 /* KeccakP-1600-plain64.c in Sources */ = {isa = PBXBuildFile; fileRef = 26135A6B289DBBBD00713E91 /* KeccakP-1600-plain64.c */; };
+		26135A6F289DBD6400713E91 /* KeccakP-1600-opt64.c in Sources */ = {isa = PBXBuildFile; fileRef = 26135A6E289DBD6400713E91 /* KeccakP-1600-opt64.c */; };
 		263C03B422FD582300B38AE0 /* has160.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03B222FD582300B38AE0 /* has160.c */; };
 		263C03C522FE4B9100B38AE0 /* blake.c in Sources */ = {isa = PBXBuildFile; fileRef = 263C03C422FE4B9100B38AE0 /* blake.c */; };
 		263E467F2342E38C00B38AE0 /* sha1dc.c in Sources */ = {isa = PBXBuildFile; fileRef = 263E467C2342E38C00B38AE0 /* sha1dc.c */; };
@@ -62,6 +65,12 @@
 		2608516A23023F9900B38AE0 /* HashAppService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashAppService.m; sourceTree = "<group>"; };
 		2608516C23023FE600B38AE0 /* HashAppService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashAppService.h; sourceTree = "<group>"; };
 		2612682522FEB81A00B38AE0 /* Groestl.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Groestl.zip; sourceTree = "<group>"; };
+		26135A62289DB39100713E91 /* align.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = align.h; sourceTree = "<group>"; };
+		26135A63289DB39100713E91 /* KangarooTwelve.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KangarooTwelve.c; sourceTree = "<group>"; };
+		26135A64289DB39100713E91 /* KangarooTwelve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KangarooTwelve.h; sourceTree = "<group>"; };
+		26135A6B289DBBBD00713E91 /* KeccakP-1600-plain64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "KeccakP-1600-plain64.c"; sourceTree = "<group>"; };
+		26135A6D289DBCEF00713E91 /* KeccakP-1600-SnP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeccakP-1600-SnP.h"; sourceTree = "<group>"; };
+		26135A6E289DBD6400713E91 /* KeccakP-1600-opt64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "KeccakP-1600-opt64.c"; sourceTree = "<group>"; };
 		263C03B222FD582300B38AE0 /* has160.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = has160.c; path = "HAS-160/has160.c"; sourceTree = "<group>"; };
 		263C03B322FD582300B38AE0 /* has160.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = has160.h; path = "HAS-160/has160.h"; sourceTree = "<group>"; };
 		263C03BC22FE3EF700B38AE0 /* blake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = blake.h; path = BLAKE/blake.h; sourceTree = "<group>"; };
@@ -187,6 +196,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26135A61289DB39100713E91 /* K12 */ = {
+			isa = PBXGroup;
+			children = (
+				26135A62289DB39100713E91 /* align.h */,
+				26135A6D289DBCEF00713E91 /* KeccakP-1600-SnP.h */,
+				26135A64289DB39100713E91 /* KangarooTwelve.h */,
+				26135A63289DB39100713E91 /* KangarooTwelve.c */,
+				26135A6B289DBBBD00713E91 /* KeccakP-1600-plain64.c */,
+				26135A6E289DBD6400713E91 /* KeccakP-1600-opt64.c */,
+			);
+			path = K12;
+			sourceTree = "<group>";
+		};
 		263C03B122FD580800B38AE0 /* HAS-160 */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +290,7 @@
 				263C03B122FD580800B38AE0 /* HAS-160 */,
 				26B48BE022FEA29C00B38AE0 /* Groestl */,
 				264644C522FA661500B38AE0 /* JH */,
+				26135A61289DB39100713E91 /* K12 */,
 				26F779B0265F24D700A6B34D /* LSH */,
 				26B4DEF41F048EC400F340FA /* MD6 */,
 				26D69B5B1AE625B8005B114A /* RMD160 */,
@@ -677,6 +700,9 @@
 				26D4771B1D248F96000DD102 /* skein_block.c in Sources */,
 				26D69B841AE62B7E005B114A /* Whirlpool.c in Sources */,
 				A6E46E1725718A810063E58C /* keccak-tiny-unrolled.c in Sources */,
+				26135A67289DB39100713E91 /* KangarooTwelve.c in Sources */,
+				26135A6C289DBBBD00713E91 /* KeccakP-1600-plain64.c in Sources */,
+				26135A6F289DBD6400713E91 /* KeccakP-1600-opt64.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,7 +874,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.23;
+				MARKETING_VERSION = 1.1.24;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -901,7 +927,7 @@
 				INFOPLIST_FILE = Hash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 1.1.23;
+				MARKETING_VERSION = 1.1.24;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.calalum.ranga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

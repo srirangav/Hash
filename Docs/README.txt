@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.23
+Hash v. 1.1.24
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -21,6 +21,7 @@ About:
         SHA2 (SHA224, SHA256, SHA384, SHA512)
         SHA3/SHAKE (128, 224, 256, 384, 512)
         RIPEMD (160, 320)
+        KangarooTwelve / K12 (256, 384, 512)
         Whirlpool
         BLAKE (224, 256, 384, 512)
         BLAKE2 (BLAKE2S 256; BLAKE2B 256, 512)
@@ -49,6 +50,7 @@ License:
 
 History:
 
+    v. 1.1.24 - Add support for KangarooTwelve / K12
     v. 1.1.23 - Synchronize preferences window with saved preferences
                 on application startup
     v. 1.1.22 - Try to adopt #include/#import discipline for .h files
@@ -127,3 +129,4 @@ References:
                    https://github.com/rhash/RHash
     LSH          - https://seed.kisa.or.kr/kisa/Board/22/detailView.do
                  - https://en.wikipedia.org/wiki/LSH_(hash_function)
+    K12          - https://github.com/XKCP/K12

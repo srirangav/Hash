@@ -4,7 +4,7 @@
 
 PROJNAME   = Hash
 PROJEXT    = app
-PROJVERS   = 1.1.23
+PROJVERS   = 1.1.24
 BUNDLEID   = "org.calalum.ranga.$(PROJNAME)"
 
 # Help bundle directory
@@ -21,7 +21,7 @@ SUPPORT_FILES = Docs/README.txt Docs/LICENSE.txt
 
 # code signing information
 
-include sign.mk
+include ../sign.mk
 
 # build and packaging tools
 
@@ -50,6 +50,7 @@ CODESIGN_ARGS = --force \
 # build results directory
 
 BUILD_RESULTS_DIR = build/Release/$(PROJNAME).$(PROJEXT)
+BUILD_RESULTS_FRAMEWORKS_DIR = $(BUILD_RESULTS_DIR)/Contents/Frameworks/
 
 # build the app
 
@@ -65,9 +66,9 @@ sign: sign_frameworks
 # sign any included frameworks (not always needed)
 
 sign_frameworks: all
-	if [ -d $(BUILD_RESULTS_DIR)/Contents/Frameworks/ ] ; then \
+	if [ -d $(BUILD_RESULTS_FRAMEWORKS_DIR) ] ; then \
         $(CODESIGN) $(CODESIGN_ARGS) \
-                    $(BUILD_RESULTS_DIR)/Contents/Frameworks/* ; \
+                    $(BUILD_RESULTS_FRAMEWORKS_DIR) ; \
     fi
 
 # sign the disk image
@@ -93,7 +94,8 @@ dmg: clean all sign
 
 notarize: sign_dmg
 	$(NOTARYTOOL) submit $(PROJNAME)-$(PROJVERS).dmg \
-                  --apple-id $(USERID) --team-id $(TEAMID)
+                  --apple-id $(USERID) --team-id $(TEAMID) \
+                  --wait
 
 # Pre-Xcode13 notarization
 
@@ -106,9 +108,11 @@ notarize_old: sign_dmg
 # staple the ticket to the dmg, but notarize needs to complete first,
 # so we can't list notarize as a pre-requisite target
 
-staple: 
+staple: notarize
 	$(STAPLER) staple $(PROJNAME)-$(PROJVERS).dmg
 	$(STAPLER) validate $(PROJNAME)-$(PROJVERS).dmg
+
+# sign the dmg with a gpg public key
 
 clear_sign: staple
 	$(GPG) -asb $(PROJNAME)-$(PROJVERS).dmg

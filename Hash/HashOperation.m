@@ -18,13 +18,14 @@
     v. 1.1.3 (11/27/2020) - Add support for BLAKE3
     v. 1.1.4 (10/24/2021) - Add support for showing the file size
     v. 1.1.5 (03/24/2022) - Add dock progress bar
-
+    v. 1.1.6 (08/05/2022) - Add support for K12
+ 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
               http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues
               http://www.informit.com/articles/article.aspx?p=1768318
 
-    Copyright (c) 2015-2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2015-2022 Sriranga R. Veeraraghavan <ranga@calalum.org>
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -70,6 +71,7 @@
 #import "sha1dc.h"
 #import "snefru.h"
 #import "lsh.h"
+#import "KangarooTwelve.h"
 
 @implementation HashOperation
 
@@ -166,7 +168,10 @@
             case HASH_LSH256:
             case HASH_LSH384:
             case HASH_LSH512:
-
+            case HASH_K12_256:
+            case HASH_K12_384:
+            case HASH_K12_512:
+                
                 // valid hashType
 
                 hashType = hash;
@@ -274,6 +279,7 @@
         groestl_HashState groestlHashObject;
         snefru_ctx snefruHashObject;
         union LSH_Context lshHashObject;
+        KangarooTwelve_Instance k12HashObject;
         
         do {
             
@@ -338,6 +344,7 @@
                 case HASH_BLAKE256:
                 case HASH_GROESTL256:
                 case HASH_LSH256:
+                case HASH_K12_256:
                     digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SHA384:
@@ -346,6 +353,7 @@
                 case HASH_BLAKE384:
                 case HASH_GROESTL384:
                 case HASH_LSH384:
+                case HASH_K12_384:
                     digestLength = CC_SHA384_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_MD6_512:
@@ -362,6 +370,7 @@
                 case HASH_BLAKE512:
                 case HASH_GROESTL512:
                 case HASH_LSH512:
+                case HASH_K12_512:
                     digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(*digest);
                     break;
                 case HASH_SKEIN_1024:
@@ -594,6 +603,11 @@
                     break;
                 case HASH_LSH512:
                     lsh_init(&lshHashObject, LSH_TYPE_512);
+                    break;
+                case HASH_K12_256:
+                case HASH_K12_384:
+                case HASH_K12_512:
+                    KangarooTwelve_Initialize(&k12HashObject, 0);
                     break;
                 default:
                     hasMoreData = FALSE;
@@ -935,6 +949,13 @@
                                    (const lsh_u8 *)buffer,
                                    (size_t)bytesRead*8);
                         break;
+                    case HASH_K12_256:
+                    case HASH_K12_384:
+                    case HASH_K12_512:
+                        KangarooTwelve_Update(&k12HashObject,
+                                              (const unsigned char*)buffer,
+                                              (size_t)bytesRead);
+                        break;
                     default:
                         hasMoreData = FALSE;
                         readFailed = TRUE;
@@ -1097,6 +1118,17 @@
                 case HASH_LSH384:
                 case HASH_LSH512:
                     lsh_final(&lshHashObject, digest);
+                    break;
+                case HASH_K12_256:
+                case HASH_K12_384:
+                case HASH_K12_512:
+                    KangarooTwelve_Final(&k12HashObject,
+                                         0,
+                                         (const unsigned char *)"",
+                                         0);
+                    KangarooTwelve_Squeeze(&k12HashObject,
+                                           (unsigned char *)digest,
+                                           digestLength);
                     break;
                 default:
                     hasMoreData = FALSE;

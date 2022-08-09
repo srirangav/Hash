@@ -33,6 +33,7 @@
     v. 1.1.13 (06/30/2022) - Synchronize preferences sheet checkboxs with
                              stored preference settings on application
                              startup
+    v. 1.1.14 (08/05/2022) - Add support for K12
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
@@ -338,6 +339,9 @@ NSString *gPrefShowSize = @"showsize";
         case HASH_LSH256:
         case HASH_LSH384:
         case HASH_LSH512:
+        case HASH_K12_256:
+        case HASH_K12_384:
+        case HASH_K12_512:
             
             /*
                 valid hash type selected, compute the file's hash and
@@ -548,6 +552,15 @@ NSString *gPrefShowSize = @"showsize";
                     break;
                 case HASH_LSH512:
                     [hashProgressStr appendString: @"LSH (512)"];
+                    break;
+                case HASH_K12_256:
+                    [hashProgressStr appendString: @"K12 (256)"];
+                    break;
+                case HASH_K12_384:
+                    [hashProgressStr appendString: @"K12 (348)"];
+                    break;
+                case HASH_K12_512:
+                    [hashProgressStr appendString: @"K12 (512)"];
                     break;
                 default:
                     [hashProgressStr appendString: @"Hash"];
@@ -1059,7 +1072,10 @@ NSString *gPrefShowSize = @"showsize";
         case HASH_LSH256:
         case HASH_LSH384:
         case HASH_LSH512:
-
+        case HASH_K12_256:
+        case HASH_K12_384:
+        case HASH_K12_512:
+        
             // valid hashType, return it
 
             break;
@@ -1387,6 +1403,7 @@ NSString *gPrefShowSize = @"showsize";
         case HASH_BLAKE3:
         case HASH_GROESTL256:
         case HASH_LSH256:
+        case HASH_K12_256:
             digestLength = CC_SHA256_DIGEST_LENGTH*sizeof(unsigned char);
             break;
         case HASH_SHA384:
@@ -1395,6 +1412,7 @@ NSString *gPrefShowSize = @"showsize";
         case HASH_BLAKE384:
         case HASH_GROESTL384:
         case HASH_LSH384:
+        case HASH_K12_384:
             digestLength = CC_SHA384_DIGEST_LENGTH*sizeof(unsigned char);
             break;
         case HASH_MD6_512:
@@ -1411,6 +1429,7 @@ NSString *gPrefShowSize = @"showsize";
         case HASH_BLAKE512:
         case HASH_GROESTL512:
         case HASH_LSH512:
+        case HASH_K12_512:
             digestLength = CC_SHA512_DIGEST_LENGTH*sizeof(unsigned char);
             break;
         case HASH_SKEIN_1024:

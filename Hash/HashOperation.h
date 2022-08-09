@@ -19,13 +19,14 @@
     v. 1.1.3 (11/27/2020) - Add support for BLAKE3
     v. 1.1.4 (05/26/2021) - Add support for LSH
     v. 1.1.5 (03/24/2022) - Add dock progress bar
-
+    v. 1.1.6 (08/05/2022) - Add support for K12
+ 
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
               http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues
               http://www.informit.com/articles/article.aspx?p=1768318
 
-    Copyright (c) 2015-2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2015-2022 Sriranga R. Veeraraghavan <ranga@calalum.org>
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -109,6 +110,9 @@ typedef enum {
     HASH_LSH256         = 54,
     HASH_LSH384         = 55,
     HASH_LSH512         = 56,
+    HASH_K12_256        = 57,
+    HASH_K12_384        = 58,
+    HASH_K12_512        = 59,
 } HashType;
 
 // Default File Buffer Size (400K)

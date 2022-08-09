@@ -379,6 +379,16 @@ CA
                                     <menuItem title="Whirlpool" tag="6" id="x6m-f3-4MM">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="Agx-r9-yHe"/>
+                                    <menuItem title="K12 256" tag="57" id="jIv-wH-2ZO">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="K12 384" tag="58" id="9aW-Wb-hJU">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="K12 512" tag="59" id="eF4-u7-15J">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                     <menuItem isSeparatorItem="YES" id="mOk-uh-dHE"/>
                                     <menuItem title="Tiger" tag="36" id="5wO-5V-d2L">
                                         <modifierMask key="keyEquivalentModifierMask"/>
