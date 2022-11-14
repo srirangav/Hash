@@ -11,7 +11,7 @@
     v. 1.0.5 (06/29/2016) - Add support for Skein
     v. 1.0.6 (07/06/2016) - Add support for BLAKE2BP, BLAKE2S, BLAKE2SP
     v. 1.0.7 (07/06/2016) - Add support for SHA224, SHA384
-    v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512 
+    v. 1.0.8 (06/28/2017) - Add support for MD6 256, MD6 512
     v. 1.1.0 (08/07/2019) - Add support for JH, Tiger, Tiger2, HAS-160, BLAKE
     v. 1.1.1 (09/30/2019) - Add support for SHA1 collision detection
     v. 1.1.2 (11/27/2020) - Add support for SHAKE128, SHAKE256
@@ -19,7 +19,8 @@
     v. 1.1.4 (10/24/2021) - Add support for showing the file size
     v. 1.1.5 (03/24/2022) - Add dock progress bar
     v. 1.1.6 (08/05/2022) - Add support for K12
- 
+    v. 1.1.7 (11/13/2022) - replace malloc + memset with calloc
+
     Based on: http://www.joel.lopes-da-silva.com/2010/09/07/compute-md5-or-sha-hash-of-large-file-efficiently-on-ios-and-mac-os-x/
               http://www.cimgf.com/2008/02/23/nsoperation-example/
               http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues
@@ -108,7 +109,7 @@
         filePath = path;
 
         isLowerCase = lowerCase;
-        
+
         // verify that a valid hash type was specified
 
         switch (hash) {
@@ -171,7 +172,7 @@
             case HASH_K12_256:
             case HASH_K12_384:
             case HASH_K12_512:
-                
+
                 // valid hashType
 
                 hashType = hash;
@@ -180,7 +181,7 @@
             default:
 
                 // unknown or invalid hashType
-                
+
                 hashType = HASH_NONE;
                 break;
         }
@@ -199,7 +200,7 @@
 
 -(void)main {
     @autoreleasepool {
-        
+
         /* the string containing the hash result */
 
         NSMutableString *hashResult = nil;
@@ -210,7 +211,7 @@
         NSDictionary *attribs = nil;
         unsigned long long fileSize = -1;
         NSString *fileSizeStr = nil;
-        
+
         /* the digest */
 
         unsigned char *digest = NULL;
@@ -218,7 +219,7 @@
         size_t i = 0;
 
         /* read buffer and bytes read */
-        
+
         uint8_t buffer[FileHashDefaultFileBufferSize];
         size_t bufferLength = FileHashDefaultFileBufferSize;
         NSInteger bytesRead = 0;
@@ -235,17 +236,17 @@
         bool readFailed = FALSE;
 
         /* variables to handle collisions */
-        
+
         int collision = 0;
         NSString *collisonMsg =
             NSLocalizedString(@"HASH_COLLISION_DETECTED",
                               @"HASH_COLLISION_DETECTED");
         unsigned long collisionMsgExtraBufferSize = [collisonMsg length] + 1;
-        
+
         /* progress bar */
-        
+
         double currentProgressPercentage = 0.0;
-        
+
         /* hash objects for the supported hashes */
 
         crcContext crcHashObject;
@@ -280,9 +281,9 @@
         snefru_ctx snefruHashObject;
         union LSH_Context lshHashObject;
         KangarooTwelve_Instance k12HashObject;
-        
+
         do {
-            
+
             // return if no file is specified
 
             if (filePath == nil) {
@@ -406,12 +407,11 @@
             }
 
             // allocate space for the digest
-            
-            digest = malloc(digestLength);
+
+            digest = calloc(sizeof(unsigned char), digestLength);
             if (digest == NULL) {
                 break;
             }
-            memset(digest, 0, digestLength);
 
             // Create and open the read stream
 
@@ -619,7 +619,7 @@
 
             memset(buffer, 0, bufferLength);
 
-            /* 
+            /*
                 Read the file one buffer at a time and update the hash
                 accordingly
                 Based on: http://samplecodebank.blogspot.com/2013/05/nsinputstream-read-example-ios.html
@@ -641,7 +641,7 @@
                     dock progress bar
                     based on: https://github.com/hokein/DockProgressBar/blob/master/DockProgressBar/DockDownloadProgressBar.mm
                  */
-                
+
                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                     [self->progress setIndeterminate: NO];
                     [self->progress setDoubleValue:
@@ -649,16 +649,16 @@
                     [self->progress startAnimation: self->sender];
 
                     /* dock progress bar */
-                
+
                     self->dockTile = [NSApp dockTile];
-                    
+
                     self->dockProgress =
                         [[NSProgressIndicator alloc] initWithFrame:
                          NSMakeRect(0.0f,
                                     self->dockTile.size.height/8,
                                     self->dockTile.size.width,
                                     35.0f)];
-                    
+
                     if ([self->dockTile contentView] == NULL)
                     {
                         NSImageView *contentView =
@@ -711,10 +711,10 @@
 
                 if (progress != nil) {
                     bytesSoFar += bytesRead;
-                    
+
                     currentProgressPercentage =
                         (double)(((double)bytesSoFar/(double)fileSize)*100);
-                    
+
                     // make sure the progress bar runs in the main queue (to fix a
                     // Xcode 9 warning.
                     // based on:
@@ -726,7 +726,7 @@
                         [self->progress displayIfNeeded];
 
                         /* update the dock progress bar */
-                        
+
                         [self->dockProgress setDoubleValue:
                          currentProgressPercentage];
                         [self->dockProgress setHidden: NO];
@@ -755,13 +755,13 @@
                         break;
                     case HASH_MD6_256:
                     case HASH_MD6_512:
-                        
+
                         /*
                             Update the MD6 sum, passing in the number
                             of bits (bytes*8) read (see md6sum.c in the
                             reference implementation).
                          */
-                        
+
                         md6_update(&md6HashObject,
                                    (unsigned char *)buffer,
                                    bytesRead*8);
@@ -806,7 +806,7 @@
                     case HASH_SHA3_256:
                     case HASH_SHA3_384:
                     case HASH_SHA3_512:
-                        
+
                         /*
                             Update the SHA3 sum, passing in the number
                             of bits (bytes*8) read.
@@ -940,7 +940,7 @@
                                             (const unsigned char*)buffer,
                                             (size_t)bytesRead);
                         break;
-                        
+
                     case HASH_LSH224:
                     case HASH_LSH256:
                     case HASH_LSH384:
@@ -1135,9 +1135,9 @@
                     readFailed = TRUE;
                     break;
             }
-            
+
             /* hide the dock progress bar */
-            
+
             if (progress != nil)
             {
                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -1146,46 +1146,46 @@
                     [self->dockTile display];
                 }];
             }
-            
+
             // If the file was successfully read, covert the hash to a string
-            
+
             if (readFailed == FALSE) {
                 if (hashType == HASH_CRC32 ||
                     hashType == HASH_CKSUM) {
                     hashResult = [NSMutableString stringWithFormat: @"%u",
                                   crcHashObject.crc];
                 } else {
-                    
+
                     /*
                         allocate enough room to store the hash result,
                         plus a collision detected message.
                      */
-                    
+
                     hashResult = [NSMutableString stringWithCapacity:
                                   (2*digestLength) +
                                   (hashType == HASH_SHA1DC ?
                                    collisionMsgExtraBufferSize : 0) +
                                   1];
-                    
+
                     /*
                         unless lowercase output was requested, output the
                         hash in hex with capital letters for A-F
                      */
-                    
+
                     for (i = 0; i < digestLength; ++i) {
                         [hashResult appendFormat:
                          (isLowerCase ? @"%02x" : @"%02X"), (int)(digest[i])];
                     }
-                    
+
                     /* if there was a collision, add the collision message */
-                    
+
                     if (hashType == HASH_SHA1DC &&
                         collision != 0) {
                         [hashResult appendString: collisonMsg];
                     }
                 }
             }
-            
+
         } while (FALSE);
 
         // clean up - close the read stream and free the digest

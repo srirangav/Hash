@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.24
+Hash v. 1.1.25
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -50,6 +50,7 @@ License:
 
 History:
 
+    v. 1.1.25 - Build on Monterey (MacOSX 12.x)
     v. 1.1.24 - Add support for KangarooTwelve / K12
     v. 1.1.23 - Synchronize preferences window with saved preferences
                 on application startup
