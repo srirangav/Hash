@@ -4,7 +4,7 @@
 
 PROJNAME   = Hash
 PROJEXT    = app
-PROJVERS   = 1.1.24
+PROJVERS   = 1.1.25
 BUNDLEID   = "org.calalum.ranga.$(PROJNAME)"
 
 # Help bundle directory
@@ -33,6 +33,7 @@ NOTARYTOOL = xcrun notarytool
 STAPLER    = $(XCRUN) stapler
 HDIUTIL    = /usr/bin/hdiutil
 CODESIGN   = /usr/bin/codesign
+STRIP      = /usr/bin/strip
 GPG        = /opt/local/bin/gpg
 
 # code sign arguments
@@ -47,18 +48,38 @@ CODESIGN_ARGS = --force \
                 --options runtime \
                 --sign $(SIGNID)
 
+# strip arguments
+
+STRIP_ARGS = -rSTx
+
 # build results directory
 
 BUILD_RESULTS_DIR = build/Release/$(PROJNAME).$(PROJEXT)
+BUILD_RESULTS_APP = $(BUILD_RESULTS_DIR)/Contents/MacOS/$(PROJNAME)
 BUILD_RESULTS_FRAMEWORKS_DIR = $(BUILD_RESULTS_DIR)/Contents/Frameworks/
 
 # build the app
 
-all: helpindex
+all: helpindex release release_strip
+
+# generate / update the helpindex
+
+helpindex:
+	cd $(HELP_EN_DIR) && $(HIUTIL) -Caf ./$(HELP_INDEX) .
+
+# build a release version of the project
+
+release:
 	$(XCODEBUILD) -project $(PROJNAME).xcodeproj -configuration Release
 
-# sign the app, if frameworks are included, then sign_frameworks should
-# be the pre-requisite target instead of "all" 
+# strip the main binary
+# based on: https://www.emergetools.com/blog/posts/how-xcode14-unintentionally-increases-app-size
+# TODO: strip frameworks
+
+release_strip:
+	$(STRIP) $(STRIP_ARGS) $(BUILD_RESULTS_APP)
+
+# sign the app
 
 sign: sign_frameworks
 	$(CODESIGN) $(CODESIGN_ARGS) $(BUILD_RESULTS_DIR)
@@ -105,8 +126,7 @@ notarize_old: sign_dmg
               --username $(USERID) \
               --file $(PROJNAME)-$(PROJVERS).dmg
 
-# staple the ticket to the dmg, but notarize needs to complete first,
-# so we can't list notarize as a pre-requisite target
+# staple the ticket to the dmg
 
 staple: notarize
 	$(STAPLER) staple $(PROJNAME)-$(PROJVERS).dmg
@@ -117,11 +137,6 @@ staple: notarize
 clear_sign: staple
 	$(GPG) -asb $(PROJNAME)-$(PROJVERS).dmg
 
-# generate / update the helpindex
-
-helpindex:
-	cd $(HELP_EN_DIR) && $(HIUTIL) -Caf ./$(HELP_INDEX) .
-    
 clean:
 	/bin/rm -rf ./build \
                 $(PROJNAME)-$(PROJVERS) \
