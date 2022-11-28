@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.1.26
+Hash v. 1.2.0
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -41,7 +41,8 @@ Installation:
 
 Supported MacOSX versions:
 
-    v. 1.0.15 onwards     - 10.9+
+    v. 1.2.0 onwards      - 10.13+
+    v. 1.0.15 - 1.0.25    - 10.9+
     v. 1.0.14 and earlier - 10.6+
 
 License:
@@ -50,7 +51,7 @@ License:
 
 History:
 
-    v. 1.1.26 - Update to BLAKE3 v.1.3.3
+    v. 1.2.0  - Update to BLAKE3 v.1.3.3, updates for XCode 14.1
     v. 1.1.25 - Build on Monterey (MacOSX 12.x)
     v. 1.1.24 - Add support for KangarooTwelve / K12
     v. 1.1.23 - Synchronize preferences window with saved preferences
@@ -132,3 +133,4 @@ References:
     LSH          - https://seed.kisa.or.kr/kisa/Board/22/detailView.do
                  - https://en.wikipedia.org/wiki/LSH_(hash_function)
     K12          - https://github.com/XKCP/K12
+
