@@ -112,6 +112,7 @@ dmg: clean all sign
 # See: https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/customizing_the_notarization_workflow?preferredLanguage=occ
 #      https://scriptingosx.com/2021/07/notarize-a-command-line-tool-with-notarytool/
 #      https://indiespark.top/programming/new-xcode-13-notarization/
+#      https://developer.apple.com/documentation/technotes/tn3147-migrating-to-the-latest-notarization-tool
 
 notarize: sign_dmg
 	$(NOTARYTOOL) submit $(PROJNAME)-$(PROJVERS).dmg \
