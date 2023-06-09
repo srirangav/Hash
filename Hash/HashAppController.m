@@ -34,10 +34,11 @@
                              stored preference settings on application
                              startup
     v. 1.1.14 (08/05/2022) - Add support for K12
+    v. 1.1.15 (06/09/2023) - fix deprication warnings
  
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
     
-    Copyright (c) 2014-2022 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2014-2023 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -85,10 +86,11 @@ NSString *gPrefShowSize = @"showsize";
         Based on: https://stackoverflow.com/questions/7896646/how-to-pass-object-with-nsnotificationcenter
     */
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(fileDroppedAction:)
-                                                 name:fileDroppedEvent
-                                               object:nil];
+    [[NSNotificationCenter defaultCenter]
+        addObserver: self
+           selector: @selector(fileDroppedAction:)
+               name: fileDroppedEvent
+             object: nil];
 
     /*
         Initialize the operation queue
@@ -137,21 +139,24 @@ NSString *gPrefShowSize = @"showsize";
     
     if (notification == nil ||
         notification.name == nil ||
-        notification.userInfo == nil) {
+        notification.userInfo == nil)
+    {
         return;
     }
     
     // check if the notification is a fileDroppedEvent
     
-    if ([notification.name isEqualToString:fileDroppedEvent] == FALSE) {
+    if ([notification.name isEqualToString: fileDroppedEvent] == FALSE)
+    {
         return;
     }
 
     // check if the userInfo contains a valid path
     
     userInfo = notification.userInfo;
-    path = (NSString *)[userInfo objectForKey:fileDroppedKey];
-    if (path == nil) {
+    path = (NSString *)[userInfo objectForKey: fileDroppedKey];
+    if (path == nil)
+    {
         return;
     }
 
@@ -174,7 +179,8 @@ NSString *gPrefShowSize = @"showsize";
 {
     prefLowercase = !prefLowercase;
     
-    [hashDefaults setBool:prefLowercase forKey:gPrefLowercase];
+    [hashDefaults setBool: prefLowercase
+                   forKey: gPrefLowercase];
     
     [lowerCaseCheckBox setState: (prefLowercase ?
                                   NSControlStateValueOn :
@@ -190,7 +196,8 @@ NSString *gPrefShowSize = @"showsize";
 {
     prefShowSize = !prefShowSize;
     
-    [hashDefaults setBool:prefShowSize forKey:gPrefShowSize];
+    [hashDefaults setBool: prefShowSize
+                   forKey: gPrefShowSize];
     
     [showSizeCheckBox setState: (prefShowSize ?
                                 NSControlStateValueOn :
@@ -245,7 +252,8 @@ NSString *gPrefShowSize = @"showsize";
     // get the selected file
     
     theFile = [self selectedFile];
-    if (theFile == nil || [theFile isEqualToString: @""]) {
+    if (theFile == nil || [theFile isEqualToString: @""])
+    {
         [self setErrorMessage: NSLocalizedString(@"HASH_SELECT_FILE",
                                                  @"HASH_SELECT_FILE")];
         return;
@@ -257,22 +265,26 @@ NSString *gPrefShowSize = @"showsize";
      */
 
     fileManager = [NSFileManager defaultManager];
-    if (fileManager == nil) {
+    if (fileManager == nil)
+    {
         [self setErrorMessage: NSLocalizedString(@"HASH_CANT_OPEN",
                                                  @"HASH_CANT_OPEN")];
         return;
     }
 
     if ([fileManager fileExistsAtPath: theFile
-                          isDirectory: &isDir] == YES) {
-        if (isDir == YES) {
+                          isDirectory: &isDir] == YES)
+    {
+        if (isDir == YES)
+        {
             [self setErrorMessage: NSLocalizedString(@"HASH_FILE_NOT_DIR",
                                                      @"HASH_FILE_NOT_DIR")];
             return;
         }
     }
     
-    if ([fileManager isReadableFileAtPath: theFile] == FALSE) {
+    if ([fileManager isReadableFileAtPath: theFile] == FALSE)
+    {
         [self setErrorMessage: NSLocalizedString(@"HASH_CANT_READ",
                                                  @"HASH_CANT_READ")];
         return;
@@ -353,17 +365,22 @@ NSString *gPrefShowSize = @"showsize";
                 verification hash was specified
              */
             
-            if (verifyHash == YES) {
+            if (verifyHash == YES)
+            {
                 verificationHash = [self verifyHash];
-                if (verificationHash == nil) {
+                if (verificationHash == nil)
+                {
                     [self setErrorMessage: NSLocalizedString(@"HASH_NO_HASH",
                                                              @"HASH_NO_HASH")];
                     return;
                 }
+
                 verifyErr = [self isValidHash: (HashType)selectedHash
                                        verify: verificationHash];
-                if (verifyErr != VERIFY_HASH_OKAY) {
-                    switch(verifyErr) {
+                if (verifyErr != VERIFY_HASH_OKAY)
+                {
+                    switch (verifyErr)
+                    {
                         case VERIFY_HASH_TOO_SHORT:
                             [self setErrorMessage:
                                 NSLocalizedString(@"HASH_INVALID_HASH_SHORT",
@@ -382,7 +399,9 @@ NSString *gPrefShowSize = @"showsize";
                     }
                     return;
                 }
-            } else {
+            }
+            else
+            {
 
                 // verification was not requested, so clear the verify field
 
@@ -393,7 +412,8 @@ NSString *gPrefShowSize = @"showsize";
             hashProgressStr =
                 [NSMutableString stringWithString: @"Calculating "];
             
-            switch ((HashType)selectedHash) {
+            switch ((HashType)selectedHash)
+            {
                 case HASH_CKSUM:
                     [hashProgressStr appendString: @"Checksum"];
                     break;
@@ -612,21 +632,19 @@ NSString *gPrefShowSize = @"showsize";
     // get the main window
 
     theWindow = [[NSApplication sharedApplication] mainWindow];
-    if (theWindow == nil) {
+    if (theWindow == nil)
+    {
         return;
     }
 
     // (re)enable the cancel button
 
-    [cancelHashButton setEnabled:YES];
+    [cancelHashButton setEnabled: YES];
 
     // display the sheet
 
-    [NSApp beginSheet: hashSheet
-       modalForWindow: theWindow
-        modalDelegate: self
-       didEndSelector: nil
-          contextInfo: nil];
+    [theWindow beginSheet: hashSheet
+        completionHandler: nil];
 }
 
 /*
@@ -640,15 +658,21 @@ NSString *gPrefShowSize = @"showsize";
      Based on: http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues
      */
 
-    if (hashQueue == nil) {
+    if (hashQueue == nil)
+    {
         return;
     }
 
     [hashQueue cancelAllOperations];
 
+    /* reset the progress bar */
+
+    [hashProgress stopAnimation: sender];
+    [hashProgress setDoubleValue: 0.0];
+
     // disable the cancel button
 
-    [cancelHashButton setEnabled:NO];
+    [cancelHashButton setEnabled: NO];
 
     // close the sheet
 
@@ -671,11 +695,13 @@ NSString *gPrefShowSize = @"showsize";
     // if the dictionary is nil or contains no elements,
     // some problem occured while calculating the hash
 
-    if (dict == nil) {
+    if (dict == nil)
+    {
         return;
     }
 
-    if ([dict count] == 0) {
+    if ([dict count] == 0)
+    {
         return;
     }
 
@@ -684,7 +710,8 @@ NSString *gPrefShowSize = @"showsize";
         // couldn't calculate the hash, set an error message and return
 
         hashResult = [dict objectForKey: keyHashResult];
-        if (hashResult == nil) {
+        if (hashResult == nil)
+        {
             [self setErrorMessage: NSLocalizedString(@"HASH_CANT_GET_HASH",
                                                      @"HASH_CANT_GET_HASH")];
             break;
@@ -729,12 +756,16 @@ NSString *gPrefShowSize = @"showsize";
          */
 
         verifyHash = [self verifyHash];
-        if (verifyHash != nil) {
+        if (verifyHash != nil)
+        {
             if ([hashResult compare:verifyHash
                             options:NSCaseInsensitiveSearch] ==
-                NSOrderedSame) {
+                NSOrderedSame)
+            {
                 [self setVerifyConfirm: VERIFY_SUCCESS];
-            } else {
+            }
+            else
+            {
                 [self setVerifyConfirm: VERIFY_FAILED];
             }
         }
@@ -743,7 +774,8 @@ NSString *gPrefShowSize = @"showsize";
     // close the hashSheet
 
     sender = [dict objectForKey: keySender];
-    if (sender != nil) {
+    if (sender != nil)
+    {
         [NSApp endSheet: hashSheet];
         [hashSheet orderOut:sender];
     }
@@ -818,7 +850,8 @@ NSString *gPrefShowSize = @"showsize";
     // get the main window
 
     theWindow = [[NSApplication sharedApplication] mainWindow];
-    if (theWindow == nil) {
+    if (theWindow == nil)
+    {
         return;
     }
 
@@ -829,9 +862,11 @@ NSString *gPrefShowSize = @"showsize";
     
     [aboutText setTextContainerInset:NSMakeSize(25, 5)];
     
-    if (appNameStr == nil) {
+    if (appNameStr == nil)
+    {
         infoDictionary = [[NSBundle mainBundle] infoDictionary];
-        if (infoDictionary != nil) {
+        if (infoDictionary != nil)
+        {
 
             /*
                 Set the name and version of the application in the about box
@@ -840,21 +875,26 @@ NSString *gPrefShowSize = @"showsize";
              */
 
             appName = [infoDictionary objectForKey: @"CFBundleName"];
-            if (appName == nil) {
+            if (appName == nil)
+            {
                 appName = defaultHashAppName;
             }
 
             appVers = [infoDictionary objectForKey:
                                       @"CFBundleShortVersionString"];
-            if (appVers == nil) {
+            if (appVers == nil)
+            {
                 appVers = defaultHashAppVers;
             }
 
             appBuild = [infoDictionary objectForKey: @"CFBundleVersion"];
-            if (appBuild == nil) {
+            if (appBuild == nil)
+            {
                 appBuild = defaultHashAppBuild;
             }
-        } else {
+        }
+        else
+        {
             appName = defaultHashAppName;
             appVers = defaultHashAppVers;
             appBuild = defaultHashAppBuild;
@@ -865,16 +905,13 @@ NSString *gPrefShowSize = @"showsize";
                                         appName,
                                         appVers,
                                         appBuild];
-        appNameStr = [NSString stringWithString:tmpAppNameStr];
+        appNameStr = [NSString stringWithString: tmpAppNameStr];
     }
 
-    [appNameField setStringValue:appNameStr];
+    [appNameField setStringValue: appNameStr];
 
-    [NSApp beginSheet: aboutSheet
-       modalForWindow: theWindow
-        modalDelegate: self
-       didEndSelector: nil
-          contextInfo: nil];
+    [theWindow beginSheet: aboutSheet
+        completionHandler: nil];
 }
 
 /*
@@ -904,7 +941,8 @@ NSString *gPrefShowSize = @"showsize";
     // get the main window
 
     theWindow = [[NSApplication sharedApplication] mainWindow];
-    if (theWindow == nil) {
+    if (theWindow == nil)
+    {
         return;
     }
 
@@ -912,11 +950,12 @@ NSString *gPrefShowSize = @"showsize";
                                   NSControlStateValueOn :
                                   NSControlStateValueOff)];
 
-    [NSApp beginSheet: prefSheet
-       modalForWindow: theWindow
-        modalDelegate: self
-       didEndSelector: nil
-          contextInfo: nil];
+    [showSizeCheckBox setState: (prefShowSize ?
+                                 NSControlStateValueOn :
+                                 NSControlStateValueOff)];
+
+    [theWindow beginSheet: prefSheet
+        completionHandler: nil];
 }
 
 /*
@@ -943,13 +982,16 @@ NSString *gPrefShowSize = @"showsize";
     // get the main window
 
     theWindow = [[NSApplication sharedApplication] mainWindow];
-    if (theWindow == nil) {
+    if (theWindow == nil)
+    {
         return;
     }
 
-    if (selectFilePanel == nil) {
+    if (selectFilePanel == nil)
+    {
         selectFilePanel = [NSOpenPanel openPanel];
-        if (selectFilePanel == nil) {
+        if (selectFilePanel == nil)
+        {
             return;
         }
         [selectFilePanel setCanChooseFiles: YES];
@@ -1015,7 +1057,8 @@ NSString *gPrefShowSize = @"showsize";
     
     hashType = [[(NSPopUpButton *)selectedHashPopUp selectedItem] tag];
     
-    switch (hashType) {
+    switch (hashType)
+    {
         case HASH_CKSUM:
         case HASH_CRC32:
         case HASH_MD5:
@@ -1102,7 +1145,8 @@ NSString *gPrefShowSize = @"showsize";
     NSString *trimmedFile = nil;
 
     theFile = [selectedFileField stringValue];
-    if (theFile == nil) {
+    if (theFile == nil)
+    {
         return nil;
     }
 
@@ -1113,14 +1157,16 @@ NSString *gPrefShowSize = @"showsize";
     
     trimmedFile = [theFile stringByTrimmingCharactersInSet:
                    [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if (trimmedFile == nil || [trimmedFile isEqualToString: @""]) {
+    if (trimmedFile == nil || [trimmedFile isEqualToString: @""])
+    {
         return nil;
     }
 
     // tilde expand the file name
     
     theFileTildeExpanded = [theFile stringByExpandingTildeInPath];
-    if (theFileTildeExpanded == nil) {
+    if (theFileTildeExpanded == nil)
+    {
         return nil;
     }
     
@@ -1135,13 +1181,14 @@ NSString *gPrefShowSize = @"showsize";
 
 -(void)setSelectedFile:(NSString *)file
 {
-    if (file == nil) {
+    if (file == nil)
+    {
         return;
     }
     
     // set the selectedFileField's value to the specific file
         
-    [selectedFileField setStringValue:file];
+    [selectedFileField setStringValue: file];
         
     /*
         Add the specified file to the open recent  menu:
@@ -1235,9 +1282,10 @@ NSString *gPrefShowSize = @"showsize";
         based on: https://stackoverflow.com/questions/1100903/how-to-customize-nstextfield-look-font-used-font-size-in-cocoa#1100949
      */
     
-    [messageField setFont:[NSFont systemFontOfSize:0]];
+    [messageField setFont: [NSFont systemFontOfSize:0]];
     
-    if (message != nil) {
+    if (message != nil)
+    {
 
         /*
             if this is a error message, set the text color to system's
@@ -1245,9 +1293,12 @@ NSString *gPrefShowSize = @"showsize";
             https://developer.apple.com/documentation/appkit/nscolor/2879262-systemred
          */
         
-        if (isErrorMessage == YES) {
+        if (isErrorMessage == YES)
+        {
             [messageField setTextColor: [NSColor systemRedColor]];
-        } else {
+        }
+        else
+        {
         
             /*
                 this is not an error message, so enable copying of text
@@ -1267,17 +1318,21 @@ NSString *gPrefShowSize = @"showsize";
                 based on: https://stackoverflow.com/questions/1100903/how-to-customize-nstextfield-look-font-used-font-size-in-cocoa#1100949
              */
             
-            if (makeTextMonoSpace) {
+            if (makeTextMonoSpace)
+            {
                 [messageField setFont:[NSFont userFixedPitchFontOfSize:0]];
             }
         }
         
         // if a comment is specified, look up the localized message
         
-        if (comment != nil) {
+        if (comment != nil)
+        {
             [messageField setStringValue: NSLocalizedString(message,
                                                             comment)];
-        } else {
+        }
+        else
+        {
             [messageField setStringValue:message];
         }
     }
@@ -1293,7 +1348,8 @@ NSString *gPrefShowSize = @"showsize";
     NSString *trimmedVerifyHash = nil;
 
     theVerifyHash = [verifyHashField stringValue];
-    if (theVerifyHash == nil) {
+    if (theVerifyHash == nil)
+    {
         return nil;
     }
 
@@ -1306,7 +1362,9 @@ NSString *gPrefShowSize = @"showsize";
     trimmedVerifyHash =
         [[theVerifyHash componentsSeparatedByCharactersInSet:
             [NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""];
-    if (trimmedVerifyHash == nil || [trimmedVerifyHash isEqualToString: @""]) {
+    if (trimmedVerifyHash == nil ||
+        [trimmedVerifyHash isEqualToString: @""])
+    {
         return nil;
     }
 
@@ -1328,13 +1386,15 @@ NSString *gPrefShowSize = @"showsize";
     size_t digestLength = 0;
     size_t verifyLength = 0;
     
-    if (hash == nil) {
+    if (hash == nil)
+    {
         return VERIFY_HASH_INVALID;
     }
 
     verifyLength = [hash length];
 
-    if (verifyLength == 0) {
+    if (verifyLength == 0)
+    {
         return VERIFY_HASH_TOO_SHORT;
     }
     
@@ -1348,20 +1408,23 @@ NSString *gPrefShowSize = @"showsize";
              regularExpressionWithPattern: @"^[0-9a-f]+$"
                                   options: NSRegularExpressionCaseInsensitive
                                     error:  &error];
-    if (regex == nil || error != nil) {
+    if (regex == nil || error != nil)
+    {
         return VERIFY_HASH_INVALID;
     }
 
     matches = [regex numberOfMatchesInString: hash
                                      options: 0
                                        range: NSMakeRange(0, [hash length])];
-    if (matches != 1) {
+    if (matches != 1)
+    {
         return VERIFY_HASH_INVALID;
     }
 
-    // TODO: make sure the specified hash has the right length
+    // make sure the specified hash has the right length
 
-    switch (type) {
+    switch (type)
+    {
         case HASH_CKSUM:
             digestLength = 1;
             break;
@@ -1460,11 +1523,13 @@ NSString *gPrefShowSize = @"showsize";
 
     digestLength *= 2;
     
-    if (verifyLength < digestLength) {
+    if (verifyLength < digestLength)
+    {
         return VERIFY_HASH_TOO_SHORT;
     }
     
-    if (verifyLength > digestLength) {
+    if (verifyLength > digestLength)
+    {
         return VERIFY_HASH_TOO_LONG;
     }
     
@@ -1481,7 +1546,8 @@ NSString *gPrefShowSize = @"showsize";
     [verifyConfirmField setSelectable: FALSE];
     [verifyConfirmField setTextColor: [NSColor labelColor]];
 
-    switch (verified) {
+    switch (verified)
+    {
         case VERIFY_SUCCESS:
             [verifyConfirmField setTextColor: [NSColor systemGreenColor]];
             [verifyConfirmField setStringValue: @"✔︎"];
