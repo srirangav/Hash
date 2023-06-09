@@ -51,7 +51,6 @@
      */
     
     NSPropertyListFormat format;
-    NSString *errorDesc = nil;
     NSData *pboardData = nil;
     NSDictionary *files = nil;
     NSDictionary *fileInfo = nil;
@@ -80,11 +79,10 @@
     
     files =
         (NSDictionary *)[NSPropertyListSerialization
-                         propertyListFromData: pboardData
-                             mutabilityOption: NSPropertyListImmutable
-//                             NSPropertyListMutableContainersAndLeaves
+                         propertyListWithData: pboardData
+                                      options: NSPropertyListImmutable
                                        format: &format
-                             errorDescription: &errorDesc];
+                                        error: NULL];
     if (files == nil)
     {
         return;
