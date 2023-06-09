@@ -966,7 +966,7 @@ NSString *gPrefShowSize = @"showsize";
          NSURL *selection = NULL;
          NSString *path = NULL;
          
-         if (result == NSOKButton) {
+         if (result == NSModalResponseOK) {
              selection = self->selectFilePanel.URLs[0];
              if (selection != nil) {
                  path = [[selection path] stringByResolvingSymlinksInPath];
