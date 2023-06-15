@@ -135,7 +135,7 @@ staple: notarize
 
 # sign the dmg with a gpg public key
 
-clear_sign: staple
+clearsign: staple
 	$(GPG) -asb $(PROJNAME)-$(PROJVERS).dmg
 
 clean:
