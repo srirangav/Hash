@@ -4,18 +4,6 @@
 
 #include "blake3_impl.h"
 
-/* srv 2020-11-27 - force portable version */
-
-#ifndef BLAKE3_X86
-#undef IS_X86
-#endif
-
-/* srv 2021-10-23 - force portable version */
-
-#ifdef BLAKE3_USE_NEON
-#undef BLAKE3_USE_NEON
-#endif
-
 #if defined(IS_X86)
 #if defined(_MSC_VER)
 #include <intrin.h>
@@ -72,8 +60,6 @@ static void cpuidex(uint32_t out[4], uint32_t id, uint32_t sid) {
 }
 
 #endif
-
-/* 2021-07-27 srv - add NONE=0 as a valid value because it is returned below */
 
 enum cpu_feature {
   NONE = 0,
@@ -251,11 +237,11 @@ void blake3_hash_many(const uint8_t *const *inputs, size_t num_inputs,
   blake3_hash_many_neon(inputs, num_inputs, blocks, key, counter,
                         increment_counter, flags, flags_start, flags_end, out);
   return;
-#endif
-
+#else
   blake3_hash_many_portable(inputs, num_inputs, blocks, key, counter,
                             increment_counter, flags, flags_start, flags_end,
                             out);
+#endif
 }
 
 // The dynamically detected SIMD degree of the current platform.
