@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.2.1
+Hash v. 1.2.2
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -51,6 +51,8 @@ License:
 
 History:
 
+    v. 1.2.2  - Update to BLAKE3 v.1.4.1, add support for AArch64
+                optimized BLAKE3
     v. 1.2.1  - Update to BLAKE3 v.1.4.0
     v. 1.2.0  - Update to BLAKE3 v.1.3.3, updates for XCode 14.1
     v. 1.1.25 - Build on Monterey (MacOSX 12.x)
