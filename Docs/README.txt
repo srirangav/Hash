@@ -12,7 +12,7 @@ About:
 
     Hash is a MacOSX application to generate and verify the
     hash, crc, or checksum of a file.
-    
+
     The following hash functions are supported:
 
         MD5
@@ -51,7 +51,7 @@ License:
 
 History:
 
-    v. 1.2.2  - Update to BLAKE3 v.1.4.1, add support for AArch64
+    v. 1.2.2  - Update to BLAKE3 v.1.5.0, add support for AArch64
                 optimized BLAKE3
     v. 1.2.1  - Update to BLAKE3 v.1.4.0
     v. 1.2.0  - Update to BLAKE3 v.1.3.3, updates for XCode 14.1
