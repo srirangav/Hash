@@ -13,8 +13,9 @@
     v. 1.0.5 (05/22/2021) - Add preference pane
     v. 1.0.6 (10/24/2021) - Add support for showing the file size
     v. 1.0.7 (10/24/2021) - Add selected hash and file to progress sheet
+    v. 1.0.8 (01/31/2024) - Add support for advanced mode
  
-    Copyright (c) 2014-2021 Sriranga R. Veeraraghavan <ranga@calalum.org>
+    Copyright (c) 2014-2024 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
@@ -69,6 +70,7 @@ typedef enum {
     IBOutlet id aboutText;
     IBOutlet id lowerCaseCheckBox;
     IBOutlet id showSizeCheckBox;
+    IBOutlet id advancedModeCheckBox;
     IBOutlet id hashProgressMessage;
     IBOutlet NSProgressIndicator *hashProgress;
     IBOutlet NSPanel *hashSheet;
@@ -79,6 +81,7 @@ typedef enum {
     NSOperationQueue *hashQueue;
     BOOL prefLowercase;
     BOOL prefShowSize;
+    BOOL prefAdvancedMode;
     NSUserDefaults *hashDefaults;
 }
 
@@ -151,6 +154,10 @@ typedef enum {
           comment:(NSString *)comment
             error:(BOOL)isErrorMessage
         monospace:(BOOL)makeTextMonoSpace;
+
+-(void)enableAdvancedMode;
+
+-(void)disableAdvancedMode;
 
 @end
 

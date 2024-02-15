@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.2.2
+Hash v. 1.3.0
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -13,7 +13,18 @@ About:
     Hash is a MacOSX application to generate and verify the
     hash, crc, or checksum of a file.
 
-    The following hash functions are supported:
+    By default, Hash runs in a "simple" mode that supports
+    the following hashes:
+
+        MD5
+        SHA1
+        SHA 256
+        SHA 512
+        RIPEMD 160
+        BLAKE3
+
+    In the full mode, the following hash functions are
+    supported:
 
         MD5
         SHA1
@@ -51,6 +62,9 @@ License:
 
 History:
 
+    v. 1.3.0  - Implement a simple mode that shows only the most
+                commonly used hashes (MD5, SHA1, SHA256, SHA512,
+                RIPEMD 160, and BLAKE3)
     v. 1.2.2  - Update to BLAKE3 v.1.5.0, add support for AArch64
                 optimized BLAKE3
     v. 1.2.1  - Update to BLAKE3 v.1.4.0
@@ -136,4 +150,3 @@ References:
     LSH          - https://seed.kisa.or.kr/kisa/Board/22/detailView.do
                  - https://en.wikipedia.org/wiki/LSH_(hash_function)
     K12          - https://github.com/XKCP/K12
-

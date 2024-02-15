@@ -1,8 +1,8 @@
-/* 
+/*
     Hash - HashAppController.m
- 
+
     History:
- 
+
     v. 1.0.0  (10/20/2014) - Initial version
     v. 1.0.1  (04/17/2014) - Update to allow background processing of hashes
     v. 1.0.2  (04/17/2014) - Add support for Whirlpool and SHA3
@@ -35,21 +35,22 @@
                              startup
     v. 1.1.14 (08/05/2022) - Add support for K12
     v. 1.1.15 (06/09/2023) - fix deprication warnings
- 
+    v. 1.1.16 (01/31/2024) - Add support for advanced mode
+
     Based on: http://www.insanelymac.com/forum/topic/91735-a-full-cocoaxcodeinterface-builder-tutorial/
-    
-    Copyright (c) 2014-2023 Sriranga R. Veeraraghavan <ranga@calalum.org>
- 
+
+    Copyright (c) 2014-2024 Sriranga R. Veeraraghavan <ranga@calalum.org>
+
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the "Software"),
     to deal in the Software without restriction, including without limitation
     the rights to use, copy, modify, merge, publish, distribute, sublicense,
     and/or sell copies of the Software, and to permit persons to whom the
     Software is furnished to do so, subject to the following conditions:
- 
+
     The above copyright notice and this permission notice shall be included
     in all copies or substantial portions of the Software.
- 
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
     OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
     FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
@@ -76,16 +77,18 @@
 NSString *gAppGroup = @"CLN8R9E6QM.org.calalum.ranga.HashGroup";
 NSString *gPrefLowercase = @"lowercase";
 NSString *gPrefShowSize = @"showsize";
+NSString *gPrefAdvancedMode = @"advancedmode";
+NSInteger gDefaultHash = HASH_SHA1;
 
 @implementation HashAppController
 
 -(void)awakeFromNib
 {
-    /* 
+    /*
         Register for fileDroppedEvents
         Based on: https://stackoverflow.com/questions/7896646/how-to-pass-object-with-nsnotificationcenter
     */
-    
+
     [[NSNotificationCenter defaultCenter]
         addObserver: self
            selector: @selector(fileDroppedAction:)
@@ -104,14 +107,14 @@ NSString *gPrefShowSize = @"showsize";
         fields.  See:
     https://stackoverflow.com/questions/7113371/how-do-i-force-the-cursor-to-the-end-of-a-nstextfield
      */
-    
+
     [[selectedFileField currentEditor] moveToEndOfLine: nil];
     [[selectedFileField currentEditor] moveToEndOfDocument: nil];
     [[verifyHashField currentEditor] moveToEndOfLine: nil];
     [[verifyHashField currentEditor] moveToEndOfDocument: nil];
-    
+
     hashDefaults = [[NSUserDefaults alloc] initWithSuiteName: gAppGroup];
-    
+
     prefLowercase = [hashDefaults boolForKey: gPrefLowercase];
     [lowerCaseCheckBox setState: (prefLowercase ?
                                   NSControlStateValueOn :
@@ -121,6 +124,24 @@ NSString *gPrefShowSize = @"showsize";
     [showSizeCheckBox setState: (prefShowSize ?
                                 NSControlStateValueOn :
                                 NSControlStateValueOff)];
+
+    prefAdvancedMode = [hashDefaults boolForKey: gPrefAdvancedMode];
+    [advancedModeCheckBox setState: (prefAdvancedMode ?
+                                     NSControlStateValueOff :
+                                     NSControlStateValueOn)];
+
+    [selectedHashPopUp setAutoenablesItems: NO];
+
+    /* default to simple mode */
+
+    if (prefAdvancedMode == NO)
+    {
+        [self disableAdvancedMode];
+    }
+    else
+    {
+        [self enableAdvancedMode];
+    }
 }
 
 /*
@@ -136,23 +157,23 @@ NSString *gPrefShowSize = @"showsize";
     NSString *path = nil;
 
     // make sure a valid notification was provided
-    
+
     if (notification == nil ||
         notification.name == nil ||
         notification.userInfo == nil)
     {
         return;
     }
-    
+
     // check if the notification is a fileDroppedEvent
-    
+
     if ([notification.name isEqualToString: fileDroppedEvent] == FALSE)
     {
         return;
     }
 
     // check if the userInfo contains a valid path
-    
+
     userInfo = notification.userInfo;
     path = (NSString *)[userInfo objectForKey: fileDroppedKey];
     if (path == nil)
@@ -161,47 +182,55 @@ NSString *gPrefShowSize = @"showsize";
     }
 
     // set the selected file to the specificed path
-    
+
     [self setSelectedFile: path];
 
     // clear the verification fields and the message file
-    
+
     [self clearVerifyField];
     [self setMessage: @""];
 }
 
-/*
-   actionToggleLowerCaseCheckbox - toggle the state of the lower case
-                                   checkbox
- */
+/* actionToggleLowerCaseCheckbox - toggle the lower case checkbox */
 
 -(IBAction)actionToggleLowerCaseCheckbox:(id)sender
 {
     prefLowercase = !prefLowercase;
-    
+
     [hashDefaults setBool: prefLowercase
                    forKey: gPrefLowercase];
-    
+
     [lowerCaseCheckBox setState: (prefLowercase ?
                                   NSControlStateValueOn :
                                   NSControlStateValueOff)];
 }
 
-/*
-   actionToggleShowSizeCheckbox - toggle the state of the show size
-                                  checkbox
- */
+/* actionToggleShowSizeCheckbox - toggle the show size checkbox */
 
 -(IBAction)actionToggleShowSizeCheckbox:(id)sender
 {
     prefShowSize = !prefShowSize;
-    
+
     [hashDefaults setBool: prefShowSize
                    forKey: gPrefShowSize];
-    
+
     [showSizeCheckBox setState: (prefShowSize ?
                                 NSControlStateValueOn :
                                 NSControlStateValueOff)];
+}
+
+/* actionToggleAdvancedModeCheckbox - toggle the advanced mode checkbox */
+
+-(IBAction)actionToggleAdvancedModeCheckbox:(id)sender
+{
+    prefAdvancedMode = !prefAdvancedMode;
+
+    [hashDefaults setBool: prefAdvancedMode
+                   forKey: gPrefAdvancedMode];
+
+    [advancedModeCheckBox setState: (prefAdvancedMode ?
+                                     NSControlStateValueOff :
+                                     NSControlStateValueOn)];
 }
 
 /*
@@ -250,7 +279,7 @@ NSString *gPrefShowSize = @"showsize";
     [self setVerifyConfirm: VERIFY_CLEAR];
 
     // get the selected file
-    
+
     theFile = [self selectedFile];
     if (theFile == nil || [theFile isEqualToString: @""])
     {
@@ -258,8 +287,8 @@ NSString *gPrefShowSize = @"showsize";
                                                  @"HASH_SELECT_FILE")];
         return;
     }
-    
-    /* 
+
+    /*
         check to see if the file is exists, is readable, and is not a directory
         Based on: http://www.techotopia.com/index.php/Working_with_Files_in_Objective-C#Checking_if_a_File_is_Readable.2FWritable.2FExecutable.2FDeletable
      */
@@ -282,7 +311,7 @@ NSString *gPrefShowSize = @"showsize";
             return;
         }
     }
-    
+
     if ([fileManager isReadableFileAtPath: theFile] == FALSE)
     {
         [self setErrorMessage: NSLocalizedString(@"HASH_CANT_READ",
@@ -290,10 +319,10 @@ NSString *gPrefShowSize = @"showsize";
         return;
     }
 
-    // get the select hash
-    
+    /* get the select hash */
+
     selectedHash = [self selectedHashType];
-    
+
     switch ((HashType)selectedHash) {
         case HASH_CKSUM:
         case HASH_CRC32:
@@ -354,7 +383,7 @@ NSString *gPrefShowSize = @"showsize";
         case HASH_K12_256:
         case HASH_K12_384:
         case HASH_K12_512:
-            
+
             /*
                 valid hash type selected, compute the file's hash and
                 display a sheet while the hash is being computed
@@ -364,7 +393,7 @@ NSString *gPrefShowSize = @"showsize";
                 if verification is requested, check to see if a valid
                 verification hash was specified
              */
-            
+
             if (verifyHash == YES)
             {
                 verificationHash = [self verifyHash];
@@ -403,7 +432,10 @@ NSString *gPrefShowSize = @"showsize";
             else
             {
 
-                // verification was not requested, so clear the verify field
+                /*
+                    verification was not requested, so clear the
+                    verify field
+                 */
 
                 [self setVerifyConfirm: VERIFY_CLEAR];
                 [verifyHashField setStringValue: @""];
@@ -411,7 +443,7 @@ NSString *gPrefShowSize = @"showsize";
 
             hashProgressStr =
                 [NSMutableString stringWithString: @"Calculating "];
-            
+
             switch ((HashType)selectedHash)
             {
                 case HASH_CKSUM:
@@ -588,14 +620,14 @@ NSString *gPrefShowSize = @"showsize";
             }
 
             [hashProgressStr appendString: @" for "];
-            
+
             [hashProgressStr appendString:
              [fileManager displayNameAtPath: theFile]];
 
             [hashProgressStr appendString: @"..."];
 
             [hashProgressMessage setStringValue: hashProgressStr];
-    
+
             hashOp = [[HashOperation alloc]
                       initWithFileHashTypeAndProgress: theFile
                                                  type: (HashType)selectedHash
@@ -604,15 +636,15 @@ NSString *gPrefShowSize = @"showsize";
                                             requester: self
                                                sender: hashSheet];
             [hashQueue addOperation: hashOp];
-        
+
             [self showHashSheet: sender];
 
             break;
 
         default:
-            
-            // invalid (unknown) hash type was selected
-            
+
+            /* invalid (unknown) hash type was selected */
+
             [self setErrorMessage:
              NSLocalizedString(@"HASH_INVALID_HASH_TYPE",
                                @"HASH_INVALID_HASH_TYPE")];
@@ -691,9 +723,11 @@ NSString *gPrefShowSize = @"showsize";
     NSString *fileSize = nil;
     NSWindow *sender = nil;
     NSMutableString *resultString = nil;
-    
-    // if the dictionary is nil or contains no elements,
-    // some problem occured while calculating the hash
+
+    /*
+        if the dictionary is nil or contains no elements,
+        some problem occured while calculating the hash
+     */
 
     if (dict == nil)
     {
@@ -707,7 +741,7 @@ NSString *gPrefShowSize = @"showsize";
 
     do {
 
-        // couldn't calculate the hash, set an error message and return
+        /* couldn't calculate the hash, set an error message and return */
 
         hashResult = [dict objectForKey: keyHashResult];
         if (hashResult == nil)
@@ -733,7 +767,7 @@ NSString *gPrefShowSize = @"showsize";
                     [resultString appendFormat: @" (%@ B)", fileSize];
                 }
             }
-            
+
             [self setMessage: resultString
                      comment: nil
                        error: NO
@@ -746,8 +780,8 @@ NSString *gPrefShowSize = @"showsize";
                        error: NO
                    monospace: YES];
         }
-        
-        /* 
+
+        /*
             if verification was requested, verify if the hash matches the
             specified verification hash; use a case insensitive search in
             case the user specified uppercase letters
@@ -771,7 +805,7 @@ NSString *gPrefShowSize = @"showsize";
         }
     } while (FALSE);
 
-    // close the hashSheet
+    /* close the hashSheet */
 
     sender = [dict objectForKey: keySender];
     if (sender != nil)
@@ -829,7 +863,7 @@ NSString *gPrefShowSize = @"showsize";
     [verifyHashField setStringValue: @""];
 }
 
-/* 
+/*
     showAboutSheet - show a panel with information about this application
     Based on: https://stackoverflow.com/questions/8058653/displaying-a-cocoa-window-as-a-sheet-in-xcode-4-osx-10-7-2-with-arc
               http://www.macdevcenter.com/pub/a/mac/2002/06/14/cocoa.html?page=2
@@ -847,7 +881,7 @@ NSString *gPrefShowSize = @"showsize";
     NSString *appVers = nil;
     NSString *appBuild = nil;
 
-    // get the main window
+    /* get the main window */
 
     theWindow = [[NSApplication sharedApplication] mainWindow];
     if (theWindow == nil)
@@ -855,13 +889,13 @@ NSString *gPrefShowSize = @"showsize";
         return;
     }
 
-    /* 
+    /*
         inset the about text by 25 pixel in width and 5 pixels in height
         Based on: http://www.cocoabuilder.com/archive/cocoa/173150-nstextview-settextcontainerinset-issues.html
      */
-    
+
     [aboutText setTextContainerInset:NSMakeSize(25, 5)];
-    
+
     if (appNameStr == nil)
     {
         infoDictionary = [[NSBundle mainBundle] infoDictionary];
@@ -938,7 +972,7 @@ NSString *gPrefShowSize = @"showsize";
 {
     NSWindow *theWindow = nil;
 
-    // get the main window
+    /* get the main window */
 
     theWindow = [[NSApplication sharedApplication] mainWindow];
     if (theWindow == nil)
@@ -954,6 +988,10 @@ NSString *gPrefShowSize = @"showsize";
                                  NSControlStateValueOn :
                                  NSControlStateValueOff)];
 
+    [advancedModeCheckBox setState: (prefAdvancedMode ?
+                                     NSControlStateValueOff :
+                                     NSControlStateValueOn)];
+
     [theWindow beginSheet: prefSheet
         completionHandler: nil];
 }
@@ -965,13 +1003,22 @@ NSString *gPrefShowSize = @"showsize";
 
 -(IBAction)endPrefSheet:(id)sender
 {
+    if (prefAdvancedMode == YES)
+    {
+        [self enableAdvancedMode];
+    }
+    else
+    {
+        [self disableAdvancedMode];
+    }
+
     [NSApp endSheet: prefSheet];
     [prefSheet orderOut:sender];
 }
 
 /*
     selectFile - Create panel to select a file
- 
+
     Based on: https://stackoverflow.com/questions/6924186/how-do-i-create-an-open-file-dialog-in-a-xcode-cocoa-project
 */
 
@@ -979,7 +1026,7 @@ NSString *gPrefShowSize = @"showsize";
 {
     NSWindow *theWindow = nil;
 
-    // get the main window
+    /* get the main window */
 
     theWindow = [[NSApplication sharedApplication] mainWindow];
     if (theWindow == nil)
@@ -1007,7 +1054,7 @@ NSString *gPrefShowSize = @"showsize";
      {
          NSURL *selection = NULL;
          NSString *path = NULL;
-         
+
          if (result == NSModalResponseOK) {
              selection = self->selectFilePanel.URLs[0];
              if (selection != nil) {
@@ -1036,7 +1083,7 @@ NSString *gPrefShowSize = @"showsize";
     [self selectFile: nil];
 }
 
-/* 
+/*
     verifyButtonClicked - handle the Verify button
 */
 
@@ -1054,9 +1101,9 @@ NSString *gPrefShowSize = @"showsize";
 -(NSInteger)selectedHashType
 {
     NSInteger hashType = HASH_NONE;
-    
+
     hashType = [[(NSPopUpButton *)selectedHashPopUp selectedItem] tag];
-    
+
     switch (hashType)
     {
         case HASH_CKSUM:
@@ -1118,19 +1165,19 @@ NSString *gPrefShowSize = @"showsize";
         case HASH_K12_256:
         case HASH_K12_384:
         case HASH_K12_512:
-        
-            // valid hashType, return it
+
+            /* valid hashType, return it */
 
             break;
 
         default:
 
-            // unknown hashType, return HASH_NONE to signal an error
+            /* unknown hashType, return HASH_NONE to signal an error */
 
             hashType = HASH_NONE;
             break;
     }
-    
+
     return hashType;
 }
 
@@ -1154,7 +1201,7 @@ NSString *gPrefShowSize = @"showsize";
         Remove any whitespace from the beginning and end of the filename
         Based on: http://www.cocoanetics.com/2009/01/remove-whitespace-from-nsstring/
      */
-    
+
     trimmedFile = [theFile stringByTrimmingCharactersInSet:
                    [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if (trimmedFile == nil || [trimmedFile isEqualToString: @""])
@@ -1162,16 +1209,16 @@ NSString *gPrefShowSize = @"showsize";
         return nil;
     }
 
-    // tilde expand the file name
-    
+    /* tilde expand the file name */
+
     theFileTildeExpanded = [theFile stringByExpandingTildeInPath];
     if (theFileTildeExpanded == nil)
     {
         return nil;
     }
-    
-    // resolve any symlinks in the file name
-    
+
+    /* resolve any symlinks in the file name */
+
     return [theFileTildeExpanded stringByResolvingSymlinksInPath];
 }
 
@@ -1185,11 +1232,11 @@ NSString *gPrefShowSize = @"showsize";
     {
         return;
     }
-    
-    // set the selectedFileField's value to the specific file
-        
+
+    /* set the selectedFileField's value to the specific file */
+
     [selectedFileField setStringValue: file];
-        
+
     /*
         Add the specified file to the open recent  menu:
         Based on: http://www.cocoabuilder.com/archive/cocoa/116272-open-recent-menu.html
@@ -1273,17 +1320,17 @@ NSString *gPrefShowSize = @"showsize";
 {
 
     // by default, disable copying of text from the messageField
-    
+
     [messageField setEnabled: FALSE];
     [messageField setSelectable: FALSE];
-    
-    /* 
+
+    /*
         set the font back to the default size
         based on: https://stackoverflow.com/questions/1100903/how-to-customize-nstextfield-look-font-used-font-size-in-cocoa#1100949
      */
-    
+
     [messageField setFont: [NSFont systemFontOfSize:0]];
-    
+
     if (message != nil)
     {
 
@@ -1292,40 +1339,40 @@ NSString *gPrefShowSize = @"showsize";
             current accessibility / mode equivalent of red:
             https://developer.apple.com/documentation/appkit/nscolor/2879262-systemred
          */
-        
+
         if (isErrorMessage == YES)
         {
             [messageField setTextColor: [NSColor systemRedColor]];
         }
         else
         {
-        
+
             /*
                 this is not an error message, so enable copying of text
                 from the messageField and set the text color to the system's
                 label color:
                 https://developer.apple.com/documentation/appkit/nscolor/1534657-labelcolor
              */
-        
+
             [messageField setEnabled: TRUE];
             [messageField setSelectable: TRUE];
             [messageField setTextColor: [NSColor labelColor]];
-            
+
             /*
                 if monospaced text is requested, set the font to
                 the system's fixed ptich font
-             
+
                 based on: https://stackoverflow.com/questions/1100903/how-to-customize-nstextfield-look-font-used-font-size-in-cocoa#1100949
              */
-            
+
             if (makeTextMonoSpace)
             {
                 [messageField setFont:[NSFont userFixedPitchFontOfSize:0]];
             }
         }
-        
-        // if a comment is specified, look up the localized message
-        
+
+        /* if a comment is specified, look up the localized message */
+
         if (comment != nil)
         {
             [messageField setStringValue: NSLocalizedString(message,
@@ -1358,7 +1405,7 @@ NSString *gPrefShowSize = @"showsize";
         Based on: http://www.cocoanetics.com/2009/01/remove-whitespace-from-nsstring/
                   http://stackoverflow.com/questions/925780/remove-characters-from-nsstring
     */
-    
+
     trimmedVerifyHash =
         [[theVerifyHash componentsSeparatedByCharactersInSet:
             [NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsJoinedByString:@""];
@@ -1385,7 +1432,7 @@ NSString *gPrefShowSize = @"showsize";
     NSUInteger matches = 0;
     size_t digestLength = 0;
     size_t verifyLength = 0;
-    
+
     if (hash == nil)
     {
         return VERIFY_HASH_INVALID;
@@ -1397,13 +1444,13 @@ NSString *gPrefShowSize = @"showsize";
     {
         return VERIFY_HASH_TOO_SHORT;
     }
-    
-    /* 
+
+    /*
         Use a regular expression to verify that only hex digits and letters
         are present in the specified hash string.
         Based on: http://sketchytech.blogspot.com/2012/04/finding-text-in-xcode-nsscanner-and.html
      */
-    
+
     regex = [NSRegularExpression
              regularExpressionWithPattern: @"^[0-9a-f]+$"
                                   options: NSRegularExpressionCaseInsensitive
@@ -1421,7 +1468,7 @@ NSString *gPrefShowSize = @"showsize";
         return VERIFY_HASH_INVALID;
     }
 
-    // make sure the specified hash has the right length
+    /* make sure the specified hash has the right length */
 
     switch (type)
     {
@@ -1522,17 +1569,17 @@ NSString *gPrefShowSize = @"showsize";
     }
 
     digestLength *= 2;
-    
+
     if (verifyLength < digestLength)
     {
         return VERIFY_HASH_TOO_SHORT;
     }
-    
+
     if (verifyLength > digestLength)
     {
         return VERIFY_HASH_TOO_LONG;
     }
-    
+
     return VERIFY_HASH_OKAY;
 }
 
@@ -1559,6 +1606,81 @@ NSString *gPrefShowSize = @"showsize";
         case VERIFY_CLEAR:
             [verifyConfirmField setStringValue: @""];
             break;
+    }
+}
+
+-(void)disableAdvancedMode
+{
+    NSInteger numItems = 0, i = 0, tag = 0, selected = 0;
+
+    numItems = [selectedHashPopUp numberOfItems];
+    if (numItems <= 0)
+    {
+        return;
+    }
+
+    /* get the currently selected hash */
+
+    selected = [[(NSPopUpButton *)selectedHashPopUp selectedItem] tag];
+
+    /*
+        go through each item in the hash menu and deactive all but
+        MD5, SHA1, SHA 256, SHA 512, RipeMD 160, and BLAKE3
+     */
+
+    for (i = 0; i < numItems; i++)
+    {
+        tag = [[(NSPopUpButton *)selectedHashPopUp itemAtIndex: i] tag];
+        switch (tag)
+        {
+            case HASH_MD5:
+            case HASH_SHA1:
+            case HASH_SHA256:
+            case HASH_SHA512:
+            case HASH_RMD160:
+            case HASH_BLAKE3:
+
+                break;
+
+            default:
+
+                /* disable this menu item for simple mode */
+
+                [[(NSPopUpButton *)selectedHashPopUp itemAtIndex: i]
+                 setHidden: YES];
+
+                /*
+                    if we are disabling this item, switch the selected
+                    hash to the default hash (SHA1)
+                 */
+
+                if (tag == selected)
+                {
+                    [(NSPopUpButton *)selectedHashPopUp
+                     selectItemWithTag: gDefaultHash];
+                }
+
+                break;
+        }
+    }
+}
+
+-(void)enableAdvancedMode
+{
+    NSInteger numItems = 0, i = 0;
+
+    numItems = [selectedHashPopUp numberOfItems];
+    if (numItems <= 0)
+    {
+        return;
+    }
+
+    /* enable each item in the hash menu */
+
+    for (i = 0; i < numItems; i++)
+    {
+        [[(NSPopUpButton *)selectedHashPopUp itemAtIndex: i]
+         setHidden: NO];
     }
 }
 

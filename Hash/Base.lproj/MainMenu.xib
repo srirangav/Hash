@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,6 +22,7 @@
         <customObject id="Ay7-r0-R4I" customClass="HashAppController">
             <connections>
                 <outlet property="aboutSheet" destination="nKa-HH-4ac" id="aG1-W6-8ga"/>
+                <outlet property="advancedModeCheckBox" destination="sUU-4g-tuz" id="dcN-gW-yND"/>
                 <outlet property="appNameField" destination="3SR-WO-ALT" id="PrH-Y7-d05"/>
                 <outlet property="cancelHashButton" destination="1UJ-Qb-MVB" id="vhZ-aG-v4i"/>
                 <outlet property="hashProgress" destination="GV4-zS-Oxl" id="bjD-wz-h1M"/>
@@ -214,7 +215,7 @@ CA
         <window title="Hash" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="335" y="390" width="663" height="163"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1470" height="919"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="663" height="163"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -315,10 +316,10 @@ CA
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="163" id="EZu-iO-gHs"/>
                         </constraints>
-                        <popUpButtonCell key="cell" type="push" title="SHA1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="2" imageScaling="proportionallyDown" inset="2" selectedItem="CA6-B6-lBt" id="kOr-mi-CZj">
+                        <popUpButtonCell key="cell" type="push" title="SHA1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="2" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="CA6-B6-lBt" id="kOr-mi-CZj">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="syY-fO-aPF">
+                            <menu key="menu" autoenablesItems="NO" id="syY-fO-aPF">
                                 <items>
                                     <menuItem title="CKSUM" tag="10" id="J3L-5e-1oj">
                                         <modifierMask key="keyEquivalentModifierMask"/>
@@ -562,11 +563,11 @@ CA
             </view>
             <point key="canvasLocation" x="438.5" y="313"/>
         </window>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="LsI-gp-8uL" customClass="NSPanel">
+        <window title="Progress" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="LsI-gp-8uL" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="120" y="65" width="634" height="83"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1470" height="919"/>
             <view key="contentView" id="0Mm-G5-jc2">
                 <rect key="frame" x="0.0" y="0.0" width="634" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -618,7 +619,7 @@ Gw
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="120" y="65" width="301" height="136"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1470" height="919"/>
             <view key="contentView" id="3Nc-6n-aia">
                 <rect key="frame" x="0.0" y="0.0" width="301" height="136"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -683,17 +684,17 @@ Gw
             </view>
             <point key="canvasLocation" x="279.5" y="698"/>
         </window>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="YW0-Rv-ao8" customClass="NSPanel">
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="YW0-Rv-ao8" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="139" y="81" width="223" height="152"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
+            <rect key="contentRect" x="139" y="81" width="223" height="162"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1470" height="919"/>
             <view key="contentView" id="19R-9C-QE7">
-                <rect key="frame" x="0.0" y="0.0" width="223" height="152"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <rect key="frame" x="0.0" y="0.0" width="223" height="162"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="WEW-gr-wco">
-                        <rect key="frame" x="74" y="116" width="77" height="16"/>
+                        <rect key="frame" x="74" y="126" width="77" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Preferences" id="cbV-lx-Gh2">
                             <font key="font" usesAppearanceFont="YES"/>
@@ -716,7 +717,7 @@ DQ
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="PpV-2u-jCU">
-                        <rect key="frame" x="18" y="83" width="182" height="18"/>
+                        <rect key="frame" x="20" y="100" width="182" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="check" title="Display hash in lowercase" bezelStyle="regularSquare" imagePosition="left" inset="2" id="uMc-kl-R4f">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -727,7 +728,7 @@ DQ
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="dWg-nf-Apj">
-                        <rect key="frame" x="18" y="59" width="185" height="18"/>
+                        <rect key="frame" x="20" y="78" width="185" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="check" title="Display file size after hash" bezelStyle="regularSquare" imagePosition="left" inset="2" id="JZ8-Io-QvI">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -737,9 +738,25 @@ DQ
                             <action selector="actionToggleShowSizeCheckbox:" target="Ay7-r0-R4I" id="6an-MY-3F6"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sUU-4g-tuz">
+                        <rect key="frame" x="21" y="56" width="181" height="18"/>
+                        <buttonCell key="cell" type="check" title="Simple mode" bezelStyle="regularSquare" imagePosition="left" inset="2" id="KWr-u3-ZjI">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="actionToggleAdvancedModeCheckbox:" target="Ay7-r0-R4I" id="i8T-Kp-WYN"/>
+                        </connections>
+                    </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="sUU-4g-tuz" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PpV-2u-jCU" secondAttribute="trailing" id="Kkl-6x-CAl"/>
+                    <constraint firstItem="sUU-4g-tuz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dWg-nf-Apj" secondAttribute="leading" id="P17-Xw-ZVR"/>
+                    <constraint firstItem="sUU-4g-tuz" firstAttribute="centerX" secondItem="i2Z-Q1-HHT" secondAttribute="centerX" id="roi-gS-lIh"/>
+                    <constraint firstItem="sUU-4g-tuz" firstAttribute="top" secondItem="dWg-nf-Apj" secondAttribute="bottom" constant="6" symbolic="YES" id="ruk-t5-lfU"/>
+                </constraints>
             </view>
-            <point key="canvasLocation" x="746.5" y="719"/>
+            <point key="canvasLocation" x="746.5" y="724"/>
         </window>
     </objects>
 </document>
