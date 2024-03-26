@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.3.0
+Hash v. 1.3.1
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -62,6 +62,7 @@ License:
 
 History:
 
+    v. 1.3.1  - Update to BLAKE3 v.1.5.1
     v. 1.3.0  - Implement a simple mode that shows only the most
                 commonly used hashes (MD5, SHA1, SHA256, SHA512,
                 RIPEMD 160, and BLAKE3)
