@@ -50,6 +50,18 @@ Installation:
 
     Copy Hash.app to /Applications (or wherever you prefer)
 
+Known Issues:
+
+    1. If the "Hash It!" contextual menu item doesn't show up in
+       the Finder:
+
+       a. Open System Preferences (or System Settings)
+       b. Select Keyboard
+       c. Click on Keyboard Shortcuts
+       d. Select Services
+       e. Select Files and Folders in the list
+       f. Click the checkbox next to "Hash It!" to enable it
+
 Supported MacOSX versions:
 
     v. 1.2.0 onwards      - 10.13+
@@ -103,7 +115,7 @@ History:
                 Tiger/Tiger2, BLAKE (224, 256, 384, 512),
                 GROESTL (224, 256, 384, 512)
     v. 1.1.1  - Enabled MD6
-    v. 1.1.0  - Added suport for dark mode
+    v. 1.1.0  - Added support for dark mode
     v. 1.0.15 - Updated for app notarizing
     v. 1.0.14 - Enabled app sandbox and hardened runtime
     v. 1.0.12 - Added support for MD6 (256, 512)
