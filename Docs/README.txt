@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.3.1
+Hash v. 1.3.2
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -18,8 +18,8 @@ About:
 
         MD5
         SHA1
-        SHA 256
-        SHA 512
+        SHA256
+        SHA512
         RIPEMD 160
         BLAKE3
 
@@ -74,6 +74,7 @@ License:
 
 History:
 
+    v. 1.3.2  - Update to BLAKE3 v.1.5.2
     v. 1.3.1  - Update to BLAKE3 v.1.5.1
     v. 1.3.0  - Implement a simple mode that shows only the most
                 commonly used hashes (MD5, SHA1, SHA256, SHA512,
@@ -163,3 +164,4 @@ References:
     LSH          - https://seed.kisa.or.kr/kisa/Board/22/detailView.do
                  - https://en.wikipedia.org/wiki/LSH_(hash_function)
     K12          - https://github.com/XKCP/K12
+
