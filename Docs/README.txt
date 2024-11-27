@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.3.3
+Hash v. 1.3.4
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -74,6 +74,7 @@ License:
 
 History:
 
+    v. 1.3.4  - Update to BLAKE3 v.1.5.5
     v. 1.3.3  - Update to BLAKE3 v.1.5.4
     v. 1.3.2  - Update to BLAKE3 v.1.5.2
     v. 1.3.1  - Update to BLAKE3 v.1.5.1

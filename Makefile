@@ -4,7 +4,7 @@
 
 PROJNAME   = Hash
 PROJEXT    = app
-PROJVERS   = 1.3.3
+PROJVERS   = 1.3.4
 BUNDLEID   = "org.calalum.ranga.$(PROJNAME)"
 
 # Help bundle directory
