@@ -1,7 +1,7 @@
 README
 ------
 
-Hash v. 1.3.5
+Hash v. 1.3.6
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Homepage:
@@ -74,6 +74,7 @@ License:
 
 History:
 
+    v. 1.3.6  - Minor fixes for XCode 16.2
     v. 1.3.5  - Update to BLAKE3 v.1.8.2
     v. 1.3.4  - Update to BLAKE3 v.1.5.5
     v. 1.3.3  - Update to BLAKE3 v.1.5.4

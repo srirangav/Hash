@@ -41,9 +41,14 @@
  */
 
 #include <sys/param.h>
-//#include <sys/systm.h>
 
-// Added by Sriranga Veeraraghavan on 8/17/2015
+/* Removed by Sriranga Veeraraghavan 8/17/2015 */
+/* #include <sys/systm.h> */
+
+/* Added by Sriranga Veeraraghavan on 6/15/2025 */
+#include <stdint.h>
+
+/* Added by Sriranga Veeraraghavan on 8/17/2015 */
 #include "crc.h"
 
 static uint32_t crc32_tab[] = {

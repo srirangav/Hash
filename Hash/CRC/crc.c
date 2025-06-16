@@ -43,9 +43,10 @@ __FBSDID("$FreeBSD$");
 #include <stdint.h>
 #include <unistd.h>
 
-//#include "extern.h"
+/* Removed by Sriranga Veeraraghavan on 8/17/2015 */
+/* #include "extern.h" */
 
-// Added by Sriranga Veeraraghavan on 8/17/2015
+/* Added by Sriranga Veeraraghavan on 8/17/2015 */
 #include "crc.h"
 
 static const uint32_t crctab[] = {
