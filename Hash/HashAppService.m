@@ -47,32 +47,24 @@
     https://stackoverflow.com/questions/41442474/how-to-register-service-from-app-in-macos-application
     
     https://stackoverflow.com/questions/9430216/unable-to-add-item-in-finders-contextual-menu-using-services-in-cocoa/9472723?r=SearchResults#9472723
-     
+
      */
 
-    /*
-    NSPropertyListFormat format;
-    NSData *pboardData = nil;
-    NSDictionary *files = nil;
-    */
     NSDictionary *fileInfo = nil;
-    //NSString *key = nil;
     NSString *fileURL = nil;
-    
+
     if (pboard == nil)
     {
         return;
     }
-    
+
     /* get filename data from the pasteboard */
     
     /* updated for XCode 16.x:
      
      https://stackoverflow.com/questions/56199062/get-uti-of-nspasteboardtypefileurl
     */
-    
-//    pboardData = [pboard dataForType: NSFilenamesPboardType];
-//    if (pboardData == nil)
+
     if ([[pboard types] containsObject:NSPasteboardTypeFileURL] == FALSE)
     {
         return;
@@ -89,49 +81,6 @@
         postNotificationName: fileDroppedEvent
                       object: self
                     userInfo: fileInfo];
-
-    /*
-        Convert the pasteboard data into a dictionary, where each
-        key will be a file name selected in the finder.  See:
-     
-    https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/PropertyLists/QuickStartPlist/QuickStartPlist.html#//apple_ref/doc/uid/10000048i-CH4-SW6
-     */
-
-    /*
-    files =
-        (NSDictionary *)[NSPropertyListSerialization
-                         propertyListWithData: pboardData
-                                      options: NSPropertyListImmutable
-                                       format: &format
-                                        error: NULL];
-    if (files == nil)
-    {
-        return;
-    }
-     */
-    
-    /*
-        Process the first key by sending HashAppController a file
-        dropped message (same as if a file was dropped onto the
-        icon).  If multiple files are selected in the finder,
-        there may be more than one key, but we skip those
-     */
-
-    /*
-    for (key in files)
-    {
-        if (key == nil)
-        {
-            continue;
-        }
-        fileInfo = @{fileDroppedKey: key};
-        [[NSNotificationCenter defaultCenter]
-            postNotificationName: fileDroppedEvent
-                          object: self
-                        userInfo: fileInfo];
-        break;
-    }
-    */
 }
 
 @end
