@@ -49,12 +49,15 @@
     https://stackoverflow.com/questions/9430216/unable-to-add-item-in-finders-contextual-menu-using-services-in-cocoa/9472723?r=SearchResults#9472723
      
      */
-    
+
+    /*
     NSPropertyListFormat format;
     NSData *pboardData = nil;
     NSDictionary *files = nil;
+    */
     NSDictionary *fileInfo = nil;
-    NSString *key = nil;
+    //NSString *key = nil;
+    NSString *fileURL = nil;
     
     if (pboard == nil)
     {
@@ -63,12 +66,29 @@
     
     /* get filename data from the pasteboard */
     
-    pboardData = [pboard dataForType: NSFilenamesPboardType];
-    if (pboardData == nil)
+    /* updated for XCode 16.x:
+     
+     https://stackoverflow.com/questions/56199062/get-uti-of-nspasteboardtypefileurl
+    */
+    
+//    pboardData = [pboard dataForType: NSFilenamesPboardType];
+//    if (pboardData == nil)
+    if ([[pboard types] containsObject:NSPasteboardTypeFileURL] == FALSE)
     {
         return;
     }
 
+    fileURL = [[NSURL URLFromPasteboard:pboard] path];
+    if (fileURL == nil)
+    {
+        return;
+    }
+
+    fileInfo = @{fileDroppedKey: fileURL};
+    [[NSNotificationCenter defaultCenter]
+        postNotificationName: fileDroppedEvent
+                      object: self
+                    userInfo: fileInfo];
 
     /*
         Convert the pasteboard data into a dictionary, where each
@@ -76,7 +96,8 @@
      
     https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/PropertyLists/QuickStartPlist/QuickStartPlist.html#//apple_ref/doc/uid/10000048i-CH4-SW6
      */
-    
+
+    /*
     files =
         (NSDictionary *)[NSPropertyListSerialization
                          propertyListWithData: pboardData
@@ -87,14 +108,16 @@
     {
         return;
     }
-
+     */
+    
     /*
         Process the first key by sending HashAppController a file
         dropped message (same as if a file was dropped onto the
         icon).  If multiple files are selected in the finder,
         there may be more than one key, but we skip those
      */
-    
+
+    /*
     for (key in files)
     {
         if (key == nil)
@@ -108,6 +131,7 @@
                         userInfo: fileInfo];
         break;
     }
+    */
 }
 
 @end
